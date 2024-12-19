@@ -1,0 +1,1027 @@
+{{ define "main" }}
+<head>
+  {{ $styleHome := resources.Get "css/home.css" }} {{ if hugo.IsServer }}
+  <link rel="stylesheet" href="{{ $styleHome.RelPermalink }}" />
+  {{ else }}
+  <link rel="stylesheet" href="{{ $styleHome.Permalink }}" />
+  {{ end }}
+  <style>
+    .subhalaman-card {
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.24);
+      gap: 32px;
+      position: relative;
+    }
+    .logolayanan {
+      transition: 0.3s all ease-in;
+      opacity: 1;
+    }
+    .judullayanan {
+      transition: 0.3s all ease-in;
+      opacity: 0;
+    }
+    .layanan-slide:hover .logolayanan {
+      opacity: 0;
+    }
+    .layanan-slide:hover .judullayanan {
+      opacity: 1;
+    }
+    .tombolmasuk a {
+      transition: 0.3s all ease-out;
+    }
+    .tombolmasuk:hover a {
+      background: #1674ba;
+      color: white;
+    }
+    .ubahwarna,
+    .ubahwarna p {
+      transition: 0.5s all ease-out;
+    }
+    .link-terkait:hover img {
+      transform: scale(1.1) !important;
+    }
+    .link-terkait:hover .ubahwarna {
+      background: #1674ba;
+    }
+    .link-terkait:hover .ubahwarna p {
+      color: white;
+    }
+    .wrapper-rounded .swiper-slide img,
+    .wrapper-rounded .swiper-slide div .bg-gelap {
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<section class="">
+  <!-- Berita -->
+  <div id="berita">
+    <div class="gelapsedikit w-100 pb-24 pt-16">
+      <div
+        class="container-besar lg:px-24 px-8 container grid lg:grid-cols-2 p-6 mx-auto"
+        style="align-items: center; grid-template-columns: 30% 70% !important"
+      >
+        {{ range first 3 (where .Site.RegularPages.ByDate.Reverse "Type"
+        "Berita") }} {{- partial "blog-card-4.html" . -}}
+        <div class="pl-4">
+          <p class="mt-4 mb-2">{{ .Params.title }}</p>
+          {{ $contentRaw := .Content }} {{ $content := .Content | plainify |
+          htmlUnescape }} {{ $nospace := $content | strings.TrimPrefix " " }}
+          <p style="opacity: 60%" class="text-md mb-8">
+            {{ substr $nospace 0 250 }}...
+          </p>
+        </div>
+        {{ end }}
+      </div>
+      {{ if gt (len (where .Site.RegularPages.ByDate.Reverse "Type" "Berita")) 1
+      }}
+      <div class="text-center">
+        <a
+          id="berita-lainnya"
+          class="px-8 py-3 rounded transition-colors border-main text-main dark:bg-gray-900 dark:text-gray-400 dark:hover:text-white"
+          href='{{ absURL "/" }}berita'
+          lang="{{ .Lang }}"
+        >
+          {{ i18n "morePosts" }}Berita Lainnya >
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <style>
+    .cardInformasi a {
+      transition: 0.3s all ease-out;
+    }
+    .cardInformasi a:hover {
+      transform: scale(105%);
+    }
+    .cardInformasi a:hover {
+      background: #1674ba !important;
+    }
+  </style>
+  <!-- SOP & Peraturan -->
+  <div id="sopPeraturan" class="container-besar">
+    {{- partial "title-underline.html" (dict "Judul" "SOP & Peraturan"
+    "Deskripsi" "") -}}
+    <section class="pt-16 mb-24">
+      <div class="grid lg:grid-cols-2 mb-4 p-4 lg:px-24 px-8" style="gap: 16px">
+        <div
+          style="position: relative"
+          class="cardInformasi mr-auto bg-transparent"
+        >
+          <div
+            style="
+              position: absolute;
+              background: rgba(0, 0, 0, 0.7);
+              width: 100%;
+              height: 100%;
+              border-radius: 16px;
+              padding: 32px;
+              flex-direction: column;
+            "
+            class="flex justify-center"
+          >
+            <h1 class="font-bold text-white text-3xl text-center">
+              SOP Diskominfo
+            </h1>
+            <p class="text-white text-center mt-8 hide-xs">
+              Standard Operating Procedure (SOP) dari Diskominfo.
+            </p>
+            <a
+              style="border-radius: 999px; padding: 12px 24px"
+              class="text-white mx-auto mt-8 border-main"
+              href="/sop"
+              >Lihat SOP ></a
+            >
+          </div>
+          <img style="border-radius: 16px" src="/images/form3.jpeg" alt="" />
+        </div>
+        <div style="position: relative" class="cardInformasi bg-transparent">
+          <div
+            style="
+              position: absolute;
+              background: rgba(0, 0, 0, 0.7);
+              width: 100%;
+              height: 100%;
+              border-radius: 16px;
+              padding: 32px;
+              flex-direction: column;
+            "
+            class="flex justify-center"
+          >
+            <h1 class="font-bold text-white text-3xl text-center">
+              Peraturan Diskominfo
+            </h1>
+            <p class="text-white text-center mt-8 hide-xs">
+              Peraturan Peraturan dari Diskominfo.
+            </p>
+            <a
+              style="border-radius: 999px; padding: 12px 24px"
+              class="text-white mx-auto mt-8 border-main"
+              href="/peraturan"
+              >Lihat Peraturan ></a
+            >
+          </div>
+          <img
+            style="height: 100%; border-radius: 16px"
+            src="/images/form4.jpeg"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Dokumentasi -->
+  <div class="gelapsedikit w-100 pb-8 pt-2">
+    <div
+      id="dokumentasi"
+      class="container-besar pt-8 pb-24"
+      style="margin-top: 4rem !important; margin-bottom: 4rem !important"
+    >
+      {{- partial "title-underline.html" (dict "Judul" "Dokumentasi, Program Kerja & Informasi Keuangan" "Deskripsi" "") -}}
+      <section class="mt-16">
+        <div
+          class="grid lg:grid-cols-3 mb-4 p-4 lg:px-24 px-8"
+          style="gap: 16px"
+        >
+          <div style="position: relative" class="cardInformasi bg-transparent">
+            <div
+              style="
+                position: absolute;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                padding: 32px;
+                flex-direction: column;
+              "
+              class="flex justify-center"
+            >
+              <h1 class="font-bold text-white text-3xl text-center">
+                Dokumentasi
+              </h1>
+              <a
+                style="border-radius: 999px; padding: 12px 24px"
+                class="text-white mx-auto mt-8 border-main"
+                href="/dokumentasi"
+                >Lihat Dokumentasi ></a
+              >
+            </div>
+            <img
+              style="height: 100%; border-radius: 16px"
+              src="/images/form5.png"
+              alt=""
+            />
+          </div>
+          <div style="position: relative" class="cardInformasi bg-transparent">
+            <div
+              style="
+                position: absolute;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                padding: 32px;
+                flex-direction: column;
+              "
+              class="flex justify-center"
+            >
+              <h1 class="font-bold text-white text-3xl text-center">
+                Program Kerja
+              </h1>
+              <a
+                style="border-radius: 999px; padding: 12px 24px"
+                class="text-white mx-auto mt-8 border-main"
+                href="/program-kerja"
+                >Lihat Program Kerja ></a
+              >
+            </div>
+            <img
+              style="height: 100%; border-radius: 16px"
+              src="/images/form6.png"
+              alt=""
+            />
+          </div>
+          <div style="position: relative" class="cardInformasi bg-transparent">
+            <div
+              style="
+                position: absolute;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                padding: 32px;
+                flex-direction: column;
+              "
+              class="flex justify-center"
+            >
+              <h1 class="font-bold text-white text-3xl text-center">
+                Informasi Keuangan
+              </h1>
+              <a
+                style="border-radius: 999px; padding: 12px 24px"
+                class="text-white mx-auto mt-8 border-main"
+                href="/informasi-keuangan"
+                >Lihat Informasi Keuangan ></a
+              >
+            </div>
+            <img
+              style="height: 100%; border-radius: 16px"
+              src="/images/form7.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Layanan -->
+  <style>
+    #hoverLayanan:hover {
+      cursor: pointer;
+    }
+    .judul-layanan {
+      max-width: 9999px !important;
+      line-height: 5.75rem !important;
+    }
+  </style>
+  <!-- <div id="layanan" class="container-besar">
+        <div class="">
+          {{ $frontBundle := .Site.Params.frontBundle3 | default "layanan" }}
+          <div id="hoverLayanan" onclick="linkLayanan()">
+            {{- partial "title-underline.html" (dict "Judul" $frontBundle "Deskripsi" "") -}}
+          </div>
+          <div class="mx-32">
+            <a id="layananLain" class="text-secondary" href="/halaman-lainnya/layanan" style="float: right; text-decoration: underline">Lihat Layanan Lainnya ></a>
+          </div>
+          {{- partial "layanan-display.html" . -}}
+
+          <style>
+            #wrapper-rounded .swiper-slide img, #wrapper-rounded .swiper-slide div .bg-gelap{
+              border-radius: 8px;
+            }
+          </style>
+
+          <div class="lg:px-32 px-8 relative">
+            <div class="swiper mySwiper2 mb-16 mt-8">
+              <div id="wrapper-rounded" class="swiper-wrapper mb-8">
+                {{ range .Site.RegularPages }}
+                  {{ if and (strings.Contains .RelPermalink "/layanan/") (not (strings.Contains .RelPermalink "lainnya/layanan/")) }}
+                    {{ .Content }}
+                  {{ end }}
+                {{ end }}
+              </div>
+              <div class="swiper-pagination2"></div>
+            </div>
+            <div class="font-bold dark:text-white swiper-button-next swiper-button-next2"></div>
+            <div class="dark:text-white swiper-button-prev swiper-button-prev2"></div>
+          </div>
+          <script>
+            window.onload = function(){
+              clickLayanan(document.getElementsByClassName('layanan-slide')[0]);
+            }
+            function linkLayanan(){
+              window.location.href = '/halaman-lainnya/layanan';
+            }
+
+            function clickLayanan(element){
+              document.getElementById('layanan_utama_judul').innerHTML = element.getAttribute('data-judul');
+              document.getElementById('layanan_utama_deskripsi').innerHTML = element.getAttribute('data-deskripsi');
+              document.getElementById('layanan_utama_link').setAttribute('href', element.getAttribute('data-link'));
+              document.getElementById('layanan_utama_image').setAttribute('src', element.getAttribute('data-image'));
+            }
+
+            var swiper = new Swiper(".mySwiper2", {
+              slidesPerView: 1,
+              spaceBetween: 0,
+              centeredSlides: false,
+              pagination: {
+                el: ".swiper-pagination2",
+                clickable: true,
+              },
+              navigation: {
+                nextEl: ".swiper-button-next2",
+                prevEl: ".swiper-button-prev2",
+              },
+              breakpoints: {
+                1080: {
+                  slidesPerView: 3,
+                  spaceBetween: 200
+                },
+                816: {
+                  slidesPerView: 2,
+                  spaceBetween: 100
+                },
+              }
+            });
+          </script>
+        </div>
+      </div> -->
+
+  <div id="layanan" class="container-besar mb-12 mt-8">
+    {{- partial "title-underline.html" (dict "Judul" "Layanan" "Deskripsi" "")
+    -}}
+    <div class="lg:px-32 px-8 relative">
+      <div class="swiper mySwiper2 mb-16 mt-8">
+        <div class="wrapper-rounded swiper-wrapper mb-8">
+          {{ range .Site.RegularPages }} {{ if and (strings.Contains
+          .RelPermalink "/layanan/") (not (strings.Contains .RelPermalink
+          "lainnya/layanan/")) }} {{ .Content }} {{ end }} {{ end }}
+        </div>
+        <div class="swiper-pagination2"></div>
+      </div>
+      <div
+        class="font-bold dark:text-white swiper-button-next swiper-button-next2"
+      ></div>
+      <div class="dark:text-white swiper-button-prev swiper-button-prev2"></div>
+    </div>
+    <!-- Initialize Swiper -->
+    <script>
+      function clickLayanan(element) {
+        window.open(element.getAttribute("data-link"), "_blank");
+      }
+      var swiper = new Swiper(".mySwiper2", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: false,
+        pagination: {
+          el: ".swiper-pagination2",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next2",
+          prevEl: ".swiper-button-prev2",
+        },
+        breakpoints: {
+          1080: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          816: {
+            slidesPerView: 2,
+            spaceBetween: 100,
+          },
+        },
+      });
+    </script>
+  </div>
+
+  <!-- Galeri -->
+  <div class="gelapsedikit w-100 pb-16 pt-2 mt-24">
+    <div class="py-8">
+      <div id="galeri" class="container-besar">
+        {{- partial "title-underline.html" (dict "Judul" "Galeri" "Deskripsi"
+        "") -}}
+        <div
+          class="grid lg:grid-cols-2 mt-4 p-4 lg:px-24 px-8"
+          style="gap: 16px"
+        >
+          <div
+            style="position: relative"
+            class="cardInformasi mr-auto bg-transparent"
+          >
+            <div
+              style="
+                position: absolute;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                padding: 32px;
+                flex-direction: column;
+              "
+              class="flex justify-center"
+            >
+              <h1 class="font-bold text-white text-3xl text-center">
+                Galeri Foto
+              </h1>
+              <p class="text-white text-center mt-8 hide-xs">
+                Berisi foto-foto dari Diskominfo.
+              </p>
+              <a
+                style="border-radius: 999px; padding: 12px 24px"
+                class="text-white mx-auto mt-8 border-main"
+                href="/galeri-foto"
+                >Lihat Galeri Foto ></a
+              >
+            </div>
+            <img style="border-radius: 16px" src="/images/form15.png" alt="" />
+          </div>
+          <div style="position: relative" class="cardInformasi bg-transparent">
+            <div
+              style="
+                position: absolute;
+                background: rgba(0, 0, 0, 0.7);
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                padding: 32px;
+                flex-direction: column;
+              "
+              class="flex justify-center"
+            >
+              <h1 class="font-bold text-white text-3xl text-center">
+                Galeri Video
+              </h1>
+              <p class="text-white text-center mt-8 hide-xs">
+                Berisi video-video dari Diskominfo.
+              </p>
+              <a
+                style="border-radius: 999px; padding: 12px 24px"
+                class="text-white mx-auto mt-8 border-main"
+                href="/galeri-video"
+                >Lihat Galeri Video ></a
+              >
+            </div>
+            <img
+              style="height: 100%; border-radius: 16px"
+              src="/images/form16.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var modal2 = document.getElementById("myModal2");
+    var modalImg2 = document.getElementById("img02");
+    var captionText2 = document.getElementById("caption2");
+
+    function openModal2(elem) {
+      modal2.style.display = "block";
+      modalImg2.src = elem.src;
+      captionText2.innerHTML = elem.alt;
+    }
+
+    var span = document.getElementsByClassName("close")[1];
+
+    span.onclick = function () {
+      modal2.style.display = "none";
+    };
+  </script>
+
+  <!-- Link Terkait -->
+  <!-- {{ $frontBundle := .Site.Params.frontBundle4 | default "link-terkait" }}
+    {{- partial "title-underline.html" (dict "Judul" $frontBundle "Deskripsi" "") -}}
+
+
+    <div class="container-besar">
+      <div class="px-16 relative">
+        <div class="swiper mySwiper3 mb-16 mt-16">
+          <div class="swiper-wrapper mb-8">
+            {{ range .Site.RegularPages }}
+              {{ if strings.Contains .RelPermalink "/link-terkait/" }}
+                {{ .Content }}
+              {{ end }}
+            {{ end }}
+          </div>
+          <div class="swiper-pagination3"></div>
+        </div>
+        <div class="font-bold dark:text-white swiper-button-next swiper-button-next3"></div>
+        <div class="dark:text-white swiper-button-prev swiper-button-prev3"></div>
+      </div>
+    </div>
+
+    <script>
+      function clickLinkTerkait(element){
+        window.open('https://'+element.getAttribute('data-link'), '_blank');
+      }
+
+      var swiper = new Swiper(".mySwiper3", {
+        slidesPerView: 1,
+        grid: {
+          fill: 'row',
+          rows: 3,
+        },
+        spaceBetween: 50,
+        centeredSlides: false,
+        pagination: {
+          el: ".swiper-pagination3",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next3",
+          prevEl: ".swiper-button-prev3",
+        },
+        breakpoints: {
+          1080: {
+            slidesPerView: 4,
+            grid: {
+              fill: 'row',
+              rows: 3,
+            },
+          },
+          816: {
+            slidesPerView: 2,
+            grid: {
+              fill: 'row',
+              rows: 3,
+            },
+          },
+        }
+      });
+    </script> -->
+
+  <!-- Agenda -->
+  {{/*
+  <!--<div id="agenda" class="gelapsedikit w-100 pb-24 pt-2 mt-12 pt-16">
+      {{ $frontBundle := .Site.Params.frontBundle5 | default "agenda" }}
+      {{- partial "title-underline.html" (dict "Judul" $frontBundle "Deskripsi" "") -}}
+      {{ $agenda := .Site.Params.agenda }}
+      {{ if $agenda }}
+          <div class="container-besar">
+            <div class="lg:px-24 px-8 relative">
+              <div class="swiper mySwiper4 mb-16 mt-16">
+                <div class="swiper-wrapper mb-8">
+                  {{ range $agenda }}
+                    <div class="swiper-slide justify-center" style="height: 100%;">
+                      <div style="box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.13); width: 100%;" class="dark:bg-gray-900">
+                        <div class="relative text-white p-4 bg-secondary" style="border-radius: 4px 4px 0 0">
+                          <h1 class="font-bold text-3xl mb-3">{{ .hari }}</h1>
+                          <div class="flex justify-center">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.7 15C4.03377 15.6353 3 16.5205 3 17.4997C3 19.4329 7.02944 21 12 21C16.9706 21 21 19.4329 21 17.4997C21 16.5205 19.9662 15.6353 18.3 15M12 9H12.01M18 9C18 13.0637 13.5 15 12 18C10.5 15 6 13.0637 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="ml-1 text-sm">{{ .lokasi }}</p>
+                          </div>
+                          <p class="text-sm m-0">{{ .jamMulai }} - {{ .jamSelesai }}</p>
+                        </div>
+                        <div style="width: 100%; padding: 8px;" class="bg-white dark:bg-gray-900">
+                          <p class="ml-1 text-center text-sm text-secondary">{{ .judul }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  {{ end }}
+                </div>
+                <div class="swiper-pagination4"></div>
+              </div>
+              <div class="font-bold dark:text-white swiper-button-next swiper-button-next4"></div>
+              <div class="dark:text-white swiper-button-prev swiper-button-prev4"></div>
+            </div>
+
+            <script>
+              var swiper = new Swiper(".mySwiper4", {
+                slidesPerView: 1,
+                spaceBetween: 50,
+                centeredSlides: false,
+                pagination: {
+                  el: ".swiper-pagination4",
+                  clickable: true,
+                },
+                navigation: {
+                  nextEl: ".swiper-button-next4",
+                  prevEl: ".swiper-button-prev4",
+                },
+                breakpoints: {
+                  1080: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                  },
+                  816: {
+                    slidesPerView: 2,
+                    spaceBetween: 50,
+                  },
+                }
+              });
+            </script>
+          </div>
+      {{ end }}
+    </div>-->
+  */}}
+
+  <!-- Social Media -->
+  <!-- {{ $frontBundle := .Site.Params.frontBundle6 | default "social-media" }}
+    {{- partial "title-underline.html" (dict "Judul" $frontBundle "Deskripsi" "") -}}
+    <div id="twitterDiv" class="lg:px-24 px-8 mt-16 container-besar">
+      <a class="twitter-timeline" data-height="600" href="https://twitter.com/KominfoKalbar?ref_src=twsrc%5Etfw">Tweets by ppid_kalbar</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div> -->
+
+  <!-- Kontak Kami -->
+  {{ $frontBundle := .Site.Params.frontBundle8 | default "kontak-kami" }} {{-
+  partial "title-underline.html" (dict "Judul" $frontBundle "Deskripsi" "") -}}
+  {{ $kontakKami := .Site.Params.kontakKami }} {{ $socialMedia :=
+  .Site.Params.socialMedia }} {{ $kontakKamiForm := .Site.Params.kontakKami.form
+  }}
+  <div id="kontak" class="container-besar">
+    {{ if len $kontakKami }}
+    <div class="mt-16"></div>
+    <div class="kontak-kami lg:px-24 px-8 mb-32">
+      <div
+        style="height: 540px; position: relative"
+        class="kontak-kami-left mr-auto"
+      >
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 100%;
+            border-radius: 8px 0 0 8px;
+          "
+          class=""
+        >
+          <div class="absolute top-12 left-12">
+            <h1 class="font-bold text-white text-3xl judul-kontak-kami">
+              Informasi Kami
+            </h1>
+            <p
+              style="opacity: 70%"
+              class="text-white mt-4 deskripsi-kontak-kami mr-4"
+            >
+              Isi form ini dan kami akan memberikan respon maksimal dalam 1 hari
+              kerja.
+            </p>
+            <div class="mt-8">
+              <div class="kontak-kami-text flex align-center my-4">
+                <svg
+                  style="min-width: 24px"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.7 15C4.03377 15.6353 3 16.5205 3 17.4997C3 19.4329 7.02944 21 12 21C16.9706 21 21 19.4329 21 17.4997C21 16.5205 19.9662 15.6353 18.3 15M12 9H12.01M18 9C18 13.0637 13.5 15 12 18C10.5 15 6 13.0637 6 9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9ZM13 9C13 9.55228 12.5523 10 12 10C11.4477 10 11 9.55228 11 9C11 8.44772 11.4477 8 12 8C12.5523 8 13 8.44772 13 9Z"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <p class="ml-2 text-white">Kantor Gubernur Kalimantan Barat</p>
+              </div>
+              <div class="kontak-kami-text flex align-center my-4">
+                <svg
+                  style="min-width: 24px"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <p class="ml-2 text-white">+6289699305225</p>
+              </div>
+              <div class="kontak-kami-text flex align-center my-4">
+                <svg
+                  style="min-width: 24px"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z"
+                    fill="#fff"
+                  />
+                </svg>
+                <p class="ml-2 text-white">diskominfo@kalbarprov.go.id</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex absolute bottom-12 left-12 hide-xs">
+            <div
+              style="width: 40px; height: 40px; border-radius: 50%"
+              class="mr-3 circle-sosmed bg-white dark:bg-gray-900"
+            >
+              <a
+                style="padding: 8px 0"
+                href="https://www.facebook.com/Diskominfoprovkalbar"
+                class="flex justify-center"
+                target="_blank"
+              >
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="-5 0 20 20"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g
+                      id="Dribbble-Light-Preview"
+                      transform="translate(-385.000000, -7399.000000)"
+                      fill="#1674BA"
+                    >
+                      <g
+                        id="icons"
+                        transform="translate(56.000000, 160.000000)"
+                      >
+                        <path
+                          d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z"
+                          id="facebook-[#176]"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div
+              style="width: 40px; height: 40px; border-radius: 50%"
+              class="mr-3 circle-sosmed bg-white dark:bg-gray-900"
+            >
+              <a
+                style="padding: 8px 0"
+                href="https://twitter.com/KominfoKalbar"
+                class="flex justify-center"
+                target="_blank"
+              >
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="0 -2 20 20"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g
+                      id="Dribbble-Light-Preview"
+                      transform="translate(-60.000000, -7521.000000)"
+                      fill="#1674BA"
+                    >
+                      <g
+                        id="icons"
+                        transform="translate(56.000000, 160.000000)"
+                      >
+                        <path
+                          d="M10.29,7377 C17.837,7377 21.965,7370.84365 21.965,7365.50546 C21.965,7365.33021 21.965,7365.15595 21.953,7364.98267 C22.756,7364.41163 23.449,7363.70276 24,7362.8915 C23.252,7363.21837 22.457,7363.433 21.644,7363.52751 C22.5,7363.02244 23.141,7362.2289 23.448,7361.2926 C22.642,7361.76321 21.761,7362.095 20.842,7362.27321 C19.288,7360.64674 16.689,7360.56798 15.036,7362.09796 C13.971,7363.08447 13.518,7364.55538 13.849,7365.95835 C10.55,7365.79492 7.476,7364.261 5.392,7361.73762 C4.303,7363.58363 4.86,7365.94457 6.663,7367.12996 C6.01,7367.11125 5.371,7366.93797 4.8,7366.62489 L4.8,7366.67608 C4.801,7368.5989 6.178,7370.2549 8.092,7370.63591 C7.488,7370.79836 6.854,7370.82199 6.24,7370.70483 C6.777,7372.35099 8.318,7373.47829 10.073,7373.51078 C8.62,7374.63513 6.825,7375.24554 4.977,7375.24358 C4.651,7375.24259 4.325,7375.22388 4,7375.18549 C5.877,7376.37088 8.06,7377 10.29,7376.99705"
+                          id="twitter-[#154]"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div
+              style="width: 40px; height: 40px; border-radius: 50%"
+              class="mr-3 circle-sosmed bg-white dark:bg-gray-900"
+            >
+              <a
+                style="padding: 8px 0"
+                href="https://www.youtube.com/@DiskominfoProvKalbar"
+                class="flex justify-center"
+                target="_blank"
+              >
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="0 -3 20 20"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g
+                      id="Dribbble-Light-Preview"
+                      transform="translate(-300.000000, -7442.000000)"
+                      fill="#1674BA"
+                    >
+                      <g
+                        id="icons"
+                        transform="translate(56.000000, 160.000000)"
+                      >
+                        <path
+                          d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289"
+                          id="youtube-[#168]"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div
+              style="width: 40px; height: 40px; border-radius: 50%"
+              class="mr-3 circle-sosmed bg-white dark:bg-gray-900"
+            >
+              <a
+                style="padding: 8px 0"
+                href="https://www.instagram.com/diskominfo.kalbar/"
+                class="flex justify-center"
+                target="_blank"
+              >
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                    fill="#1674BA"
+                  />
+                  <path
+                    d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                    fill="#1674BA"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
+                    fill="#1674BA"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div
+              style="width: 40px; height: 40px; border-radius: 50%"
+              class="circle-sosmed bg-white dark:bg-gray-900"
+            >
+              <a
+                style="padding: 8px 0"
+                href="https://www.tiktok.com/@diskominfo.kalbar"
+                class="flex justify-center"
+                target="_blank"
+              >
+                <svg
+                  fill="#1674BA"
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 32 32"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <img
+          src="/images/background-kontak.png"
+          alt="Slider Image"
+          style="width: 100%; height: 540px"
+        />
+      </div>
+      <div
+        style="height: auto"
+        class="kontak-kami-right bg-white dark:bg-gray-900 p-12"
+      >
+        <form action="#" class="kontak-kami-form">
+          <div class="grid lg:grid-cols-2 grid-cols-1 mb-8">
+            <div class="lg:mr-4 mb-8 lg:mb-0">
+              <h2 class="font-bold text-xl">Nama Lengkap</h2>
+              <input
+                type="text"
+                id="nama_lengkap"
+                name="nama_lengkap"
+                placeholder="Isi nama lengkap anda disini..."
+                class="py-4 bg-transparent"
+                style="
+                  outline: none;
+                  border-bottom: 1px solid #eee;
+                  width: 100%;
+                "
+              />
+            </div>
+            <div class="lg:ml-4">
+              <h2 class="font-bold text-xl">Alamat Email</h2>
+              <input
+                type="text"
+                id="alamat_email"
+                name="alamat_email"
+                placeholder="Isi email anda disini..."
+                class="py-4 bg-transparent"
+                style="
+                  outline: none;
+                  border-bottom: 1px solid #eee;
+                  width: 100%;
+                "
+              />
+            </div>
+          </div>
+          <h2 class="font-bold text-xl">Subjek</h2>
+          <div class="lg:flex py-4 mb-4">
+            <label class="pr-2">
+              <input type="radio" name="radio" />
+              <span>Kerjasama</span>
+            </label>
+            <label class="pr-2">
+              <input type="radio" name="radio" />
+              <span>Konten</span>
+            </label>
+            <label class="pr-2">
+              <input type="radio" name="radio" />
+              <span>Pengaduan</span>
+            </label>
+            <label class="pr-2">
+              <input type="radio" name="radio" />
+              <span>Lainnya</span>
+            </label>
+          </div>
+          <div class="grid md:grid-cols-1 mb-4">
+            <div class="">
+              <h2 class="font-bold text-xl">Pesan</h2>
+              <textarea
+                type="text"
+                id="nama_lengkap"
+                name="nama_lengkap"
+                placeholder="Pesan anda..."
+                class="py-4 bg-transparent"
+                style="
+                  outline: none;
+                  border-bottom: 1px solid #eee;
+                  width: 100%;
+                  resize: none;
+                  height: 120px;
+                "
+              ></textarea>
+            </div>
+          </div>
+          <button
+            id="kirim_button"
+            style="border-radius: 4px; float: right"
+            class="text-white text-sm px-4 py-2 border-main text-main"
+          >
+            Kirim Form
+          </button>
+        </form>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

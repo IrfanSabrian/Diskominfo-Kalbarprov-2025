@@ -1,0 +1,628 @@
+{{ define "main" }}
+<head>
+  {{ $styleHome := resources.Get "css/home.css" }} {{ if hugo.IsServer }}
+  <link rel="stylesheet" href="{{ $styleHome.RelPermalink }}" />
+  {{ else }}
+  <link rel="stylesheet" href="{{ $styleHome.Permalink }}" />
+  {{ end }}
+  <style>
+    .top-div-profile {
+      grid-template-columns: 65% 30%;
+      gap: 16px;
+    }
+    .bottom-div-profile {
+      grid-template-columns: 47.5% 47.5%;
+      gap: 16px;
+    }
+    .profil-pimpinan ::-webkit-scrollbar {
+      width: 6px;
+    }
+    .profil-pimpinan ::-webkit-scrollbar-track {
+      background: #d9d9d9;
+      border-radius: 99px;
+    }
+    .dark .profil-pimpinan-dark ::-webkit-scrollbar-track {
+      background: #2e2e2e;
+      border-radius: 99px;
+    }
+    .profil-pimpinan ::-webkit-scrollbar-thumb {
+      background: #1674ba;
+      border-radius: 99px;
+    }
+    .profil-pimpinan ::-webkit-scrollbar-thumb:hover {
+      background: #0f5082;
+    }
+    @media (max-width: 1100px) {
+      .top-div-profile,
+      .bottom-div-profile {
+        grid-template-columns: 100%;
+      }
+      #biodata {
+        max-height: 9999px !important;
+        display: block;
+      }
+      #biodata img {
+        margin: 0 auto;
+      }
+      #biodata .data {
+        text-align: center;
+      }
+      #grid-biodata {
+        grid-template-columns: 100%;
+        padding: 0 16px;
+      }
+    }
+    @media (max-width: 540px) {
+      .small-text {
+        display: none;
+      }
+    }
+    .subhalaman-card {
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.24);
+      gap: 32px;
+      position: relative;
+    }
+    .tombolmasuk a {
+      transition: 0.3s all ease-out;
+    }
+    .tombolmasuk:hover a {
+      background: #1674ba;
+      color: white;
+      transform: scale(1.1);
+    }
+    .cardInformasi a {
+      transition: 0.3s all ease-out;
+    }
+    .cardInformasi a:hover {
+      transform: scale(105%);
+      background: #1674ba;
+    }
+    #myImg2 {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #myImg2:hover {
+      opacity: 0.7;
+    }
+    #caption2 {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+    .subhalaman-card {
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 10px 10px 5px -3px rgba(0, 0, 0, 0.24);
+      gap: 32px;
+      position: relative;
+    }
+    .logolayanan {
+      transition: 0.3s all ease-in;
+      opacity: 1;
+    }
+    .judullayanan {
+      transition: 0.3s all ease-in;
+      opacity: 0;
+    }
+    .layanan-slide:hover .logolayanan {
+      opacity: 0;
+    }
+    .layanan-slide:hover .judullayanan {
+      opacity: 1;
+    }
+    .tombolmasuk a {
+      transition: 0.3s all ease-out;
+    }
+    .tombolmasuk:hover a {
+      background: #1674ba;
+      color: white;
+    }
+    .ubahwarna,
+    .ubahwarna p {
+      transition: 0.5s all ease-out;
+    }
+    .link-terkait:hover img {
+      transform: scale(1.1) !important;
+    }
+    .link-terkait:hover .ubahwarna {
+      background: #1674ba;
+    }
+    .link-terkait:hover .ubahwarna p {
+      color: white;
+    }
+    .wrapper-rounded .swiper-slide img,
+    .wrapper-rounded .swiper-slide div .bg-gelap {
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<section class="">
+  <!-- Profil PPID -->
+  <div class="gelapsedikit w-100 pb-16 pt-2">
+    <div class="py-6">
+      <div id="profilPPID" class="container-besar">
+        <div class="grid grid-cols-7">
+          {{ $sliderImages := .Site.Params.sliders.images }}
+          <div class="col-span-5" style="max-height: 60vh; overflow: hidden">
+            {{ if len $sliderImages }}
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                {{ range $sliderImages }}
+                <div class="swiper-slide">
+                  <img
+                    src="{{ .AbsURL }}/sliders/{{ .url }}"
+                    alt="Slider Image"
+                  />
+                </div>
+                {{ end }}
+              </div>
+              <div class="dark:text-white swiper-button-prev"></div>
+              <div class="dark:text-white swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+            {{ end }}
+          </div>
+          <div class="col-span-2 flex flex-col gap-2">
+            <div
+              class="subhalaman-card bg-white dark:bg-gray-900"
+              style="padding: 8px 0"
+            >
+              <i
+                class="fas fa-info-circle text-center"
+                style="font-size: 36px; width: 100%"
+              ></i>
+              <p
+                class="text-center my-3"
+                style="margin-bottom: 3rem !important"
+              >
+                Tentang PPID
+              </p>
+              <div
+                class="tombolmasuk flex justify-content-center absolute bottom-3"
+                style="width: 70%; left: 50%; transform: translate(-50%, 0)"
+              >
+                <a
+                  class="text-main border-main"
+                  href="/ppid/profil-ppid/tentang-ppid"
+                  style="
+                    width: 100%;
+                    padding: 6px;
+                    border-radius: 4px;
+                    text-align: center;
+                    margin: 0 auto;
+                  "
+                  >Lihat Detail ></a
+                >
+              </div>
+            </div>
+            <div
+              class="subhalaman-card bg-white dark:bg-gray-900"
+              style="padding: 8px 0"
+            >
+              <i
+                class="fas fa-clipboard-list text-center"
+                style="font-size: 36px; width: 100%"
+              ></i>
+              <p
+                class="text-center my-3"
+                style="margin-bottom: 3rem !important"
+              >
+                Tugas dan Wewenang
+              </p>
+              <div
+                class="tombolmasuk flex justify-content-center absolute bottom-3"
+                style="width: 70%; left: 50%; transform: translate(-50%, 0)"
+              >
+                <a
+                  class="text-main border-main"
+                  href="/ppid/tugas-dan-wewenang-ppid"
+                  style="
+                    width: 100%;
+                    padding: 6px;
+                    border-radius: 4px;
+                    text-align: center;
+                    margin: 0 auto;
+                  "
+                  >Lihat Detail ></a
+                >
+              </div>
+            </div>
+            <div
+              class="subhalaman-card bg-white dark:bg-gray-900"
+              style="padding: 8px 0"
+            >
+              <i
+                class="fas fa-bullseye text-center"
+                style="font-size: 36px; width: 100%"
+              ></i>
+              <p
+                class="text-center my-3"
+                style="margin-bottom: 3rem !important"
+              >
+                Visi dan Misi
+              </p>
+              <div
+                class="tombolmasuk flex justify-content-center absolute bottom-3"
+                style="width: 70%; left: 50%; transform: translate(-50%, 0)"
+              >
+                <a
+                  class="text-main border-main"
+                  href="/ppid/visi-misi-ppid"
+                  style="
+                    width: 100%;
+                    padding: 6px;
+                    border-radius: 4px;
+                    text-align: center;
+                    margin: 0 auto;
+                  "
+                  >Lihat Detail ></a
+                >
+              </div>
+            </div>
+            <div
+              class="subhalaman-card bg-white dark:bg-gray-900"
+              style="padding: 8px 0"
+            >
+              <i
+                class="fas fa-question-circle text-center"
+                style="font-size: 36px; width: 100%"
+              ></i>
+              <p
+                class="text-center my-3"
+                style="margin-bottom: 3rem !important"
+              >
+                Maklumat Pelayanan
+              </p>
+              <div
+                class="tombolmasuk flex justify-content-center absolute bottom-3"
+                style="width: 70%; left: 50%; transform: translate(-50%, 0)"
+              >
+                <a
+                  class="text-main border-main"
+                  href="/ppid/maklumat-pelayanan-informasi"
+                  style="
+                    width: 100%;
+                    padding: 6px;
+                    border-radius: 4px;
+                    text-align: center;
+                    margin: 0 auto;
+                  "
+                  >Lihat Detail ></a
+                >
+              </div>
+            </div>
+            <div
+              class="subhalaman-card bg-white dark:bg-gray-900"
+              style="padding: 8px 0"
+            >
+              <i
+                class="fas fa-sitemap text-center"
+                style="font-size: 36px; width: 100%"
+              ></i>
+              <p
+                class="text-center my-3"
+                style="margin-bottom: 3rem !important"
+              >
+                Struktur Organisasi
+              </p>
+              <div
+                class="tombolmasuk flex justify-content-center absolute bottom-3"
+                style="width: 70%; left: 50%; transform: translate(-50%, 0)"
+              >
+                <a
+                  class="text-main border-main"
+                  href="/ppid/struktur-organisasi-ppid/"
+                  style="
+                    width: 100%;
+                    padding: 6px;
+                    border-radius: 4px;
+                    text-align: center;
+                    margin: 0 auto;
+                  "
+                  >Lihat Detail ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+  <!-- Informasi PPID -->
+  <div id="informasiPPID" class="container-besar">
+    {{- partial "title-underline.html" (dict "Judul" "Informasi PPID"
+    "Deskripsi" "") -}}
+    <div
+      class="grid lg:grid-cols-3 mb-4 mt-4 p-4 lg:px-24 px-8"
+      style="gap: 16px"
+    >
+      <div style="position: relative" class="cardInformasi bg-transparent">
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            padding: 16px;
+            flex-direction: column;
+          "
+          class="flex justify-center"
+        >
+          <h1 class="font-bold text-white text-2xl text-center">SOP PPID</h1>
+          <a
+            style="border-radius: 999px; padding: 12px 24px"
+            class="text-white mx-auto mt-8 border-main"
+            href="/ppid/sop-ppid"
+            >Lihat Detail ></a
+          >
+        </div>
+        <img
+          style="height: 200px; width: 100%; border-radius: 16px"
+          src="/images/form3.jpeg"
+          alt=""
+        />
+      </div>
+      <div style="position: relative" class="cardInformasi bg-transparent">
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            padding: 16px;
+            flex-direction: column;
+          "
+          class="flex justify-center"
+        >
+          <h1 class="font-bold text-white text-2xl text-center">Tata Cara</h1>
+          <a
+            style="border-radius: 999px; padding: 12px 24px"
+            class="text-white mx-auto mt-8 border-main"
+            href="/ppid/tata-cara"
+            >Lihat Detail ></a
+          >
+        </div>
+        <img
+          style="height: 200px; width: 100%; border-radius: 16px"
+          src="/images/form13.png"
+          alt=""
+        />
+      </div>
+      <div style="position: relative" class="cardInformasi bg-transparent">
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            padding: 16px;
+            flex-direction: column;
+          "
+          class="flex justify-center"
+        >
+          <h1 class="font-bold text-white text-2xl text-center">
+            Informasi Publik
+          </h1>
+          <a
+            style="border-radius: 999px; padding: 12px 24px"
+            class="text-white mx-auto mt-8 border-main"
+            href="/ppid/daftar-informasi-publik"
+            >Lihat Detail ></a
+          >
+        </div>
+        <img
+          style="height: 200px; width: 100%; border-radius: 16px"
+          src="/images/form14.png"
+          alt=""
+        />
+      </div>
+      <div style="position: relative" class="cardInformasi bg-transparent">
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            padding: 16px;
+            flex-direction: column;
+          "
+          class="flex justify-center"
+        >
+          <h1 class="font-bold text-white text-2xl text-center">Formulir</h1>
+          <a
+            style="border-radius: 999px; padding: 12px 24px"
+            class="text-white mx-auto mt-8 border-main"
+            href="/ppid/formulir"
+            >Lihat Detail ></a
+          >
+        </div>
+        <img
+          style="height: 200px; width: 100%; border-radius: 16px"
+          src="/images/form11.png"
+          alt=""
+        />
+      </div>
+      <div style="position: relative" class="cardInformasi bg-transparent">
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            padding: 16px;
+            flex-direction: column;
+          "
+          class="flex justify-center"
+        >
+          <h1 class="font-bold text-white text-2xl text-center">
+            Peraturan PPID
+          </h1>
+          <a
+            style="border-radius: 999px; padding: 12px 24px"
+            class="text-white mx-auto mt-8 border-main"
+            href="/peraturan-ppid"
+            >Lihat Detail ></a
+          >
+        </div>
+        <img
+          style="height: 200px; width: 100%; border-radius: 16px"
+          src="/images/form4.jpeg"
+          alt=""
+        />
+      </div>
+      <div style="position: relative" class="cardInformasi bg-transparent">
+        <div
+          style="
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            padding: 16px;
+            flex-direction: column;
+          "
+          class="flex justify-center"
+        >
+          <h1 class="font-bold text-white text-2xl text-center">
+            Laporan PPID
+          </h1>
+          <a
+            style="border-radius: 999px; padding: 12px 24px"
+            class="text-white mx-auto mt-8 border-main"
+            href="/laporan-ppid"
+            >Lihat Detail ></a
+          >
+        </div>
+        <img
+          style="height: 200px; width: 100%; border-radius: 16px"
+          src="/images/form12.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Informasi -->
+  <div id="formPPID" class="gelapsedikit w-100 pb-32 pt-2 mt-24">
+    {{ $global := . }} {{- partial "title-underline.html" (dict "Judul" .Site.Params.frontBundle "Deskripsi" "Untuk mendapatkan informasi yang dibutuhkan, silakan mengisi formulir terlebih dahulu.") -}} {{- partial "form-informasi.html" . -}}
+  </div>
+
+  <!-- Biaya dan Waktu Layanan -->
+  <div id="biayaWaktuLayanan" class="container-besar">
+    {{- partial "title-underline.html" (dict "Judul" "Biaya & Waktu Layanan"
+    "Deskripsi" "") -}}
+    <div class="grid lg:grid-cols-2 mb-4 p-4 lg:px-24 px-8" style="gap: 16px">
+      <div class="">
+        <div
+          class="mb-16 mt-8 px-8"
+          style="max-height: 500px; overflow: hidden"
+        >
+          <img
+            id="myImg"
+            class="mx-auto"
+            src="/images/biaya.png"
+            alt="Gambar Biaya / Tarif"
+            style="width: 100%; max-width: 600px"
+          />
+        </div>
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01" />
+          <div id="caption"></div>
+        </div>
+      </div>
+      <div class="">
+        <div
+          class="mb-16 mt-8 px-8"
+          style="max-height: 500px; overflow: hidden"
+        >
+          <img
+            id="myImg2"
+            class="mx-auto"
+            src="/images/waktu_layanan_informasi.png"
+            alt="Gambar Waktu Layanan Informasi"
+            style="width: 100%; max-width: 600px"
+            onclick="openModal2(this)"
+          />
+        </div>
+        <div id="myModal2" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img02" />
+          <div id="caption2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" class="container-besar py-16">
+    {{ $frontBundle := .Site.Params.frontBundle7 | default "faq" }} {{- partial
+    "title-underline.html" (dict "Judul" $frontBundle "Deskripsi" "") -}}
+
+    <div class="mt-16"></div>
+    {{ range .Site.RegularPages }} {{ if strings.Contains .RelPermalink "/faq/"
+    }}
+    <div class="lg:px-24 px-8 relative list-accordion">
+      <section style="border-radius: 8px; overflow: hidden" class="mt-8">
+        {{ .Content }}
+      </section>
+    </div>
+    {{ end }} {{ end }}
+  </div>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("passive");
+        this.parentElement.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
+</section>
+{{ end }}

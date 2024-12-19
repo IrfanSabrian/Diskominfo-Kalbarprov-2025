@@ -1,0 +1,354 @@
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination2, .swiper-pagination3, .swiper-pagination4{
+    display: flex;
+    justify-content: center;
+}
+
+.bg-gelap{
+    transition: 0.5s all;
+}
+
+.layanan-slide:hover{
+    cursor: pointer;
+}
+
+.layanan-slide:hover .bg-gelap{
+    background: rgba(22, 116, 186, 0.5) !important;
+}
+
+.swiper-button-next2{
+    right: 32px;
+}
+
+.swiper-button-next3{
+    right: 16px;
+}
+
+.swiper-button-next4{
+    right: 32px;
+}
+
+.swiper-button-prev2{
+    left: 32px;
+}
+
+.swiper-button-prev3{
+    left: 16px;
+}
+
+.swiper-button-prev4{
+    left: 32px;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    color: black;
+}
+
+.accordion.passive{
+    background-color: #fff;
+    color: #444;
+}
+
+.dark .accordion.passive{
+    background-color: rgba(17, 24, 39, 1);
+    color: rgba(156, 163, 175, 1);
+}
+
+.dark .accordion.passive:hover{
+    color: white;
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.list-accordion .active{
+    background-image: linear-gradient(45deg, #225FBC, #00CDFF);
+    color: white;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.dropdown-svg{
+    stroke: white;
+}
+  
+.passive .dropdown-svg{
+    stroke: black;
+    transform: rotate(180deg);
+}
+  
+.kontak-kami-form label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+}
+
+.kontak-kami-form label input {
+    position: absolute;
+    left: -9999px;
+}
+  
+.kontak-kami-form label input:checked + span {
+    background-color: mix(#fff, #1674BA, 84%);
+}
+
+.kontak-kami-form label input:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em #1674BA;
+}
+
+.kontak-kami-form label span {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 99em;
+    transition: 0.25s ease;
+}
+
+.kontak-kami-form label span:hover {
+    background-color: rgba(22, 116, 186, 0.1);
+}
+
+.kontak-kami-form label span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em #1674BA;
+}
+
+.dark .kontak-kami-form label span:before {
+    background-color: rgba(17, 24, 39, 1);
+}
+
+#informasi_kiri{
+    width: 47%;
+}
+
+#informasi_kanan{
+    width: 47%;
+}
+
+#informasi_container{
+    display: flex;
+}
+
+.hide-large{
+    display: none;
+}
+
+.hide-small{
+    display: block;
+}
+
+.judul-layanan{
+    max-width: 280px;
+}
+
+.kontak-kami{
+    display: flex;
+}
+
+.kontak-kami-left{
+    width: 40%;
+}
+
+.kontak-kami-right{
+    width: 60%;
+}
+
+.dark .dropdown-svg{
+    fill: #fff;
+}
+
+#footer-container{
+    grid-template-columns: 30% 25% 25% 20%;
+}
+
+#kirim_button{
+    transition: 0.3s all ease-out;
+}
+
+#kirim_button:hover{
+    background: #1674BA;
+    color: white;
+}
+
+#berita_grid{
+    grid-template-columns: 40% 60%;
+}
+
+.link-terkait img{
+  transition: 0.3s all ease-out;
+}
+.link-terkait:hover{
+  cursor: pointer;
+}
+.link-terkait:hover img{
+  transform: scale(110%);
+}
+
+@media (max-width: 1310px) { 
+    #navbar-mobile::after{
+        width: 0 !important;
+    }
+}
+
+@media (max-width: 1260px) {
+    #informasi_kiri, #informasi_kanan{
+        height: 320px;
+    }
+}
+
+@media (max-width: 1080px) {
+    #informasi_kiri, #informasi_kanan{
+        width: 65%;
+        overflow: hidden;
+        height: 320px;
+        margin: 0 auto;
+    }
+    #informasi_kiri{
+        margin-bottom: 2rem;
+    }
+    #informasi_kiri div{
+        height: 240px;
+    }
+    #informasi_container{
+        display: block;
+        height: 480px;
+    }
+    #informasi_container{
+        height: 540px !important;
+    }
+    #informasi_kiri img, #informasi_kanan img{
+        height: 100%;
+        width: 100%;
+    }
+    .judul-layanan{
+        max-width: 9999px;
+    }
+    .kontak-kami{
+        display: block;
+    }
+    .kontak-kami-left, .kontak-kami-right{
+        width: 100%;
+    }
+    .hide-medium{
+        display: none;
+    }
+}
+
+@media (max-width: 816px) {
+    .hide-large{
+        display: block;
+    }
+    .hide-small{
+        display: none;
+    }
+    .hide-xs{
+        display: none;
+    }
+    #informasi_kiri, #informasi_kanan{
+        width: 85%;
+        height: 240px;
+    }
+    #berita_grid{
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+    #berita_grid .text-left{
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 570px) {
+    #informasi_kiri, #informasi_kanan{
+        width: 85%;
+        height: 240px;
+    }
+    .hide-large{
+        display: block;
+    }
+    .hide-small{
+        display: none;
+    }
+}
+
+@media (max-width: 460px){
+    #layananLain{
+        display: none !important;
+    }
+}
+
+@media (max-width: 430px){
+    .cardInformasi{
+        height: 240px !important;
+    }
+    #informasi_kiri div, #informasi_kanan div{
+        padding: 32px 24px !important;
+    }
+    #informasi_kiri h1, #informasi_kanan h1{
+        font-size: 20px;
+    }
+    #informasi_kiri a, #informasi_kanan a{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .judul-kontak-kami{
+        font-size: 18px;
+    }
+    .deskripsi-kontak-kami{
+        font-size: 14px;
+    }
+    .kontak-kami-text, .footer-item{
+        width: 50vw;
+    }
+    .kontak-kami-text p, .footer-item p{
+        word-break: break-word;
+    }
+}
+
+
+
+@media (max-width: 334px){
+    footer .circle-sosmed, .title-underline div{
+        display: none !important;
+    }
+    #twitterDiv{
+        max-width: 240px !important;
+    }
+}

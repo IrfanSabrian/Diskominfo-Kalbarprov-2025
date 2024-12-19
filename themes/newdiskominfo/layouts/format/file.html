@@ -1,0 +1,44 @@
+{{ define "main" }}
+  <style>
+  .hide-large{
+    display: none;
+  }
+  
+  .hide-small{
+    display: block;
+  }
+  
+  @media (max-width: 816px) {
+    .hide-large{
+        display: block;
+    }
+    .hide-small{
+        display: none;
+    }
+    .hide-xs{
+        display: none;
+    }
+  }
+  
+  @media (max-width: 570px) {
+    .hide-large{
+        display: block;
+    }
+    .hide-small{
+        display: none;
+    }
+  }
+  </style>
+
+  {{- partial "title-underline.html" (dict "Judul" .Params.title "Deskripsi" "") -}}
+
+  <div class="container-besar grid lg:grid-cols-2 grid-cols-1 px-16 mb-32">
+  {{ range .Site.RegularPages }}
+    {{ if strings.Contains .RelPermalink $.Params.check_string }}
+      <div class="mb-8">
+        {{- partial "blog-card-3.html" . -}}
+      </div>
+    {{ end }}
+  {{ end }}
+  </div>
+{{ end }}

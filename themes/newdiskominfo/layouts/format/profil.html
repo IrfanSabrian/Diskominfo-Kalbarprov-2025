@@ -1,0 +1,112 @@
+{{ define "main" }}
+  <style>
+    .top-div-profile{
+      grid-template-columns: 65% 30%;
+      gap: 16px;
+    }
+
+    .bottom-div-profile{
+      grid-template-columns: 47.5% 47.5%;
+      gap: 16px;
+    }
+
+    .profil-pimpinan ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .profil-pimpinan ::-webkit-scrollbar-track {
+      background: #d9d9d9;
+      border-radius: 99px;
+    }
+
+    .dark .profil-pimpinan-dark ::-webkit-scrollbar-track {
+      background: #2e2e2e;
+      border-radius: 99px;
+    }
+    
+    .profil-pimpinan ::-webkit-scrollbar-thumb {
+      background: #1674BA;
+      border-radius: 99px;
+    }
+
+    .profil-pimpinan ::-webkit-scrollbar-thumb:hover {
+      background: #0f5082; 
+    }
+
+    @media (max-width: 1100px){
+      .top-div-profile, .bottom-div-profile{
+        grid-template-columns: 100%;
+      }
+      #biodata{
+        max-height: 9999px !important;
+        display: block;
+      }
+      #biodata img{
+        margin: 0 auto;
+      }
+      #biodata .data{
+        text-align: center;
+      }
+      #grid-biodata{
+        grid-template-columns: 100%;
+        padding: 0 16px;
+      }
+    }
+
+    @media (max-width: 540px){
+      .small-text{
+        display: none;
+      }
+    }
+  </style>
+  <div class="profil-pimpinan-dark profil-pimpinan container-besar lg:px-24 px-8 py-16">
+    {{ range .Site.RegularPages }}
+      {{ if strings.Contains .RelPermalink "/profil-pimpinan/biodata" }}
+        {{ $biodata := .Content }}
+      {{ end }}
+      {{ if strings.Contains .RelPermalink "/profil-pimpinan/penghargaan" }}
+        {{ $penghargaan := .Content }}
+      {{ end }}
+      {{ if strings.Contains .RelPermalink "/profil-pimpinan/riwayat-pendidikan" }}
+        {{ $pendidikan := .Content }}
+      {{ end }}
+      {{ if strings.Contains .RelPermalink "/profil-pimpinan/riwayat-pekerjaan" }}
+        {{ $pekerjaan := .Content }}
+      {{ end }}
+    {{ end }}
+    <div class="top-div-profile grid lg:grid-cols-2 grid-cols-1 mb-4">
+      <div id="biodata" style="border-radius: 8px; box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.12); max-height: 300px;" class="p-4 bg-white dark:bg-gray-900 flex">
+        {{ $biodata }}
+      </div>
+      <div style="border-radius: 8px; box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.12); max-height: 300px;" class="p-8 bg-white dark:bg-gray-900">
+        <div class="flex pb-2 mb-4" style="border-bottom: 2px solid; border-image-source: linear-gradient(to right, #1674BA, transparent); border-image-slice: 1; align-items: center">
+          <i style="font-size: 24px" class="fas fa-trophy mr-2 text-main"></i>
+          <p class="text-sm" style="opacity: 50%;">Penghargaan</p>
+        </div>
+        <div style="overflow-y: scroll; overflow-x: hidden; height: 200px">
+          {{ $penghargaan }}
+        </div>
+      </div>
+    </div>
+    <div class="bottom-div-profile grid lg:grid-cols-2 grid-cols-1">
+      <div style="border-radius: 8px; box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.12); max-height: 300px;" class="p-8 bg-white dark:bg-gray-900">
+        <div class="flex pb-2 mb-4" style="border-bottom: 2px solid; border-image-source: linear-gradient(to right, #1674BA, transparent); border-image-slice: 1; align-items: center">
+          <i style="font-size: 24px" class="fas fa-graduation-cap mr-2 text-main"></i>
+          <p class="text-sm" style="opacity: 50%;">Riwayat Pendidikan</p>
+        </div>
+        <div style="overflow-y: scroll; overflow-x: hidden; height: 200px">
+          {{ $pendidikan }}
+        </div>
+      </div>
+      <div style="border-radius: 8px; box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.12); max-height: 300px;" class="p-8 bg-white dark:bg-gray-900">
+        <div class="flex pb-2 mb-4" style="border-bottom: 2px solid; border-image-source: linear-gradient(to right, #1674BA, transparent); border-image-slice: 1; align-items: center">
+          <i style="font-size: 24px" class="fas fa-suitcase mr-2 text-main"></i>
+          <p class="text-sm" style="opacity: 50%;">Riwayat Pekerjaan</p>
+        </div>
+        <div style="overflow-y: scroll; overflow-x: hidden; height: 200px">
+          {{ $pekerjaan }}
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

@@ -1,0 +1,12 @@
+<div class="container-besar">
+    <div class="mb-16 mt-8 px-8">
+        <p>Unduh berkas {{ .Params.title_link }} melalui link tautan dibawah :</p>
+        <ul style="list-style-type: circle" class="ml-8">
+            {{ range $key, $value := .Params.items.links }}
+                <li>
+                    <a style="text-decoration: underline" class="{{ $.Site.Params.textSecondaryColor }}" href="{{ index $value }}">{{ index $.Params.items.titles $key | safeHTML }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>

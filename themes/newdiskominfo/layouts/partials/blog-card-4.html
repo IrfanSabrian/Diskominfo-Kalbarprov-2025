@@ -1,0 +1,32 @@
+<div class="card-berita p-2 relative">
+{{- partial "copy-clipboard.html" (dict "Position" "absolute" "Top" "" "Bottom" "bottom-9" "Right" "right-9" "Left" "" "Link" .Permalink "Context" .) -}}
+<a href="{{ .RelPermalink }}">
+  {{ if .Params.thumbnail }}
+  <div class="relative">
+    <img style="min-height: 160px; max-height: 160px" src="{{ .Params.thumbnail }}" alt="{{ .Params.title }}" class="rounded-lg shadow-sm w-full h-52 object-cover" loading="lazy"/>
+    {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
+    <div class="absolute top-4 left-0 text-sm px-2 py-0.5 bg-main" style="border-radius: 0 18px 18px 0; width: auto; color: #FFF; padding: 8px 32px 8px 12px; z-index: 99">
+      {{ partial "date.html" (dict "date" .Date "language" $.Page.Language "format" "long") }}
+    </div>
+    <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; padding: 48px 32px; top: 0; left: 0;" class="absolute rounded-lg">
+      <div class="absolute bottom-7" style="width: calc(90% - 64px); height: auto">
+        <!-- <div class="my-2 text-lg font-semibold text-white hide-small hide-medium">{{ .Params.title }}</div> -->
+        <!-- <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 85%;" class="my-2 text-lg font-semibold text-white hide-large">{{ .Params.title }}</div> -->
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</a>
+{{ if not (or (or .Site.Params.hideOtherLanguages .Params.hideOtherLanguages) false) }}
+  {{ if .IsTranslated -}}
+    <div style="font-style: italic;font-size: smaller;">
+      {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
+      {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}
+      {{- $cleanLinks := apply $links "chomp" "." -}}
+      {{- $linksOutput := delimit $cleanLinks (i18n "translationsSeparator") -}}
+      {{ i18n "translationsLabel" }}{{ $linksOutput }}
+    </div>
+  {{- end }}
+{{ end }}
+</div>
