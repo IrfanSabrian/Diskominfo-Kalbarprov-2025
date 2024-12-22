@@ -1,14 +1,13 @@
-
-
 baseurl = ""
 metaDataFormat = "yaml"
-title = "Situs Resmi Dinas Komunikasi dan Informatika Kalbar"
-theme = "newdiskominfo"
+title = "Diskominfo Provinsi Kalimantan Barat"
+theme = "blist"
 DefaultContentLanguage = "id"
 DefaultContentLanguageInSubdir = false
 contentDir = "content" #English"
 weight = 1
 languageName = "Indonesia"
+
 [languages.id.params]
 introTitle = "Dinas Komunikasi dan Informatika"
 introSubtitle = "Website resmi Dinas Komunikasi dan Informatika provinsi Kalimantan Barat"
@@ -19,18 +18,17 @@ url = "/en/blog/emoji-support/"
 weight = 4
 [params]
 domain = 'diskominfo.kalbarprov.go.id'
-homeVideo = "1PCYZTA9FeU"
 phone = "628152076444"
 address = "Jalan Ahmad Yani Gedung Pelayanan Terpadu Lt. 6, Kalimantan Barat 78124"
 email = "diskominfo@kalbarprov.go.id"
 darkModeToggle = true
 enableSearch = true
 searchKeys = "["
-copyright = "Copyright ©2023"
+copyright = "Copyright ©2024"
 favicon = "/favicon.svg"
 ascentColor = "bg-defaultColor"
-frontBundle = "Form Informasi"
-frontBundle2 = ""
+frontBundle1 = "Berita"
+frontBundle2 = "Berita CSIRT"
 frontBundle3 = "Layanan"
 frontBundle4 = "Link Terkait"
 frontBundle5 = "Agenda"
@@ -66,45 +64,59 @@ style = "dracula"
 [markup.goldmark.renderer]
 unsafe = true
 
-
-[[params.kontakKami.subjek]]
-nama = "Kerjasama"
-
-[[params.kontakKami.subjek]]
-nama = "Konten"
-
-[[params.kontakKami.subjek]]
-nama = "Pengaduan"
-
-[[params.kontakKami.subjek]]
-nama = "Lainnya"
-
-
-
-
-
 [[languages.id.menu.main]]
-identifier = 'profil'
-name = "Profil"
-url = "/profil"
+identifier = 'beranda'
+name = "Beranda"
+url = "/"
 weight = 1
-
-
-
 [[languages.id.menu.main]]
-identifier = 'sop'
-name = "SOP"
-url = "/sop"
+identifier = 'tentang-kami'
+name = "Tentang Kami"
+url = "/tentang-kami"
+weight = 2
+[[languages.id.menu.main]]
+identifier = 'informasi'
+name = "Informasi"
+url = "/informasi"
 weight = 3
+[[languages.id.menu.main]]
+identifier = 'berita'
+name = "Berita"
+url = "/berita"
+weight = 4
+[[languages.id.menu.main]]
+identifier = 'ppid'
+name = "PPID"
+url = "/ppid"
+weight = 5
+[[languages.id.menu.main]]
+identifier = 'csirt'
+name = "CSIRT"
+url = "/csirt"
+weight = 6
 
 
+[[params.homepage.social.icons]]
+website = "twitter"
+url = "https://x.com/KominfoKalbar"
+[[params.homepage.social.icons]]
+website = "tiktok"
+url = "https://www.tiktok.com/@diskominfo.kalbar"
+[[params.homepage.social.icons]]
+website = "youtube"
+url = "https://www.youtube.com/@DiskominfoProvKalbar"
+[[params.homepage.social.icons]]
+website = "instagram"
+url = "https://www.instagram.com/diskominfo.kalbar/"
+[[params.homepage.social.icons]]
+website = "facebook"
+url = "https://www.facebook.com/Diskominfoprovkalbar"
 
 [[params.agenda]]
 lokasi = "Ruang AUVI"
 jamMulai = "08:30"
 jamSelesai = "12:00"
 judul = "undangan pembahasan rencana kerja sama, Sekretaris Daerah/RO-PEM, Jumat, 2 agustus 2024, di Ruang AUVI"
-tanggal = "02/08/2024"
 hari = "Jumat"
 
 [[params.agenda]]
@@ -112,7 +124,6 @@ lokasi = "Ruang Rapat Wakil Gubernur"
 jamMulai = "13:30"
 jamSelesai = "16:00"
 judul = "undangan pembahasan persiapan peringatan HUT RI ke 79, Sekretaris Daerah, Jum'at 2 Agustus 2024, 13.30, RR Wakil Gubernur"
-tanggal = "02/08/2024"
 hari = "Jumat"
 
 [[params.agenda]]
@@ -120,7 +131,6 @@ lokasi = "Balai Petitih"
 jamMulai = "13:30"
 jamSelesai = "15:45"
 judul = "Mendengarkan Pidato Presiden RI pada Penyampaian RUU APBN Tahun 2024 oleh Biro Pemerintahan"
-tanggal = "16/08/2024"
 hari = "Jumat"
 
 [[params.agenda]]
@@ -128,7 +138,6 @@ lokasi = "Balai Petitih"
 jamMulai = "13:30"
 jamSelesai = "15:45"
 judul = "Gladi pengukuhan Paskibraka Pemprov Kalbar"
-tanggal = "15/08/2024"
 hari = "Kamis"
 
 [[params.agenda]]
@@ -136,22 +145,34 @@ lokasi = "DAR"
 jamMulai = "09:00"
 jamSelesai = "12:00"
 judul = "Zoom meeting Diskusi Daerah Perbatasan dengan PJ Gubernur Kalbar oleh pusat riset politik BRIN"
-tanggal = "15/08/2024"
 hari = "Kamis"
 
-
-
-
 [[params.sliders.images]]
-url = "1.png"
+url = "slider1.png"
 extension = "png"
 
 
 [[params.sliders.images]]
-url = "Kantor Gub.jpg"
-extension = "jpg"
+url = "slider2.png"
+extension = "png"
 
 
 [[params.sliders.images]]
-url = "WhatsApp Image 2024-08-14 at 10.10.35_4dc238b5.jpg"
-extension = "jpg"
+url = "slider3.png"
+extension = "png"
+
+[[params.sliders.images]]
+url = "slider3.png"
+extension = "png"
+
+[[params.sliders.images]]
+url = "slider4.png"
+extension = "png"
+
+[[params.sliders.images]]
+url = "slider5.png"
+extension = "png"
+
+
+
+

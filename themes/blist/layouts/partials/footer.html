@@ -1,0 +1,238 @@
+<footer
+  class='p-6 mx-auto flex flex-wrap items-start justify-between w-full relative bottom-0 {{ default "bg-defaultColor" .Site.Params.ascentColor }} text-white dark:bg-gray-800'
+>
+  <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-6 mt-6 px-4">
+    <!-- Kolom 1: Intro Title dan Subtitle -->
+    <div class="text-center dark:text-white break-normal px-4 py-4">
+      <h1 class="font-bold mb-4 text-center" style="font-size: 1.5rem">
+        {{ .Site.Params.introTitle | safeHTML }}
+      </h1>
+      <p
+        class="font-light pt-4 leading-normal min-h-16 text-center"
+        style="font-size: 1.25rem"
+      >
+        {{ .Site.Params.introSubtitle | safeHTML }}
+      </p>
+    </div>
+
+    <!-- Kolom 2: Lokasi Kami -->
+    <div class="flex flex-col gap-4 px-4">
+      <h2
+        class="font-bold mb-4 text-center pb-2"
+        style="
+          font-size: 1.25rem;
+          border-bottom: 3px solid white;
+          width: 50%;
+          margin: 0 auto;
+        "
+      >
+        Lokasi Kami
+      </h2>
+      <!-- GMaps Iframe -->
+      <iframe
+        title="Peta Lokasi Gedung Pelayanan Terpadu Prov. Kalbar"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.9999999999995!2d109.352462!3d-0.0615711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59a102965473%3A0x9ef363f0cf41c6b2!2sGedung%20Pelayanan%20Terpadu%20Prov.%20Kalbar!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid"
+        width="100%"
+        height="200"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <!-- Kolom 3: Kontak Kami -->
+    <div class="flex flex-col gap-4 px-4">
+      <h2
+        class="font-bold mb-4 text-center pb-2"
+        style="
+          font-size: 1.25rem;
+          border-bottom: 3px solid white;
+          width: 50%;
+          margin: 0 auto;
+        "
+      >
+        Kontak Kami
+      </h2>
+      <div class="space-y-4 dark:text-white">
+        <!-- Phone -->
+        <div class="flex items-center gap-2">
+          <i
+            class="fas fa-phone-alt w-6 h-6 flex justify-center items-center"
+            style="transform: scaleX(-1); font-size: 1.25rem"
+          ></i>
+          <span class="flex-1">{{ .Site.Params.phone }}</span>
+        </div>
+
+        <!-- Email -->
+        <div class="flex items-center gap-2">
+          <i
+            class="fas fa-envelope w-6 h-6 flex justify-center items-center"
+            style="font-size: 1.25rem"
+          ></i>
+          <span class="flex-1">{{ .Site.Params.email }}</span>
+        </div>
+
+        <!-- Address -->
+        <div class="flex items-center gap-2">
+          <i
+            class="fas fa-map-marker-alt w-6 h-6 flex justify-center items-center flex-shrink-0"
+            style="font-size: 1.25rem"
+          ></i>
+          <span class="flex-1">{{ .Site.Params.address }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kolom 4: Ikuti Kami dan Sitemap -->
+    <div class="flex flex-col gap-4 px-4">
+      <h2
+        class="font-bold mb-4 text-center pb-2"
+        style="
+          font-size: 1.25rem;
+          border-bottom: 3px solid white;
+          width: 50%;
+          margin: 0 auto;
+        "
+      >
+        Ikuti Kami
+      </h2>
+      <div class="w-full text-center">
+        <ul class="flex items-center justify-center gap-4 pt-4">
+          {{ range .Site.Params.homepage.social.icons }}
+          <li>
+            <a
+              href="{{ .url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="{{ .website | title }}"
+              class="p-1 inline-block rounded-lg text-white hover:text-gray-800 hover:bg-white cursor-pointer transition-colors dark:text-white dark:hover:text-black flex justify-center items-center"
+            >
+              <i
+                class="fab fa-{{ .website }} w-8 h-8 flex justify-center items-center"
+                style="font-size: 1.5rem"
+              ></i>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      <h2
+        class="font-bold mb-4 text-center pb-2 mt-6"
+        style="
+          font-size: 1.25rem;
+          border-bottom: 3px solid white;
+          width: 50%;
+          margin: 0 auto;
+        "
+      >
+        Sitemap
+      </h2>
+      <div class="flex items-center gap-2">
+        <i
+          class="fas fa-sitemap w-6 h-6 mr-2 flex justify-center items-center"
+          style="font-size: 1.25rem"
+        ></i>
+        <span
+          class="relative text-sm underline flex-1"
+          style="font-size: 1rem; color: #fff"
+        >
+          <a href='{{ absURL "/" }}sitemap'>Sitemap</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="scrollToTopBtn"
+    class="fixed bottom-4 right-4 p-1 cursor-pointer bg-white shadow-md rounded-full hidden"
+    style="z-index: 50"
+    onclick="scrollToTop()"
+  >
+    <i
+      class="fas fa-arrow-up h-8 w-8 text-black dark:text-black flex justify-center items-center"
+      style="font-size: 1.75rem"
+    ></i>
+  </div>
+</footer>
+<div
+  class="w-full flex flex-col items-center bg-customDarkGreen dark:bg-gray-700 py-4"
+>
+  <span class="relative" style="font-size: 1rem; color: #fff">
+    {{ if (isset .Site.Params "copyright") }} {{ .Site.Params.copyright |
+    safeHTML }} {{ else }} {{ dateFormat "2006" now }} © {{ .Site.Title }} {{
+    end }}
+  </span>
+</div>
+{{ template "_internal/google_analytics.html" . }} {{ if
+.Site.Params.darkModeToggle }}
+<script>
+  const darkmode = document.querySelector(".toggle-dark-mode");
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkmode", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("darkmode", "dark");
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener("click", toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem("darkmode");
+  const isBrowserDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add("dark");
+  }
+
+  if (darkStorage && darkStorage === "dark") {
+    toggleDarkMode();
+  }
+</script>
+{{ end }}
+<script>
+  // Fungsi untuk menyembunyikan loading screen dan menambahkan efek fade-in pada konten utama
+  function hideLoadingScreen() {
+    const loadingScreen = document.getElementById("loading-screen");
+    loadingScreen.classList.add("hidden"); // Tambahkan class 'hidden' untuk menerapkan transisi
+
+    const mainContent = document.querySelector("main");
+    mainContent.classList.add("fade-in"); // Tambahkan class 'fade-in' untuk menerapkan efek fade-in
+  }
+
+  // Sembunyikan loading screen dan tambahkan efek fade-in setelah 2 detik (2000 milidetik)
+  setTimeout(hideLoadingScreen, 300);
+</script>
+
+<script>
+  function scrollToTop() {
+    var currentScroll =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, currentScroll - currentScroll / 40);
+    }
+  }
+
+  window.addEventListener("scroll", function () {
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    var scrollY = window.scrollY || window.pageYOffset;
+
+    if (scrollY > 20) {
+      scrollToTopBtn.classList.remove("hidden");
+    } else {
+      scrollToTopBtn.classList.add("hidden");
+    }
+
+    if (scrollY === 0) {
+      scrollToTopBtn.style.display = "none";
+    } else {
+      scrollToTopBtn.style.display = "block";
+    }
+  });
+</script>

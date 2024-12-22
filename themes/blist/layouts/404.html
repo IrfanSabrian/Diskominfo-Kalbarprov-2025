@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<section class="place-items-center py-3 relative">
+  <img src="/images/logo-404.png" class="w-200 px-10" alt="404 Not Found">
+  <div class="text-center mt-8">
+    <h1 class="text-4xl font-bold mb-4">Oops! Halaman Tidak Ditemukan</h1>
+    <p class="text-gray-600 dark:text-gray-400 px-6">Sepertinya halaman yang Anda cari sudah tidak tersedia atau pindah ke lokasi lain.</p>
+  </div>
+
+  <div class="mt-7 z-10 mb-10">
+    <a class="px-6 py-4 rounded-2xl bg-customGreen text-white hover:text-customGreen hover:bg-white transition-colors" style="border: 2px solid;"
+      href="{{ .Site.BaseURL }}">Kembali ke Beranda</a>
+  </div>
+</section>
+
+{{ end }}
