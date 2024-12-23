@@ -1,9 +1,9 @@
 {{ define "main" }} {{ $sliderImages := .Site.Params.sliders.images }} {{ if len
 $sliderImages }}
-<div class="hero-container py-9">
+<div class="hero-container py-6">
   <div
     class="swiper-container swiper-background overflow-hidden rounded-3xl relative"
-    style="width: 70%; z-index: 7; position: relative; margin-left: auto; margin-right: auto;"
+    style="width: 80%; z-index: 7; position: relative; margin-left: auto; margin-right: auto;"
   >
     <div class="swiper-wrapper">
       {{ range $sliderImages }}
@@ -17,12 +17,12 @@ $sliderImages }}
   </div>
   <div
     class="absolute my-4 z-6 bg-customGreen rounded-r-3xl p-6"
-    style="width: 90vw; height: 23vw; top: 18%; left: 0; z-index: 3"
+    style="width: 96vw; height: 22vw; top: 18%; left: 0; z-index: 3"
   >
   </div>
   <div
     class="absolute my-4 z-6 bg-customYellow rounded-3xl p-6"
-    style="width: 45vw; height: 25vw; top: 28%; right: 12%; z-index: 4; opacity: 0.8"
+    style="width: 48vw; height: 27vw; top: 28%; right: 6%; z-index: 4; opacity: 0.8"
   >
   </div>
 </div>
@@ -87,116 +87,77 @@ $sliderImages }}
 </script>
 {{ end }}
 
-<div class="py-1 px-6">
-  <div
-    class="container mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 justify-items-center"
-    style="padding-left: 20%; padding-right: 20%;"
-  >
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/aplikasi-pusat.png" | relURL }}" alt="Aplikasi Pusat"
-      class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">Aplikasi Pusat</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+<div class="py-6">
+  <div class="container container-menu mx-0 px-48 flex flex-wrap justify-between">
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/aplikasi-pusat.png" | relURL }}" alt="Aplikasi Pusat" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">Aplikasi Pusat</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/layanan.png" | relURL }}" alt="Layanan" 
-      class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">Layanan</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/layanan.png" | relURL }}" alt="Layanan" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">Layanan</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/aplikasi-daerah.png" | relURL }}" alt="Aplikasi Daerah"
-      class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">Aplikasi Daerah</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/aplikasi-daerah.png" | relURL }}" alt="Aplikasi Daerah" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">Aplikasi Daerah</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/diskominfo-informasi.png" | relURL }}" alt="Diskominfo Informasi" class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">Diskominfo Informasi</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/diskominfo-informasi.png" | relURL }}" alt="Diskominfo Informasi" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">Diskominfo Informasi</span>
     </div>
-  </div>
-  <div
-    class="container mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-4 justify-items-center"
-    style="padding-left: 20%; padding-right: 20%;"
-  >
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/website-terkait.png" | relURL }}" alt="Website Terkait"
-      class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">Website Terkait</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/website-terkait.png" | relURL }}" alt="Website Terkait" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">Website Terkait</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/ppid.png" | relURL }}" alt="PPID" class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">PPID</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/ppid.png" | relURL }}" alt="PPID" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">PPID</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/csirt.png" | relURL }}" alt="CSIRT" class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">CSIRT</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/csirt.png" | relURL }}" alt="CSIRT" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">CSIRT</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 150px; height: 150px;">
-      <img src="{{ "icon/diskominfo-profil-dinas.png" | relURL }}"
-      alt="Diskominfo Profil Dinas" class="h-20"> <!-- Gambar diperbesar menjadi sekitar 70% dari tinggi kotak -->
-      <span class="text-base text-white text-center mt-1">Diskominfo Profil Dinas</span> <!-- Ukuran teks diperbesar dan diatur ke tengah -->
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
+      <img src="{{ "icon/diskominfo-profil-dinas.png" | relURL }}" alt="Diskominfo Profil Dinas" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
+      <span class="text-xs text-white text-center" style="width: 100%;">Diskominfo Profil Dinas</span>
     </div>
   </div>
 </div>
 
 <div class="container mx-auto p-4">
-   <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
     <!-- Agenda Section -->
     {{ $agenda := .Site.Params.agenda }}
     {{ if $agenda }}
-    <div class="bg-customGreen rounded-xl shadow-2xl p-4 swiper-container-agenda">
-     <h2 class="text-2xl font-bold text-white mb-4 text-center">
+    <div class="agenda-container bg-white rounded-l-3xl shadow">
+      <h2 class="text-2xl text-white mb-4 p-4 text-center bg-customGreen rounded-tl-3xl">
       Agenda
-     </h2>
-     <div class="swiper-wrapper-agenda">
+    </h2>
+    <div class="flex flex-col overflow-auto m-4" style="max-height: 450px;">
       {{ range $agenda }}
-      <div class="swiper-slide-agenda border border-customGreen rounded-lg p-4 bg-white">
-       <div class="flex items-center mb-2">
-        <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-32" data-day="{{ .hari }}">
-         <p class="text-lg font-bold">
-          <!-- Tanggal akan diisi oleh script -->
-         </p>
-        </div>
-        <div class="ml-4">
-         <p class="text-sm">
-          {{ .judul }}
-         </p>
-         <div class="flex items-center text-gray-600 text-sm mt-2">
+      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
+      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="{{ .hari }}">
+        <p class="text-lg font-bold">
+        <!-- Tanggal akan diisi oleh script -->
+        </p>
+      </div>
+      <div class="ml-4 flex-1">
+        <p class="text-sm">
+        {{ .judul }}
+        </p>
+          <div class="flex items-center text-gray-600 text-sm mt-2">
           <i class="far fa-clock mr-2"></i>
           {{ .jamMulai }} - {{ .jamSelesai }}
           <i class="fas fa-map-marker-alt ml-4 mr-2"></i>
           {{ .lokasi }}
-         </div>
+          </div>
         </div>
-       </div>
       </div>
       {{ end }}
-     </div>
-     <div class="swiper-button-next-agenda"></div>
-     <div class="swiper-button-prev-agenda"></div>
-     <div class="swiper-pagination-agenda"></div>
+    </div>
     </div>
     {{ end }}
-    <script>
-      var swiperAgenda = new Swiper('.swiper-container-agenda', {
-        direction: 'vertical',
-        slidesPerView: 3,
-        spaceBetween: 30,
-        slidesPerGroup: 3,
-        loop: false,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: '.swiper-pagination-agenda',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next-agenda',
-          prevEl: '.swiper-button-prev-agenda',
-        },
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-      });
-    </script>
     <script>
       function getCurrentDate(day) {
         const today = new Date();
@@ -221,9 +182,9 @@ $sliderImages }}
       });
     </script>
     <!-- Berita Terkini Section -->
-    <div class="bg-white rounded-lg shadow p-4 col-span-2">
+    <div class="berita-container bg-white shadow p-4 col-span-2">
      <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl font-bold text-gray-800">
+      <h2 class="text-2xl text-gray-800">
        Berita Terkini
       </h2>
       <button class="text-sm text-gray-600 border border-gray-600 rounded-full px-4 py-1 flex items-center">
@@ -233,7 +194,7 @@ $sliderImages }}
      </div>
      <div class="relative mb-8">
       <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1/2 h-1 bg-customGreen"></div>
-      <div class="absolute right-[calc(50%-8px)] top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen rounded-full"></div>
+      <div class="absolute left-1/2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen rounded-full"></div>
      </div>
      <div class="space-y-4">
       <div class="relative">
@@ -282,33 +243,44 @@ $sliderImages }}
       </div>
      </div>
     </div>
-    <!-- Artikel GPR Kominfo Section -->
-    <div class="bg-customGreen rounded-lg shadow p-4">
-     <h2 class="text-2xl font-bold text-white mb-4 text-center">
-      Artikel GPR Kominfo
-     </h2>
-     <div class="border border-customGreen rounded-lg p-4 bg-white">
-      <div class="flex items-center mb-4 border-b border-gray-300 pb-4">
-       <img alt="Article Image" class="w-12 h-12 object-cover rounded-lg mr-4" height="50" src="https://storage.googleapis.com/a1aa/image/YdxV2xkZgabuMdyBaLUTQe6YqX4sErOF5rIq9UwsQP6BloeTA.jpg" width="50"/>
-       <div class="flex-grow">
-        <div class="flex justify-between">
-         <p class="text-sm font-bold text-customGreen">
-          Artikel
-         </p>
-         <p class="text-xs text-gray-600">
-          26-11-2024 14:53
-         </p>
-        </div>
-        <p class="text-sm">
-         Belasan Ribu Konten Diturunkan Setiap Hari, Kemkomdigi Perkuat Pengawasan Berantas Judol
-        </p>
-       </div>
+    <div class="flex flex-col">
+      <div class="p-2" style="max-width: 780px;">
+        <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" defer></script>
+        <div id="gpr-kominfo-widget-container"></div>
       </div>
-      <div class="flex items-center mb-4 border-b border-gray-300 pb-4">
-       <img alt="Article Image" class="w-12 h-12 object-cover rounded-lg mr-4" height="50" src="https://storage.googleapis.com/a1aa/image/YdxV2xkZgabuMdyBaLUTQe6YqX4sErOF5rIq9UwsQP6BloeTA.jpg" width="50"/>
-       <div class="flex-grow">
-        <div class="flex justify-between">
-         <p class="text-sm font-bold text-customGreen">
-          Artikel
-         </p>
+    </div>
+    
+    <style>
+      /* Elemen Container */
+      #gpr-kominfo-widget-container {
+        background-color: #03a055 !important;
+        border-top: 5px solid #03a055 !important;
+        border-radius: 5px !important;
+      }
+
+      /* Elemen Header */
+      #gpr-kominfo-widget-header {
+        background-color: #03a055 !important;
+        background-image: none !important; 
+        border-left: 6px solid #03a055 !important;
+        color: #ffffff !important;
+        text-align: center; /* Opsional */
+        font-size: 18px; /* Ukuran teks */
+        font-weight: bold; /* Ketebalan teks */
+        line-height: 70px; /* Sesuaikan tinggi teks dengan tinggi header */
+      }
+
+      #gpr-kominfo-widget-header::before {
+        content: "Artikel GPR Info"; 
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: normal;
+      }
+
+      .gpr-kominfo-align-left b,.gpr-kominfo-align-right.gpr-small-date {
+        color: #03a055 !important;
+      }
+
+  </style>
 {{ end }}
