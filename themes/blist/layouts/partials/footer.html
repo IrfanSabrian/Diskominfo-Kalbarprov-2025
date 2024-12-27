@@ -1,7 +1,43 @@
+<div
+  class="bg-white p-5 z-10 absolute rounded-xl flex items-center"
+  style="width: 60%; border: 5px solid rgba(0, 128, 0, 0.5); transform: translateX(-50%); left: 50%;"
+>
+  <img
+    src="akcaya-logo.png"
+    alt=""
+    style="width: 50px; height: auto; margin-left: 10px; margin-right: 10px;"
+  >
+  <h1 style="font-size: 1.5rem; line-height: 1.5; font-weight: 600;" class="text-customGreen ml-3">
+    Diskominfo Provinsi<br>Kalimantan Barat
+  </h1>
+  <div class="flex justify-end mx-5 absolute right-0">
+    <a href="https://www.youtube.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
+      <i class="fab fa-youtube text-white" style="font-size: 2.2rem;"></i>
+    </a>
+    <a href="https://www.facebook.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
+      <i class="fa-brands fa-facebook text-white" style="font-size: 2.2rem;"></i>
+    </a>
+    <a href="https://www.tiktok.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
+      <i class="fab fa-tiktok text-white" style="font-size: 2.2rem;"></i>
+    </a>
+    <a href="https://twitter.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
+      <i class="fab fa-twitter text-white" style="font-size: 2.2rem;"></i>
+    </a>
+    <a href="https://www.instagram.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
+      <i class="fab fa-instagram text-white" style="font-size: 2.2rem;"></i>
+    </a>
+  </div>
+</div>
+<div class="p-10"></div>
+
+
 <footer
   class='p-6 mx-auto flex flex-wrap items-start justify-between w-full relative bottom-0 {{ default "bg-defaultColor" .Site.Params.ascentColor }} text-white dark:bg-gray-800'
 >
-  <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-6 mt-6 px-4">
+
+
+
+  <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-1 mt-10">
     <!-- Kolom 1: Intro Title dan Subtitle -->
     <div class="text-center dark:text-white break-normal px-4 py-4">
       <h1 class="font-bold mb-4 text-center" style="font-size: 1.5rem">
@@ -9,44 +45,18 @@
       </h1>
       <p
         class="font-light pt-4 leading-normal min-h-16 text-center"
-        style="font-size: 1.25rem"
+        style="font-size: 1.15rem"
       >
         {{ .Site.Params.introSubtitle | safeHTML }}
       </p>
     </div>
 
-    <!-- Kolom 2: Lokasi Kami -->
-    <div class="flex flex-col gap-4 px-4">
+    <!-- Kolom 1: Kontak Kami -->
+    <div class="flex flex-col gap-4">
       <h2
         class="font-bold mb-4 text-center pb-2"
         style="
-          font-size: 1.25rem;
-          border-bottom: 3px solid white;
-          width: 50%;
-          margin: 0 auto;
-        "
-      >
-        Lokasi Kami
-      </h2>
-      <!-- GMaps Iframe -->
-      <iframe
-        title="Peta Lokasi Gedung Pelayanan Terpadu Prov. Kalbar"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.9999999999995!2d109.352462!3d-0.0615711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59a102965473%3A0x9ef363f0cf41c6b2!2sGedung%20Pelayanan%20Terpadu%20Prov.%20Kalbar!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid"
-        width="100%"
-        height="200"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-
-    <!-- Kolom 3: Kontak Kami -->
-    <div class="flex flex-col gap-4 px-4">
-      <h2
-        class="font-bold mb-4 text-center pb-2"
-        style="
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           border-bottom: 3px solid white;
           width: 50%;
           margin: 0 auto;
@@ -59,7 +69,7 @@
         <div class="flex items-center gap-2">
           <i
             class="fas fa-phone-alt w-6 h-6 flex justify-center items-center"
-            style="transform: scaleX(-1); font-size: 1.25rem"
+            style="transform: scaleX(-1); font-size: 1.15rem"
           ></i>
           <span class="flex-1">{{ .Site.Params.phone }}</span>
         </div>
@@ -68,7 +78,7 @@
         <div class="flex items-center gap-2">
           <i
             class="fas fa-envelope w-6 h-6 flex justify-center items-center"
-            style="font-size: 1.25rem"
+            style="font-size: 1.15rem"
           ></i>
           <span class="flex-1">{{ .Site.Params.email }}</span>
         </div>
@@ -89,7 +99,7 @@
       <h2
         class="font-bold mb-4 text-center pb-2"
         style="
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           border-bottom: 3px solid white;
           width: 50%;
           margin: 0 auto;
@@ -97,49 +107,171 @@
       >
         Ikuti Kami
       </h2>
-      <div class="w-full text-center">
-        <ul class="flex items-center justify-center gap-4 pt-4">
-          {{ range .Site.Params.homepage.social.icons }}
-          <li>
-            <a
-              href="{{ .url }}"
-              target="_blank"
-              rel="noopener"
-              aria-label="{{ .website | title }}"
-              class="p-1 inline-block rounded-lg text-white hover:text-gray-800 hover:bg-white cursor-pointer transition-colors dark:text-white dark:hover:text-black flex justify-center items-center"
-            >
-              <i
-                class="fab fa-{{ .website }} w-8 h-8 flex justify-center items-center"
-                style="font-size: 1.5rem"
-              ></i>
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
-      <h2
-        class="font-bold mb-4 text-center pb-2 mt-6"
-        style="
-          font-size: 1.25rem;
-          border-bottom: 3px solid white;
-          width: 50%;
-          margin: 0 auto;
-        "
+      <!-- GMaps Iframe -->
+      <iframe
+        title="Peta Lokasi Gedung Pelayanan Terpadu Prov. Kalbar"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.9999999999995!2d109.352462!3d-0.0615711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59a102965473%3A0x9ef363f0cf41c6b2!2sGedung%20Pelayanan%20Terpadu%20Prov.%20Kalbar!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid"
+        width="100%"
+        height="200"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+
+    <!-- Kolom 3: Tautan Terkait -->
+<div class="flex flex-col gap-4">
+  <h2
+    class="font-bold mb-4 text-center pb-2"
+    style="
+      font-size: 1.15rem;
+      border-bottom: 3px solid white;
+      width: 50%;
+      margin: 0 auto;
+    "
+  >
+    Tautan Terkait
+  </h2>
+  <div class="space-y-4 dark:text-white">
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://kalbarprov.go.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Pemerintah Provinsi Kalbar"
+      >
+        Pemerintah Provinsi Kalbar
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://ppid.kalbarprov.go.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="PPID Utama Kalbar"
+      >
+        PPID Utama Kalbar
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://komisiinformasi.go.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Komisi Informasi Pusat"
+      >
+        Komisi Informasi Pusat
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://www.komisiinformasikalbar.or.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Komisi Informasi Daerah"
+      >
+        Komisi Informasi Daerah
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Kolom 4: Tautan Tercepat -->
+<div class="flex flex-col gap-4">
+  <h2
+    class="font-bold mb-4 text-center pb-2"
+    style="
+      font-size: 1.15rem;
+      border-bottom: 3px solid white;
+      width: 50%;
+      margin: 0 auto;
+    "
+  >
+    Tautan Tercepat
+  </h2>
+  <div class="space-y-4 dark:text-white">
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/berita"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Berita"
+      >
+        Berita
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/layanan"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Layanan"
+      >
+        Layanan
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/galeri"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Galeri"
+      >
+        Galeri
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/sitemap"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Sitemap"
       >
         Sitemap
-      </h2>
-      <div class="flex items-center gap-2">
-        <i
-          class="fas fa-sitemap w-6 h-6 mr-2 flex justify-center items-center"
-          style="font-size: 1.25rem"
-        ></i>
-        <span
-          class="relative text-sm underline flex-1"
-          style="font-size: 1rem; color: #fff"
-        >
-          <a href='{{ absURL "/" }}sitemap'>Sitemap</a>
-        </span>
-      </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+    
     </div>
   </div>
 
@@ -163,8 +295,7 @@
     safeHTML }} {{ else }} {{ dateFormat "2006" now }} © {{ .Site.Title }} {{
     end }}
   </span>
-</div>
-{{ template "_internal/google_analytics.html" . }} {{ if
+</div>{{ template "_internal/google_analytics.html" . }} {{ if
 .Site.Params.darkModeToggle }}
 <script>
   const darkmode = document.querySelector(".toggle-dark-mode");
