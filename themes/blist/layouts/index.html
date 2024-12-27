@@ -3,7 +3,7 @@ $sliderImages }}
 <div class="hero-container py-6">
   <div
     class="swiper-container swiper-background overflow-hidden rounded-3xl relative"
-    style="width: 80%; z-index: 7; position: relative; margin-left: auto; margin-right: auto;"
+    style="width: 80%; z-index: 5; position: relative; margin-left: auto; margin-right: auto;"
   >
     <div class="swiper-wrapper">
       {{ range $sliderImages }}
@@ -16,12 +16,12 @@ $sliderImages }}
     <div class="swiper-agenda-pagination" style="z-index: 10"></div>
   </div>
   <div
-    class="absolute my-4 z-6 bg-customGreen rounded-r-3xl p-6"
+    class="absolute my-4 bg-customGreen rounded-r-3xl p-6"
     style="width: 96vw; height: 22vw; top: 18%; left: 0; z-index: 3"
   >
   </div>
   <div
-    class="absolute my-4 z-6 bg-customYellow rounded-3xl p-6"
+    class="absolute my-4 bg-customYellow rounded-3xl p-6"
     style="width: 48vw; height: 27vw; top: 28%; right: 6%; z-index: 4; opacity: 0.8"
   >
   </div>
@@ -79,7 +79,7 @@ $sliderImages }}
         prevEl: ".swiper-button-prev",
       },
       autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
       },
     });
@@ -89,42 +89,150 @@ $sliderImages }}
 
 <div class="py-6">
   <div class="container container-menu mx-0 px-48 flex flex-wrap justify-between">
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/aplikasi-pusat.png" | relURL }}" alt="Aplikasi Pusat" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">Aplikasi Pusat</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Aplikasi Pusat')">
+      <img src="icon/aplikasi-pusat.png" alt="Aplikasi Pusat" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Aplikasi Pusat</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/layanan.png" | relURL }}" alt="Layanan" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">Layanan</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Layanan')">
+      <img src="icon/layanan.png" alt="Layanan" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Layanan</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/aplikasi-daerah.png" | relURL }}" alt="Aplikasi Daerah" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">Aplikasi Daerah</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Aplikasi Daerah')">
+      <img src="icon/aplikasi-daerah.png" alt="Aplikasi Daerah" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Aplikasi Daerah</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/diskominfo-informasi.png" | relURL }}" alt="Diskominfo Informasi" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">Diskominfo Informasi</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Website Terkait')">
+      <img src="icon/website-terkait.png" alt="Website Terkait" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Website Terkait</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/website-terkait.png" | relURL }}" alt="Website Terkait" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">Website Terkait</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/informasi'">
+      <img src="icon/diskominfo-informasi.png" alt="Diskominfo Informasi" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Diskominfo Informasi</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/ppid.png" | relURL }}" alt="PPID" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">PPID</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/ppid'">
+      <img src="icon/ppid.png" alt="PPID" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">PPID</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/csirt.png" | relURL }}" alt="CSIRT" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">CSIRT</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/csirt'">
+      <img src="icon/csirt.png" alt="CSIRT" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">CSIRT</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2" style="z-index: 5; width: 100px; height: 100px; overflow: hidden;">
-      <img src="{{ "icon/diskominfo-profil-dinas.png" | relURL }}" alt="Diskominfo Profil Dinas" style="height: 60%; max-height: 100%; width: auto; object-fit: contain;">
-      <span class="text-xs text-white text-center" style="width: 100%;">Diskominfo Profil Dinas</span>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/tentang-kami'">
+      <img src="icon/diskominfo-profil-dinas.png" alt="Diskominfo Profil Dinas" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Diskominfo Profil Dinas</span>
     </div>
   </div>
 </div>
 
-<div class="container mx-auto p-4">
+<!-- Modal Structure -->
+  <div class="hero-modal hidden fixed inset-0 bg-black bg-opacity-50 h-full w-full z-50" id="heroModal">
+    <div class="relative top-10 mx-auto border w-11/12 md:w-3/4 shadow-lg rounded-md bg-white modal-hero-content" onclick="event.stopPropagation()">
+      <div class="mt-3 text-left">
+        <button onclick="closeHeroModal()" class="absolute top-2 right-3 text-gray-500 text-4xl leading-none p-2">
+          &times;
+        </button>
+        <h3 class="text-xl leading-6 font-medium text-gray-900 p-4" id="modal-title">Modal Title</h3>
+        <hr class="border-t border-gray-300 w-full">
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 justify-center items-center p-6 overflow-y-auto " style="max-height: 80vh;">
+        <!-- Dynamic content based on click -->
+      </div>
+    </div>
+  </div>
+
+<div id="content-container" style="display: none;">
+  <div id="aplikasi-pusat-content">
+    {{ $frontBundle1 := .Site.Params.frontBundle1 | default "aplikasi-pusat" | lower }}
+    {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle1) }}
+      {{ partial "blog-card-hero.html" . }}
+    {{ end }}
+  </div>
+  <div id="layanan-content">
+    {{ $frontBundle2 := .Site.Params.frontBundle2 | default "layanan" | lower }}
+    {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle2) }}
+      {{ partial "blog-card-hero.html" . }}
+    {{ end }}
+  </div>
+  <div id="aplikasi-daerah-content">
+    {{ $frontBundle3 := .Site.Params.frontBundle3 | default "aplikasi-daerah" | lower }}
+    {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle3) }}
+      {{ partial "blog-card-hero.html" . }}
+    {{ end }}
+  </div>
+  <div id="website-terkait-content">
+    {{ $frontBundle4 := .Site.Params.frontBundle4 | default "website-terkait" | lower }}
+    {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle4) }}
+      {{ partial "blog-card-hero.html" . }}
+    {{ end }}
+  </div>
+</div>
+
+
+<script>
+function showHeroModal(content) {
+  const modal = document.getElementById('heroModal');
+  const modalContent = modal.querySelector('.modal-hero-content');
+  document.getElementById('modal-title').textContent = content;
+  modal.classList.remove('hidden');
+  modalContent.style.animation = 'slideInDown 0.4s forwards';
+  document.body.style.overflow = 'hidden'; // Disable scrolling outside the modal
+
+  const contentMap = {
+    'Aplikasi Pusat': 'aplikasi-pusat-content',
+    'Layanan': 'layanan-content',
+    'Aplikasi Daerah': 'aplikasi-daerah-content',
+    'Website Terkait': 'website-terkait-content'
+  };
+
+  const contentId = contentMap[content];
+  if (contentId) {
+    const contentElement = document.getElementById(contentId);
+    modal.querySelector('.grid').innerHTML = contentElement.innerHTML;
+  }
+}
+
+function closeHeroModal() {
+  const modal = document.getElementById('heroModal');
+  const modalContent = modal.querySelector('.modal-hero-content');
+  modalContent.style.animation = 'slideOutUp 0.5s forwards';
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = ''; // Restore scrolling outside the modal
+  }, 500);
+}
+
+document.getElementById('heroModal').addEventListener('click', closeHeroModal);
+</script>
+
+<style>
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOutUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-100%); }
+}
+</style>
+
+<div class="container mx-auto p-4 px-9">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
     <!-- Agenda Section -->
     {{ $agenda := .Site.Params.agenda }}
@@ -147,10 +255,14 @@ $sliderImages }}
         {{ .judul }}
         </p>
           <div class="flex items-center text-gray-600 text-sm mt-2">
-          <i class="far fa-clock mr-2"></i>
-          {{ .jamMulai }} - {{ .jamSelesai }}
-          <i class="fas fa-map-marker-alt ml-4 mr-2"></i>
-          {{ .lokasi }}
+            <div class="flex-1">
+              <i class="far fa-clock mr-1"></i>
+              {{ .jamMulai }} - {{ .jamSelesai }}
+            </div>
+            <div class="flex-1 flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <div>{{ .lokasi }}</div>
+            </div>
           </div>
         </div>
       </div>
