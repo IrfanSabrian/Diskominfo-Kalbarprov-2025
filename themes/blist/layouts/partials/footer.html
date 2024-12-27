@@ -39,20 +39,9 @@
 
   <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-1 mt-10">
     <!-- Kolom 1: Intro Title dan Subtitle -->
-    <div class="text-center dark:text-white break-normal px-4 py-4">
-      <h1 class="font-bold mb-4 text-center" style="font-size: 1.5rem">
-        {{ .Site.Params.introTitle | safeHTML }}
-      </h1>
-      <p
-        class="font-light pt-4 leading-normal min-h-16 text-center"
-        style="font-size: 1.15rem"
-      >
-        {{ .Site.Params.introSubtitle | safeHTML }}
-      </p>
-    </div>
 
     <!-- Kolom 1: Kontak Kami -->
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 ">
       <h2
         class="font-bold mb-4 text-center pb-2"
         style="
@@ -64,7 +53,7 @@
       >
         Kontak Kami
       </h2>
-      <div class="space-y-4 dark:text-white">
+      <div class="pl-10 space-y-4 dark:text-white">
         <!-- Phone -->
         <div class="flex items-center gap-2">
           <i
@@ -83,14 +72,7 @@
           <span class="flex-1">{{ .Site.Params.email }}</span>
         </div>
 
-        <!-- Address -->
-        <div class="flex items-center gap-2">
-          <i
-            class="fas fa-map-marker-alt w-6 h-6 flex justify-center items-center flex-shrink-0"
-            style="font-size: 1.25rem"
-          ></i>
-          <span class="flex-1">{{ .Site.Params.address }}</span>
-        </div>
+       
       </div>
     </div>
 
@@ -105,7 +87,7 @@
           margin: 0 auto;
         "
       >
-        Ikuti Kami
+        Lokasi
       </h2>
       <!-- GMaps Iframe -->
       <iframe
@@ -122,7 +104,7 @@
 
 
     <!-- Kolom 3: Tautan Terkait -->
-<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4 ">
   <h2
     class="font-bold mb-4 text-center pb-2"
     style="
@@ -134,7 +116,7 @@
   >
     Tautan Terkait
   </h2>
-  <div class="space-y-4 dark:text-white">
+  <div class="pl-10 space-y-4 dark:text-white">
     <div class="flex items-center gap-2">
       <i
         class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
@@ -211,7 +193,7 @@
   >
     Tautan Tercepat
   </h2>
-  <div class="space-y-4 dark:text-white">
+  <div class="pl-10 space-y-4 dark:text-white">
     <div class="flex items-center gap-2">
       <i
         class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
