@@ -31,6 +31,7 @@ frontBundle1 = "aplikasi-pusat"
 frontBundle2 = "layanan"
 frontBundle3 = "aplikasi-daerah"
 frontBundle4 = "website-terkait"
+frontBundle5 = "berita"
 hideMeta = false
 hideOtherLanguages = false
 toc = true

@@ -1,0 +1,84 @@
+{{ $accent := .Site.Params.ascentColor }}
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  {{ if .Params.eurl }}
+  <a href="{{ .Params.eurl }}" class="absolute inset-0 group">
+  {{ else }}
+  <a href="{{ .RelPermalink }}" class="absolute inset-0 group">
+  {{ end }}
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('{{ .Params.thumbnail }}');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-2 left-2 right-2 flex flex-col z-10 p-4">
+      
+      <div class="mb-2">
+        <span class="text-base font-bold block">
+          {{ .Params.title | truncate 100 "..." }}
+        </span>
+      </div>
+
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center">
+          <span class="text-sm text-gray-200 italic w-40">
+            <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 January 2006" }}
+          </span>
+          <span class="text-sm text-gray-200 italic ml-4">
+            <i class="fas fa-user mr-2"></i> {{ .Params.author }}
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita .text-base {
+      font-size: 0.8rem;
+    }
+  }
+
+</style>
