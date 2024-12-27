@@ -1,9 +1,22 @@
-<div class="bg-gray-200 p-4 rounded-lg cursor-pointer" onclick="window.open('{{ .Params.eurl }}', '_blank')">
-  <img src="{{ .Params.logo }}" alt="{{ .Params.title }}" class="w-full">
-  <h2 class="text-lg font-semibold mt-2">{{ .Params.title }}</h2>
-  <p class="text-sm">{{ .Params.desc }}</p>
-  <div class="flex items-center mt-2">
-    <span class="text-blue-500">Selengkapnya</span>
-    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+<style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('{{ .Params.eurl }}', '_blank')" style="border-color: #96A9B2;">
+  <!-- Logo di Tengah Vertikal -->
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="{{ .Params.logo }}" alt="{{ .Params.title }}" class="w-full h-auto">
+  </div>
+  <!-- Konten di Bawah -->
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">{{ .Params.title }}</h2>
+    <p class="text-xs text-justify mt-2">{{ .Params.desc }}</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
   </div>
 </div>

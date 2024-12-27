@@ -40,13 +40,20 @@
       "agenda-container",
       "berita-container",
       "bg-black",
+<<<<<<< HEAD
       "bg-center",
       "bg-cover",
+=======
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "bg-customDarkGreen",
       "bg-customGreen",
       "bg-customYellow",
       "bg-defaultColor",
       "bg-gray-200",
+<<<<<<< HEAD
+=======
+      "bg-green-500",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "bg-opacity-50",
       "bg-opacity-75",
       "bg-white",
@@ -54,14 +61,22 @@
       "blog-card-berita",
       "border",
       "border-b",
+<<<<<<< HEAD
       "border-b-2",
+=======
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "border-customGreen",
       "border-gray-200",
       "border-gray-300",
+      "border-gray-400",
       "border-gray-600",
+<<<<<<< HEAD
       "border-l-2",
       "border-t",
       "border-t-2",
+=======
+      "border-t",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "bottom-0",
       "bottom-2",
       "bottom-4",
@@ -82,9 +97,14 @@
       "diagonal",
       "dropdown",
       "dropdown-toggle",
+      "duration-30",
       "duration-300",
       "duration-500",
       "ease-in-out",
+<<<<<<< HEAD
+=======
+      "fa-arrow-right",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "fa-arrow-up",
       "fa-bars",
       "fa-brands",
@@ -111,6 +131,7 @@
       "flex",
       "flex-1",
       "flex-col",
+      "flex-grow",
       "flex-wrap",
       "font-bold",
       "font-medium",
@@ -121,16 +142,27 @@
       "gap-4",
       "grid",
       "grid-cols-1",
+<<<<<<< HEAD
       "grid-item",
       "group",
       "group-hover:scale-110",
+=======
+      "grid-cols-2",
+      "group",
+      "group-hover:text-white",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "h-",
       "h-1",
       "h-16",
       "h-3/5",
+<<<<<<< HEAD
+=======
+      "h-32",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "h-4",
       "h-6",
       "h-64",
+      "h-72",
       "h-8",
       "h-80vh",
       "h-96",
@@ -139,10 +171,34 @@
       "hero-container",
       "hero-modal",
       "hidden",
+<<<<<<< HEAD
+=======
+      "hov",
+      "hover-border",
+      "hover:bg-cus",
+      "hover:bg-customGreen",
+      "hover:bg-g",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "hover:bg-gray-100",
+      "hover:bg-green-500",
       "hover:bg-white",
+      "hover:border",
+      "hover:border-2",
+      "hover:border-2border-customGreen",
+      "hover:border-customGreen",
+      "hover:border-gray-400",
+      "hover:border-gree",
+      "hover:border-green-500",
+      "hover:opacity-",
+      "hover:opacity-30",
+      "hover:opacity-60",
+      "hover:opacity-75",
       "hover:scale-110",
       "hover:text-customGreen",
+<<<<<<< HEAD
+=======
+      "hover:text-white",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "hover:underline",
       "inline-block",
       "inset-0",
@@ -152,24 +208,37 @@
       "justify-between",
       "justify-center",
       "justify-end",
+<<<<<<< HEAD
+=======
+      "justitems-center",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "leading-6",
       "leading-none",
       "left-0",
       "left-14",
+<<<<<<< HEAD
       "left-2",
       "left-2/4",
       "lg:col-span-2",
       "lg:col-span-3",
       "lg:grid-cols-7",
+=======
+      "lg:grid-cols-3",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "loader",
       "logo",
       "m-4",
       "main-content",
       "max-h-full",
+<<<<<<< HEAD
+=======
+      "mb",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "mb-2",
       "mb-4",
       "mb-6",
       "mb-8",
+      "mb-auto",
       "md:flex",
       "md:grid-cols-3",
       "md:grid-cols-4",
@@ -196,12 +265,26 @@
       "modal-hero-content",
       "mr-1",
       "mr-2",
+<<<<<<< HEAD
       "mt-10",
       "mt-2",
       "mt-3",
       "mt-8",
+=======
+      "mt",
+      "mt-",
+      "mt-1",
+      "mt-10",
+      "mt-2",
+      "mt-3",
+      "mt-4",
+      "mt-6",
+      "mt-8",
+      "mt-auto",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "mx-0",
       "mx-2",
+      "mx-4",
       "mx-5",
       "mx-auto",
       "my-10",
@@ -211,9 +294,17 @@
       "navbar-container",
       "object-contain",
       "object-cover",
+<<<<<<< HEAD
       "opacity-0",
       "opacity-100",
       "opacity-50",
+=======
+      "op",
+      "opacity-0",
+      "opacity-100",
+      "opacity-60",
+      "opacity-70",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "overflow-auto",
       "overflow-hidden",
       "overflow-y-auto",
@@ -227,8 +318,11 @@
       "pl-10",
       "place-items-center",
       "pointer-events-none",
+<<<<<<< HEAD
       "pt-2",
       "pt-3",
+=======
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "px-4",
       "px-48",
       "px-5",
@@ -239,11 +333,16 @@
       "py-3",
       "py-4",
       "py-6",
+      "r",
       "relative",
       "right-0",
       "right-2",
       "right-3",
       "right-4",
+<<<<<<< HEAD
+=======
+      "round",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "rounded-2xl",
       "rounded-3xl",
       "rounded-full",
@@ -253,10 +352,17 @@
       "rounded-r-3xl",
       "rounded-tl-3xl",
       "rounded-xl",
+<<<<<<< HEAD
       "shadow-lg",
       "shadow-md",
       "site-title",
       "space-x-2",
+=======
+      "shadow",
+      "shadow-lg",
+      "shadow-md",
+      "site-title",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "space-y-4",
       "sticky",
       "swiper",
@@ -267,6 +373,11 @@
       "swiper-container",
       "swiper-slide",
       "swiper-wrapper",
+<<<<<<< HEAD
+=======
+      "tex",
+      "text",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "text-2xl",
       "text-3xl",
       "text-4xl",
@@ -274,16 +385,33 @@
       "text-black",
       "text-blue-500",
       "text-center",
+<<<<<<< HEAD
+=======
+      "text-cu",
+      "text-custogreen",
+      "text-custom",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "text-customGreen",
+      "text-customgreen",
+      "text-custoreen",
       "text-ellipsis",
+<<<<<<< HEAD
       "text-gray-200",
+=======
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "text-gray-500",
       "text-gray-600",
       "text-gray-800",
       "text-gray-900",
+<<<<<<< HEAD
       "text-left",
       "text-lg",
       "text-md",
+=======
+      "text-justify",
+      "text-left",
+      "text-lg",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "text-sm",
       "text-white",
       "text-xl",
@@ -296,10 +424,15 @@
       "top-2",
       "top-4",
       "transform",
+<<<<<<< HEAD
+=======
+      "transition-all",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "transition-colors",
       "transition-opacity",
       "transition-transform",
       "translate-x-full",
+<<<<<<< HEAD
       "video-container",
       "video-overlay",
       "video-wrapper",
@@ -311,6 +444,13 @@
       "w-3/4",
       "w-4",
       "w-40",
+=======
+      "w-1/2",
+      "w-11/12",
+      "w-20",
+      "w-3/4",
+      "w-4",
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
       "w-6",
       "w-6/12",
       "w-64",
@@ -319,6 +459,7 @@
       "w-full",
       "w-px",
       "whitespace-nowrap",
+<<<<<<< HEAD
       "z",
       "z-0",
       "z-10",
@@ -327,6 +468,12 @@
       "z-50",
       "z-50x",
       "z0"
+=======
+      "z-10",
+      "z-20",
+      "z-40",
+      "z-50"
+>>>>>>> c4cf098dab70e60167506ed90703770d2016a3b2
     ],
     "ids": [
       "aplikasi-daerah-content",
