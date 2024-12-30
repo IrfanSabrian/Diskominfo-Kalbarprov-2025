@@ -1,0 +1,118 @@
+{{ define "main" }}
+
+  <div class="text-2xl font-bold text-center pt-8 text-customGreen">{{ .Title }}</div>
+  <div class="container mx-auto px-6">
+    <div class="w-1/4 h-1 bg-customGreen mx-auto mt-4 mb-12"></div>
+  </div>
+  {{ $type := .Type }}
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse 12 }}
+  <div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8">
+    {{ range $paginator.Pages }}
+    {{ $accent := .Site.Params.ascentColor }}
+    <div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden" 
+        style="background-image: url('{{ .Params.thumbnail }}');">
+
+      {{ if .Params.eurl }}
+      <a href="{{ .Params.eurl }}" class="absolute inset-0 group">
+      {{ else }}
+      <a href="{{ .RelPermalink }}" class="absolute inset-0 group">
+      {{ end }}
+
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+            style="background-image: url('{{ .Params.thumbnail }}');">
+          <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <div class="absolute bottom-2 left-4 right-4 flex flex-col z-10 p-4">
+          
+          <div class="mb-2">
+            <span class="text-base font-bold block">
+              {{ .Params.title }}
+            </span>
+          </div>
+
+          <div class="flex items-center justify-between w-full">
+            <span class="text-sm text-gray-200 italic">
+              <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
+            </span>
+          </div>
+          
+        </div>
+      </a>
+    </div>
+
+
+    <style>
+      .blog-card-berita {
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+      }
+      .grid-item .group:hover .group-hover\:scale-110 {
+        transform: scale(1.1);
+      }
+
+      .grid-item .group-hover\:scale-110 {
+        transition: transform 0.5s ease;
+      }
+
+      .grid-item .group-hover\:opacity-60 {
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      .grid-item .text-xl {
+        white-space: normal;
+        word-wrap: break-word;
+      }
+
+      .grid-item .group:hover .text-base {
+        color: #00ff84;
+        transition: color 0.3s ease;
+      }
+
+      .grid-item .group .text-base {
+        transition: color 0.3s ease;
+      }
+
+      @media (max-width: 1024px) {
+        .blog-card-berita {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16 / 9;
+        }
+        .blog-card-berita .text-base {
+          font-size: 0.8rem;
+        }
+      }
+
+    </style>
+    {{ end }}
+  </div>
+
+  <div class="flex justify-center space-x-2 my-8">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    {{ end }}
+    
+    {{ range $paginator.Pagers }}
+      {{ if eq . $paginator }}
+      <span class="px-4 py-2 bg-green-600 text-white rounded-lg">{{ .PageNumber }}</span>
+      {{ else }}
+      <a href="{{ .URL }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+        {{ .PageNumber }}
+      </a>
+      {{ end }}
+    {{ end }}
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+    {{ end }}
+  </div>
+
+{{ end }}

@@ -1,0 +1,97 @@
+{{ $accent := .Site.Params.accentColor }}
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="{{ .RelPermalink }}"
+  data-title="{{ .Params.title }}"
+>
+
+  <!-- Thumbnail -->
+  {{ if .Params.thumbnail }}
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('{{ .Params.thumbnail }}');"
+    loading="lazy"
+  ></div>
+  {{ end }}
+
+  <!-- Kontainer teks, hanya muncul saat hover -->
+  <div class="text-container absolute inset-0 flex flex-col justify-end z-10 p-3">
+    <!-- Judul -->
+    <div>
+      <span class="text-sm font-bold block">
+        {{ .Params.title }}
+      </span>
+    </div>
+
+    <!-- Tanggal -->
+    {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
+    <div class="mt-2">
+      <span class="text-xs text-gray-200 italic">
+        <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
+      </span>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+  /* Blog card container */
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative; /* Pastikan elemen ini memiliki posisi relatif */
+    overflow: hidden;
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    cursor: pointer; /* Change cursor on hover */
+  }
+
+  /* Thumbnail styling */
+  .blog-card-home-foto .thumbnail {
+    position: absolute; /* Absolute positioning for background */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  /* Hover effect on thumbnail */
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1); /* Slight zoom on hover */
+    filter: brightness(75%); /* Darken the image on hover */
+  }
+
+  /* Text container visible only on hover */
+  .text-container {
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s ease; 
+    position: absolute; /* Absolute positioning inside the card */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 10; /* Make sure text is above the image */
+    padding: 1rem; /* Padding inside the text container */
+  }
+
+  /* Show text container on hover */
+  .blog-card-home-foto:hover .text-container {
+    opacity: 1;
+  }
+
+  /* Additional text styling */
+  .blog-card-home-foto .text-container span {
+    font-size: 0.875rem; /* Adjust size of title */
+    font-weight: bold;
+  }
+
+  .blog-card-home-foto .text-container .mt-2 {
+    margin-top: 0.5rem;
+  }
+</style>

@@ -12,15 +12,15 @@
       <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
 
-    <div class="absolute bottom-2 left-2 right-2 flex flex-col z-10 p-4">
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
       
-      <div class="mb-2">
+      <div class="mb-2 mt-auto">
         <span class="text-sm font-bold block">
-          {{ .Params.title | truncate 60 "..." }}
+          {{ .Params.title | truncate 30 "..." }}
         </span>
       </div>
 
-      <div class="flex items-center justify-between w-full">
+      <div class="hidden md:flex items-center justify-between w-full">
         <div class="flex items-center space-x-2">
           <span class="text-xs text-gray-200 italic">
             <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 January 2006" }}
@@ -78,6 +78,9 @@
     }
     .blog-card-berita-swiper .text-base {
       font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none; /* Sembunyikan informasi author dan tanggal pada tampilan mobile */
     }
   }
 

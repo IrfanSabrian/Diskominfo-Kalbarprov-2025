@@ -441,10 +441,32 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
 
   <div class="diagonal" style="width: 100%; height: 80vh;">
     <div class="container-video-utama" style="width: 60%; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <video src="video/diskominfo-welcome.mp4" controls autoplay loop style="width: 100%; height: auto; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+      <video src="video/diskominfo-welcome.mp4" controls loop style="width: 100%; height: auto; border-top-left-radius: 15px; border-top-right-radius: 15px;">
       </video>
     </div>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var video = document.querySelector('.container-video-utama video');
+      var options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+
+      var observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }, options);
+
+      observer.observe(video);
+    });
+  </script>
 <style>
   .diagonal {
     width: 100%;
@@ -474,5 +496,34 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     z-index: 2;
   }
 </style>
+
+<div class="container p-10">
+<div class="container p-6 border-4 border-customGreen rounded-3xl">
+   <div class="flex justify-between items-center mb-4">
+    <h1 class="text-4xl font-bold text-customGreen">
+     Galeri
+     <br/>
+     Foto
+    </h1>
+    <a class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen" href="#">
+     Selengkapnya
+     <i class="fas fa-external-link-alt ml-2">
+     </i>
+    </a>
+   </div>
+   <div class="grid grid-cols-3 gap-4 place-items-center">
+    {{ $frontBundle6 := .Site.Params.frontBundle6 | default "foto" | lower }}
+    <div class="col-span-1">
+        {{- partial "blog-card-home-foto.html" (index (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) 0) -}}
+    </div>
+    <div class="col-span-1 mt-32">
+        {{- partial "blog-card-home-foto.html" (index (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) 1) -}}
+    </div>
+    <div class="col-span-1">
+        {{- partial "blog-card-home-foto.html" (index (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) 2) -}}
+    </div>
+   </div>
+</div>
+</div>
 
 {{ end }}
