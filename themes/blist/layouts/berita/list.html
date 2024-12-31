@@ -1,16 +1,25 @@
 {{ define "main" }}
+{{ $type := .Type }}
+{{ $paginator := .Paginate .Pages.ByDate.Reverse 12 }}
 
-  <div class="text-2xl font-bold text-center pt-8 text-customGreen">{{ .Title }}</div>
-  <div class="container mx-auto px-6">
-    <div class="w-1/4 h-1 bg-customGreen mx-auto mt-4 mb-12"></div>
+  <div class="flex items-center justify-between mx-10 my-6">
+    <div class="mx-4 text-4xl font-bold text-customGreen">{{ .Title }}</div>
+    <div class="flex-grow h-1 bg-customGreen mr-4"></div>
+    <div class="flex items-center">
+      <a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL }}{{ else }}#{{ end }}" class="mr-2 text-customGreen rounded {{ if not $paginator.HasPrev }}opacity-50 cursor-not-allowed{{ else }}hover:text-green-900 transition-colors{{ end }}">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 30px; transition: color 0.3s;"></i>
+      </a>
+      <a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ else }}#{{ end }}" class="ml-2 text-customGreen rounded {{ if not $paginator.HasNext }}opacity-50 cursor-not-allowed{{ else }}hover:text-green-900 transition-colors{{ end }}">
+        <i class="fa-solid fa-circle-arrow-right" style="font-size: 30px; transition: color 0.3s;"></i>
+      </a>
+    </div>
   </div>
-  {{ $type := .Type }}
-  {{ $paginator := .Paginate .Pages.ByDate.Reverse 12 }}
-  <div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8">
+
+  <div class="container p-4 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
     {{ range $paginator.Pages }}
     {{ $accent := .Site.Params.ascentColor }}
-    <div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden" 
-        style="background-image: url('{{ .Params.thumbnail }}');">
+    <div class="grid-item blog-card-berita relative text-white shadow-md overflow-hidden rounded-md" 
+        style="background-image: url('{{ .Params.thumbnail }}'); height: 250px; width: 400px;">
 
       {{ if .Params.eurl }}
       <a href="{{ .Params.eurl }}" class="absolute inset-0 group">
@@ -23,29 +32,25 @@
           <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
-        <div class="absolute bottom-2 left-4 right-4 flex flex-col z-10 p-4">
-          
+        <div class="flex items-center justify-center absolute right-0 top-32 w-32 bg-customGreen p-2 rounded-tl-lg rounded-bl-lg" style="background-color: rgba(3, 160, 85, 0.8);">
+          <span class="text-sm text-white text-center">
+            <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
+          </span>
+        </div>
+        
+        <div class="absolute bottom-2 left-2 right-0 flex flex-col z-10 p-2">
           <div class="mb-2">
             <span class="text-base font-bold block">
-              {{ .Params.title }}
+              {{ .Params.title | truncate 60 "..."}}
             </span>
           </div>
-
-          <div class="flex items-center justify-between w-full">
-            <span class="text-sm text-gray-200 italic">
-              <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
-            </span>
-          </div>
-          
         </div>
       </a>
     </div>
 
-
     <style>
       .blog-card-berita {
         width: 100%;
-        height: 400px;
         background-size: cover;
         background-position: center;
       }
@@ -92,26 +97,14 @@
   </div>
 
   <div class="flex justify-center space-x-2 my-8">
-    {{ if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
-      <i class="fas fa-chevron-left"></i>
-    </a>
-    {{ end }}
-    
     {{ range $paginator.Pagers }}
       {{ if eq . $paginator }}
-      <span class="px-4 py-2 bg-green-600 text-white rounded-lg">{{ .PageNumber }}</span>
+      <span class="px-4 py-2 bg-green-600 text-white rounded">{{ .PageNumber }}</span>
       {{ else }}
-      <a href="{{ .URL }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+      <a href="{{ .URL }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
         {{ .PageNumber }}
       </a>
       {{ end }}
-    {{ end }}
-
-    {{ if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
-      <i class="fas fa-chevron-right"></i>
-    </a>
     {{ end }}
   </div>
 

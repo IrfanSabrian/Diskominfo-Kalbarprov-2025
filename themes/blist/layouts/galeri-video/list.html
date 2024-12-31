@@ -1,0 +1,111 @@
+{{ define "main" }}
+{{ $type := .Type }}
+{{ $paginator := .Paginate .Pages.ByDate.Reverse 12 }}
+
+  <div class="flex items-center justify-between mx-10 my-6">
+    <div class="mx-4 text-4xl font-bold text-customGreen">{{ .Title }}</div>
+    <div class="flex-grow h-1 bg-customGreen mr-4"></div>
+    <div class="flex items-center">
+      <a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL }}{{ else }}#{{ end }}" class="mr-2 text-customGreen rounded {{ if not $paginator.HasPrev }}opacity-50 cursor-not-allowed{{ else }}hover:text-green-900 transition-colors{{ end }}">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 30px; transition: color 0.3s;"></i>
+      </a>
+      <a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ else }}#{{ end }}" class="ml-2 text-customGreen rounded {{ if not $paginator.HasNext }}opacity-50 cursor-not-allowed{{ else }}hover:text-green-900 transition-colors{{ end }}">
+        <i class="fa-solid fa-circle-arrow-right" style="font-size: 30px; transition: color 0.3s;"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="container p-4 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
+    {{ range $paginator.Pages }}
+    {{ $accent := .Site.Params.ascentColor }}
+    <div class="grid-item blog-card-berita relative text-white shadow-md overflow-hidden rounded-md" 
+        style="background-image: url('{{ .Params.thumbnail }}'); height: 250px; width: 400px;">
+
+      {{ if .Params.eurl }}
+      <a href="{{ .Params.eurl }}" class="absolute inset-0 group">
+      {{ else }}
+      <a href="{{ .RelPermalink }}" class="absolute inset-0 group">
+      {{ end }}
+
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+            style="background-image: url('{{ .Params.thumbnail }}');">
+          <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <div class="flex items-center justify-center absolute right-0 top-32 w-32 bg-customGreen p-2 rounded-tl-lg rounded-bl-lg" style="background-color: rgba(3, 160, 85, 0.8);">
+          <span class="text-sm text-white text-center">
+            <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
+          </span>
+        </div>
+        
+        <div class="absolute bottom-2 left-2 right-0 flex flex-col z-10 p-2">
+          <div class="mb-2">
+            <span class="text-base font-bold block">
+              {{ .Params.title | truncate 60 "..."}}
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <style>
+      .blog-card-berita {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+      .grid-item .group:hover .group-hover\:scale-110 {
+        transform: scale(1.1);
+      }
+
+      .grid-item .group-hover\:scale-110 {
+        transition: transform 0.5s ease;
+      }
+
+      .grid-item .group-hover\:opacity-60 {
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      .grid-item .text-xl {
+        white-space: normal;
+        word-wrap: break-word;
+      }
+
+      .grid-item .group:hover .text-base {
+        color: #00ff84;
+        transition: color 0.3s ease;
+      }
+
+      .grid-item .group .text-base {
+        transition: color 0.3s ease;
+      }
+
+      @media (max-width: 1024px) {
+        .blog-card-berita {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16 / 9;
+        }
+        .blog-card-berita .text-base {
+          font-size: 0.8rem;
+        }
+      }
+
+    </style>
+    {{ end }}
+  </div>
+
+  <div class="flex justify-center space-x-2 my-8">
+    {{ range $paginator.Pagers }}
+      {{ if eq . $paginator }}
+      <span class="px-4 py-2 bg-green-600 text-white rounded">{{ .PageNumber }}</span>
+      {{ else }}
+      <a href="{{ .URL }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
+        {{ .PageNumber }}
+      </a>
+      {{ end }}
+    {{ end }}
+  </div>
+
+{{ end }}
