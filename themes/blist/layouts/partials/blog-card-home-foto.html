@@ -3,8 +3,8 @@
   class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
   data-modal="{{ .RelPermalink }}"
   data-title="{{ .Params.title }}"
+  data-thumbnail="{{ .Params.thumbnail }}"
 >
-
   <!-- Thumbnail -->
   {{ if .Params.thumbnail }}
   <div
@@ -14,24 +14,23 @@
   ></div>
   {{ end }}
 
-  <!-- Kontainer teks, hanya muncul saat hover -->
-  <div class="text-container absolute inset-0 flex flex-col justify-end z-10 p-3">
-    <!-- Judul -->
-    <div>
-      <span class="text-sm font-bold block">
-        {{ .Params.title }}
-      </span>
-    </div>
-
-    <!-- Tanggal -->
-    {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
-    <div class="mt-2">
-      <span class="text-xs text-gray-200 italic">
-        <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
-      </span>
-    </div>
-    {{ end }}
+  <!-- Title on hover -->
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      {{ .Params.title }}
+    </span>
   </div>
+
+  <!-- Tanggal selalu terlihat di kanan bawah -->
+  {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      {{ .Date.Format "2 January 2006" }}
+    </span>
+  </div>
+  {{ end }}
 </div>
 
 <style>
@@ -42,8 +41,14 @@
     position: relative; /* Pastikan elemen ini memiliki posisi relatif */
     overflow: hidden;
     border-radius: 0.5rem; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
     cursor: pointer; /* Change cursor on hover */
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px; /* Ukuran lebih kecil pada tampilan mobile */
+      height: 130px;
+    }
   }
 
   /* Thumbnail styling */
@@ -64,34 +69,17 @@
     filter: brightness(75%); /* Darken the image on hover */
   }
 
-  /* Text container visible only on hover */
-  .text-container {
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.5s ease; 
-    position: absolute; /* Absolute positioning inside the card */
-    top: 0;
-    left: 0;
-    right: 0;
+  /* Hover effect to show title */
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1; /* Show title on hover */
+  }
+
+  /* Date container styling */
+  .date-container {
+    position: absolute; /* Absolute positioning for date */
     bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    z-index: 10; /* Make sure text is above the image */
-    padding: 1rem; /* Padding inside the text container */
-  }
-
-  /* Show text container on hover */
-  .blog-card-home-foto:hover .text-container {
-    opacity: 1;
-  }
-
-  /* Additional text styling */
-  .blog-card-home-foto .text-container span {
-    font-size: 0.875rem; /* Adjust size of title */
-    font-weight: bold;
-  }
-
-  .blog-card-home-foto .text-container .mt-2 {
-    margin-top: 0.5rem;
+    right: 0;
+    padding: 0.5rem; /* Padding around the date */
+    border-radius: 0.25rem; /* Rounded corners for date container */
   }
 </style>

@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="container p-4 mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
+  <div class="container p-4 mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 justify-items-center">
     {{ range $paginator.Pages }}
     {{ $accent := .Site.Params.ascentColor }}
     <div class="grid-item blog-card-berita relative text-white shadow-md overflow-hidden rounded-md" 

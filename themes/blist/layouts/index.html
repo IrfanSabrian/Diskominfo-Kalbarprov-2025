@@ -1,10 +1,50 @@
 {{ define "main" }} {{ $sliderImages := .Site.Params.sliders.images }} {{ if len
 $sliderImages }}
 <div class="hero-container py-6">
-  <div
-    class="swiper-container swiper-background overflow-hidden rounded-3xl relative"
-    style="width: 80%; z-index: 5; position: relative; margin-left: auto; margin-right: auto;"
-  >
+  <style>
+    .swiper-container.swiper-background {
+      width: 80%;
+      z-index: 5;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .greensquare {
+      width: 96%;
+      height: 52%;
+      top: 18%;
+      left: 0;
+      z-index: 3;
+    }
+
+    .yellowsquare {
+      width: 48%;
+      height: 50%;
+      top: 35%;
+      right: 6%;
+      z-index: 4;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .swiper-container.swiper-background {
+        width: 90%;
+      }
+      .greensquare {
+        width: 98%;
+        height: 17%;
+        top: 14%;
+      }
+      .yellowsquare {
+        width: 50%;
+        height: 13%;
+        top: 20%;
+        right: 2%;
+      }
+    }
+  </style>
+  <div class="swiper-container swiper-background overflow-hidden rounded-3xl relative">
     <div class="swiper-wrapper">
       {{ range $sliderImages }}
       <div class="swiper-slide">
@@ -15,15 +55,9 @@ $sliderImages }}
     </div>
     <div class="swiper-agenda-pagination" style="z-index: 10"></div>
   </div>
-  <div
-    class="absolute my-4 bg-customGreen rounded-r-3xl p-6"
-    style="width: 96vw; height: 22vw; top: 18%; left: 0; z-index: 3"
-  >
+  <div class="greensquare absolute my-4 bg-customGreen rounded-r-3xl p-6">
   </div>
-  <div
-    class="absolute my-4 bg-customYellow rounded-3xl p-6"
-    style="width: 48vw; height: 27vw; top: 28%; right: 6%; z-index: 4; opacity: 0.8"
-  >
+  <div class="yellowsquare absolute my-4 bg-customYellow rounded-3xl p-6">
   </div>
 </div>
 <style>
@@ -87,8 +121,8 @@ $sliderImages }}
 </script>
 {{ end }}
 
-<div class="py-6">
-  <div class="container container-menu mx-0 px-48 flex flex-wrap justify-between">
+<div class="py-4">
+  <div class="container container-menu mx-auto px-4 gap-4 flex flex-wrap justify-center">
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
     style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Aplikasi Pusat')">
@@ -115,9 +149,9 @@ $sliderImages }}
     </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
     style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
-    onclick="window.location.href='/informasi'">
-      <img src="icon/diskominfo-informasi.png" alt="Diskominfo Informasi" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Diskominfo Informasi</span>
+    onclick="showHeroModal('Formulir')">
+      <img src="icon/formulir.png" alt="Formulir" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Formulir</span>
     </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
     style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
@@ -181,6 +215,12 @@ $sliderImages }}
       {{ partial "blog-card-hero.html" . }}
     {{ end }}
   </div>
+  <div id="formulir-content">
+    {{ $frontBundle5 := .Site.Params.frontBundle5 | default "formulir" | lower }}
+    {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle5) }}
+      {{ partial "blog-card-hero.html" . }}
+    {{ end }}
+  </div>
 </div>
 
 
@@ -197,7 +237,8 @@ function showHeroModal(content) {
     'Aplikasi Pusat': 'aplikasi-pusat-content',
     'Layanan': 'layanan-content',
     'Aplikasi Daerah': 'aplikasi-daerah-content',
-    'Website Terkait': 'website-terkait-content'
+    'Website Terkait': 'website-terkait-content',
+    'Formulir': 'formulir-content'
   };
 
   const contentId = contentMap[content];
@@ -299,9 +340,10 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
       <h2 class="text-2xl text-gray-800">
        Berita Terkini
       </h2>
-      <a href="{{ lower (replace (.Site.Params.frontBundle5 | default "berita" | lower) " " "-") | absLangURL }}" class="text-md text-customGreen border border-customGreen rounded-full px-5 py-2 flex items-center">
-       Berita Lainnya
-       <i class="fas fa-external-link-alt ml-2"></i>
+      <a href="{{ lower (replace (.Site.Params.frontBundle5 | default "berita" | lower) " " "-") | absLangURL }}" class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors">
+        Berita Lainnya
+        <i class="fas fa-external-link-alt ml-2">
+        </i>
       </a>
      </div>
      <div class="relative mb-8">
@@ -309,14 +351,14 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
       <div class="absolute left-2/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen rounded-full"></div>
      </div>
      <div class="space-y-4">
-        {{ $frontBundle5 := .Site.Params.frontBundle5 | default "berita" | lower }}
-        {{ range first 1 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle5) }}
+        {{ $frontBundle6 := .Site.Params.frontBundle6 | default "berita" | lower }}
+        {{ range first 1 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) }}
           {{- partial "blog-card-home-berita.html" . -}}
         {{ end }}
      </div>
      <div class="swiper swiper-berita min-h-72 mx-auto">
       <div class="swiper-wrapper pb-2 pt-3">
-        {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle5) }}
+        {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) }}
         <div class="swiper-slide rounded-lg">
           {{- partial "blog-card-home-berita-swiper.html" . -}}
         </div>
@@ -391,7 +433,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
         <div id="gpr-kominfo-widget-container" style="height: 620px;"></div>
     </div>
     </div>
-    </div>
+</div>
     <style>
       /* Elemen Container */
       #gpr-kominfo-widget-container {
@@ -440,7 +482,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
 
 
   <div class="diagonal" style="width: 100%; height: 80vh;">
-    <div class="container-video-utama" style="width: 60%; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="container-video-utama" style="height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
       <video src="video/diskominfo-welcome.mp4" controls loop style="width: 100%; height: auto; border-top-left-radius: 15px; border-top-right-radius: 15px;">
       </video>
     </div>
@@ -495,35 +537,143 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     align-items: center;
     z-index: 2;
   }
+  @media (max-width: 768px) {
+    .container-video-utama {
+      width: 90%; /* Ukuran video diperbesar menjadi 95% untuk tampilan mobile */
+    }
+  }
 </style>
 
-<div class="container p-10">
-<div class="container p-6 border-4 border-customGreen rounded-3xl">
-   <div class="flex justify-between items-center mb-4">
-    <h1 class="text-4xl font-bold text-customGreen">
+<div class="container p-4 sm:p-10">
+<div class="container p-3 sm:p-6 border-4 border-customGreen rounded-3xl">
+   <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
+    <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
      Galeri
      <br/>
      Foto
     </h1>
-    <a class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen" href="#">
+    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0" href="/foto">
      Selengkapnya
      <i class="fas fa-external-link-alt ml-2">
      </i>
     </a>
    </div>
-   <div class="grid grid-cols-3 gap-4 place-items-center">
-    {{ $frontBundle6 := .Site.Params.frontBundle6 | default "foto" | lower }}
-    <div class="col-span-1">
-        {{- partial "blog-card-home-foto.html" (index (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) 0) -}}
+   <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-start max-w-full mx-auto px-2 sm:px-4 md:px-8 lg:px-12">
+    <div class="text-center mb-4">
+      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+        {{ $frontBundle7 := .Site.Params.frontBundle7 | default "foto" | lower }}
+        <div class="swiper swiper-foto mx-auto rounded-lg">
+          <div class="swiper-wrapper pb-4">
+            {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
+              {{ if eq (mod $index 3) 0 }}
+                <div class="swiper-slide swiper-slide-foto">
+                  {{- partial "blog-card-home-foto.html" $page -}}
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+      </div>
     </div>
-    <div class="col-span-1 mt-32">
-        {{- partial "blog-card-home-foto.html" (index (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) 1) -}}
+    <div class="text-center mt-0 sm:mt-16 mb-4">
+      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
+          <div class="swiper-wrapper pb-4">
+            {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
+              {{ if eq (mod $index 3) 1 }}
+                <div class="swiper-slide swiper-slide-foto">
+                  {{- partial "blog-card-home-foto.html" $page -}}
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+      </div>
     </div>
-    <div class="col-span-1">
-        {{- partial "blog-card-home-foto.html" (index (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) 2) -}}
+    <div class="text-center mb-4">
+      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
+          <div class="swiper-wrapper pb-4">
+            {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
+              {{ if eq (mod $index 3) 2 }}
+                <div class="swiper-slide swiper-slide-foto">
+                  {{- partial "blog-card-home-foto.html" $page -}}
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl"></div>
+      </div>
     </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var swiperFoto = new Swiper('.swiper-foto', {
+        effect: 'cards',
+        grabCursor: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        }
+      });
+    });
+  </script>
+  <style>
+    .swiper-foto {
+      width: 300px;
+      height: 175px;
+      z-index: 2;
+    }
+    .custom-background {
+      width: 300px;
+      height: 175px;
+      z-index: 1;
+      left: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .swiper-foto, .custom-background {
+        width: 220px;
+        height: 130px;
+      }
+      .custom-background {
+        left: 1.5rem;
+      }
+      .swiper-slide-foto {
+        width: 220px;
+        height: 130px;
+      }
+    }
+  </style>
+</div>
+</div>
+
+<div class="container p-10">
+  <div class="container p-6">
+   <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
+    <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
+     Galeri
+     <br/>
+     Video
+    </h1>
+    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0" href="galeri-video">
+     Selengkapnya
+     <i class="fas fa-external-link-alt ml-2">
+     </i>
+    </a>
    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {{ $frontBundle8 := .Site.Params.frontBundle8 | default "galeri-video" | lower }}
+      {{ range first 4 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle8) }}
+        <div class="border-4 border-customGreen rounded-3xl p-6 flex flex-col md:flex-row items-center">
+          {{- partial "blog-card-home-video.html" . -}}
+        </div>
+      {{ end }}
+    </div>
+  </div>
 </div>
-</div>
+
 
 {{ end }}
