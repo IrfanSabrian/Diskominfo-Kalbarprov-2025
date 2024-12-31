@@ -1,0 +1,40 @@
+<div
+  class="blog-card-home-video relative flex flex-col md:flex-row cursor-pointer"
+  data-title="{{ .Params.title }}"
+  data-video-url="{{ .Params.eurl }}"
+  onclick="openVideoModal('{{ .Params.eurl }}')"
+>
+  <div
+    class="thumbnail w-full md:w-1/2 h-40 bg-cover bg-center rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
+    style="background-image: url('{{ .Params.thumbnail }}');"
+    loading="lazy"
+  ></div>
+
+  <div class="text-container flex-1 p-4 flex items-center">
+    <span class="text-xl text-black"> {{ .Params.title }} </span>
+  </div>
+</div>
+
+<style>
+  .blog-card-home-video {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card-home-video:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-video {
+      flex-direction: column;
+    }
+
+    .thumbnail {
+      height: 200px; /* Tinggi thumbnail disesuaikan */
+    }
+
+    .text-container {
+      padding: 10px;
+    }
+  }
+</style>

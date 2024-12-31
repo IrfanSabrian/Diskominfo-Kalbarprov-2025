@@ -1,41 +1,51 @@
 <div
-  class="bg-white p-5 z-10 absolute rounded-xl flex items-center"
-  style="width: 60%; border: 5px solid rgba(0, 128, 0, 0.5); transform: translateX(-50%); left: 50%;"
+  class="bg-white p-5 z-10 absolute rounded-xl flex flex-wrap justify-between items-center"
+  style="width: auto; border: 5px solid rgba(0, 128, 0, 0.5); transform: translateX(-50%); left: 50%; padding-top: 20px; padding-bottom: 20px;"
 >
-  <img
-    src="akcaya-logo.png"
-    alt=""
-    style="width: 50px; height: auto; margin-left: 10px; margin-right: 10px;"
-  >
-  <h1 style="font-size: 1.5rem; line-height: 1.5; font-weight: 600;" class="text-customGreen ml-3">
-    Diskominfo Provinsi<br>Kalimantan Barat
-  </h1>
-  <div class="flex justify-end mx-5 absolute right-0">
-    <a href="https://www.youtube.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
-      <i class="fab fa-youtube text-white" style="font-size: 2.2rem;"></i>
+  <div class="flex items-center flex-grow justify-center">
+    <img 
+    src='{{ absURL "/" }}akcaya-logo.png'
+    alt="Logo Akcaya"
+    style="width: 50px; height: auto; margin-right: 20px;"
+    >
+    <h1 class="text-customGreen text-xl leading-6 font-semibold">
+      Diskominfo Provinsi<br>Kalimantan Barat
+    </h1>
+  </div>
+  <div class="flex items-center gap-4 ml-4">
+    <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-facebook-f text-white text-2xl"></i>
     </a>
-    <a href="https://www.facebook.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
-      <i class="fa-brands fa-facebook text-white" style="font-size: 2.2rem;"></i>
+    <a href="https://x.com/KominfoKalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-twitter text-white text-2xl"></i>
     </a>
-    <a href="https://www.tiktok.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
-      <i class="fab fa-tiktok text-white" style="font-size: 2.2rem;"></i>
+    <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-youtube text-white text-2xl"></i>
     </a>
-    <a href="https://twitter.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
-      <i class="fab fa-twitter text-white" style="font-size: 2.2rem;"></i>
+    <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-instagram text-white text-2xl"></i>
     </a>
-    <a href="https://www.instagram.com" class="bg-customGreen rounded-3xl p-2 mx-2 flex justify-center items-center" target="_blank">
-      <i class="fab fa-instagram text-white" style="font-size: 2.2rem;"></i>
+    <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-tiktok text-white text-2xl"></i>
     </a>
   </div>
 </div>
-<div class="p-10 transition-colors duration-500 dark:bg-gray-900"></div>
-
+<div class="footer-layer bg-white transition-colors duration-500 dark:bg-gray-900">
+  <style>
+    .footer-layer {
+      height: 80px;
+    }
+    @media (max-width: 768px) {
+      .footer-layer {
+        height: 140px;
+      }
+    }
+  </style>
+</div>
 
 <footer
   class='p-6 mx-auto flex flex-wrap items-start justify-between w-full relative bottom-0 {{ default "bg-defaultColor" .Site.Params.ascentColor }} text-white dark:bg-gray-800'
 >
-
-
 
   <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-1 mt-10">
 
@@ -269,7 +279,7 @@
   </div>
 </footer>
 <div
-  class="w-full flex flex-col items-center bg-customDarkGreen dark:bg-gray-700 py-4"
+  class="w-full flex flex-col items-center bg-customDarkGreen dark:bg-gray-700 py-4 z-10"
 >
   <span class="relative" style="font-size: 1rem; color: #fff">
     {{ if (isset .Site.Params "copyright") }} {{ .Site.Params.copyright |

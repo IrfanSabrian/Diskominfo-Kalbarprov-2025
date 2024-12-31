@@ -158,6 +158,12 @@
           return match ? match[1] : null;
         });
 
+        // Tambahkan thumbnail dari data attribute
+        const thumbnailSrc = trigger.dataset.thumbnail; // Ambil thumbnail dari data attribute
+        if (thumbnailSrc) {
+          imgSrcs.unshift(thumbnailSrc); // Tambahkan thumbnail ke awal array
+        }
+
         // Open images with Fancybox v5 without thumbnails
         Fancybox.show(
           imgSrcs.map((src) => ({
