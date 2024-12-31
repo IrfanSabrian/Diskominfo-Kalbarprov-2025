@@ -2,102 +2,197 @@
   {{ $lastmodstr := (partial "date.html" (dict "date" .Lastmod "language" $.Page.Language "format" "long")) }}
   {{ $datestr := (partial "date.html" (dict "date" .Date "language" $.Page.Language "format" "long")) }}
 
-  <div class="relative">
+  <style>
+    .hero-container {
+      position: relative;
+    }
+
+    .title-container {
+      position: relative;
+      margin-left: 1.25rem;
+      z-index: 20;
+      width: 50%;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e5e7eb;
+      margin-right: -10%;
+      height: 50vh;
+      margin-top: auto;
+      margin-bottom: auto;
+      background-color: rgba(255,255,255,0.7);
+    }
+
+    .thumbnail-container {
+      position: relative;
+      top: 0;
+      z-index: 10;
+      margin-left: auto;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      margin-right: 2rem;
+      width: 70%;
+      height: 65vh;
+    }
+
+    .thumbnail-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .meta-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      margin-left: 2.5rem;
+      color: #4b5563;
+    }
+
+    .social-share {
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 0;
+      width: 13rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-link {
+      color: #d1d5db;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover {
+      color: #1f2937;
+    }
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      margin: 5rem auto 0;
+      max-width: 72rem;
+      padding: 0 1rem;
+    }
+
+    .article-container {
+      width: 100%;
+      position: relative;
+      padding: 1rem;
+      margin-bottom: 5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .content-container {
+        flex-direction: row;
+      }
+
+      .article-container {
+        width: 66.666667%;
+        padding: 2rem;
+        margin-left: auto;
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-container .flex {
+        position: relative;
+        margin-bottom: 45vh;
+      }
+
+      .title-container {
+        width: 90%;
+        height: auto;
+        margin-top: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .thumbnail-container {
+        width: 100%;
+        height: 40vh;
+        position: absolute;
+        top: 80%;
+        left: 0;
+        z-index: 1;
+      }
+    }
+  </style>
+
+  <div class="hero-container">
     {{ if .Params.thumbnail }}
-    <div class="relative w-full sticky top-0" style="height: 30vh; z-index: 10;">
-      <div class="absolute inset-0 bg-black opacity-60"></div>
-      <img src="{{ .Params.thumbnail }}" class="w-full h-full object-cover" alt="{{ .Title }}" />
+    <div class="flex">
+      <div class="title-container">
+        <h2 class="text-3xl font-bold mb-4 text-customGreen px-5">{{ .Title }}</h2>
+      </div>
+      
+      <div class="thumbnail-container">
+        <div class="absolute inset-0"></div>
+        <img src="{{ .Params.thumbnail }}" class="thumbnail-image" alt="{{ .Title }}" />
+      </div>
     </div>
     {{ end }}
+  </div>
 
-    <div class="flex flex-col lg:flex-row mx-auto max-w-6xl px-4">
-      <div class="w-full lg:w-2/3 relative {{ if .Params.thumbnail }}-mt-16 lg:-mt-32{{ end }} bg-white rounded-lg shadow-lg p-4 lg:p-8 lg:mr-8 mb-20 lg:mb-0" style="z-index: 20;">
-        <h1 class="text-xl lg:text-2xl font-bold mb-4 lg:mb-8" style="font-family: 'Poppins', sans-serif;">{{ .Title }}</h1>
-        
-        <div class="flex flex-wrap items-center gap-2 lg:gap-4 mb-4">
-          <div class="flex items-center">
-            <i class="fas fa-calendar-alt text-gray-400 mr-2"></i>
-            <span class="text-gray-400 text-sm lg:text-base" style="font-family: 'Poppins', sans-serif;">{{ $datestr }}</span>
-          </div>
-          {{ if .Params.author }}
-          <div class="flex items-center">
-            <i class="fas fa-user text-gray-400 mr-2"></i>
-            <span class="text-gray-400 text-sm lg:text-base" style="font-family: 'Poppins', sans-serif;">{{ .Params.author }}</span>
-          </div>
-          {{ end }}
-        </div>
-
-        <article class="prose prose-sm lg:prose-lg mx-auto text-black">
-          {{ if .Params.images }}
-          <div class="relative mx-auto mb-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {{ range $index, $imageUrl := .Params.images }}
-              <div class="mb-4">
-                <img src="{{ $imageUrl }}" class="rounded-lg shadow-sm w-full object-cover" style="height: 200px;" alt="Image {{ add $index 1 }}" />
-              </div>
-              {{ end }}
-            </div>
-            {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
-            <div class="absolute top-1 right-4 lg:right-8 rounded shadow bg-customGreen text-white px-2 py-0.5 text-xs lg:text-sm" style="font-family: 'Poppins', sans-serif;">
-              <i class="fas fa-calendar-alt"></i> {{ $datestr }}
-            </div>
-            {{ end }}
-          </div>
-          {{ end }}
-
-          {{ replace .Content "<img" "<img loading=\"lazy\" style=\"width: 100%; height: auto;\"" | safeHTML }}
-        </article>
-
-        <!-- Bagian Share Media Sosial -->
-        <div class="mt-8 border-t pt-4">
-          <h3 class="text-base lg:text-lg font-semibold mb-4" style="font-family: 'Poppins', sans-serif;">Bagikan {{ .Type | title }} Ini:</h3>
-          <div class="flex flex-wrap gap-2 lg:gap-4">
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | absURL }}" target="_blank" class="text-sm lg:text-base bg-customGreen text-white px-3 py-1 lg:px-4 lg:py-2 rounded-lg hover:bg-customDarkGreen transition-colors">
-              <i class="fab fa-facebook-f mr-2"></i>Facebook
-            </a>
-            <a href="https://twitter.com/intent/tweet?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" class="text-sm lg:text-base bg-customGreen text-white px-3 py-1 lg:px-4 lg:py-2 rounded-lg hover:bg-customDarkGreen transition-colors">
-              <i class="fab fa-twitter mr-2"></i>Twitter
-            </a>
-            <a href="https://wa.me/?text={{ .Title }}%20{{ .Permalink | absURL }}" target="_blank" class="text-sm lg:text-base bg-customGreen text-white px-3 py-1 lg:px-4 lg:py-2 rounded-lg hover:bg-customDarkGreen transition-colors">
-              <i class="fab fa-whatsapp mr-2"></i>WhatsApp
-            </a>
-            <a href="https://telegram.me/share/url?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" class="text-sm lg:text-base bg-customGreen text-white px-3 py-1 lg:px-4 lg:py-2 rounded-lg hover:bg-customDarkGreen transition-colors">
-              <i class="fab fa-telegram-plane mr-2"></i>Telegram
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Container konten terbaru -->
-      <div class="w-full lg:w-1/3 relative hidden lg:block {{ if .Params.thumbnail }}-mt-16 lg:-mt-32{{ end }} bg-white shadow-lg mt-8 lg:mt-0" style="border-radius: 15px; z-index: 20; height: 5%;">
-        <div style="background-color: #2f855a; border-radius: 10px 10px 0 0; padding: 12px 0;">
-          <h2 class="text-lg lg:text-xl font-bold text-center text-white" style="font-family: 'Poppins', sans-serif;">{{ .Type | title }} Terbaru</h2>
-        </div>
-        <div class="p-4 lg:p-6">
-          {{ $kontenTerbaru := first 5 (where .Site.RegularPages "Section" .Type) }}
-          {{ range $kontenTerbaru }}
-          <a href="{{ .Permalink }}" class="block mb-4 last:mb-0 hover:bg-gray-100 p-2 rounded-lg transition-colors">
-            <div>
-              {{ if .Params.thumbnail }}
-              <div class="mb-2">
-                <img src="{{ .Params.thumbnail }}" class="w-full h-32 lg:h-40 object-cover rounded-lg" alt="{{ .Title }}" />
-              </div>
-              {{ end }}
-              <div class="text-sm lg:text-base hover:text-customGreen mb-1" style="font-family: 'Poppins', sans-serif;">
-                {{ .Title }}
-              </div>
-              <div class="text-xs lg:text-sm text-gray-500 flex items-center justify-end mt-2 lg:mt-3" style="font-family: 'Poppins', sans-serif;">
-                <i class="fas fa-calendar-alt mr-1"></i>
-                {{ partial "date.html" (dict "date" .Date "language" $.Page.Language "format" "long") }}
-              </div>
-            </div>
-          </a>
-          {{ end }}
-        </div>
+  <div class="meta-container">
+    {{ if .Params.author }}
+    <span class="mb-5">
+      <i class="fas fa-user mr-4"></i>{{ .Params.author }}
+    </span>
+    {{ end }}
+    <span>
+      <i class="fas fa-calendar-alt mr-4 mb-10"></i>{{ $datestr }}
+    </span>
+    
+    <div class="social-share">
+      <div class="social-icons">
+        <a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}" class="social-link">
+          <i class="fas fa-envelope text-2xl"></i>
+        </a>
+        <a href="https://wa.me/?text={{ .Title }}%20{{ .Permalink }}" target="_blank" class="social-link">
+          <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+        <a href="https://www.instagram.com/sharer.php?u={{ .Permalink }}" target="_blank" class="social-link">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" class="social-link">
+          <i class="fab fa-twitter text-2xl"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank" class="social-link">
+          <i class="fab fa-facebook text-2xl"></i>
+        </a>
       </div>
     </div>
   </div>
-
-  {{- partial "comments.html" . -}}
-  {{- partial "intro.html" . -}}
+  
+  <div class="content-container">
+    <div class="article-container{{ if .Params.thumbnail }} -mt-16 lg:-mt-32{{ end }}" style="z-index: 20;">
+      <article class="prose prose-sm lg:prose-lg ml-auto text-black text-justify">
+        {{ if .Params.images }}
+        <div class="relative ml-auto mb-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {{ range $index, $imageUrl := .Params.images }}
+            <div class="mb-4">
+              <img src="{{ $imageUrl }}" class="rounded-lg shadow-sm w-full object-cover" style="height: 200px;" alt="Image {{ add $index 1 }}" />
+            </div>
+            {{ end }}
+          </div>
+          {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
+          <div class="absolute top-1 right-4 lg:right-8 rounded shadow bg-customGreen text-white px-2 py-0.5 text-xs lg:text-sm" style="font-family: 'Poppins', sans-serif;">
+            <i class="fas fa-calendar-alt"></i> {{ $datestr }}
+          </div>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ replace .Content "<img" "<img loading=\"lazy\" style=\"width: 100%; height: auto;\"" | safeHTML }}
+      </article>
+    </div>
+  </div>
 {{ end }}
