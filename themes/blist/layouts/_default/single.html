@@ -1,3 +1,16 @@
 {{ define "main" }}
-
+<div class="container mx-auto">
+  <div class="flex items-center mb-8 mt-10 px-4">
+    <h1 class="text-4xl font-bold text-customGreen mr-4">{{ .Title }}</h1>
+    <div class="h-1 bg-customGreen flex-grow"></div>
+  </div>
+  <!-- {{ .Content }} -->
+</div>
+<div class="relative" style="margin-bottom: 40%">
+  <div class="bg-customGreen h-64 rounded-tr-xl rounded-br-xl" style="width: 96%"></div>
+  <div class="bg-customYellow absolute top-28 left-1/2 transform -translate-x-1/2 rounded-xl" style="width: 80%; height: 215%; opacity: 0.9"></div>
+  <div class="bg-white absolute top-14 left-1/4 transform -translate-x-1/4 rounded-xl p-8 border border-gray-300 shadow-lg" style="width: 80%; min-height: 200%">
+    {{ .Content }}
+  </div>
+</div>
 {{ end }}
