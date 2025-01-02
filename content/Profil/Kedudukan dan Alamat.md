@@ -14,7 +14,7 @@ date: 2023-09-22
     <div class="my-10">
         <div class="">
             <h1 class="font-bold text-3xl mb-4">Alamat</h1>
-            <ul style="list-style-type: circle;" class="mx-auto">
+            <ul style="list-style-type: circle; margin-top: 20px; margin-bottom: 20px;" class="mx-auto">
                 <li style="list-style-type: none; opacity: 70%"><i class='mr-1 fas fa-map-marker-alt'></i> Dinas Komunikasi dan Informatika Pemerintah Provinsi Kalimantan Barat
                     Jl. Ahmad Yani Gedung Pelayanan Terpadu Lt.6,
                 </li>
