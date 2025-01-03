@@ -8,7 +8,7 @@ date: 2023-09-22
     <div style="flex: 1;" class="my-16">
         <div class="">
             <h1 class="font-bold text-3xl mb-4">Unit Kerja</h1>
-            <ul style="list-style-type: circle; width: 30%">
+            <ul style="list-style-type: circle; width: 30%; padding-left: 4rem">
                 <li>
                     <p class="text-base" style="opacity: 70%">Sekretariat</p>
                 </li>

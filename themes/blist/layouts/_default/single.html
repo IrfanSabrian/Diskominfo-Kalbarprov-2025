@@ -4,13 +4,43 @@
     <h1 class="text-4xl font-bold text-customGreen mr-4">{{ .Title }}</h1>
     <div class="h-1 bg-customGreen flex-grow"></div>
   </div>
-  <!-- {{ .Content }} -->
 </div>
-<div class="relative" style="margin-bottom: 40%">
-  <div class="bg-customGreen h-64 rounded-tr-xl rounded-br-xl" style="width: 96%"></div>
-  <div class="bg-customYellow absolute top-28 left-1/2 transform -translate-x-1/2 rounded-xl" style="width: 80%; height: 215%; opacity: 0.9"></div>
-  <div class="bg-white absolute top-14 left-1/4 transform -translate-x-1/4 rounded-xl p-8 border border-gray-300 shadow-lg" style="width: 80%; min-height: 200%">
-    {{ .Content }}
+<div class="static h-screen">
+  <div class="relative" style="margin-bottom: 30%">
+    <div class="greenSquare bg-customGreen h-64 rounded-tr-xl rounded-br-xl" style="width: 96%;"></div>
+    <div class="yellowSquare bg-customYellow absolute top-28 left-1/2 transform -translate-x-1/2 rounded-xl" style="width: 80%; height: 215%; opacity: 0.9;"></div>
+    <div class="whiteSquare bg-white dark:bg-black absolute top-14 left-1/4 transform -translate-x-1/4 rounded-xl p-4 border border-gray-300 shadow-lg dark:text-white" style="width: 80%; min-height: 200%;">
+      {{ .Content }}
+    </div>
   </div>
 </div>
+<style>
+  @media (max-width: 768px) {
+    .greenSquare, .yellowSquare {
+      display: none;
+    }
+    .whiteSquare {
+      padding: 2px;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      min-height: 100%;
+      margin-top: 20rem;
+    }
+  }
+  @media (max-width: 1024px) {
+    .greenSquare, .yellowSquare {
+      display: none;
+    }
+    .whiteSquare {
+      padding: 4px;
+      top: 150%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      min-height: 150%;
+    }
+  }
+</style>
 {{ end }}
