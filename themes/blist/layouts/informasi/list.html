@@ -1,0 +1,112 @@
+{{ define "main" }}
+<style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10%; 
+  }
+  .active {
+    background-color: #03a055 !important;
+    color: white !important;
+    border-radius: 0 !important;
+  }
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+    .content-center {
+      margin: 0 auto;
+      width: 100%;
+    }
+    .responsive-padding {
+      padding: 9px 9px;
+    }
+  }
+</style>
+<div class="responsive-padding p-9">
+  <div class="flex gap-8">
+    <!-- Sidebar kiri tetap -->
+    <div class="sidebar h-200vh w-64 relative">
+      <div class="w-1/10 sticky top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
+        <!-- Menambahkan link Berita -->
+        <div class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer">
+          <a href="#berita" class="block" onclick="setActive(this)">
+            Berita
+          </a>
+        </div>
+        <div class="border-t border-customGreen my-2"></div>
+        {{ range .Pages.ByDate.Reverse }}
+        <div class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer">
+          <a href="#{{ anchorize .Title }}" class="block" onclick="setActive(this)">
+            {{ .Title }}
+          </a>
+        </div>
+        <div class="border-t border-customGreen my-2"></div>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-center flex-1 h-auto top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
+        <!-- Menampilkan konten Berita -->
+        <div id="berita" class="bg-white text-black py-6 rounded-md mb-4 flex items-center scroll-mt-[20vh]">
+          <span class="text-2xl flex-shrink-0">Berita</span>
+          <div class="flex-grow h-1 bg-customGreen ml-2"></div>
+        </div>
+        {{ $frontBundle6 := .Site.Params.frontBundle6 | default "berita" | lower }}
+        {{ range first 3 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) }}
+          {{- partial "blog-card-home-berita-informasi.html" . -}}
+        {{ end }}
+        <!-- Tombol berita lainnya dengan panah -->
+        <div class="text-center">
+          <a href="/berita" class="inline-block bg-customGreen text-white px-5 py-2.5 rounded-full cursor-pointer hover:bg-white hover:text-customGreen border border-customGreen transition-colors">
+            Berita Lainnya <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        {{ range .Pages.ByDate.Reverse }}
+        <!-- buat tombol berita lainnya -->
+        <div id="{{ anchorize .Title }}" class="bg-white text-black py-6 rounded-md mb-4 flex items-center scroll-mt-[20vh]">
+          <span class="text-2xl flex-shrink-0">{{ .Title }}</span>
+          <div class="flex-grow h-1 bg-customGreen ml-2"></div>
+        </div>
+        {{ .Content | safeHTML }}
+        {{ end }}
+    </div>
+  </div>
+</div>
+<script>
+function setActive(element) {
+  let activeElements = document.querySelectorAll('.active');
+  // Tambahkan kelas active ke elemen yang diklik
+  element.parentElement.classList.add('active');
+  // Hapus kelas active dari semua link setelah menambahkan kelas baru
+  activeElements.forEach(a => {
+    if (a !== element.parentElement) {
+      a.classList.remove('active');
+    }
+  });
+}
+
+// Tambahkan event listener untuk scroll
+window.addEventListener('scroll', function() {
+  let sections = document.querySelectorAll('[id]');
+  sections.forEach(section => {
+    let rect = section.getBoundingClientRect();
+    if (rect.top <= 150 && rect.bottom >= 150) {
+      let id = section.getAttribute('id');
+      let activeElements = document.querySelectorAll('.active');
+      document.querySelectorAll('a').forEach(a => {
+        if (a.getAttribute('href') === '#' + id) {
+          a.parentElement.classList.add('active');
+          // Hapus kelas active dari semua link setelah menambahkan kelas baru
+          activeElements.forEach(active => {
+            if (active !== a.parentElement) {
+              active.classList.remove('active');
+            }
+          });
+        }
+      });
+    }
+  });
+});
+</script>
+{{ end }}
