@@ -8,6 +8,7 @@ $sliderImages }}
       position: relative;
       margin-left: auto;
       margin-right: auto;
+      animation: float 3s ease-in-out infinite;
     }
 
     .greensquare {
@@ -16,6 +17,7 @@ $sliderImages }}
       top: 18%;
       left: 0;
       z-index: 3;
+      animation: float 4s ease-in-out infinite;
     }
 
     .yellowsquare {
@@ -25,6 +27,16 @@ $sliderImages }}
       right: 6%;
       z-index: 4;
       opacity: 0.8;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translatey(10px);
+      }
+      50% {
+        transform: translatey(-10px);
+      }
     }
 
     @media (max-width: 768px) {
@@ -40,6 +52,23 @@ $sliderImages }}
         width: 50%;
         height: 13%;
         top: 20%;
+        right: 2%;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .swiper-container.swiper-background {
+        width: 90%;
+      }
+      .greensquare {
+        width: 98%;
+        height: 37%;
+        top: 14%;
+      }
+      .yellowsquare {
+        width: 50%;
+        height: 28%;
+        top: 35%;
         right: 2%;
       }
     }
@@ -107,10 +136,6 @@ $sliderImages }}
         clickable: true,
         bulletClass: "swiper-pagination-bullet",
         bulletActiveClass: "swiper-pagination-bullet-active",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
       },
       autoplay: {
         delay: 3000,
@@ -274,7 +299,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
 </style>
 
 <div class="container mx-auto p-4 px-9">
-  <div class="grid grid-cols-1 lg:grid-cols-7 gap-0">
+  <div class="grid grid-cols-1 lg:grid-cols-7 gap-0" style="z-index: 5; position: relative;">
     <!-- Agenda Section -->
     {{ $agenda := .Site.Params.agenda }}
     {{ if $agenda }}
@@ -537,14 +562,14 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     align-items: center;
     z-index: 2;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .container-video-utama {
       width: 90%; /* Ukuran video diperbesar menjadi 95% untuk tampilan mobile */
     }
   }
 </style>
 
-<div class="container p-4 sm:p-10">
+<div class="container p-4 sm:p-10 mx-auto">
 <div class="container p-3 sm:p-6 border-4 border-customGreen rounded-3xl">
    <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
     <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
@@ -562,7 +587,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     <div class="text-center mb-4">
       <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
         {{ $frontBundle7 := .Site.Params.frontBundle7 | default "foto" | lower }}
-        <div class="swiper swiper-foto mx-auto rounded-lg">
+        <div class="swiper swiper-foto mx-auto rounded-lg" style="animation: float 5s ease-in-out infinite;">
           <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 0 }}
@@ -573,12 +598,12 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
             {{ end }}
           </div>
         </div>
-        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl" style="animation: float 5s ease-in-out infinite;"></div>
       </div>
     </div>
     <div class="text-center mt-0 sm:mt-16 mb-4">
       <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        <div class="swiper swiper-foto mx-auto rounded-lg">
+        <div class="swiper swiper-foto mx-auto rounded-lg" style="animation: float 4s ease-in-out infinite;">
           <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 1 }}
@@ -589,12 +614,12 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
             {{ end }}
           </div>
         </div>
-        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl" style="animation: float 4s ease-in-out infinite;"></div>
       </div>
     </div>
     <div class="text-center mb-4">
       <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        <div class="swiper swiper-foto mx-auto rounded-lg">
+        <div class="swiper swiper-foto mx-auto rounded-lg" style="animation: float 3s ease-in-out infinite;">
           <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 2 }}
@@ -605,7 +630,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
             {{ end }}
           </div>
         </div>
-        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl"></div>
+        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl" style="animation: float 3s ease-in-out infinite;"></div>
       </div>
     </div>
   </div>
@@ -633,13 +658,26 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
       z-index: 1;
       left: 1.5rem;
     }
+    @media (max-width: 1024px) {
+      .swiper-foto, .custom-background {
+        width: 220px;
+        height: 130px;
+      }
+      .custom-background {
+        left: 1rem;
+      }
+      .swiper-slide-foto {
+        width: 220px;
+        height: 130px;
+      }
+    }
     @media (max-width: 768px) {
       .swiper-foto, .custom-background {
         width: 220px;
         height: 130px;
       }
       .custom-background {
-        left: 1.5rem;
+        left: 9rem;
       }
       .swiper-slide-foto {
         width: 220px;
@@ -650,7 +688,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
 </div>
 </div>
 
-<div class="container p-10">
+<div class="container p-10 mx-auto">
   <div class="container p-6">
    <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
     <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">

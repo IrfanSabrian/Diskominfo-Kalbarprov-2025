@@ -196,6 +196,9 @@
             src: file,
             type: 'image',
             options: {
+              Image: {
+                zoom: true // Enable zoom
+              },
               afterClose: function() {
                 document.body.style.overflow = ''; // Restore scrolling outside the modal
               }
@@ -214,6 +217,9 @@ $(document).ready(function() {
       src: imageSrc,
       type: 'image',
       opts: {
+        Image: {
+          zoom: true // Enable zoom
+        },
         afterShow: function(instance, current) {
           console.info('Fancybox modal opened');
         }
@@ -291,57 +297,5 @@ $(document).ready(function() {
     });
 </script>
 
-<!-- LINK Modal -->
-<div id="linkModal" class="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center hidden transition-opacity duration-300 ease-in-out">
-    <button id="closeLinkModal" class="absolute top-4 right-4 text-white text-3xl transition-transform duration-300 ease-in-out transform hover:scale-110">
-        <i class="fas fa-times"></i>
-    </button>
-    <iframe id="linkViewer" class="w-6/12 h-full" frameborder="0" style="overflow: auto;"></iframe>
-</div>
-
-<script>
-    function openLinkModal(link) {
-        const linkModal = document.getElementById('linkModal');
-        const linkViewer = document.getElementById('linkViewer');
-        
-        if (link) {
-            linkViewer.src = link;
-        } else {
-            linkViewer.srcdoc = `
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; background-color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                    <div style="text-align: center;">
-                        <p style="font-size: 20pt;">Alamat Link Tidak ditemukan</p>
-                    </div>
-                </div>`;
-        }
-        
-        linkModal.classList.remove('hidden');
-        linkModal.style.opacity = '0';
-        setTimeout(() => {
-            linkModal.style.opacity = '1';
-        }, 10);
-        document.body.style.overflow = 'hidden'; // Disable scrolling outside the modal
-    }
-
-    function closeLinkModal() {
-        const linkModal = document.getElementById('linkModal');
-        const linkViewer = document.getElementById('linkViewer');
-        linkModal.style.opacity = '0';
-        setTimeout(() => {
-            linkViewer.src = '';
-            linkModal.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore scrolling outside the modal
-        }, 300);
-    }
-
-    document.getElementById('closeLinkModal').addEventListener('click', closeLinkModal);
-
-    document.getElementById('linkModal').addEventListener('click', function(event) {
-        const linkViewer = document.getElementById('linkViewer');
-        if (!linkViewer.contains(event.target)) {
-            closeLinkModal();
-        }
-    });
-</script>
 
 </head>

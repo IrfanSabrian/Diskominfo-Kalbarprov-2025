@@ -4,6 +4,7 @@ title: Informasi Jumlah dan Persentase Wajib LHKPN
 date: 2023-09-22
 thumbnail: /images/informasi_lhkpn.png
 ---
+
 <section class="">
     <div class="relative bg-white dark:bg-gray-600" style="height: 360px; background-image: url('/images/informasi_lhkpn.png'); background-repeat: no-repeat; background-position: center; background-size: 100% auto;">
         <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; padding: 48px 32px;" class="absolute bottom-0 left-0">
@@ -39,7 +40,7 @@ thumbnail: /images/informasi_lhkpn.png
         <p>Unduh berkas informasi melalui link tautan dibawah :</p>
         <ul style="list-style-type: circle" class="ml-8">
             <li>
-                <a style="text-decoration: underline" class="text-secondary" href="https://diskominfo.kalbarprov.go.id/file/jygeZVxd0GwoS30BFyfk.pdf">PROSENTASE WAJIB LHKPN</a>
+                <a style="text-decoration: underline" class="text-secondary" href="/file/jygeZVxd0GwoS30BFyfk.pdf">PROSENTASE WAJIB LHKPN</a>
             </li>
         </ul>
     </div>

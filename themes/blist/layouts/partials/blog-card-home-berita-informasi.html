@@ -1,0 +1,28 @@
+{{ $accent := .Site.Params.ascentColor }}
+<div class="flex flex-col p-4 bg-white">
+    <a href="{{ .RelPermalink }}" class="bg-white p-4 rounded-lg border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center flex-1">
+                <div class="relative rounded-lg" style="height: 150px; width: 260px; background-image: url('{{ .Params.thumbnail }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                    <div class="date-container absolute bottom-0 right-0 p-2">
+                        <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+                          {{ .Date.Format "2 January 2006" }}
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-center flex-1 flex-col ml-6 mt-2">
+                    <h2 class="text-black text-base font-bold pr-4" style="height: 80px">{{ .Params.title }}</h2>
+                    <p class="text-gray-600 text-sm pr-4">{{ .Content | plainify | replaceRE "<img[^>]*>" "" | truncate 300 "..." }}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <style>
+    .hover-container:hover {
+        transform: translateY(-8px);
+        transition: transform 0.3s ease-in-out;
+    }
+    </style>
+
+</div>

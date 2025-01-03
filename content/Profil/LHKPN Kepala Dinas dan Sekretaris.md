@@ -4,6 +4,7 @@ title: LHKPN Kepala Dinas dan Sekretaris
 date: 2023-09-22
 thumbnail: /images/lhkpn.png
 ---
+
 <section class="">
     <div class="relative bg-white dark:bg-gray-600" style="height: 360px; background-image: url('/images/lhkpn.png'); background-repeat: no-repeat; background-position: center; background-size: 100% auto;">
         <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; padding: 48px 32px;" class="absolute bottom-0 left-0">
@@ -39,10 +40,10 @@ thumbnail: /images/lhkpn.png
         <p>Unduh berkas LHKPN melalui link tautan dibawah :</p>
         <ul style="list-style-type: circle" class="ml-8">
             <li>
-                <a style="text-decoration: underline;" class="text-secondary pdf-link" href="https://diskominfo.kalbarprov.go.id/file/nXa0BTvWJjTx4Wz3q48p.pdf">
+                <a style="text-decoration: underline;" class="text-secondary pdf-link" href="/file/nXa0BTvWJjTx4Wz3q48p.pdf">
                     LHKPN Kadis - Sekdis
                     <div class="pdf-preview">
-                        <embed src="https://diskominfo.kalbarprov.go.id/file/nXa0BTvWJjTx4Wz3q48p.pdf" type="application/pdf" width="500" height="500"/>
+                        <embed src="/file/nXa0BTvWJjTx4Wz3q48p.pdf" type="application/pdf" width="500" height="500"/>
                     </div>
                 </a>
             </li>

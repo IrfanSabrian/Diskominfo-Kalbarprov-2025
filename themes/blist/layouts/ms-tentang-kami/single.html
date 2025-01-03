@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="container mx-auto">
+  <div class="flex items-center mb-8 mt-10 px-4">
+    <h1 class="text-4xl font-bold text-customGreen mr-4">{{ .Title }}</h1>
+    <div class="h-1 bg-customGreen flex-grow"></div>
+  </div>
+</div>
+<div class="bg-white p-6 px-12 rounded-lg shadow-lg flex flex-col md:flex-row justify-center" style="min-height: 80vh;">
+    <div class="overflow-x-auto w-full">
+        <table class="w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-2 py-2 bg-customGreen text-white" style="width: 70%;">Judul</th>
+                    <th class="px-4 py-2 bg-customGreen text-white" style="width: 30%;">Tipe File</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Params.items }}
+                <tr>
+                    <td class="border px-2 py-2">{{ .title }}</td>
+                    <td class="border px-4 py-2">PDF</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-6 md:mt-0 md:ml-6 flex flex-col items-center justify-between bg-gray-200 p-6 rounded-lg w-72 h-96">
+        <div class="text-xl font-semibold mb-4">Preview</div>
+        <div class="flex space-x-4 mt-auto">
+            <button class="bg-customGreen text-white px-4 py-2 rounded flex items-center">
+                <i class="fas fa-eye mr-2"></i> Lihat
+            </button>
+            <button class="bg-customGreen text-white px-4 py-2 rounded flex items-center">
+                <i class="fas fa-download mr-2"></i> Unduh
+            </button>
+        </div>
+    </div>
+</div>
+{{ end }}
