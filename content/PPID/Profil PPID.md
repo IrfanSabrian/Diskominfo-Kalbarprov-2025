@@ -1,7 +1,7 @@
 ---
 author: andar
 title: "Profil PPID"
-date: 2023-08-29 06:29:09
+date: 1990-08-29 06:29:09
 ---
 <section class="">
     <div class="relative bg-white dark:bg-gray-600" style="height: 360px; background-image: url('/images/banner.png'); background-repeat: no-repeat; background-position: center; background-size: 100% auto;">
