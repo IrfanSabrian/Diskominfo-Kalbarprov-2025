@@ -162,10 +162,6 @@ url = "slider3.png"
 extension = "png"
 
 [[params.sliders.images]]
-url = "slider3.png"
-extension = "png"
-
-[[params.sliders.images]]
 url = "slider4.png"
 extension = "png"
 

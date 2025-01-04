@@ -1,5 +1,5 @@
 ---
 author: Katheryn Fox
 title: Profil
-type: page
+type: ms-lhkpn
 ---

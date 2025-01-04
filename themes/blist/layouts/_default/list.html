@@ -21,8 +21,21 @@
       padding: 9px 9px;
     }
   }
+  .title-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .title-text {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+    max-width: 50%;
+    word-wrap: break-word;
+  }
 </style>
-<div class="responsive-padding p-9">
+<div class="responsive-padding p-9 px-32">
   <div class="flex gap-8">
     <!-- Sidebar kiri tetap -->
     <div class="sidebar h-200vh w-64 relative">
@@ -41,9 +54,11 @@
     <!-- Content -->
     <div class="content-center flex-1 h-auto top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
         {{ range .Pages.ByDate.Reverse }}
-        <div id="{{ anchorize .Title }}" class="bg-white text-black py-6 rounded-md mb-4 flex items-center scroll-mt-[20vh]">
-          <span class="text-2xl flex-shrink-0">{{ .Title }}</span>
-          <div class="flex-grow h-1 bg-customGreen ml-2"></div>
+        <div id="{{ anchorize .Title }}" class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]">
+          <div class="title-container">
+            <span class="title-text">{{ .Title }}</span>
+            <div class="flex-grow h-1 bg-customGreen ml-2"></div>
+          </div>
         </div>
         {{ .Content | safeHTML }}
         {{ end }}
