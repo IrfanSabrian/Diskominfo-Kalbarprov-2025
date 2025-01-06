@@ -4,47 +4,86 @@ title: Struktur Diskominfo
 date: 2024-12-30T12:55:00
 type: tentang-kami
 ---
+<script>
+const strukturDiskominfo = [
+    {
+        icon: '/icon/struktur-organisasi.png',
+        title: 'Struktur Organisasi',
+        type: 'modal',
+        link: '/images/kcSoIfVyBwvBzxweVm12.png'
+    },
+    {
+        icon: '/icon/tugas-dan-fungsi.png', 
+        title: 'Tugas dan Fungsi',
+        type: 'link',
+        link: '/ms-struktur-diskominfo/tugas-dan-fungsi'
+    },
+    {
+        icon: '/icon/visi-dan-misi.png',
+        title: 'Visi dan Misi',
+        type: 'link', 
+        link: '/ms-struktur-diskominfo/visi-dan-misi'
+    },
+    {
+        icon: '/icon/kedudukan-dan-alamat.png',
+        title: 'Kedudukan dan Alamat',
+        type: 'link',
+        link: '/ms-struktur-diskominfo/kedudukan-dan-alamat'
+    },
+    {
+        icon: '/icon/ruang-lingkup.png',
+        title: 'Ruang Lingkup',
+        type: 'modal',
+        link: '/images/z89a546GS9LjFYi193UE.jpeg'
+    },
+    {
+        icon: '/icon/unit-kerja.png',
+        title: 'Unit Kerja',
+        type: 'link',
+        link: '/ms-struktur-diskominfo/unit-kerja'
+    }
+];
+
+function renderSections() {
+    const container = document.querySelector('.container-menu');
+    strukturDiskominfo.forEach(section => {
+        const div = document.createElement('div');
+        div.className = 'flex flex-col items-center menu-container';
+        
+        const content = section.type === 'modal' 
+            ? `<div onclick="openImgModal('${section.link}')" class="bg-customGreen rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
+                style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
+                <img src="${section.icon}" alt="${section.title}" class="h-4/5 max-h-full w-auto object-contain">
+               </div>`
+            : `<a href="${section.link}" class="bg-customGreen rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
+                style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
+                <img src="${section.icon}" alt="${section.title}" class="h-4/5 max-h-full w-auto object-contain">
+               </a>`;
+               
+        div.innerHTML = `
+            ${content}
+            <p class="text-base text-black text-center w-full mt-2">${section.title}</p>
+        `;
+        
+        container.appendChild(div);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', renderSections);
+</script>
+
+<style>
+.menu-container:hover .menu-item {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.menu-container:hover .menu-title {
+    font-weight: bold;
+    color: #2F855A;
+}
+</style>
+
 <div class="container container-menu px-4 gap-1 mx-0 grid grid-cols-2 md:grid-cols-3">
-    <div class="flex flex-col items-center">
-        <div onclick="openImgModal('/images/kcSoIfVyBwvBzxweVm12.png')" class="bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
-        style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
-            <img src="/icon/struktur-organisasi.png" alt="Struktur Organisasi" class="h-4/5 max-h-full w-auto object-contain">
-        </div>
-        <p class="text-base text-black text-center w-full mt-2">Struktur Organisasi</p>
-    </div>
-    <div class="flex flex-col items-center">
-        <a href="/profil/tugas-dan-fungsi" class="bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
-        style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
-            <img src="/icon/tugas-dan-fungsi.png" alt="Tugas dan Fungsi" class="h-4/5 max-h-full w-auto object-contain">
-        </a>
-        <p class="text-base text-black text-center w-full mt-2">Tugas dan Fungsi</p>
-    </div>
-    <div class="flex flex-col items-center">
-        <a href="/profil/visi-dan-misi" class="bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
-        style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
-            <img src="/icon/visi-dan-misi.png" alt="Visi dan Misi" class="h-4/5 max-h-full w-auto object-contain">
-        </a>
-        <p class="text-base text-black text-center w-full mt-2">Visi dan Misi</p>
-    </div>
-    <div class="flex flex-col items-center">
-        <a href="/profil/kedudukan-dan-alamat" class="bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
-        style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
-            <img src="/icon/kedudukan-dan-alamat.png" alt="Kedudukan dan Alamat" class="h-4/5 max-h-full w-auto object-contain">
-        </a>
-        <p class="text-base text-black text-center w-full mt-2">Kedudukan dan Alamat</p>
-    </div>
-    <div class="flex flex-col items-center">
-        <div onclick="openImgModal('/images/z89a546GS9LjFYi193UE.jpeg')" class="bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
-        style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
-            <img src="/icon/ruang-lingkup.png" alt="Ruang Lingkup" class="h-4/5 max-h-full w-auto object-contain">
-        </div>
-        <p class="text-base text-black text-center w-full mt-2">Ruang Lingkup</p>
-    </div>
-    <div class="flex flex-col items-center">
-        <a href="/profil/unit-kerja" class="bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110" 
-        style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
-            <img src="/icon/unit-kerja.png" alt="Unit Kerja" class="h-4/5 max-h-full w-auto object-contain">
-        </a>
-        <p class="text-base text-black text-center w-full mt-2">Unit Kerja</p>
-    </div>
 </div>

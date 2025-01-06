@@ -5,21 +5,21 @@ date: 2024-12-30T12:56:00
 type: tentang-kami
 ---
 <div class="max-w-4xl mx-auto bg-white rounded-lg overflow-hidden">
-    <div class="flex flex-col md:flex-row">
-        <div class="md:w-1/3 w-full p-4">
-            <img alt="Profil Pimpinan" class="w-full rounded-lg mb-4" height="150" src="/images/pimpinanfix.png" width="150"/>
+    <div class="flex flex-col sm:flex-row">
+        <div class="sm:w-1/3 w-full p-4 flex flex-col items-center">
+            <img alt="Profil Pimpinan" class="w-3/4 sm:w-full rounded-lg mb-4" height="150" src="/images/pimpinanfix.png" width="150"/>
             <!-- Nama dan jabatan untuk tampilan mobile -->
-            <div class="md:hidden mb-4">
+            <div class="sm:hidden mb-4 text-center">
                 <div class="text-2xl font-bold text-green-600">SAMUEL, SE, M.Si</div>
                 <div class="text-sm text-gray-600">Kepala Dinas Komunikasi dan Informatika Provinsi Kalimantan Barat</div>
             </div>
-            <div class="flex items-center mb-2">
+            <div class="flex items-center mb-2 w-full">
                 <div class="text-left text-lg font-semibold text-green-600">
                     Riwayat Pekerjaan
                 </div>
                 <div class="border-t-4 border-green-600 flex-grow ml-2"></div>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow border-2 border-gray-300 space-y-4 overflow-y-scroll" style="height: 300px;">
+            <div class="bg-white p-4 rounded-lg shadow border-2 border-gray-300 space-y-4 overflow-y-scroll w-full" style="height: 300px;">
                 <div class="border-b border-gray-200 pb-4 mb-4">
                     <div class="flex justify-between items-center mb-2">
                         <div class="text-base font-semibold">Kepala Urusan Keuangan</div>
@@ -99,23 +99,23 @@ type: tentang-kami
                 </div>
             </div>
         </div>
-        <div class="md:w-2/3 w-full p-6">
+        <div class="sm:w-2/3 w-full p-6">
             <!-- Nama dan jabatan untuk tampilan desktop -->
-            <div class="hidden md:block">
+            <div class="hidden sm:block">
                 <div class="text-2xl font-bold text-green-600">SAMUEL, SE, M.Si</div>
                 <div class="text-sm text-gray-600 mb-4">Kepala Dinas Komunikasi dan Informatika Provinsi Kalimantan Barat</div>
             </div>
-            <div class="flex flex-row items-center justify-center space-x-8 mb-4 pt-24">
+            <div class="flex flex-row items-center justify-center space-x-3 mb-4 pt-24">
                 <div class="flex items-center text-gray-400 cursor-pointer text-center" onclick="toggleVisibility('tentang');">
-                    <i class="fas fa-info-circle mr-2 md:inline-block hidden" id="icon-tentang"></i>
+                    <i class="fas fa-info-circle mr-2 sm:inline-block hidden" id="icon-tentang"></i>
                     <span class="font-semibold" id="text-tentang">Tentang</span>
                 </div>
                 <div class="flex items-center text-gray-400 cursor-pointer text-center" onclick="toggleVisibility('pendidikan');">
-                    <i class="fas fa-graduation-cap mr-2 md:inline-block hidden" id="icon-pendidikan"></i>
+                    <i class="fas fa-graduation-cap mr-2 sm:inline-block hidden" id="icon-pendidikan"></i>
                     <span class="font-semibold" id="text-pendidikan">Riwayat Pendidikan</span>
                 </div>
                 <div class="flex items-center text-gray-400 cursor-pointer text-center" onclick="toggleVisibility('penghargaan');">
-                    <i class="fas fa-trophy mr-2 md:inline-block hidden" id="icon-penghargaan"></i>
+                    <i class="fas fa-trophy mr-2 sm:inline-block hidden" id="icon-penghargaan"></i>
                     <span class="font-semibold" id="text-penghargaan">Penghargaan</span>
                 </div>
             </div>
@@ -124,7 +124,7 @@ type: tentang-kami
                 <div class="space-y-4">
                     <div>
                         <span class="font-semibold">&#8226;&nbsp; Tempat dan Tanggal Lahir:</span>
-                        <div class="ml-4">8 April 1966</div>
+                        <div class="ml-4">Caong, 8 April 1966</div>
                     </div>
                     <div>
                         <span class="font-semibold">&#8226;&nbsp; Jenis Kelamin:</span>
@@ -179,19 +179,23 @@ type: tentang-kami
             <div id="penghargaan" class="bg-white p-6 rounded-lg shadow border-2 border-gray-300 h-auto" style="display: none;">
                 <div class="space-y-4">
                     <div>
-                        <div class="ml-4 flex justify-between items-center mb-2">
-                            <div>
-                                <span class="font-semibold">&#8226;&nbsp;</span>
-                                <span>Anugrah Parahita Ekapraya Kategori Madya Dari Menteri Pemberdayaan Perempuan Dan Perlindungan Anak</span>
+                        <div class="flex items-start mb-4">
+                            <span class="font-semibold mr-2">&#8226;</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span>Anugrah Parahita Ekapraya Kategori Madya Dari Menteri Pemberdayaan Perempuan Dan Perlindungan Anak</span>
+                                    <span class="text-white bg-customGreen rounded-full px-4 py-1 inline-block text-center ml-2" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">2011</span>
+                                </div>
                             </div>
-                            <span class="text-white bg-customGreen rounded-full px-4 py-1 inline-block text-center" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">2011</span>
                         </div>
-                        <div class="ml-4 flex justify-between items-center mb-2">
-                            <div>
-                                <span class="font-semibold">&#8226;&nbsp;</span>
-                                <span>Penganugerahan Lencana KORPRI EMAS Kep. Gubernur Kalbar No. 872/KORPRI/2015</span>
+                        <div class="flex items-start">
+                            <span class="font-semibold mr-2">&#8226;</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span>Penganugerahan Lencana KORPRI EMAS Kep. Gubernur Kalbar No. 872/KORPRI/2015</span>
+                                    <span class="text-white bg-customGreen rounded-full px-4 py-1 inline-block text-center ml-2" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">2015</span>
+                                </div>
                             </div>
-                            <span class="text-white bg-customGreen rounded-full px-4 py-1 inline-block text-center" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">2015</span>
                         </div>
                     </div>
                 </div>
