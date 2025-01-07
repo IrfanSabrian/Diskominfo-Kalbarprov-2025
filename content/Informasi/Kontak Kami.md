@@ -109,7 +109,7 @@ function validateForm(event) {
     }
     
     // Membuat mailto link dengan data form
-    const mailtoLink = `mailto:diskominfo@kalbarprov.go.id?subject=${encodeURIComponent(selectedSubjek)}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
+    const mailtoLink = `mailto:diskominfo@kalbarprov.go.id?subject=${encodeURIComponent(selectedSubjek)}&body=${encodeURIComponent(Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message})}`;
     
     // Membuka email client
     window.location.href = mailtoLink;
