@@ -23,10 +23,10 @@ type: informasi
   ];
 
   document.addEventListener("DOMContentLoaded", function() {
-    const containerDokumen = document.querySelector('.section-container-dokumen');
+    const containerDokumenProker = document.querySelector('.section-container-dokumen-proker');
     dokumenInformasiKeuangan.forEach(item => {
-      const urlPath = `/dokumentasi-program-informasi/${titleToUrl(item.title)}`;
-      containerDokumen.innerHTML += `
+      const urlPath = `/ms-dokumentasi-program-informasi/${titleToUrl(item.title)}`;
+      containerDokumenProker.innerHTML += `
         <a href="${urlPath}" class="bg-white p-4 rounded-xl border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
           <div class="flex items-center justify-between">
             <div class="flex items-center flex-1">
@@ -47,7 +47,7 @@ type: informasi
     });
   });
 </script>
-<section class="flex flex-col gap-4 bg-white section-container-dokumen">
+<section class="flex flex-col gap-4 bg-white section-container-dokumen-proker">
 </section>
 <style>
 .hover-container:hover .hover-arrow {

@@ -22,12 +22,7 @@
     <div class="grid-item blog-card-berita relative text-white shadow-md overflow-hidden rounded-md" 
         style="background-image: url('{{ .Params.thumbnail }}'); height: 250px; width: 400px;">
 
-      {{ if .Params.eurl }}
-      <a href="{{ .Params.eurl }}" class="absolute inset-0 group">
-      {{ else }}
-      <a href="{{ .RelPermalink }}" class="absolute inset-0 group">
-      {{ end }}
-
+      <div class="absolute inset-0 cursor-pointer" onclick="openVideoModal('{{ .Params.eurl }}')">
         <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
             style="background-image: url('{{ .Params.thumbnail }}');">
           <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -46,7 +41,7 @@
             </span>
           </div>
         </div>
-      </a>
+      </div>
     </div>
 
     <style>

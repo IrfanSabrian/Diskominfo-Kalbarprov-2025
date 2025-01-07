@@ -20,10 +20,10 @@ type: informasi
   ];
 
   document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector('.section-container');
+    const containerSopPeraturan = document.querySelector('.section-container-sop-peraturan');
     sopPeraturan.forEach(item => {
-      const urlPath = `/sop-dan-peraturan/${titleToUrl(item.title)}`;
-      container.innerHTML += `
+      const urlPath = `/ms-sop-dan-peraturan/${titleToUrl(item.title)}`;
+      containerSopPeraturan.innerHTML += `
         <a href="${urlPath}" class="bg-white p-4 rounded-xl border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
           <div class="flex items-center justify-between">
             <div class="flex items-center flex-1">
@@ -44,7 +44,7 @@ type: informasi
     });
   });
 </script>
-<section class="flex flex-col gap-4 bg-white section-container">
+<section class="flex flex-col gap-4 bg-white section-container-sop-peraturan">
 </section>
 <style>
 .hover-container:hover .hover-arrow {

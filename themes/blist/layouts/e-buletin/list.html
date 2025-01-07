@@ -1,0 +1,107 @@
+{{ define "main" }}
+{{ $type := .Type }}
+{{ $paginator := .Paginate .Pages.ByDate.Reverse 12 }}
+
+  <div class="flex items-center justify-between mx-10 my-6">
+    <div class="mx-4 text-4xl font-bold text-customGreen">{{ .Title }}</div>
+    <div class="flex-grow h-1 bg-customGreen mr-4"></div>
+    <div class="flex items-center">
+      <a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL }}{{ else }}#{{ end }}" class="mr-2 text-customGreen rounded {{ if not $paginator.HasPrev }}opacity-50 cursor-not-allowed{{ else }}hover:text-green-900 transition-colors{{ end }}">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 30px; transition: color 0.3s;"></i>
+      </a>
+      <a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ else }}#{{ end }}" class="ml-2 text-customGreen rounded {{ if not $paginator.HasNext }}opacity-50 cursor-not-allowed{{ else }}hover:text-green-900 transition-colors{{ end }}">
+        <i class="fa-solid fa-circle-arrow-right" style="font-size: 30px; transition: color 0.3s;"></i>
+      </a>
+    </div>
+  </div>
+
+    <div class="container p-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 justify-items-center">
+
+    {{ range $paginator.Pages }}
+    {{ $accent := .Site.Params.ascentColor }}
+    <div class="grid-item blog-card-ebuletin relative text-white shadow-md overflow-hidden rounded-md cursor-pointer" 
+        style="background-image: url('{{ .Params.thumbnail }}')"
+        onclick="Fancybox.show([{ src: '{{ .Params.file }}', type: 'pdf' }])">
+
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 hover:scale-110" 
+            style="background-image: url('{{ .Params.thumbnail }}');">
+        </div>
+
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+          <div class="absolute inset-0 bg-black opacity-0 hover:opacity-50 transition-opacity duration-300"></div>
+          <span class="text-lg font-bold text-white text-center px-4 z-10">
+            {{ .Params.title | truncate 60 "..."}}
+          </span>
+        </div>
+
+        <div class="flex items-center justify-center absolute right-0 bottom-20 w-32 bg-customGreen p-2 rounded-tl-lg rounded-bl-lg z-20" style="background-color: rgba(3, 160, 85, 0.8);">
+          <span class="text-sm text-white text-center">
+            <i class="fas fa-calendar mr-2"></i> {{ .Date.Format "2 Jan 2006" }}
+          </span>
+        </div>
+        
+    </div>
+
+    <style>
+      .blog-card-ebuletin {
+        width: 90%;
+        height: 450px;
+        background-size: cover;
+        background-position: center;
+      }
+      .grid-item:hover .hover\:scale-110 {
+        transform: scale(1.1);
+      }
+
+      .hover\:scale-110 {
+        transition: transform 0.5s ease;
+      }
+
+      .grid-item .text-xl {
+        white-space: normal;
+        word-wrap: break-word;
+      }
+
+      .grid-item:hover .text-lg {
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+
+      .grid-item .text-lg {
+        transition: color 0.3s ease;
+      }
+
+      @media (max-width: 1024px) {
+        .blog-card-ebuletin {
+          width: 95%;
+          height: 400px;
+        }
+        .blog-card-ebuletin .text-lg {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .blog-card-ebuletin {
+          width: 100%;
+          height: 350px;
+        }
+      }
+
+    </style>
+    {{ end }}
+  </div>
+
+  <div class="flex justify-center space-x-2 my-8">
+    {{ range $paginator.Pagers }}
+      {{ if eq . $paginator }}
+      <span class="px-4 py-2 bg-green-600 text-white rounded">{{ .PageNumber }}</span>
+      {{ else }}
+      <a href="{{ .URL }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
+        {{ .PageNumber }}
+      </a>
+      {{ end }}
+    {{ end }}
+  </div>
+
+{{ end }}
