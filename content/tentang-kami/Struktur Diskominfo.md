@@ -2,7 +2,6 @@
 author: Katheryn Fox
 title: Struktur Diskominfo
 date: 2024-12-30T12:55:00
-type: tentang-kami
 ---
 <script>
 const strukturDiskominfo = [
@@ -10,7 +9,7 @@ const strukturDiskominfo = [
         icon: '/icon/struktur-organisasi.png',
         title: 'Struktur Organisasi',
         type: 'modal',
-        link: '/images/kcSoIfVyBwvBzxweVm12.png'
+        link: '/images/struktur-organisasi.png'
     },
     {
         icon: '/icon/tugas-dan-fungsi.png', 
@@ -34,7 +33,7 @@ const strukturDiskominfo = [
         icon: '/icon/ruang-lingkup.png',
         title: 'Ruang Lingkup',
         type: 'modal',
-        link: '/images/z89a546GS9LjFYi193UE.jpeg'
+        link: '/images/ruang-lingkup.png'
     },
     {
         icon: '/icon/unit-kerja.png',

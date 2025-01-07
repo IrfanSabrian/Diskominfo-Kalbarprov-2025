@@ -1,12 +1,12 @@
 ---
 author: Katheryn Fox
 title: Kontak Kami
-date: 2025-01-04T12:54:00
+date: 2025-01-04T12:52:00
 type: informasi
 ---
 
-<section class="relative bg-white p-8 rounded-xl shadow-lg mx-auto max-w-4xl">
-    <div class="absolute top-0 right-0 bottom-0 w-1/3 bg-customYellow hidden md:block"></div>
+<section class="relative bg-white p-8 rounded-xl border-2 border-gray-300 shadow-lg mx-auto max-w-4xl">
+    <div class="absolute top-0 right-0 bottom-0 w-1/3 bg-customYellow rounded-r-xl hidden md:block"></div>
     <div class="p-8 w-full max-w-4xl flex flex-col md:flex-row relative z-10">
         <!-- Kotak Putih -->
         <div class="w-full md:w-2/3 p-4 mr-4">
@@ -44,7 +44,7 @@ type: informasi
                 </div>
                 <div class="mb-4">
                     <label for="message" class="block text-lg font-bold text-gray-700">Pesan</label>
-                    <textarea id="message" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500"></textarea>
+                    <textarea id="message" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500 resize-none"></textarea>
                 </div>
                 <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Kirim</button>
             </form>

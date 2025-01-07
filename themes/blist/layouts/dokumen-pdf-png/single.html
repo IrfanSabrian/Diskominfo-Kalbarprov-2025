@@ -1,0 +1,168 @@
+{{ define "main" }}
+<div class="container mx-auto">
+  <div class="flex items-center mb-8 mt-10 px-4">
+    <h1 class="text-4xl font-bold text-customGreen mr-4">{{ .Title }}</h1>
+    <div class="h-1 bg-customGreen flex-grow"></div>
+  </div>
+</div>
+<div class="bg-white p-6 px-10 rounded-lg shadow-lg flex flex-col md:flex-row justify-center" style="min-height: 80vh;">
+    <div class="overflow-x-auto w-full md:w-2/3">
+        <div class="h-96 overflow-y-auto border border-gray-200">
+            <table class="w-full bg-white border border-gray-200">
+                <thead class="sticky top-0">
+                    <tr>
+                        <th class="px-2 py-2 bg-customGreen text-white" style="width: 70%;">Judul</th>
+                        <th class="px-4 py-2 bg-customGreen text-white" style="width: 30%;">Tipe File</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Params.items }}
+                    {{ $fileExt := path.Ext .file }}
+                    <tr class="cursor-pointer hover:bg-gray-100" onclick="showPreview('{{ .file }}', '{{ .title }}', this, '{{ $fileExt }}')" data-file="{{ .file }}">
+                        <td class="border px-2 py-2">{{ .title }}</td>
+                        <td class="border px-4 py-2">{{ upper (trim $fileExt ".") }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mt-6 md:mt-0 md:ml-6 flex flex-col items-center justify-between bg-gray-200 p-6 rounded-lg w-72 h-96 md:mx-0 mx-auto">
+        <div class="text-xl font-semibold mb-4">Preview</div>
+        <div id="pdfPreview" class="w-full h-64 bg-white rounded mb-4 overflow-hidden flex items-center justify-center">
+            <canvas id="pdfCanvas" class="max-w-full max-h-full object-contain hidden"></canvas>
+            <img id="imgPreview" class="max-w-full max-h-full object-contain hidden" />
+            <div id="previewPlaceholder" class="text-gray-500">
+                Pilih dokumen untuk preview
+            </div>
+        </div>
+        <div class="flex space-x-4 mt-auto">
+            <button id="viewBtn" onclick="viewFile()" class="bg-customGreen text-white px-4 py-2 rounded flex items-center opacity-50 cursor-not-allowed" disabled>
+                <i class="fas fa-eye mr-2"></i> Lihat
+            </button>
+            <button id="downloadBtn" onclick="downloadFile()" class="bg-customGreen text-white px-4 py-2 rounded flex items-center opacity-50 cursor-not-allowed" disabled>
+                <i class="fas fa-download mr-2"></i> Unduh
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.mjs';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.mjs';
+
+let currentFileUrl = '';
+let currentFileTitle = '';
+let currentFileType = '';
+let selectedRow = null;
+
+window.showPreview = async function(fileUrl, title, row, fileExt) {
+    if (selectedRow) {
+        selectedRow.classList.remove('bg-green-100');
+    }
+    
+    row.classList.add('bg-green-100');
+    selectedRow = row;
+    
+    currentFileUrl = fileUrl;
+    currentFileTitle = title;
+    currentFileType = fileExt.toLowerCase();
+    
+    const canvas = document.getElementById('pdfCanvas');
+    const imgPreview = document.getElementById('imgPreview');
+    const placeholder = document.getElementById('previewPlaceholder');
+    const viewBtn = document.getElementById('viewBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // Hide all preview elements initially
+    canvas.classList.add('hidden');
+    imgPreview.classList.add('hidden');
+    placeholder.classList.add('hidden');
+
+    if (fileUrl) {
+        try {
+            if (currentFileType === '.pdf') {
+                const loadingTask = pdfjsLib.getDocument(fileUrl);
+                const pdf = await loadingTask.promise;
+                const page = await pdf.getPage(1);
+                
+                const viewport = page.getViewport({scale: 1.0});
+                const context = canvas.getContext('2d');
+                
+                const previewBox = document.getElementById('pdfPreview');
+                const scaleWidth = previewBox.clientWidth / viewport.width;
+                const scaleHeight = previewBox.clientHeight / viewport.height;
+                const scale = Math.min(scaleWidth, scaleHeight) * 0.9;
+                
+                const scaledViewport = page.getViewport({scale: scale});
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+                
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+                await page.render(renderContext);
+                
+                canvas.classList.remove('hidden');
+            } else if (currentFileType === '.png') {
+                imgPreview.src = fileUrl;
+                imgPreview.classList.remove('hidden');
+            }
+            
+            viewBtn.disabled = false;
+            downloadBtn.disabled = false;
+            viewBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            downloadBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        } catch (error) {
+            console.error('Error loading file:', error);
+            placeholder.textContent = 'Error memuat preview file';
+            placeholder.classList.remove('hidden');
+            
+            viewBtn.disabled = true;
+            downloadBtn.disabled = true;
+            viewBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            downloadBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        }
+    } else {
+        placeholder.textContent = 'Preview tidak tersedia';
+        placeholder.classList.remove('hidden');
+
+        viewBtn.disabled = true;
+        downloadBtn.disabled = true;
+        viewBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        downloadBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+}
+
+window.viewFile = function() {
+    if (currentFileUrl) {
+        if (currentFileType === '.pdf') {
+            Fancybox.show([
+                {
+                    src: currentFileUrl,
+                    type: "pdf",
+                    caption: currentFileTitle
+                }
+            ], {
+                dragToClose: false
+            });
+        } else if (currentFileType === '.png') {
+            openImgModal(currentFileUrl);
+        }
+    }
+}
+
+window.downloadFile = function() {
+    if (currentFileUrl) {
+        const link = document.createElement('a');
+        link.href = currentFileUrl;
+        link.download = currentFileTitle;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+</script>
+{{ end }}
