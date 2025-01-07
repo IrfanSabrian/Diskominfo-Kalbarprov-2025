@@ -1,66 +1,100 @@
 ---
-author: andar
-title: "Profil PPID"
-date: 1990-08-29 06:29:09
+author: Katheryn Fox
+title: Profil PPID
+date: 2025-01-06T12:55:00
 ---
-<section class="">
-    <div class="relative bg-white dark:bg-gray-600" style="height: 360px; background-image: url('/images/banner.png'); background-repeat: no-repeat; background-position: center; background-size: 100% auto;">
-        <div style="background: rgba(0,0,0,0.5); width: 100%; height: 100%; padding: 48px 32px;" class="absolute bottom-0 left-0">
-            <div class="container-besar" style="height: 100%; padding: 0 32px;">
-                <div class="absolute bottom-8">
-                    <h2 class="text-white font-bold text-4xl mb-2">Profil PPID</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-white dark:bg-gray-900">
-        <div style="width: 100%; height: auto;" class="container-besar flex align-center px-8 py-3">
-            <i class="fas fa-map-marker-alt black-fill white-fill mr-2" style="font-size: 24px"></i>
-            <p class="mr-8">Pontianak, Kalimantan Barat</p>
-            <i style="font-size: 24px;" class="far fa-calendar text-black dark:text-white mr-2"></i>
-            <p class="mr-8">22 September 2023</p>
-        </div>
-    </div>
-</section>
-<div class="container-besar grid lg:grid-cols-5" style="grid-template-columns: 20% 20% 20% 20% 20%">
-    <div class="my-16">
-        <div class="flex justify-center mb-4">
-            <i style="font-size: 96px;" class="fas fa-info-circle"></i>
-        </div>
-        <div class="flex justify-center">
-            <a href="/ppid/profil-ppid/tentang-ppid" class="text-center text-secondary" style="text-decoration: underline;">Tentang PPID</a>
-        </div>
-    </div>
-    <div class="my-16">
-        <div class="flex justify-center mb-4">
-            <i style="font-size: 96px;" class="fas fa-clipboard-list"></i>
-        </div>
-        <div class="flex justify-center">
-            <a href="/profil/tugas-dan-fungsi" class="text-center text-secondary" style="text-decoration: underline;">Tugas dan Fungsi PPID</a>
-        </div>
-    </div>
-    <div class="my-16">
-        <div class="flex justify-center mb-4">
-            <i style="font-size: 96px;" class="fas fa-bullseye"></i>
-        </div>
-        <div class="flex justify-center">
-            <a href="/profil/visi-dan-misi" class="text-center text-secondary" style="text-decoration: underline;">Visi Misi PPID</a>
-        </div>
-    </div>
-    <div class="my-16">
-        <div class="flex justify-center mb-4">
-            <i style="font-size: 96px;" class="fas fa-question-circle"></i>
-        </div>
-        <div class="flex justify-center">
-            <a href="/ppid/profil-ppid/maklumat-pelayanan-informasi" class="text-center text-secondary" style="text-decoration: underline;">Maklumat Pelayanan PPID</a>
-        </div>
-    </div>
-    <div class="my-16">
-        <div class="flex justify-center mb-4">
-            <i style="font-size: 96px;" class="fas fa-sitemap"></i>
-        </div>
-        <div class="flex justify-center">
-            <a href="/profil/struktur-organisasi" class="text-center text-secondary" style="text-decoration: underline;">Struktur Organisasi PPID</a>
-        </div>
-    </div>
+<script>
+const profilPPID = [
+    {
+        icon: '/icon/tentang-ppid.png',
+        title: 'Tentang PPID',
+        type: 'link',
+        link: '/ms-profil-ppid/tentang-ppid'
+    },
+    {
+        icon: '/icon/tugas-dan-wewenang-ppid.png', 
+        title: 'Tugas dan Wewenang',
+        type: 'link',
+        link: '/ms-profil-ppid/tugas-dan-wewenang'
+    },
+    {
+        icon: '/icon/visi-dan-misi-ppid.png',
+        title: 'Visi dan Misi',
+        type: 'link', 
+        link: '/ms-profil-ppid/visi-dan-misi'
+    },
+    {
+        icon: '/icon/maklumat-pelayanan-ppid.png',
+        title: 'Maklumat Pelayanan',
+        type: 'modal',
+        link: '/images/maklumat-pelayanan-ppid.png'
+    },
+    {
+        icon: '/icon/struktur-organisasi-ppid.png',
+        title: 'Struktur Organisasi',
+        type: 'modal',
+        link: '/images/struktur-organisasi-ppid.png'
+    }
+];
+
+function renderSections() {
+    const container = document.querySelector('.container-menu');
+    profilPPID.forEach(section => {
+        const div = document.createElement('div');
+        div.className = 'flex flex-col items-center menu-container';
+        
+        const content = section.type === 'modal' 
+            ? `<div onclick="openImgModal('${section.link}')" class="bg-customGreen rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
+                style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
+                <img src="${section.icon}" alt="${section.title}" class="h-4/5 max-h-full w-auto object-contain">
+               </div>`
+            : `<a href="${section.link}" class="bg-customGreen rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
+                style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
+                <img src="${section.icon}" alt="${section.title}" class="h-4/5 max-h-full w-auto object-contain">
+               </a>`;
+               
+        div.innerHTML = `
+            ${content}
+            <p class="text-base text-black text-center w-full mt-2">${section.title}</p>
+        `;
+        
+        container.appendChild(div);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', renderSections);
+</script>
+
+<style>
+.menu-container:hover .menu-item {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.menu-container:hover .menu-title {
+    font-weight: bold;
+    color: #2F855A;
+}
+
+.container-menu {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .container-menu {
+        grid-template-rows: auto;
+    }
+    
+    .container-menu > div:nth-last-child(-n+2) {
+        grid-column: span 1;
+        transform: translateX(50%);
+    }
+}
+</style>
+
+<div class="container container-menu px-32 gap-2 mx-auto grid grid-cols-2 md:grid-cols-3 max-w-4xl">
 </div>

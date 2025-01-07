@@ -2,7 +2,6 @@
 author: Katheryn Fox
 title: Maklumat Diskominfo
 date: 2024-12-30T12:54:00
-type: tentang-kami
 ---
 <style>
 .img-hover {

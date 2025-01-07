@@ -1,7 +1,7 @@
 ---
 author: Katheryn Fox
 title: Dokumentasi, Program Kerja & Informasi Keuangan
-date: 2025-01-04T12:55:00
+date: 2025-01-04T12:53:00
 type: informasi
 ---
 

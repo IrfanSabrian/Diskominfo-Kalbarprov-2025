@@ -2,7 +2,6 @@
 author: Katheryn Fox
 title: Profil Pimpinan
 date: 2024-12-30T12:56:00
-type: tentang-kami
 ---
 <div class="max-w-4xl mx-auto bg-white rounded-lg overflow-hidden">
     <div class="flex flex-col sm:flex-row">
@@ -107,15 +106,15 @@ type: tentang-kami
             </div>
             <div class="flex flex-row items-center justify-center space-x-3 mb-4 pt-24">
                 <div class="flex items-center text-gray-400 cursor-pointer text-center" onclick="toggleVisibility('tentang');">
-                    <i class="fas fa-info-circle mr-2 sm:inline-block hidden" id="icon-tentang"></i>
+                    <i class="fas fa-info-circle mr-1 sm:inline-block hidden" id="icon-tentang"></i>
                     <span class="font-semibold" id="text-tentang">Tentang</span>
                 </div>
                 <div class="flex items-center text-gray-400 cursor-pointer text-center" onclick="toggleVisibility('pendidikan');">
-                    <i class="fas fa-graduation-cap mr-2 sm:inline-block hidden" id="icon-pendidikan"></i>
+                    <i class="fas fa-graduation-cap mr-1 sm:inline-block hidden" id="icon-pendidikan"></i>
                     <span class="font-semibold" id="text-pendidikan">Riwayat Pendidikan</span>
                 </div>
                 <div class="flex items-center text-gray-400 cursor-pointer text-center" onclick="toggleVisibility('penghargaan');">
-                    <i class="fas fa-trophy mr-2 sm:inline-block hidden" id="icon-penghargaan"></i>
+                    <i class="fas fa-trophy mr-1 sm:inline-block hidden" id="icon-penghargaan"></i>
                     <span class="font-semibold" id="text-penghargaan">Penghargaan</span>
                 </div>
             </div>
