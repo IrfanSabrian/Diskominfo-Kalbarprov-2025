@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Informasi PPID on Diskominfo Provinsi Kalimantan Barat</title>
+    <link>//localhost:1313/ms-informasi-ppid/</link>
+    <description>Recent content in Informasi PPID on Diskominfo Provinsi Kalimantan Barat</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Fri, 22 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/ms-informasi-ppid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formulir</title>
+      <link>//localhost:1313/ms-informasi-ppid/formulir/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-informasi-ppid/formulir/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Informasi Publik</title>
+      <link>//localhost:1313/ms-informasi-ppid/informasi-publik/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-informasi-ppid/informasi-publik/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Laporan PPID</title>
+      <link>//localhost:1313/ms-informasi-ppid/laporan-ppid/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-informasi-ppid/laporan-ppid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Peraturan PPID</title>
+      <link>//localhost:1313/ms-informasi-ppid/peraturan-ppid/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-informasi-ppid/peraturan-ppid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SOP PPID</title>
+      <link>//localhost:1313/ms-informasi-ppid/sop-ppid/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-informasi-ppid/sop-ppid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tata Cara</title>
+      <link>//localhost:1313/ms-informasi-ppid/tata-cara/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-informasi-ppid/tata-cara/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

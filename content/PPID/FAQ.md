@@ -1,7 +1,7 @@
 ---
 author: Katheryn Fox
 title: FAQ
-date: 2025-01-04T12:56:00
+date: 2025-01-02T12:56:00
 ---
 
 <div style="font-family: 'Poppins', sans-serif;">
@@ -49,6 +49,7 @@ function toggleAnswer(index) {
     const icons = document.querySelectorAll('.plus-icon');
     
     answers[index].classList.toggle('hidden');
+    answers[index].style.maxHeight = answers[index].classList.contains('hidden') ? '0' : answers[index].scrollHeight + 'px';
     icons[index].style.transform = answers[index].classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(45deg)';
 }
 </script>
@@ -70,6 +71,13 @@ function toggleAnswer(index) {
 
 .faq-answer {
     transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.faq-answer:not(.hidden) {
+    opacity: 1;
 }
 
 .green-line {

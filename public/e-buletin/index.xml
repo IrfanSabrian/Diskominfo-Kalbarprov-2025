@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>E-Buletin on Diskominfo Provinsi Kalimantan Barat</title>
+    <link>//localhost:1313/e-buletin/</link>
+    <description>Recent content in E-Buletin on Diskominfo Provinsi Kalimantan Barat</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/e-buletin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EDISI IX JUNI 2024</title>
+      <link>//localhost:1313/e-buletin/edisi-ix-juni-2024/</link>
+      <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/e-buletin/edisi-ix-juni-2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EDISI VIII DESEMBER 2023</title>
+      <link>//localhost:1313/e-buletin/edisi-viii-desember-2023/</link>
+      <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/e-buletin/edisi-viii-desember-2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EDISI VII JUNI 2023</title>
+      <link>//localhost:1313/e-buletin/edisi-vii-juni-2023/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/e-buletin/edisi-vii-juni-2023/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,6219 @@
+<!DOCTYPE html>
+<html lang="id" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/icon-akcaya.png">
+  <link rel="icon" href='/favicon.svg'>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <title>
+  Diskominfo Provinsi Kalimantan Barat
+  </title>
+  <meta name="description" content="Deskripsi halaman tidak tersedia." />
+
+  
+  <meta name="generator" content="Hugo 0.138.0">
+  
+  <link rel="stylesheet" href="/css/styles.css" />
+  
+
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Diskominfo Provinsi Kalimantan Barat" />
+  <meta property="og:url" content="//localhost:1313/">
+  <meta property="og:site_name" content="Diskominfo Provinsi Kalimantan Barat">
+  <meta property="og:title" content="AWDI">
+  <meta property="og:locale" content="id">
+  <meta property="og:type" content="website">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AWDI">
+
+  
+  <meta itemprop="name" content="AWDI">
+  <meta itemprop="datePublished" content="2021-07-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-07-15T00:00:00+00:00">
+
+  
+  <script src="/jquery-3.7.0.min.js"></script>
+  <style>
+    iframe{
+    width: 100%;
+    }
+    .mobile-menu .relative:hover .language-dropdown {
+        display: flex;
+    }
+
+    .language-dropdown {
+      display: none;
+    }
+
+  </style>
+  <link
+  rel="stylesheet"
+  href="/swiper-10.2.0/package/swiper-bundle.min.css"
+/>
+
+<script src="/swiper-10.2.0/package/swiper-bundle.min.js"></script>
+
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const observerOptions = {
+              root: null,
+              rootMargin: '0px',
+              threshold: 0.3
+          };
+
+          const observer = new IntersectionObserver((entries, observer) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('show');
+                      observer.unobserve(entry.target);
+                  }
+              });
+          }, observerOptions);
+
+          const elements = document.querySelectorAll('.fade-in');
+          elements.forEach(element => {
+              observer.observe(element);
+          });
+      });
+  </script>
+
+
+
+<script>
+  function openVideoModal(videoUrl) {
+    const isYouTube = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
+    const isTikTok = videoUrl.includes('tiktok.com');
+
+    if (isYouTube) {
+      const videoId = videoUrl.split('v=')[1] ? videoUrl.split('v=')[1].split('&')[0] : videoUrl.split('/').pop();
+      const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+      Fancybox.show([{
+        src: embedUrl,
+        type: 'iframe',
+        options: {
+          iframe: {
+            preload: false,
+            attr: {
+              allow: 'autoplay; fullscreen',
+              allowfullscreen: 'true'
+            }
+          }
+        }
+      }]);
+    } else if (isTikTok) {
+      const videoId = videoUrl.split('/').pop();
+      const embedUrl = `https://www.tiktok.com/embed/${videoId}`;
+      Fancybox.show([{
+        src: embedUrl,
+        type: 'html',
+        html: `<div class="fancybox__content" style="flex: 0 1 auto; height:100%; width: 100vh;">
+                 <iframe class="fancybox__iframe" allow="autoplay; fullscreen" scrolling="auto" src="${embedUrl}" style="height: 100%;"></iframe>
+                 <button data-fancybox-close="" class="f-button is-close-btn" title="Close">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+                     <path d="M20 20L4 4m16 0L4 20"></path>
+                   </svg>
+                 </button>
+               </div>`
+      }]);
+    } else {
+      alert('Video tidak dapat diputar. Pastikan URL berasal dari YouTube atau TikTok.');
+    }
+  }
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-modal]").forEach((trigger) => {
+      trigger.addEventListener("click", async () => {
+        const contentUrl = trigger.getAttribute("data-modal");
+
+        
+        let content = "";
+        if (contentUrl) {
+          const response = await fetch(contentUrl);
+          content = await response.text();
+        }
+
+        
+        const imgTags = content.match(/<p><img [^>]*src="([^"]*)"[^>]*>/g) || [];
+        const imgSrcs = imgTags.map((tag) => {
+          const match = tag.match(/src="([^"]*)"/);
+          return match ? match[1] : null;
+        });
+
+        
+        const thumbnailSrc = trigger.dataset.thumbnail; 
+        if (thumbnailSrc) {
+          imgSrcs.unshift(thumbnailSrc); 
+        }
+
+        
+        Fancybox.show(
+          imgSrcs.map((src) => ({
+            src: src,
+            type: 'image',
+            options: {
+              Toolbar: {
+                display: ["slideshow", "fullscreen", "close"], 
+              },
+              Image: {
+                zoom: false, 
+              },
+              transitionEffect: "fade", 
+            }
+          }))
+        );
+      });
+    });
+  });
+</script>
+
+
+<a id="imgModal" data-fancybox="gallery" href="" style="display: none;"></a>
+
+<script>
+    function openImgModal(file) {
+        const imgModal = document.getElementById('imgModal');
+        imgModal.href = file;
+        Fancybox.show([{
+            src: file,
+            type: 'image',
+            options: {
+              Image: {
+                zoom: true 
+              },
+              afterClose: function() {
+                document.body.style.overflow = ''; 
+              }
+            }
+          }]).then(() => {
+            document.body.style.overflow = ''; 
+        });
+        document.body.style.overflow = 'hidden'; 
+    }
+</script>
+
+<script>
+$(document).ready(function() {
+  function openImgModal(imageSrc) {
+    $.fancybox.open({
+      src: imageSrc,
+      type: 'image',
+      opts: {
+        Image: {
+          zoom: true 
+        },
+        afterShow: function(instance, current) {
+          console.info('Fancybox modal opened');
+        }
+      }
+    });
+  }
+});
+</script>
+
+
+
+</head>
+<body class="dark:text-black transition-colors duration-500 dark:bg-gray-900" style="font-family: 'Poppins', sans-serif;">
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=przYp5x6"></script>
+    <style type="text/css">
+      .btn-container {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .mycheckbox {
+        font-size: 12px;
+        color: #000;
+        font-weight: 500;
+      }
+      .dark .mycheckbox {
+        color: #fff;
+      }
+      .btn-color-mode-switch {
+        display: inline-block;
+        margin: 0;
+        position: relative;
+      }
+      .btn-color-mode-switch > label.btn-color-mode-switch-inner {
+        margin: 0;
+        width: 200px;
+        height: 45px;
+        background: #03a055;
+        border-radius: 26px;
+        overflow: hidden;
+        position: relative;
+        transition: 0.3s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+      }
+      .dark .btn-color-mode-switch > label.btn-color-mode-switch-inner {
+        background: #1f2937;
+      }
+
+      .btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
+        content: attr(data-on);
+        cursor: pointer;
+        position: absolute;
+        font-size: 12px;
+        font-weight: 700;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        color: white;
+        width: 80px;
+        border-radius: 20px;
+        border: 3px solid white;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      .btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+        content: attr(data-off);
+        cursor: pointer;
+        width: 85px;
+        height: 24px;
+        font-size: 12px;
+        background: #fff;
+        border-radius: 26px;
+        position: absolute;
+        left: 5px;
+        margin-right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 700;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 0 6px -2px #111;
+        padding: 2px 0;
+        margin-bottom: 10px;
+        color: #03a055;
+        margin-left: 10px;
+      }
+      .dark .btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+        color: #1f2937;
+      }
+
+      .btn-color-mode-switch input[type="checkbox"] {
+        cursor: pointer;
+        width: 70px;
+        height: 25px;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        padding: 2px 0;
+        margin: 0;
+      }
+      .btn-color-mode-switch
+        input[type="checkbox"]:checked
+        + label.btn-color-mode-switch-inner {
+        background: #03a055;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .dark .btn-color-mode-switch
+        input[type="checkbox"]:checked
+        + label.btn-color-mode-switch-inner {
+        background: #1f2937;
+      }
+      .btn-color-mode-switch
+        input[type="checkbox"]:checked
+        + label.btn-color-mode-switch-inner:after {
+        content: attr(data-on);
+        left: 90px;
+        background: #fff;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .btn-color-mode-switch
+        input[type="checkbox"]:checked
+        + label.btn-color-mode-switch-inner:before {
+        content: attr(data-off);
+        right: auto;
+        left: 15px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .btn-color-mode-switch input[type="checkbox"]:checked ~ .alert {
+        display: block;
+      }
+      .toolbar-disabilitas {
+        position: fixed;
+        top: 25%;
+        left: 0;
+        z-index: 40;
+        height: 1px;
+        width: -180px;
+        text-align: center;
+        background: 0 0 !important;
+      }
+      .open-toolbar {
+        margin-top: 5%;
+        padding: 8px 5px 3px;
+        height: 50px;
+        border: none;
+        width: 50px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .toolbar-disabilitas .open-toolbar {
+        background: #03a055;
+      }
+      .dark .toolbar-disabilitas .open-toolbar {
+        background: #2d3748;
+        transition: background-color 0.5s ease;
+      }
+      .toolbar-disabilitas .groupcontenttoolbar {
+        transform: translateX(-400px);
+        transition: transform 0.6s;
+      }
+      .toolbar-disabilitas.show-toolbar .groupcontenttoolbar {
+        transform: translateX(0);
+      }
+      .contenttoolbar_disabilitas {
+        justify-items: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 800px;
+        border: 4px solid #03a055;
+        box-shadow: 0 10px 10px rgb(0 0 0 / 0.2);
+        background-color: #fff;
+        word-break: break-all;
+        overflow: hidden;
+        border-radius: 13px;
+        max-height: 500px;
+        width: 400px;
+      }
+      .dark .contenttoolbar_disabilitas {
+        background-color: #1f2937;
+        border-color: #2d3748;
+        color: #fff;
+      }
+      .groupcontenttoolbar {
+        display: flex;
+        flex-direction: row;
+        height: 1px;
+        background-color: transparent !important;
+      }
+      .titletools {
+        font-size: 13px !important;
+        font-weight: 700;
+        margin-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #fff;
+        background-color: #03a055;
+        height: 30px;
+        width: 170px;
+        border-radius: 0 0 20px 20px;
+      }
+      .dark .titletools {
+        background-color: #2d3748;
+      }
+      .bodytools {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        width: 100%;
+        margin-bottom: 10px;
+        left: 0;
+        height: max-content;
+      }
+
+      .subtitletools {
+        font-size: 12px !important;
+        margin-bottom: 5px;
+        cursor: pointer;
+        left: 0;
+        text-align: left;
+        padding-left: 10px;
+      }
+      .dark .subtitletools {
+        color: #fff;
+      }
+
+      .subtitletoolsactive {
+        background-color: #03a055 !important;
+        color: #808080;
+        font-weight: 700;
+      }
+      .dark .subtitletoolsactive {
+        background-color: #4a5568 !important;
+      }
+
+      .subtitletoolsactive svg {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+      }
+
+      .subtitletools:hover {
+        font-size: 12px;
+        max-width: 100%;
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-bottom: 5px;
+        transition: all 0.3s ease;
+        color: #fff;
+      }
+      .flexrowdata {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        width: auto;
+      }
+
+      .flexrowdata span {
+        border-radius: 50%;
+        padding: 10px;
+        background-color: #03a055;
+        color: white;
+        display: block;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+      }
+      .dark .flexrowdata span {
+        background-color: #2d3748;
+      }
+
+      .aksestexttools {
+        font-size: 10px;
+        color: #333;
+        text-align: center;
+        font-weight: 700;
+      }
+      .dark .aksestexttools {
+        color: #fff;
+      }
+
+      .subtitletoolsactive .aksestexttools {
+        color: white;
+      }
+
+      .toolbar-disabilitas svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+      }
+      .fa-file-audio {
+        font-size: 24px;
+      }
+      body .uwy.userway_p1 .userway_buttons_wrapper {
+        top: 11%;
+        left: calc(100vw - 30px);
+      }
+      body .uwy.userway_p7 .userway_buttons_wrapper {
+        top: 11%;
+        left: 15px;
+      }
+      @media only screen and (max-width: 900px) {
+        .toolbar-disabilitas {
+          top: 20%;
+          left: 0;
+          z-index: 40;
+          height: auto;
+          width: 70%;
+          text-align: center;
+          background: 0 0 !important;
+        }
+        #groupcekmenu {
+          max-width: 100%;
+          padding: 5px;
+          font-size: 12px;
+        }
+        .contenttoolbar_disabilitas {
+          max-height: 500px;
+          padding: 10px;
+          font-size: 10px;
+          width: 80%;
+        }
+        .subtitletools {
+          font-size: 8px !important;
+          padding-left: 5px;
+        }
+        .toolbar-disabilitas .groupcontenttoolbar {
+          transform: translateX(-80%);
+          transition: transform 0.6s;
+        }
+        .titletools {
+          font-size: 11px;
+          width: 150px;
+          height: 25px;
+          margin-top: 0;
+        }
+        .fa-file-audio {
+          font-size: 24px;
+        }
+        .aksestexttools {
+          font-size: 10px;
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #2d3748;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #03a055;
+        border-radius: 20px;
+        border: 3px solid #f1f1f1;
+      }
+
+      .dark ::-webkit-scrollbar-thumb {
+        background-color: #1f2937;
+        border: 3px solid #2d3748;
+        transition: background-color 0.5s ease;
+      }
+    </style>
+    <span id="loadmodaldisabilitas"></span>
+
+    <div
+      id="loading-screen"
+      class="fixed inset-0 bg-white opacity-100 z-40 flex justify-center items-center dark:bg-gray-900 transition-colors duration-500"
+    >
+      <div class="loader"></div>
+    </div>
+    <style>
+      .loader {
+        width: 45px;
+        aspect-ratio: .75;
+        --c: no-repeat linear-gradient(#03a055 0 0);
+        background: 
+          var(--c) 0%   50%,
+          var(--c) 50%  50%,
+          var(--c) 100% 50%;
+        animation: l7 1s infinite linear alternate;
+      }
+      .dark .loader {
+        --c: no-repeat linear-gradient(#2d3748 0 0);
+      }
+      @keyframes l7 {
+        0%  {background-size: 20% 50% ,20% 50% ,20% 50% }
+        20% {background-size: 20% 20% ,20% 50% ,20% 50% }
+        40% {background-size: 20% 100%,20% 20% ,20% 50% }
+        60% {background-size: 20% 50% ,20% 100%,20% 20% }
+        80% {background-size: 20% 50% ,20% 50% ,20% 100%}
+        100%{background-size: 20% 50% ,20% 50% ,20% 50% }
+      }
+    </style><header class="sticky top-0 z-40 transition-all duration-300 bg-customGreen text-white w-full">
+  <div class="flex justify-between items-center px-4">
+    <div class="py-2 px-4">
+      <a href='//localhost:1313/' class="flex items-center">
+        <img src='//localhost:1313/akcaya-logo.png' alt="Logo Akcaya" class="w-12 h-auto mr-2.5" />
+        <span class="text-lg font-bold">Diskominfo Provinsi Kalimantan Barat</span>
+      </a>
+    </div>
+
+    
+    <button class="md:hidden p-2 hover:bg-white hover:bg-opacity-20 rounded-lg transition-all duration-300" id="mobile-menu-button">
+      <i class="fas fa-bars text-white text-2xl"></i>
+    </button>
+
+    <ul class="h-16 hidden md:flex items-center gap-4 list-none m-0 p-0 justify-center flex-1" id="desktop-menu">
+       
+       
+       
+       
+      <li class="relative flex items-center px-1.5 h-full group">
+        
+        <span onclick="location.href='\/'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">Beranda</span>
+        
+      </li>
+       
+       
+       
+       
+      <li class="relative flex items-center px-1.5 h-full group">
+        
+        <span onclick="location.href='\/tentang-kami'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">Tentang Kami</span>
+        
+      </li>
+       
+       
+       
+       
+      <li class="relative flex items-center px-1.5 h-full group">
+        
+        <span onclick="location.href='\/informasi'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">Informasi</span>
+        
+      </li>
+       
+       
+       
+       
+      <li class="relative flex items-center px-1.5 h-full group">
+        
+        <span onclick="location.href='\/berita'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">Berita</span>
+        
+      </li>
+       
+       
+       
+       
+      <li class="relative flex items-center px-1.5 h-full group">
+        
+        <span onclick="location.href='\/ppid'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">PPID</span>
+        
+      </li>
+       
+       
+       
+       
+      <li class="relative flex items-center px-1.5 h-full group">
+        
+        <span onclick="location.href='\/csirt'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">CSIRT</span>
+        
+      </li>
+       
+       
+      
+      <li class="flex items-center">
+        <span class="inline-block cursor-pointer">
+          <i class="fas fa-moon text-white text-lg dark-mode-icon" id="dark-mode-icon"></i>
+        </span>
+      </li>
+      
+    </ul>
+
+    
+    <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden transition-all duration-300" id="mobile-menu-overlay">
+      <div class="bg-gradient-to-b from-customGreen to-green-700 h-full w-80 absolute right-0 transform transition-transform duration-500 translate-x-full shadow-2xl" id="mobile-menu">
+        <div class="p-6 flex justify-between items-center border-b border-white/20">
+          <span class="text-xl font-bold">Menu Navigasi</span>
+          <button id="close-mobile-menu" class="hover:rotate-90 transition-transform duration-300">
+            <i class="fas fa-times text-white text-2xl"></i>
+          </button>
+        </div>
+        <ul class="p-6 space-y-6">
+          
+          
+          
+          
+          <li class="transform hover:translate-x-2 transition-transform duration-300">
+            
+            <a href="/" class="text-white hover:text-gray-200 transition-colors flex items-center">
+              <i class="fas fa-chevron-right mr-3 text-sm"></i>
+              Beranda
+            </a>
+            
+          </li>
+          
+          
+          
+          
+          <li class="transform hover:translate-x-2 transition-transform duration-300">
+            
+            <a href="/tentang-kami" class="text-white hover:text-gray-200 transition-colors flex items-center">
+              <i class="fas fa-chevron-right mr-3 text-sm"></i>
+              Tentang Kami
+            </a>
+            
+          </li>
+          
+          
+          
+          
+          <li class="transform hover:translate-x-2 transition-transform duration-300">
+            
+            <a href="/informasi" class="text-white hover:text-gray-200 transition-colors flex items-center">
+              <i class="fas fa-chevron-right mr-3 text-sm"></i>
+              Informasi
+            </a>
+            
+          </li>
+          
+          
+          
+          
+          <li class="transform hover:translate-x-2 transition-transform duration-300">
+            
+            <a href="/berita" class="text-white hover:text-gray-200 transition-colors flex items-center">
+              <i class="fas fa-chevron-right mr-3 text-sm"></i>
+              Berita
+            </a>
+            
+          </li>
+          
+          
+          
+          
+          <li class="transform hover:translate-x-2 transition-transform duration-300">
+            
+            <a href="/ppid" class="text-white hover:text-gray-200 transition-colors flex items-center">
+              <i class="fas fa-chevron-right mr-3 text-sm"></i>
+              PPID
+            </a>
+            
+          </li>
+          
+          
+          
+          
+          <li class="transform hover:translate-x-2 transition-transform duration-300">
+            
+            <a href="/csirt" class="text-white hover:text-gray-200 transition-colors flex items-center">
+              <i class="fas fa-chevron-right mr-3 text-sm"></i>
+              CSIRT
+            </a>
+            
+          </li>
+          
+        </ul>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-white/20">
+          <div class="flex items-center justify-center">
+            
+            <div class="mobile-dark-mode-container">
+              <button class="mobile-dark-mode-button" id="mobile-dark-mode-toggle">
+                <i class="fas fa-moon text-white text-xl mobile-dark-mode-icon" id="mobile-dark-mode-icon"></i>
+                <span class="mobile-dark-mode-text">Mode Gelap</span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .menu-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+
+  .menu-link:hover::after,
+  .group:hover .menu-link::after {
+    width: 100%;
+  }
+
+  .dropdown-menu-wrapper {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .group:hover .dropdown-menu-wrapper {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-menu li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 0;
+    background-color: #03a055;
+    transition: width 0.3s ease;
+  }
+
+  .dropdown-menu li:hover::before {
+    background-color: #03a055;
+  }
+
+  .dropdown-menu li:hover::after {
+    width: 25px;
+  }
+
+  .dark-mode-icon {
+    transition: transform 0.5s ease;
+  }
+
+  .dark-mode-icon:hover {
+    transform: rotate(45deg);
+  }
+
+  .dark-mode-icon.rotating {
+    animation: rotate360 0.8s ease;
+  }
+
+   
+  .mobile-dark-mode-container {
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-dark-mode-button {
+    width: 100%;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-dark-mode-button:active {
+    transform: scale(0.95);
+  }
+
+  .mobile-dark-mode-icon {
+    font-size: 1.25rem;
+    transition: all 0.5s ease;
+  }
+
+  .mobile-dark-mode-text {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-dark-mode-container:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+   
+  .mobile-dropdown.active .fa-caret-down {
+    transform: rotate(180deg);
+  }
+
+  .mobile-dropdown.active .fa-chevron-right {
+    transform: rotate(90deg);
+  }
+
+  .mobile-dropdown.active ul {
+    display: block;
+  }
+
+  #mobile-menu {
+    transform: translateX(100%);
+  }
+
+  #mobile-menu.active {
+    transform: translateX(0);
+  }
+
+   
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  #mobile-menu li {
+    animation: slideIn 0.3s ease forwards;
+    opacity: 0;
+  }
+
+  #mobile-menu.active li {
+    animation-play-state: running;
+  }
+
+  #mobile-menu li:nth-child(1) { animation-delay: 0.1s; }
+  #mobile-menu li:nth-child(2) { animation-delay: 0.2s; }
+  #mobile-menu li:nth-child(3) { animation-delay: 0.3s; }
+  #mobile-menu li:nth-child(4) { animation-delay: 0.4s; }
+  #mobile-menu li:nth-child(5) { animation-delay: 0.5s; }
+  #mobile-menu li:nth-child(6) { animation-delay: 0.6s; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const darkModeIcon = document.getElementById("dark-mode-icon");
+  const mobileDarkModeIcon = document.getElementById("mobile-dark-mode-icon");
+  const toggleButton = document.querySelector("[id='dark-mode-icon']").parentElement;
+  const mobileToggleButton = document.getElementById("mobile-dark-mode-toggle");
+  const navbar = document.querySelector("header");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+  const closeMobileMenu = document.getElementById("close-mobile-menu");
+
+  
+  localStorage.setItem("dark-mode", "false");
+  document.body.classList.remove("dark");
+  updateDarkModeIcons();
+
+  
+  mobileMenuButton.addEventListener("click", () => {
+    mobileMenuOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => {
+      mobileMenuOverlay.style.opacity = "1";
+      mobileMenu.classList.add("active");
+    });
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove("active");
+    mobileMenuOverlay.style.opacity = "0";
+    document.body.style.overflow = "";
+    setTimeout(() => {
+      mobileMenuOverlay.classList.add("hidden");
+    }, 500);
+  }
+
+  closeMobileMenu.addEventListener("click", closeMobile);
+  mobileMenuOverlay.addEventListener("click", (e) => {
+    if (e.target === mobileMenuOverlay) {
+      closeMobile();
+    }
+  });
+
+
+
+  
+  function updateDarkModeIcons() {
+    const isDark = document.body.classList.contains("dark");
+    [darkModeIcon, mobileDarkModeIcon].forEach(icon => {
+      if (isDark) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
+    });
+  }
+
+  function toggleDarkMode(icon) {
+    icon.classList.add("rotating");
+    
+    setTimeout(() => {
+      document.body.classList.toggle("dark");
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("dark-mode", "true");
+      } else {
+        localStorage.setItem("dark-mode", "false");
+      }
+      updateDarkModeIcons();
+    }, 400);
+
+    setTimeout(() => {
+      icon.classList.remove("rotating");
+    }, 800);
+  }
+
+  toggleButton.addEventListener("click", () => toggleDarkMode(darkModeIcon));
+  mobileToggleButton.addEventListener("click", () => toggleDarkMode(mobileDarkModeIcon));
+});
+</script>
+<main class="flex-1 main-content transition-colors duration-500 bg-white dark:bg-gray-900 min-h-[61vh]">  
+<div class="hero-container py-6">
+  <style>
+    .swiper-container.swiper-background {
+      width: 80%;
+      z-index: 5;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .greensquare {
+      width: 96%;
+      height: 52%;
+      top: 18%;
+      left: 0;
+      z-index: 3;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .yellowsquare {
+      width: 48%;
+      height: 50%;
+      top: 35%;
+      right: 6%;
+      z-index: 4;
+      opacity: 0.8;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translatey(10px);
+      }
+      50% {
+        transform: translatey(-10px);
+      }
+    }
+    @media (max-width: 1024px) {
+      .swiper-container.swiper-background {
+        width: 90%;
+      }
+      .greensquare {
+        width: 98%;
+        height: 37%;
+        top: 14%;
+      }
+      .yellowsquare {
+        width: 50%;
+        height: 28%;
+        top: 35%;
+        right: 2%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .swiper-container.swiper-background {
+        width: 90%;
+      }
+      .greensquare {
+        width: 98%;
+        height: 28%;
+        top: 18%;
+      }
+      .yellowsquare {
+        width: 50%;
+        height: 25%;
+        top: 35%;
+        right: 1%;
+      }
+    }
+
+    @media (max-width: 426px) {
+      .swiper-container.swiper-background {
+        width: 90%;
+      }
+      .greensquare {
+        width: 98%;
+        height: 13%;
+        top: 14%;
+      }
+      .yellowsquare {
+        width: 50%;
+        height: 13%;
+        top: 20%;
+        right: 2%;
+      }
+    }
+  </style>
+  <div class="swiper-container swiper-background overflow-hidden rounded-3xl relative">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <img src="/sliders/slider1.png" alt="Slider Image"
+        class="w-full h-auto object-cover rounded-3xl">
+      </div>
+      
+      <div class="swiper-slide">
+        <img src="/sliders/slider2.png" alt="Slider Image"
+        class="w-full h-auto object-cover rounded-3xl">
+      </div>
+      
+      <div class="swiper-slide">
+        <img src="/sliders/slider3.png" alt="Slider Image"
+        class="w-full h-auto object-cover rounded-3xl">
+      </div>
+      
+      <div class="swiper-slide">
+        <img src="/sliders/slider4.png" alt="Slider Image"
+        class="w-full h-auto object-cover rounded-3xl">
+      </div>
+      
+      <div class="swiper-slide">
+        <img src="/sliders/slider5.png" alt="Slider Image"
+        class="w-full h-auto object-cover rounded-3xl">
+      </div>
+      
+    </div>
+    <div class="swiper-agenda-pagination" style="z-index: 10"></div>
+  </div>
+  <div class="greensquare absolute my-4 bg-customGreen rounded-r-3xl p-6">
+  </div>
+  <div class="yellowsquare absolute my-4 bg-customYellow rounded-3xl p-6">
+  </div>
+</div>
+<style>
+  .swiper-agenda-pagination {
+    position: absolute;
+    bottom: 0;
+    padding-left: 15px;
+    gap: 15px;
+    z-index: 10;
+  }
+
+  .swiper-agenda-pagination .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #03a055;  
+    background-color: transparent;
+    opacity: 1;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .swiper-agenda-pagination .swiper-pagination-bullet-active {
+    background-color: #03a055;  
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".swiper-background", {
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      },
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
+        el: ".swiper-agenda-pagination",
+        clickable: true,
+        bulletClass: "swiper-pagination-bullet",
+        bulletActiveClass: "swiper-pagination-bullet-active",
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+  });
+</script>
+
+
+<div class="py-4">
+  <div class="container container-menu mx-auto px-4 gap-4 flex flex-wrap justify-center">
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Aplikasi Pusat')">
+      <img src="icon/aplikasi-pusat.png" alt="Aplikasi Pusat" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Aplikasi Pusat</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Layanan')">
+      <img src="icon/layanan.png" alt="Layanan" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Layanan</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Aplikasi Daerah')">
+      <img src="icon/aplikasi-daerah.png" alt="Aplikasi Daerah" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Aplikasi Daerah</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Website Terkait')">
+      <img src="icon/website-terkait.png" alt="Website Terkait" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Website Terkait</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="showHeroModal('Formulir')">
+      <img src="icon/formulir.png" alt="Formulir" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Formulir</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/ppid'">
+      <img src="icon/ppid.png" alt="PPID" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">PPID</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/csirt'">
+      <img src="icon/csirt.png" alt="CSIRT" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">CSIRT</span>
+    </div>
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
+    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    onclick="window.location.href='/tentang-kami'">
+      <img src="icon/diskominfo-profil-dinas.png" alt="Diskominfo Profil Dinas" class="h-3/5 max-h-full w-auto object-contain">
+      <span class="text-xs text-white text-center w-full">Diskominfo Profil Dinas</span>
+    </div>
+  </div>
+</div>
+
+
+  <div class="hero-modal hidden fixed inset-0 bg-black bg-opacity-50 h-full w-full z-50" id="heroModal">
+    <div class="relative top-10 mx-auto border w-11/12 md:w-3/4 shadow-lg rounded-md bg-white modal-hero-content" onclick="event.stopPropagation()">
+      <div class="mt-3 text-left">
+        <button onclick="closeHeroModal()" class="absolute top-2 right-3 text-gray-500 text-4xl leading-none p-2">
+          &times;
+        </button>
+        <h3 class="text-2xl leading-6 font-medium text-customGreen p-4" id="modal-title">Modal Title</h3>
+        <hr class="border-t border-customGreen w-full" style="border-width: 1px;">
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 justify-center items-center p-6 overflow-y-auto " style="max-height: 80vh;">
+        
+      </div>
+    </div>
+  </div>
+
+<div id="content-container" style="display: none;">
+  <div id="aplikasi-pusat-content">
+    
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/srikandi.arsip.go.id', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-pusat/logo/srikandi.png" alt="SRIKANDI" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">SRIKANDI</h2>
+    <p class="text-xs text-justify mt-2">SRIKANDI adalah aplikasi umum pertama yang diresmikan berdasarkan Keputusan Menteri PANRB No. 679/2020 untuk kearsipan dinamis.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/sipd-ri.kemendagri.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-pusat/logo/sipd.png" alt="SIPD" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">SIPD</h2>
+    <p class="text-xs text-justify mt-2">Sistem Informasi Pemerintahan Daerah Republik Indonesia</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/lpse.kalbarprov.go.id\/eproc4', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-pusat/logo/lpse.png" alt="LPSE" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">LPSE</h2>
+    <p class="text-xs text-justify mt-2">Layanan Pengadaan Secara Elektronik (LPSE) adalah layanan pengelolaan teknologi informasi untuk memfasilitasi pelaksanaan Pengadaan Barang/Jasa secara elektronik.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('http:\/\/www.lapor.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-pusat/logo/lapor.png" alt="LAPOR!" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">LAPOR!</h2>
+    <p class="text-xs text-justify mt-2">Layanan Aspirasi dan Pengaduan Online Rakyat</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+  <div id="layanan-content">
+    
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/sikedip.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/layanan/logo/sikedip.png" alt="SIKEDIP" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">SIKEDIP</h2>
+    <p class="text-xs text-justify mt-2">Sistem Kelola Daftar Informasi Provinsi Kalimantan Barat</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/ppid.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/layanan/logo/ppid.png" alt="PPID" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">PPID</h2>
+    <p class="text-xs text-justify mt-2">Pejabat Pengelola Informasi dan Dokumentasi.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('http:\/\/www.lapor.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/layanan/logo/lapor.png" alt="LAPOR!" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">LAPOR!</h2>
+    <p class="text-xs text-justify mt-2">Layanan Aspirasi dan Pengaduan Online Rakyat</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+  <div id="aplikasi-daerah-content">
+    
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/sikedip.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-daerah/logo/sikedip.png" alt="SIKEDIP" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">SIKEDIP</h2>
+    <p class="text-xs text-justify mt-2">Sistem Kelola Daftar Informasi Provinsi Kalimantan Barat</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/data.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-daerah/logo/datakalbar.png" alt="Satu Data Kalbar" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Satu Data Kalbar</h2>
+    <p class="text-xs text-justify mt-2">Portal resmi Pemerintah Provinsi Kalimantan Barat yang menyediakan akses terbuka untuk data dan informasi publik terkait berbagai sektor di wilayah Kalimantan Barat.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/kom-litbang.kalbarprov.go.id', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-daerah/logo/khatulistiwaonemap.png" alt="Khatulistiwa One Map" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Khatulistiwa One Map</h2>
+    <p class="text-xs text-justify mt-2">Khatulistiwa One Map adalah platform interaktif untuk akses informasi geospasial Kalimantan Barat, mendukung pengambilan keputusan berbasis data.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/csirt.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-daerah/logo/csirt.png" alt="KALBARPROV - CSIRT" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">KALBARPROV - CSIRT</h2>
+    <p class="text-xs text-justify mt-2">KALBARPROV CSIRT adalah tim respons insiden keamanan komputer Pemerintah Daerah Provinsi Kalimantan Barat, dibentuk berdasarkan Keputusan Sekretaris Daerah Nomor: 1307/Diskominfo/2023.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/aktivitas.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-daerah/logo/e-activity.png" alt="E-Activity" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">E-Activity</h2>
+    <p class="text-xs text-justify mt-2">E-Activity (Sistem Informasi Aktifitas Kerja) Provinsi Kalimantan Barat</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/datacloud.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/aplikasi-daerah/logo/datacloud.png" alt="Datacloud Kalbar" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Datacloud Kalbar</h2>
+    <p class="text-xs text-justify mt-2">Datacloud Kalbar, platform cloud oleh Pemerintah Provinsi Kalimantan Barat, menyimpan dan mengelola data publik untuk mendukung pengambilan keputusan berbasis data.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+  <div id="website-terkait-content">
+    
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('http:\/\/www.lapor.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/website-terkait/logo/kalbarprov.png" alt="Website Resmi Kalbar Prov" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Website Resmi Kalbar Prov</h2>
+    <p class="text-xs text-justify mt-2">Website resmi Pemerintah Provinsi Kalimantan Barat, menyajikan berita, data, dan layanan publik.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/ppid.kalbarprov.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/website-terkait/logo/ppid.png" alt="PPID Utama Kalbar" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">PPID Utama Kalbar</h2>
+    <p class="text-xs text-justify mt-2">Pejabat Pengelola Informasi dan Dokumentasi</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/komisiinformasi.go.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/website-terkait/logo/komisipusat.png" alt="Komisi Informasi Pusat" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Komisi Informasi Pusat</h2>
+    <p class="text-xs text-justify mt-2">Portal resmi Komisi Informasi Republik Indonesia untuk layanan dan pengawasan informasi publik.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/www.komisiinformasikalbar.or.id\/', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/website-terkait/logo/komisidaerah.png" alt="Komisi Informasi Daerah" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Komisi Informasi Daerah</h2>
+    <p class="text-xs text-justify mt-2">Komisi Informasi Daerah Kalimantan Barat adalah lembaga independen yang mengawasi pengelolaan dan transparansi informasi publik, serta mendukung pengembangan komunikasi.</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+  <div id="formulir-content">
+    
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/layanan-diskominfo.kalbarprov.go.id\/PPIDKALBAR-KEBERATAN\/register', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/formulir/logo/form-keberatan-informasi.png" alt="Formulir Keberatan Atas Permohonan Informasi Online" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Formulir Keberatan Atas Permohonan Informasi Online</h2>
+    <p class="text-xs text-justify mt-2">Untuk mendapatkan keberatan atas informasi yang di butuhkan, silahkan mengisi formulir terlebih dahulu</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+      <style>
+  .hover-border:hover {
+    box-shadow: 0px 0px 4px #03a055; 
+  }
+</style>
+
+<div class="bg-gray-200 p-4 rounded-lg cursor-pointer h-72 flex flex-col justify-between items-center relative hover-border border border-gray-400" 
+     onclick="window.open('https:\/\/layanan-diskominfo.kalbarprov.go.id\/PPIDKALBAR-PERMOHONAN\/register', '_blank')" style="border-color: #96A9B2;">
+  
+  <div class="flex flex-col justify-center items-center flex-grow z-10">
+    <img src="/formulir/logo/form-permintaan-informasi.png" alt="Form Permintaan Informasi" class="w-full h-auto">
+  </div>
+  
+  <div class="mt-2 w-full z-10">
+    <h2 class="text-lg font-semibold">Form Permintaan Informasi</h2>
+    <p class="text-xs text-justify mt-2">Untuk mendapatkan informasi yang di butuhkan, silahkan mengisi formulir terlebih dahulu</p>
+    <div class="flex mt-2 justify-center items-center">
+      <span class="text-customGreen">Selengkapnya</span>
+      <i class="fas fa-arrow-right ml-1 w-4 h-4 text-customGreen"></i>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+</div>
+
+
+<script>
+function showHeroModal(content) {
+  const modal = document.getElementById('heroModal');
+  const modalContent = modal.querySelector('.modal-hero-content');
+  document.getElementById('modal-title').textContent = content;
+  modal.classList.remove('hidden');
+  modalContent.style.animation = 'slideInDown 0.4s forwards';
+  document.body.style.overflow = 'hidden'; 
+
+  const contentMap = {
+    'Aplikasi Pusat': 'aplikasi-pusat-content',
+    'Layanan': 'layanan-content',
+    'Aplikasi Daerah': 'aplikasi-daerah-content',
+    'Website Terkait': 'website-terkait-content',
+    'Formulir': 'formulir-content'
+  };
+
+  const contentId = contentMap[content];
+  if (contentId) {
+    const contentElement = document.getElementById(contentId);
+    modal.querySelector('.grid').innerHTML = contentElement.innerHTML;
+  }
+}
+
+function closeHeroModal() {
+  const modal = document.getElementById('heroModal');
+  const modalContent = modal.querySelector('.modal-hero-content');
+  modalContent.style.animation = 'slideOutUp 0.5s forwards';
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = ''; 
+  }, 500);
+}
+
+document.getElementById('heroModal').addEventListener('click', closeHeroModal);
+</script>
+
+<style>
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOutUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-100%); }
+}
+</style>
+
+<div class="container mx-auto p-4 px-9">
+  <div class="grid grid-cols-1 lg:grid-cols-7 gap-0" style="z-index: 5; position: relative;">
+    
+    
+    
+    <div class="agenda-container bg-white rounded-l-3xl lg:col-span-2 border-l-2 border-b-2 border-gray-300 shadow-md">
+      <h2 class="text-2xl text-white mb-4 p-4 text-center bg-customGreen rounded-tl-3xl">
+      Agenda
+    </h2>
+    <div class="flex flex-col overflow-auto m-4 pt-2" style="max-height: 500px;">
+      
+      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
+      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="Jumat">
+        <p class="text-lg font-bold">
+        
+        </p>
+      </div>
+      <div class="ml-4 flex-1">
+        <p class="text-sm">
+        undangan pembahasan rencana kerja sama, Sekretaris Daerah/RO-PEM, Jumat, 2 agustus 2024, di Ruang AUVI
+        </p>
+          <div class="flex items-center text-gray-600 text-sm mt-2">
+            <div class="flex-1">
+              <i class="far fa-clock mr-1"></i>
+              08:30 - 12:00
+            </div>
+            <div class="flex-1 flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <div>Ruang AUVI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
+      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="Jumat">
+        <p class="text-lg font-bold">
+        
+        </p>
+      </div>
+      <div class="ml-4 flex-1">
+        <p class="text-sm">
+        undangan pembahasan persiapan peringatan HUT RI ke 79, Sekretaris Daerah, Jum&#39;at 2 Agustus 2024, 13.30, RR Wakil Gubernur
+        </p>
+          <div class="flex items-center text-gray-600 text-sm mt-2">
+            <div class="flex-1">
+              <i class="far fa-clock mr-1"></i>
+              13:30 - 16:00
+            </div>
+            <div class="flex-1 flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <div>Ruang Rapat Wakil Gubernur</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
+      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="Jumat">
+        <p class="text-lg font-bold">
+        
+        </p>
+      </div>
+      <div class="ml-4 flex-1">
+        <p class="text-sm">
+        Mendengarkan Pidato Presiden RI pada Penyampaian RUU APBN Tahun 2024 oleh Biro Pemerintahan
+        </p>
+          <div class="flex items-center text-gray-600 text-sm mt-2">
+            <div class="flex-1">
+              <i class="far fa-clock mr-1"></i>
+              13:30 - 15:45
+            </div>
+            <div class="flex-1 flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <div>Balai Petitih</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
+      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="Kamis">
+        <p class="text-lg font-bold">
+        
+        </p>
+      </div>
+      <div class="ml-4 flex-1">
+        <p class="text-sm">
+        Gladi pengukuhan Paskibraka Pemprov Kalbar
+        </p>
+          <div class="flex items-center text-gray-600 text-sm mt-2">
+            <div class="flex-1">
+              <i class="far fa-clock mr-1"></i>
+              13:30 - 15:45
+            </div>
+            <div class="flex-1 flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <div>Balai Petitih</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
+      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="Kamis">
+        <p class="text-lg font-bold">
+        
+        </p>
+      </div>
+      <div class="ml-4 flex-1">
+        <p class="text-sm">
+        Zoom meeting Diskusi Daerah Perbatasan dengan PJ Gubernur Kalbar oleh pusat riset politik BRIN
+        </p>
+          <div class="flex items-center text-gray-600 text-sm mt-2">
+            <div class="flex-1">
+              <i class="far fa-clock mr-1"></i>
+              09:00 - 12:00
+            </div>
+            <div class="flex-1 flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <div>DAR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+    
+    <script>
+      function getCurrentDate(day) {
+        const today = new Date();
+        const dayIndex = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"].indexOf(day);
+        const currentDayIndex = today.getDay();
+
+        const startOfWeek = today.getDate() - currentDayIndex;
+        
+        
+        const dayOffset = (dayIndex < currentDayIndex) ? 7 : 0;
+
+        const dateForDay = new Date(today.setDate(startOfWeek + dayIndex + dayOffset));
+        
+        return `${dateForDay.getDate()} ${dateForDay.toLocaleString('id-ID', { month: 'short' })} ${dateForDay.getFullYear()}`;
+      }
+
+      document.querySelectorAll('[data-day]').forEach(element => {
+        const day = element.getAttribute('data-day');
+        if (day) {
+          element.textContent = getCurrentDate(day);
+        }
+      });
+    </script>
+    
+    <div class="berita-container bg-white p-4 lg:col-span-3 border-t-2 border-b-2 border-gray-300 shadow-md">
+     <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl text-gray-800">
+       Berita Terkini
+      </h2>
+      <a href="//localhost:1313/formulir" class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors">
+        Berita Lainnya
+        <i class="fas fa-external-link-alt ml-2">
+        </i>
+      </a>
+     </div>
+     <div class="relative mb-8">
+      <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/4 h-1 bg-customGreen"></div>
+      <div class="absolute left-2/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen rounded-full"></div>
+     </div>
+     <div class="space-y-4">
+        
+        
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/rapat-tim-majelis-pertimbangan-dalam-menjaring-masukan-terkait-rancangan-teknokratik-ripj-pid-provinsi-kalbar/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_koNncd9874g8U7msku50txBzRi2lTZGyBErFFtRC.png');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-2 left-2 right-2 flex flex-col z-10 p-4">
+      
+      <div class="mb-2">
+        <span class="text-base font-bold block">
+          Rapat Tim Majelis Pertimbangan dalam menjaring masukan terkait Rancangan Teknokratik RIPJ PID...
+        </span>
+      </div>
+
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center">
+          <span class="text-sm text-gray-200 italic w-40">
+            <i class="fas fa-calendar mr-2"></i> 5 November 2024
+          </span>
+          <span class="text-sm text-gray-200 italic ml-4">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita .text-base {
+      font-size: 0.8rem;
+    }
+  }
+
+</style>
+
+     </div>
+     <div class="swiper swiper-berita min-h-72 mx-auto">
+      <div class="swiper-wrapper pb-2 pt-3">
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/rapat-tim-majelis-pertimbangan-dalam-menjaring-masukan-terkait-rancangan-teknokratik-ripj-pid-provinsi-kalbar/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_koNncd9874g8U7msku50txBzRi2lTZGyBErFFtRC.png');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Rapat Tim Majelis Pertimbangan...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 5 November 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/rapat-koordinasi-tindak-lanjut-penyusunan-blue-print-pengembangan-dan-pemberdayaan-masyarakat-pada-kegiatan-usaha-pertambangan/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_pz0yxn8HJV8HavXWTiaMFrvkWqnkfRiUE14gAHNw.png');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Rapat Koordinasi Tindak Lanjut...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 15 October 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/seminar-akhir-laporan-penelitian-analisis-pengaruh-keuntungan-finansial-terhadap-perilaku-mesyarakat-dalam-menjaga-lingkungan-hidup/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_tSjApngbx06J8dYBbC8cq7Ms4FEWEWNb7unzZtsR.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Seminar Akhir Laporan...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 8 October 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/balitbang-selenggarakan-workshop-pengelolaan-jurnal-internasional/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_BKYrweYdO0iLVweErWPkfbBtQ5YBDMC5l3et9HED.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Balitbang Selenggarakan...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 12 September 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/fgd-persiapan-penginputan-dokumen-indeks-pengelolaan-keuangan-daerah-kabupaten-kota-se-kalbar/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_ddAGQXVNdPvAx3JpI5GSgohVwHcp96r9vLVqUnR8.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          FGD Persiapan Penginputan...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 5 September 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/seminar-kemajuan-penelitian-dengan-judul-analisis-pengaruh-keuntungan-finansial-terhadap-perilaku-masyarakat-dalam-menjaga-lingkungan-hijau/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_2MaIgkjjenwKSrF9CX6eGMDGy5T81KkPgbrOWK9R.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Seminar Kemajuan Penelitian...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 3 September 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/fgd-penyusunan-rancangan-cetak-biru-blue-print-pengembangan-dan-pemberdayaan-masyarakat-ppm-pada-kegiatan-usaha-pertambangan-di-provinsi-kalimantan-barat/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_svvlSwzNRJCGrqUgWzupX64pznC0HYg26feVheqd.png');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          FGD Penyusunan Rancangan Cetak...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 31 July 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/rapat-koordinasi-dan-identifikasi-produk-unggulan-daerah-pud-dalam-rangka-penyusunan-ripj-pid/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_9x5UAGvCNqw25ZBxt1MJb1kON8zVLV6lmok4Nyz7.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Rapat Koordinasi dan...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 18 July 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/rapat-koordinasi-tim-pengelolaan-jurnal-borneo-akcaya/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_bxTFRsHgDcmPKfaUcT5IAreAlCMlVJlmgrdW3wc6.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Rapat Koordinasi Tim...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 2 July 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+        <div class="swiper-slide rounded-lg">
+<div class="grid-item blog-card-berita relative text-white rounded-lg shadow-md overflow-hidden">
+
+  
+  <a href="/berita/rapat-koordinasi-tim-penyusun-ripj-pid-provinsi-kalbar/" class="absolute inset-0 group">
+  
+
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110" 
+         style="background-image: url('/Berita/thumbnails/compressed_J28bzuDeJEuAl8KfWZMnFTLCwpB2wa3G3ArXhave.jpg');">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 flex flex-col z-10 p-4">
+      
+      <div class="mb-2 mt-auto">
+        <span class="text-sm font-bold block">
+          Rapat Koordinasi Tim Penyusun...
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center justify-between w-full">
+        <div class="flex items-center space-x-2">
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-calendar mr-2"></i> 20 June 2024
+          </span>
+          <span class="text-xs text-gray-200 italic">
+            <i class="fas fa-user mr-2"></i> sekret.bppkb
+          </span>
+        </div>
+      </div>
+      
+    </div>
+  </a>
+</div>
+<style>
+  .blog-card-berita-swiper {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+  }
+  .grid-item .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+
+  .grid-item .group-hover\:scale-110 {
+    transition: transform 0.5s ease;
+  }
+
+  .grid-item .group-hover\:opacity-60 {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-item .text-xl {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .grid-item .group:hover .text-base {
+    color: #00ff84;
+    transition: color 0.3s ease;
+  }
+
+  .grid-item .group .text-base {
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-berita-swiper {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .blog-card-berita-swiper .text-base {
+      font-size: 0.8rem;
+    }
+    .blog-card-berita-swiper .text-xs {
+      display: none;  
+    }
+  }
+
+</style>
+</div>
+        
+      </div>
+      <div class="swiper-berita-pagination"></div>
+     </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var beritaSwiper = new Swiper(".swiper-berita", {
+            slidesPerView: 2,
+            spaceBetween: 5,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            speed: 1000,
+            pagination: {
+                el: ".swiper-berita-pagination",
+                clickable: true,
+                bulletClass: "swiper-berita-pagination-bullet",
+                bulletActiveClass: "swiper-berita-pagination-bullet-active",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1.1,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 5,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 5,
+                },
+            }
+        });
+    });
+    </script>
+    <style>
+    .swiper-berita-pagination {
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+    }
+
+    .swiper-berita-pagination-bullet {
+      width: 13px;
+      aspect-ratio: 1/1; 
+      border: 2px solid #16A34A; 
+      border-radius: 50%;
+      margin: 0 3px;
+      cursor: pointer;
+      transition: background-color 0.3s; 
+      flex-shrink: 0;
+    }
+
+    .swiper-berita-pagination-bullet-active {
+      background-color: #16A34A;
+    }
+
+    .swiper-berita-pagination-bullet:hover {
+      background-color: #16A34A;
+      opacity: 0.2;
+    }
+    </style>
+    
+    <div class="flex flex-col lg:col-span-2">
+        <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" defer></script>
+        <div id="gpr-kominfo-widget-container" style="height: 620px;"></div>
+    </div>
+    </div>
+</div>
+    <style>
+       
+      #gpr-kominfo-widget-container {
+        background-color: #03a055 !important;
+        border-top: 5px solid #03a055 !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 1.5rem !important;
+        border-bottom-right-radius: 1.5rem !important;
+        border-bottom-left-radius: 0 !important;
+      }
+
+       
+      #gpr-kominfo-widget-header {
+        background-color: #03a055 !important;
+        background-image: none !important; 
+        border-left: 0px solid #03a055 !important;
+        border-top-right-radius: 1.5rem !important;
+        border-bottom-right-radius: 1.5rem !important;  
+        color: #ffffff !important;
+        text-align: center;  
+        font-size: 18px;  
+        font-weight: bold;  
+        line-height: 70px;  
+      }
+
+      #gpr-kominfo-widget-header::before {
+        content: "Artikel GPR Info"; 
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: normal;
+      }
+
+       
+      #gpr-kominfo-widget-body {
+        height: 500px;  
+      }
+      #gpr-kominfo-widget-list {
+        height: 550px;  
+      }
+
+      .gpr-kominfo-align-left b,.gpr-kominfo-align-right.gpr-small-date {
+        color: #03a055 !important;
+      }
+  </style>
+
+
+  <div class="diagonal" style="width: 100%; height: 80vh;">
+    <div class="container-video-utama" style="height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      <video src="video/diskominfo-welcome.mp4" controls loop style="width: 100%; height: auto; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+      </video>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var video = document.querySelector('.container-video-utama video');
+      var options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+
+      var observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }, options);
+
+      observer.observe(video);
+    });
+  </script>
+<style>
+  .diagonal {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .diagonal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(3, 160, 85, 0.7) 50%, rgba(3, 160, 85, 1) 50%);
+    z-index: 0;
+  }
+  .container-video-utama {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;  
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+  @media (max-width: 1024px) {
+    .container-video-utama {
+      width: 90%;  
+    }
+  }
+</style>
+
+<div class="container p-4 sm:p-10 mx-auto">
+<div class="container p-3 sm:p-6 border-4 border-customGreen rounded-3xl">
+   <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
+    <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
+     Galeri
+     <br/>
+     Foto
+    </h1>
+    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0" href="/foto">
+     Selengkapnya
+     <i class="fas fa-external-link-alt ml-2">
+     </i>
+    </a>
+   </div>
+   <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-start max-w-full mx-auto px-2 sm:px-4 md:px-8 lg:px-12">
+    <div class="text-center mb-4">
+      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+        
+        <div class="swiper swiper-foto mx-auto rounded-lg">
+          <div class="swiper-wrapper pb-4">
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/jadwal-pelayanan-informasi-publik/"
+  data-title="Jadwal Pelayanan Informasi Publik"
+  data-thumbnail="/Foto/thumbnails/compressed_kNCwHwdrtHudYoRrb98xQC6tIyuzEVuGtBqvS4fA.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_kNCwHwdrtHudYoRrb98xQC6tIyuzEVuGtBqvS4fA.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Jadwal Pelayanan Informasi Publik
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/surat-keputusan-ppid-tentang-penolakan-permintaan/"
+  data-title="Surat Keputusan PPID Tentang Penolakan Permintaan"
+  data-thumbnail="/Foto/thumbnails/compressed_GvXj7nPbvOB2v8xQvlWo6Daz0QgJi80H6m54Xmf1.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_GvXj7nPbvOB2v8xQvlWo6Daz0QgJi80H6m54Xmf1.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Surat Keputusan PPID Tentang Penolakan Permintaan
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/pelayanan-permohonan-informasi-publik/"
+  data-title="Pelayanan Permohonan Informasi Publik"
+  data-thumbnail="/Foto/thumbnails/compressed_p9UY3EqnLlKe1yQbbqH0cBjxjiqKpp6owLm8qKyK.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_p9UY3EqnLlKe1yQbbqH0cBjxjiqKpp6owLm8qKyK.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Pelayanan Permohonan Informasi Publik
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/register-permohonan-informasi-publik/"
+  data-title="Register Permohonan Informasi Publik"
+  data-thumbnail="/Foto/thumbnails/6gs8UohrmCqtUVB4top2CNyzhiLioaotPb4Txytg.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/6gs8UohrmCqtUVB4top2CNyzhiLioaotPb4Txytg.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Register Permohonan Informasi Publik
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/2023-09-01-02-16-14/"
+  data-title="2023-09-01-02-16-14"
+  data-thumbnail="/Foto/thumbnails/otia2sSY3ZKWwxRdgIsaVldzwms3yLTe2aDBiT9h.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/otia2sSY3ZKWwxRdgIsaVldzwms3yLTe2aDBiT9h.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      2023-09-01-02-16-14
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      1 September 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/toilet-difabel/"
+  data-title="Toilet Difabel"
+  data-thumbnail="/Foto/thumbnails/B2SzPa2prDkk3B8JSA7mvTZvhaSkzWzq5QQAV1cZ.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/B2SzPa2prDkk3B8JSA7mvTZvhaSkzWzq5QQAV1cZ.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Toilet Difabel
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      31 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/ruang-laktasi/"
+  data-title="ruang laktasi"
+  data-thumbnail="/Foto/thumbnails/VKVnM1hfMQdQQTsOEOb0d40nG0kU8KORNZVTEAnC.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/VKVnM1hfMQdQQTsOEOb0d40nG0kU8KORNZVTEAnC.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      ruang laktasi
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      31 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/tanda-terima-permohonan-informasi/"
+  data-title="Tanda Terima Permohonan Informasi"
+  data-thumbnail="/Foto/thumbnails/JEx0igIesvFrJKUdhyiRtZZ214RZrGdgbPeEeJLf.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/JEx0igIesvFrJKUdhyiRtZZ214RZrGdgbPeEeJLf.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Tanda Terima Permohonan Informasi
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      30 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/pelayanan-informasi-publik/"
+  data-title="Pelayanan Informasi Publik"
+  data-thumbnail="/Foto/thumbnails/ixRWtqi1oweSrZz6K99P8yrrL7L5lolokCUcpNYa.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/ixRWtqi1oweSrZz6K99P8yrrL7L5lolokCUcpNYa.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Pelayanan Informasi Publik
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      30 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+          </div>
+        </div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+      </div>
+    </div>
+    <div class="text-center mt-0 sm:mt-16 mb-4">
+      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
+          <div class="swiper-wrapper pb-4">
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/alasan-penolakan-permintaan-informasi/"
+  data-title="Alasan Penolakan Permintaan Informasi"
+  data-thumbnail="/Foto/thumbnails/compressed_ouyrzcN6ZB3yPnQljfiYtbUewyxYhYmrDQ0rwxER.png"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_ouyrzcN6ZB3yPnQljfiYtbUewyxYhYmrDQ0rwxER.png');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Alasan Penolakan Permintaan Informasi
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/rapat-ppid/"
+  data-title="Rapat PPID"
+  data-thumbnail="/Foto/thumbnails/compressed_8hyCPeuWpoplAeywmvLbZdMA2v1XlFlfxkI1zBxc.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_8hyCPeuWpoplAeywmvLbZdMA2v1XlFlfxkI1zBxc.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Rapat PPID
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/pelayanan-permohonan-informasi/"
+  data-title="Pelayanan Permohonan Informasi"
+  data-thumbnail="/Foto/thumbnails/compressed_NTKhu6nieHYu4yZkmhfWY86L8yC6NO6b8yRYg9iQ.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_NTKhu6nieHYu4yZkmhfWY86L8yC6NO6b8yRYg9iQ.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Pelayanan Permohonan Informasi
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/foto-formulir-pernyataan-keberatan-permintaan-informasi/"
+  data-title="Foto Formulir Pernyataan Keberatan Permintaan Informasi"
+  data-thumbnail="/Foto/thumbnails/compressed_pjgrYcZbi6pgMsDCFQbEz0ytqUC9FuyYgg0WOgAD.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_pjgrYcZbi6pgMsDCFQbEz0ytqUC9FuyYgg0WOgAD.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Foto Formulir Pernyataan Keberatan Permintaan Informasi
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/2023-09-01-02-16-02/"
+  data-title="2023-09-01-02-16-02"
+  data-thumbnail="/Foto/thumbnails/Ub6Yr0yLj62wBb3aIFQ29C1ysH1UHoGGe4Sn1vIN.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/Ub6Yr0yLj62wBb3aIFQ29C1ysH1UHoGGe4Sn1vIN.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      2023-09-01-02-16-02
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      1 September 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/alat-bantu-pegangan-pada-lift/"
+  data-title="alat bantu pegangan pada lift"
+  data-thumbnail="/Foto/thumbnails/NBi7XJ03n4fYv1lltr7ap3lVKkfBLfSG84ldYFbc.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/NBi7XJ03n4fYv1lltr7ap3lVKkfBLfSG84ldYFbc.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      alat bantu pegangan pada lift
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      31 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/ruang-laktasi-diskominfo/"
+  data-title="Ruang Laktasi diskominfo"
+  data-thumbnail="/Foto/thumbnails/d11KoeUelWIn6NQSbsSy9NTw3BjGbN4AT2KJZp5A.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/d11KoeUelWIn6NQSbsSy9NTw3BjGbN4AT2KJZp5A.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Ruang Laktasi diskominfo
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      31 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/formulir-pernyataan-keberatan/"
+  data-title="Formulir Pernyataan Keberatan"
+  data-thumbnail="/Foto/thumbnails/B8w0Bf0S9JvRSGMKfZnYoX1uSDIc8TBav2EBUeDI.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/B8w0Bf0S9JvRSGMKfZnYoX1uSDIc8TBav2EBUeDI.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Formulir Pernyataan Keberatan
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      30 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/ruang-pelayanan-informasi-publik/"
+  data-title="Ruang Pelayanan Informasi Publik"
+  data-thumbnail="/Foto/thumbnails/As8I4DieWRqgMmZECuIfKfUVmoKyKnzz6PQmO3hS.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/As8I4DieWRqgMmZECuIfKfUVmoKyKnzz6PQmO3hS.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Ruang Pelayanan Informasi Publik
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      30 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+          </div>
+        </div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+      </div>
+    </div>
+    <div class="text-center mb-4">
+      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
+          <div class="swiper-wrapper pb-4">
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/daftar-register-keberatan/"
+  data-title="Daftar Register Keberatan"
+  data-thumbnail="/Foto/thumbnails/compressed_U9sYcTEZc8qrPURPuwu0nJRlufnrHzxo4bnbyFjF.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_U9sYcTEZc8qrPURPuwu0nJRlufnrHzxo4bnbyFjF.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Daftar Register Keberatan
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/buku-tamu-digital/"
+  data-title="Buku Tamu Digital"
+  data-thumbnail="/Foto/thumbnails/compressed_TY9jVp8Y0s06U8re2oULn5zGFKROteO85ocv3Plb.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_TY9jVp8Y0s06U8re2oULn5zGFKROteO85ocv3Plb.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Buku Tamu Digital
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/sarana-pengaduan-pelanggaran/"
+  data-title="Sarana Pengaduan Pelanggaran"
+  data-thumbnail="/Foto/thumbnails/compressed_8BCWjESLpp88HamQKUZUoukimiQR0f4VAE5qsl9a.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_8BCWjESLpp88HamQKUZUoukimiQR0f4VAE5qsl9a.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Sarana Pengaduan Pelanggaran
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/fasilitas-tangga-difabel/"
+  data-title="Fasilitas Tangga Difabel"
+  data-thumbnail="/Foto/thumbnails/compressed_SFbmFyqcsWT6E0LhXRU2OhJkywp86cBmPcvPvBUk.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/compressed_SFbmFyqcsWT6E0LhXRU2OhJkywp86cBmPcvPvBUk.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Fasilitas Tangga Difabel
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      29 December 2024
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/2023-09-01-02-15-28/"
+  data-title="2023-09-01-02-15-28"
+  data-thumbnail="/Foto/thumbnails/OHeozOnxw7MoNJXAxpbb65eKa3tUMuvpbVDtdA2O.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/OHeozOnxw7MoNJXAxpbb65eKa3tUMuvpbVDtdA2O.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      2023-09-01-02-15-28
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      1 September 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/lift-pada-kantor-diskominfo/"
+  data-title="lift pada kantor diskominfo"
+  data-thumbnail="/Foto/thumbnails/dCip7tfQAMcxy15SMJSbeFpN9BCvjCLLxrA3rAYt.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/dCip7tfQAMcxy15SMJSbeFpN9BCvjCLLxrA3rAYt.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      lift pada kantor diskominfo
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      31 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/2023-08-30-10-28-14/"
+  data-title="2023-08-30-10-28-14"
+  data-thumbnail="/Foto/thumbnails/6gs8UohrmCqtUVB4top2CNyzhiLioaotPb4Txytg.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/6gs8UohrmCqtUVB4top2CNyzhiLioaotPb4Txytg.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      2023-08-30-10-28-14
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      30 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+              
+                <div class="swiper-slide swiper-slide-foto">
+<div
+  class="blog-card-home-foto relative text-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+  data-modal="/foto/formulir-permohonan-informasi/"
+  data-title="Formulir Permohonan Informasi"
+  data-thumbnail="/Foto/thumbnails/dIrFgL5CYNkEi2PtnG7j32QexquEmBi1Nc4zJX3E.jpg"
+>
+  
+  
+  <div
+    class="thumbnail absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/Foto/thumbnails/dIrFgL5CYNkEi2PtnG7j32QexquEmBi1Nc4zJX3E.jpg');"
+    loading="lazy"
+  ></div>
+  
+
+  
+  <div
+    class="title-container absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300"
+  >
+    <span class="text-xl font-bold text-white px-4 py-2 bg-opacity-50 rounded">
+      Formulir Permohonan Informasi
+    </span>
+  </div>
+
+  
+  
+  <div class="date-container absolute bottom-0 right-0 p-2">
+    <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
+      30 August 2023
+    </span>
+  </div>
+  
+</div>
+
+<style>
+   
+  .blog-card-home-foto {
+    width: 300px;
+    height: 175px;
+    position: relative;  
+    overflow: hidden;
+    border-radius: 0.5rem;  
+    cursor: pointer;  
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-foto {
+      width: 220px;  
+      height: 130px;
+    }
+  }
+
+   
+  .blog-card-home-foto .thumbnail {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+   
+  .blog-card-home-foto:hover .thumbnail {
+    transform: scale(1.1);  
+    filter: brightness(75%);  
+  }
+
+   
+  .blog-card-home-foto:hover .title-container {
+    opacity: 1;  
+  }
+
+   
+  .date-container {
+    position: absolute;  
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;  
+    border-radius: 0.25rem;  
+  }
+</style>
+</div>
+              
+            
+              
+            
+              
+            
+          </div>
+        </div>
+        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var swiperFoto = new Swiper('.swiper-foto', {
+        effect: 'cards',
+        grabCursor: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        }
+      });
+    });
+  </script>
+  <style>
+    .swiper-foto {
+      width: 300px;
+      height: 175px;
+      z-index: 2;
+    }
+    .custom-background {
+      width: 300px;
+      height: 175px;
+      z-index: 1;
+      left: 1.5rem;
+    }
+    @media (max-width: 1024px) {
+      .swiper-foto, .custom-background {
+        width: 220px;
+        height: 130px;
+      }
+      .custom-background {
+        left: 1rem;
+      }
+      .swiper-slide-foto {
+        width: 220px;
+        height: 130px;
+      }
+    }
+    @media (max-width: 768px) {
+      .swiper-foto, .custom-background {
+        width: 220px;
+        height: 130px;
+      }
+      .custom-background {
+        left: 9rem;
+      }
+      .swiper-slide-foto {
+        width: 220px;
+        height: 130px;
+      }
+    }
+    @media (max-width: 426px) {
+      .swiper-foto, .custom-background {
+        width: 220px;
+        height: 130px;
+      }
+      .custom-background {
+        left: 2rem;
+      }
+      .swiper-slide-foto {
+        width: 220px;
+        height: 130px;
+      }
+    }
+  </style>
+</div>
+</div>
+
+<div class="container p-10 mx-auto">
+  <div class="container p-6">
+   <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
+    <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
+     Galeri
+     <br/>
+     Video
+    </h1>
+    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0" href="galeri-video">
+     Selengkapnya
+     <i class="fas fa-external-link-alt ml-2">
+     </i>
+    </a>
+   </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      
+        <div class="border-4 border-customGreen rounded-3xl p-6 flex flex-col md:flex-row items-center"><div
+  class="blog-card-home-video relative flex flex-col md:flex-row cursor-pointer"
+  data-title="Saksikan bagaimana proyek-proyek strategis ini membawa dampak positif bagi warga Singkawang"
+  data-video-url="https://www.youtube.com/watch?v=bHeX9A9jd1o"
+  onclick="openVideoModal('https:\/\/www.youtube.com\/watch?v=bHeX9A9jd1o')"
+>
+  <div
+    class="thumbnail w-full md:w-1/2 h-40 bg-cover bg-center rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
+    style="background-image: url('https://img.youtube.com/vi/bHeX9A9jd1o/maxresdefault.jpg');"
+    loading="lazy"
+  ></div>
+
+  <div class="text-container flex-1 p-4 flex items-center">
+    <span class="text-xl text-black"> Saksikan bagaimana proyek-proyek strategis ini membawa dampak positif bagi warga Singkawang </span>
+  </div>
+</div>
+
+<style>
+  .blog-card-home-video {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card-home-video:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-video {
+      flex-direction: column;
+    }
+
+    .thumbnail {
+      height: 200px;  
+    }
+
+    .text-container {
+      padding: 10px;
+    }
+  }
+</style>
+</div>
+      
+        <div class="border-4 border-customGreen rounded-3xl p-6 flex flex-col md:flex-row items-center"><div
+  class="blog-card-home-video relative flex flex-col md:flex-row cursor-pointer"
+  data-title="Tata Cara Pengajuan Permohonan Informasi dan Keberatan di PPID Diskominfo Kalimantan Barat"
+  data-video-url="https://www.youtube.com/watch?v=-3sjo0cJZ34&amp;t=2s"
+  onclick="openVideoModal('https:\/\/www.youtube.com\/watch?v=-3sjo0cJZ34\u0026t=2s')"
+>
+  <div
+    class="thumbnail w-full md:w-1/2 h-40 bg-cover bg-center rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
+    style="background-image: url('https://img.youtube.com/vi/-3sjo0cJZ34/maxresdefault.jpg');"
+    loading="lazy"
+  ></div>
+
+  <div class="text-container flex-1 p-4 flex items-center">
+    <span class="text-xl text-black"> Tata Cara Pengajuan Permohonan Informasi dan Keberatan di PPID Diskominfo Kalimantan Barat </span>
+  </div>
+</div>
+
+<style>
+  .blog-card-home-video {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card-home-video:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-video {
+      flex-direction: column;
+    }
+
+    .thumbnail {
+      height: 200px;  
+    }
+
+    .text-container {
+      padding: 10px;
+    }
+  }
+</style>
+</div>
+      
+        <div class="border-4 border-customGreen rounded-3xl p-6 flex flex-col md:flex-row items-center"><div
+  class="blog-card-home-video relative flex flex-col md:flex-row cursor-pointer"
+  data-title="Keterbukaan Informasi Publik dalam Tatanan Normal Baru di Provinsi Kalimantan Barat"
+  data-video-url="https://www.youtube.com/watch?v=ymZUfGW_9XI&amp;t=2s"
+  onclick="openVideoModal('https:\/\/www.youtube.com\/watch?v=ymZUfGW_9XI\u0026t=2s')"
+>
+  <div
+    class="thumbnail w-full md:w-1/2 h-40 bg-cover bg-center rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
+    style="background-image: url('https://img.youtube.com/vi/ymZUfGW_9XI/maxresdefault.jpg');"
+    loading="lazy"
+  ></div>
+
+  <div class="text-container flex-1 p-4 flex items-center">
+    <span class="text-xl text-black"> Keterbukaan Informasi Publik dalam Tatanan Normal Baru di Provinsi Kalimantan Barat </span>
+  </div>
+</div>
+
+<style>
+  .blog-card-home-video {
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card-home-video:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    .blog-card-home-video {
+      flex-direction: column;
+    }
+
+    .thumbnail {
+      height: 200px;  
+    }
+
+    .text-container {
+      padding: 10px;
+    }
+  }
+</style>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+    </main><div
+  class="bg-white p-5 z-10 absolute rounded-xl flex flex-wrap justify-between items-center"
+  style="width: auto; border: 5px solid rgba(0, 128, 0, 0.5); transform: translateX(-50%); left: 50%; padding-top: 20px; padding-bottom: 20px;"
+>
+  <div class="flex items-center flex-grow justify-center">
+    <img 
+    src='//localhost:1313/akcaya-logo.png'
+    alt="Logo Akcaya"
+    style="width: 50px; height: auto; margin-right: 20px;"
+    >
+    <h1 class="text-customGreen text-xl leading-6 font-semibold">
+      Diskominfo Provinsi<br>Kalimantan Barat
+    </h1>
+  </div>
+  <div class="flex items-center gap-4 ml-4">
+    <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-facebook-f text-white text-2xl"></i>
+    </a>
+    <a href="https://x.com/KominfoKalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-twitter text-white text-2xl"></i>
+    </a>
+    <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-youtube text-white text-2xl"></i>
+    </a>
+    <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-instagram text-white text-2xl"></i>
+    </a>
+    <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="bg-customGreen p-3 rounded-full flex justify-center items-center hover:bg-green-700 transition-colors duration-300" style="width: 50px; height: 50px; margin-top: 10px; margin-bottom: 10px;">
+      <i class="fab fa-tiktok text-white text-2xl"></i>
+    </a>
+  </div>
+</div>
+<div class="footer-layer bg-white transition-colors duration-500 dark:bg-gray-900">
+  <style>
+    .footer-layer {
+      height: 80px;
+    }
+    @media (max-width: 768px) {
+      .footer-layer {
+        height: 140px;
+      }
+    }
+  </style>
+</div>
+
+<footer
+  class='p-6 mx-auto flex flex-wrap items-start justify-between w-full relative bottom-0 bg-defaultColor text-white dark:bg-gray-800'
+>
+
+  <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-1 mt-10">
+
+    
+    <div class="flex flex-col gap-4 ">
+      <h2
+        class="font-bold mb-4 text-center pb-2"
+        style="
+          font-size: 1.15rem;
+          border-bottom: 3px solid white;
+          width: 50%;
+          margin: 0 auto;
+        "
+      >
+        Kontak Kami
+      </h2>
+      <div class="pl-10 space-y-4 dark:text-white">
+        
+        <div class="flex items-center gap-2">
+          <i
+            class="fas fa-phone-alt w-6 h-6 flex justify-center items-center"
+            style="transform: scaleX(-1); font-size: 1.15rem"
+          ></i>
+          <span class="flex-1">628152076444</span>
+        </div>
+
+        
+        <div class="flex items-center gap-2">
+          <i
+            class="fas fa-envelope w-6 h-6 flex justify-center items-center"
+            style="font-size: 1.15rem"
+          ></i>
+          <span class="flex-1">diskominfo@kalbarprov.go.id</span>
+        </div>
+
+       
+      </div>
+    </div>
+
+    
+    <div class="flex flex-col gap-4 px-4">
+      <h2
+        class="font-bold mb-4 text-center pb-2"
+        style="
+          font-size: 1.15rem;
+          border-bottom: 3px solid white;
+          width: 50%;
+          margin: 0 auto;
+        "
+      >
+        Lokasi
+      </h2>
+      
+      <iframe
+        title="Peta Lokasi Gedung Pelayanan Terpadu Prov. Kalbar"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.9999999999995!2d109.352462!3d-0.0615711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59a102965473%3A0x9ef363f0cf41c6b2!2sGedung%20Pelayanan%20Terpadu%20Prov.%20Kalbar!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid"
+        width="100%"
+        height="200"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+
+    
+<div class="flex flex-col gap-4 ">
+  <h2
+    class="font-bold mb-4 text-center pb-2"
+    style="
+      font-size: 1.15rem;
+      border-bottom: 3px solid white;
+      width: 50%;
+      margin: 0 auto;
+    "
+  >
+    Tautan Terkait
+  </h2>
+  <div class="pl-10 space-y-4 dark:text-white">
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://kalbarprov.go.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Pemerintah Provinsi Kalbar"
+      >
+        Pemerintah Provinsi Kalbar
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://ppid.kalbarprov.go.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="PPID Utama Kalbar"
+      >
+        PPID Utama Kalbar
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://komisiinformasi.go.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Komisi Informasi Pusat"
+      >
+        Komisi Informasi Pusat
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="https://www.komisiinformasikalbar.or.id/"
+        target="_blank"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Komisi Informasi Daerah"
+      >
+        Komisi Informasi Daerah
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="flex flex-col gap-4">
+  <h2
+    class="font-bold mb-4 text-center pb-2"
+    style="
+      font-size: 1.15rem;
+      border-bottom: 3px solid white;
+      width: 50%;
+      margin: 0 auto;
+    "
+  >
+    Tautan Tercepat
+  </h2>
+  <div class="pl-10 space-y-4 dark:text-white">
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/berita"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Berita"
+      >
+        Berita
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/foto"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Foto"
+      >
+        Foto
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/galeri-video"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Video"
+      >
+        Video
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <i
+        class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
+        style="transform: scaleX(-1); font-size: 1.15rem"
+      ></i>
+      <a
+        href="/sitemap"
+        class="flex-1 whitespace-nowrap overflow-hidden text-ellipsis hover:underline"
+        style="text-decoration: none; color: inherit;"
+        title="Sitemap"
+      >
+        Sitemap
+      </a>
+    </div>
+  </div>
+</div>
+
+    
+    </div>
+  </div>
+
+  <div
+    id="scrollToTopBtn"
+    class="fixed bottom-4 right-4 p-1 cursor-pointer bg-white shadow-md rounded-full hidden"
+    style="z-index: 50"
+    onclick="scrollToTop()"
+  >
+    <i
+      class="fas fa-arrow-up h-8 w-8 text-black dark:text-black flex justify-center items-center"
+      style="font-size: 1.75rem"
+    ></i>
+  </div>
+</footer>
+<div
+  class="w-full flex flex-col items-center bg-customDarkGreen dark:bg-gray-700 py-4 z-10"
+>
+  <span class="relative" style="font-size: 1rem; color: #fff">
+     Copyright ©2024 
+  </span>
+</div> 
+<script>
+  const darkmode = document.querySelector(".toggle-dark-mode");
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkmode", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("darkmode", "dark");
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener("click", toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem("darkmode");
+  const isBrowserDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add("dark");
+  }
+
+  if (darkStorage && darkStorage === "dark") {
+    toggleDarkMode();
+  }
+</script>
+
+<script>
+  
+  function hideLoadingScreen() {
+    const loadingScreen = document.getElementById("loading-screen");
+    loadingScreen.classList.add("hidden"); 
+
+    const mainContent = document.querySelector("main");
+    mainContent.classList.add("fade-in"); 
+  }
+
+  
+  setTimeout(hideLoadingScreen, 300);
+</script>
+
+<script>
+  function scrollToTop() {
+    var currentScroll =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, currentScroll - currentScroll / 40);
+    }
+  }
+
+  window.addEventListener("scroll", function () {
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    var scrollY = window.scrollY || window.pageYOffset;
+
+    if (scrollY > 20) {
+      scrollToTopBtn.classList.remove("hidden");
+    } else {
+      scrollToTopBtn.classList.add("hidden");
+    }
+
+    if (scrollY === 0) {
+      scrollToTopBtn.style.display = "none";
+    } else {
+      scrollToTopBtn.style.display = "block";
+    }
+  });
+</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    
+      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+      />
+      
+    
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"></script>
+  </body>
+  <script src='/js/loadmodaldisabilitas.js'></script>
+</html>

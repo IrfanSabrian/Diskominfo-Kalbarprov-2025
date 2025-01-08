@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Profil on Diskominfo Provinsi Kalimantan Barat</title>
+    <link>//localhost:1313/ms-profil-csirt/</link>
+    <description>Recent content in Profil on Diskominfo Provinsi Kalimantan Barat</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Thu, 24 Aug 2023 06:19:21 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/ms-profil-csirt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tentang CSIRT</title>
+      <link>//localhost:1313/ms-profil-csirt/tentang/</link>
+      <pubDate>Thu, 24 Aug 2023 06:19:21 +0000</pubDate>
+      <guid>//localhost:1313/ms-profil-csirt/tentang/</guid>
+      <description>&lt;div style=&#34;font-family: &#39;Poppins&#39;, sans-serif;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;&#34;&gt;&lt;span style=&#34;box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: &#39;Poppins&#39;, sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;&#34;&gt;Tentang&lt;/span&gt;&lt;/p&gt;&#xD;&#xA;&lt;p style=&#34;box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: &#39;Poppins&#39;, sans-serif; padding-left: 2rem;&#34;&gt;KALBARPROV – Computer Security Incident Response Team (CSIRT) merupakan CSIRT sektor Pemerintah Daerah Provinsi kalimantan Barat yang ditetapkan oleh Sekretaris Daerah melalui Keputusan Sekretaris Daerah  Provinsi Kalimantan Barat Nomor: 1307/Diskominfo/2023 Tentang Pembentukan Security Incident Response Team Provinsi Kalimantan Barat (KALBARPROV CSIRT) Tahun 2023;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Visi dan Misi</title>
+      <link>//localhost:1313/ms-profil-csirt/visi-dan-misi/</link>
+      <pubDate>Thu, 24 Aug 2023 06:19:21 +0000</pubDate>
+      <guid>//localhost:1313/ms-profil-csirt/visi-dan-misi/</guid>
+      <description>&lt;div style=&#34;font-family: &#39;Poppins&#39;, sans-serif;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;&#34;&gt;&lt;span style=&#34;box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: &#39;Poppins&#39;, sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;&#34;&gt;VISI&lt;/span&gt;&lt;/p&gt;&#xD;&#xA;&lt;p style=&#34;box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: &#39;Poppins&#39;, sans-serif; padding-left: 2rem;&#34;&gt;&amp;ldquo;Terwujudnya Ketahanan Siber Pada Pemerintah Provinsi Kalimantan Barat yang Handal dan Profesional.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

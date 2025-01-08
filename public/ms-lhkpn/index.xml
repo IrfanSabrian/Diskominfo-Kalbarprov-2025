@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LHKPN on Diskominfo Provinsi Kalimantan Barat</title>
+    <link>//localhost:1313/ms-lhkpn/</link>
+    <description>Recent content in LHKPN on Diskominfo Provinsi Kalimantan Barat</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <lastBuildDate>Fri, 22 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/ms-lhkpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Informasi Jumlah dan Persentase Wajib LHKPN</title>
+      <link>//localhost:1313/ms-lhkpn/informasi-jumlah-dan-persentase-wajib-lhkpn/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-lhkpn/informasi-jumlah-dan-persentase-wajib-lhkpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LHKPN Kepala Dinas dan Sekretaris</title>
+      <link>//localhost:1313/ms-lhkpn/lhkpn-kepala-dinas-dan-sekretaris/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-lhkpn/lhkpn-kepala-dinas-dan-sekretaris/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LHKPN Pejabat Eselon 4</title>
+      <link>//localhost:1313/ms-lhkpn/lhkpn-pejabat-eselon-4/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/ms-lhkpn/lhkpn-pejabat-eselon-4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LHKPN Pejabat eselon 3</title>
+      <link>//localhost:1313/ms-lhkpn/lhkpn-pejabat-eselon-3/</link>
+      <pubDate>Wed, 30 Aug 2023 04:12:05 +0000</pubDate>
+      <guid>//localhost:1313/ms-lhkpn/lhkpn-pejabat-eselon-3/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
