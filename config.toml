@@ -35,6 +35,7 @@ frontBundle5 = "formulir"
 frontBundle6 = "berita"
 frontBundle7 = "foto"
 frontBundle8 = "galeri-video"
+frontBundle9 = "berita-csirt"
 hideMeta = false
 hideOtherLanguages = false
 toc = true

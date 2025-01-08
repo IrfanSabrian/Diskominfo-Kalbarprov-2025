@@ -94,7 +94,18 @@ document.addEventListener('DOMContentLoaded', renderSections);
         transform: translateX(50%);
     }
 }
+
+@media (max-width: 767px) {
+    .container-menu {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .container-menu > div {
+        transform: none !important;
+    }
+}
 </style>
 
-<div class="container container-menu px-32 gap-2 mx-auto grid grid-cols-2 md:grid-cols-3 max-w-4xl">
+<div class="container container-menu px-4 md:px-32 gap-2 mx-auto grid grid-cols-2 md:grid-cols-3 max-w-4xl">
 </div>

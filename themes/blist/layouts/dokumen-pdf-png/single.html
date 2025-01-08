@@ -17,11 +17,18 @@
                 </thead>
                 <tbody>
                     {{ range .Params.items }}
+                    {{ if .link }}
+                    <tr class="cursor-pointer hover:bg-gray-100" onclick="window.open('{{ .link }}', '_blank')">
+                        <td class="border px-2 py-2">{{ .title }}</td>
+                        <td class="border px-4 py-2">-</td>
+                    </tr>
+                    {{ else }}
                     {{ $fileExt := path.Ext .file }}
                     <tr class="cursor-pointer hover:bg-gray-100" onclick="showPreview('{{ .file }}', '{{ .title }}', this, '{{ $fileExt }}')" data-file="{{ .file }}">
                         <td class="border px-2 py-2">{{ .title }}</td>
                         <td class="border px-4 py-2">{{ upper (trim $fileExt ".") }}</td>
                     </tr>
+                    {{ end }}
                     {{ end }}
                 </tbody>
             </table>
