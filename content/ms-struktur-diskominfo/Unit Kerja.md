@@ -4,27 +4,13 @@ title: Unit Kerja
 date: 2023-09-22
 ---
 
-<div class="container-besar flex px-8" style="gap: 80px">
-    <div style="flex: 1;" class="my-16">
-        <div class="">
-            <h1 class="font-bold text-3xl mb-4">Unit Kerja</h1>
-            <ul style="list-style-type: circle; width: 30%; padding-left: 4rem">
-                <li>
-                    <p class="text-base" style="opacity: 70%">Sekretariat</p>
-                </li>
-                <li>
-                    <p class="text-base" style="opacity: 70%">Bidang Informasi Publik</p>
-                </li>
-                <li>
-                    <p class="text-base" style="opacity: 70%">Bidang Komunikasi Publik</p>
-                </li>   
-                <li>
-                    <p class="text-base" style="opacity: 70%">Bidang Persandian dan Statistik</p>
-                </li>
-                <li>
-                    <p class="text-base" style="opacity: 70%">Bidang Aplikasi Informatika</p>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div style="font-family: 'Poppins', sans-serif;">
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: 'Poppins', sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">Unit Kerja</span></p>
+<div style="padding-left: 2rem;">
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">1. Sekretariat</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">2. Bidang Informasi Publik</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">3. Bidang Komunikasi Publik</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">4. Bidang Persandian dan Statistik</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">5. Bidang Aplikasi Informatika</p>
+</div>
 </div>
