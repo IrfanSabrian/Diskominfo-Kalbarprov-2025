@@ -4,24 +4,13 @@ title: Tugas dan Fungsi
 date: 2023-09-22
 ---
 
-<div class="container-besar px-8">
-    <div class="my-8">
-        <div class="">
-            <h1 class="font-bold text-3xl mb-4">Tugas</h1>
-            <p class="text-base text-justify pl-16" style="opacity: 70%">Dinas Komunikasi dan Informatika Provinsi Kalimantan Barat mempunyai tugas membantu Gubernur melaksanakan urusan pemerintahan yang menjadi kewenangan daerah dan tugas pembantuan di bidang komunikasi, informatika, persandian dan statistik Provinsi Kalimantan Barat sesuai dengan ketentuan peraturan perundang-undangan.</p>
-        </div>
-    </div>
-    <div class="my-10">
-        <div class="">
-            <h1 class="font-bold text-3xl mb-4">Fungsi</h1>
-            <ul style="list-style-type: circle;" class="mx-auto pl-16">
-                <li>
-                    <p class="text-base text-justify" style="opacity: 70%">Perumusan program kerja di bidang komunikasi dan informatika, persandian, dan statistik;</p>
-                </li>
-                <li>
-                    <p class="text-base text-justify" style="opacity: 70%">Perumusan kebijakan di bidang informasi publik, komunikasi publik, aplikasi informatika, serta persandian dan statistik;</p>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div style="font-family: 'Poppins', sans-serif;">
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: 'Poppins', sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">Tugas</span></p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif; padding-left: 2rem;">Dinas Komunikasi dan Informatika Provinsi Kalimantan Barat mempunyai tugas membantu Gubernur melaksanakan urusan pemerintahan yang menjadi kewenangan daerah dan tugas pembantuan di bidang komunikasi, informatika, persandian dan statistik Provinsi Kalimantan Barat sesuai dengan ketentuan peraturan perundang-undangan.</p>
+
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: 'Poppins', sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">Fungsi</span></p>
+<div style="padding-left: 2rem;">
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">- Perumusan program kerja di bidang komunikasi dan informatika, persandian, dan statistik;</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;">- Perumusan kebijakan di bidang informasi publik, komunikasi publik, aplikasi informatika, serta persandian dan statistik;</p>
+</div>
 </div>

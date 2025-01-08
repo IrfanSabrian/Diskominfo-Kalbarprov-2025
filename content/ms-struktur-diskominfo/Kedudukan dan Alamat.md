@@ -4,23 +4,14 @@ title: Kedudukan dan Alamat
 date: 2023-09-22
 ---
 
-<div class="container-besar px-8">
-    <div class="my-10">
-        <div class="">
-            <h1 class="font-bold text-3xl mb-4">Kedudukan</h1>
-            <p class="text-base text-justify pl-16" style="opacity: 70%">Dinas Komunikasi dan Inforrnatika merupakan unsur pelaksana otonomi daerah, dipimpin oleh seorang kepala dinas, yang berada di bawah dan bertanggung jawab kepada Gubernur melalui Sekretaris Daerah.</p>
-        </div>
-    </div>
-    <div class="my-10">
-        <div class="">
-            <h1 class="font-bold text-3xl mb-4">Alamat</h1>
-            <ul style="list-style-type: circle; margin-top: 20px; margin-bottom: 20px;" class="mx-auto pl-16">
-                <li style="list-style-type: none; opacity: 70%"><i class='mr-1 fas fa-map-marker-alt'></i> Dinas Komunikasi dan Informatika Pemerintah Provinsi Kalimantan Barat
-                    Jl. Ahmad Yani Gedung Pelayanan Terpadu Lt.6,
-                </li>
-                <li style="list-style-type: none; opacity: 70%"><i class='mr-1 fas fa-phone-alt'></i> 089699305225,</li>
-                <li style="list-style-type: none; opacity: 70%"><i class='mr-1 far fa-envelope'></i> diskominfo@kalbarprov.go.id</li>
-            </ul>
-        </div>
-    </div>
+<div style="font-family: 'Poppins', sans-serif;">
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: 'Poppins', sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">Kedudukan</span></p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif; padding-left: 2rem;">Dinas Komunikasi dan Inforrnatika merupakan unsur pelaksana otonomi daerah, dipimpin oleh seorang kepala dinas, yang berada di bawah dan bertanggung jawab kepada Gubernur melalui Sekretaris Daerah.</p>
+
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: 2rem; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: 'Poppins', sans-serif; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline;">Alamat</span></p>
+<div style="padding-left: 2rem;">
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;"><i class='mr-1 fas fa-map-marker-alt'></i> Dinas Komunikasi dan Informatika Pemerintah Provinsi Kalimantan Barat Jl. Ahmad Yani Gedung Pelayanan Terpadu Lt.6,</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;"><i class='mr-1 fas fa-phone-alt'></i> 089699305225,</p>
+<p style="box-sizing: border-box; margin: 0px 0px 1.25em; padding: 0px; border: 0px; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; text-rendering: optimizelegibility; font-family: 'Poppins', sans-serif;"><i class='mr-1 far fa-envelope'></i> diskominfo@kalbarprov.go.id</p>
+</div>
 </div>
