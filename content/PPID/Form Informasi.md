@@ -1,92 +1,69 @@
 ---
 author: Katheryn Fox
-title: Form Informasi
+title: Form Informasi 
 date: 2025-01-04T12:56:00
 ---
 
 <script>
-  function titleToUrl(title) {
-    return title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+const formInformasiPPID = [
+  {
+    title: "Form Permintaan Informasi",
+    icon: '/icon/form-permintaan-informasi.png',
+    description: "Formulir yang dapat digunakan untuk memberikan permohonan terkait informasi yang belum tersedia.",
+    buttonText: "Ajukan Permintaan",
+    url: "https://layanan-diskominfo.kalbarprov.go.id/PPIDKALBAR-PERMOHONAN/register",
+    target: "_blank"
+  },
+  {
+    title: "Form Pernyataan Keberatan", 
+    icon: '/icon/form-pernyataan-keberatan.png',
+    description: "Formulir yang dapat digunakan untuk menyatakan keberatan terhadap permintaan informasi yang sudah ada.",
+    buttonText: "Ajukan Pernyataan",
+    url: "https://layanan-diskominfo.kalbarprov.go.id/PPIDKALBAR-KEBERATAN/register",
+    target: "_blank"
+  },
+  {
+    title: "Daftar Form",
+    icon: '/icon/daftar-form.png',
+    description: "Kumpulan formulir yang tersedia untuk berbagai keperluan layanan informasi publik yang dapat diunduh.",
+    buttonText: "Daftar Formulir",
+    url: "/ms-form-informasi-ppid/daftar-form",
+    target: "_self"
   }
+];
 
-  const informasiPPID = [
-    {
-      title: "SOP PPID"
-    },
-    {
-      title: "Tata Cara"
-    },
-    {
-      title: "Informasi Publik"
-    },
-    {
-      title: "Formulir"
-    },
-    {
-      title: "Peraturan PPID"
-    },
-    {
-      title: "Laporan PPID"
-    }
-  ];
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const containerInformasiPPID = document.querySelector('.section-container-informasi-ppid');
-    informasiPPID.forEach(item => {
-      const urlPath = `/ms-informasi-ppid/${titleToUrl(item.title)}`;
-      containerInformasiPPID.innerHTML += `
-        <a href="${urlPath}" class="bg-white p-4 rounded-xl border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center flex-1">
-              <div class="flex items-center flex-1">
-                <h2 class="text-black md:text-xl text-base pr-4 flex items-center" style="height: 100px">${item.title}</h2>
-                <div class="border-r-2 border-gray-300 h-28 ml-auto hidden md:block"></div>
-              </div>
-            </div>
-            <div class="hidden md:flex items-center justify-center h-full w-40">
-              <div class="hover-arrow flex items-center justify-center text-black group">
-                <span class="mr-3">Selengkapnya</span>
-                <i class="fas fa-arrow-right"></i>
-              </div>
-            </div>
+document.addEventListener("DOMContentLoaded", function() {
+  const containerFormInformasiPPID = document.querySelector('.section-container-form-informasi-ppid');
+  formInformasiPPID.forEach(item => {
+    containerFormInformasiPPID.innerHTML += `
+      <div class="form-card bg-white rounded-lg shadow-lg p-6 text-center flex flex-col justify-between border-2 border-gray-200" style="width: 260px; height: auto; min-height: 358px;">
+        <div>
+          <div class="flex justify-center mb-4">
+            <img src="${item.icon}" alt="${item.title}" class="w-16 h-16"/>
           </div>
+          <h2 class="text-xl font-semibold mb-2">${item.title}</h2>
+          <p class="text-gray-600 mb-6">${item.description}</p>
+        </div>
+        <a href="${item.url}" target="${item.target}" class="bg-customGreen text-white font-semibold py-2 px-4 rounded-full hover:bg-green-700">
+          ${item.buttonText}
         </a>
-      `;
-    });
+      </div>
+    `;
   });
+});
 </script>
-<section class="flex flex-col gap-4 bg-white section-container-informasi-ppid">
+
+<section class="flex flex-row flex-wrap md:flex-nowrap gap-6 justify-center items-stretch p-6 section-container-form-informasi-ppid">
 </section>
+
 <style>
-.hover-container:hover .hover-arrow {
-    color: #00A86B;
-    transform: translateX(10px);
-}
-.hover-container:hover .hover-arrow i {
-    animation: arrowMove 0.8s infinite;
-}
-.hover-arrow {
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-@keyframes arrowMove {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
 @media (max-width: 768px) {
-    .hover-container {
-        flex-direction: column;
-    }
-    .hover-arrow {
-        display: none;
-    }
+  .section-container-form-informasi-ppid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-card {
+    width: 100% !important;
+  }
 }
 </style>

@@ -2,7 +2,7 @@
 <style>
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 10%; 
+    scroll-padding-top: 11%;
   }
   .active {
     background-color: #03a055 !important;
@@ -39,10 +39,18 @@
   <div class="flex gap-8">
     <!-- Sidebar kiri tetap -->
     <div class="sidebar h-200vh w-64 relative">
-      <div class="w-1/10 sticky top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
+      <div
+        class="w-1/10 sticky top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4"
+      >
         {{ range .Pages.ByDate.Reverse }}
-        <div class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer">
-          <a href="#{{ anchorize .Title }}" class="block" onclick="setActive(this)">
+        <div
+          class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer"
+        >
+          <a
+            href="#{{ anchorize .Title }}"
+            class="block"
+            onclick="setActive(this)"
+          >
             {{ .Title }}
           </a>
         </div>
@@ -52,53 +60,57 @@
     </div>
 
     <!-- Content -->
-    <div class="content-center flex-1 h-auto top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
-        {{ range .Pages.ByDate.Reverse }}
-        <div id="{{ anchorize .Title }}" class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]">
-          <div class="title-container">
-            <span class="title-text">{{ .Title }}</span>
-            <div class="flex-grow h-1 bg-customGreen ml-2"></div>
-          </div>
+    <div
+      class="content-center flex-1 h-auto top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4"
+    >
+      {{ range .Pages.ByDate.Reverse }}
+      <div
+        id="{{ anchorize .Title }}"
+        class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]"
+      >
+        <div class="title-container">
+          <span class="title-text">{{ .Title }}</span>
+          <div class="flex-grow h-1 bg-customGreen ml-2"></div>
         </div>
-        {{ .Content | safeHTML }}
-        {{ end }}
+      </div>
+      {{ .Content | safeHTML }} {{ end }}
     </div>
   </div>
 </div>
 <script>
-function setActive(element) {
-  let activeElements = document.querySelectorAll('.active');
-  // Tambahkan kelas active ke elemen yang diklik
-  element.parentElement.classList.add('active');
-  // Hapus kelas active dari semua link setelah menambahkan kelas baru
-  activeElements.forEach(a => {
-    if (a !== element.parentElement) {
-      a.classList.remove('active');
-    }
-  });
-}
+  function setActive(element) {
+    let activeElements = document.querySelectorAll(".active");
+    // Tambahkan kelas active ke elemen yang diklik
+    element.parentElement.classList.add("active");
+    // Hapus kelas active dari semua link setelah menambahkan kelas baru
+    activeElements.forEach((a) => {
+      if (a !== element.parentElement) {
+        a.classList.remove("active");
+      }
+    });
+  }
 
-// Tambahkan event listener untuk scroll
-window.addEventListener('scroll', function() {
-  let sections = document.querySelectorAll('[id]');
-  sections.forEach(section => {
-    let rect = section.getBoundingClientRect();
-    if (rect.top <= 150 && rect.bottom >= 150) {
-      let id = section.getAttribute('id');
-      let activeElements = document.querySelectorAll('.active');
-      document.querySelectorAll('a').forEach(a => {
-        if (a.getAttribute('href') === '#' + id) {
-          a.parentElement.classList.add('active');
-          // Hapus kelas active dari semua link setelah menambahkan kelas baru
-          activeElements.forEach(active => {
-            if (active !== a.parentElement) {
-              active.classList.remove('active');
-            }
-          });
-        }
-      });
-    }
+  // Tambahkan event listener untuk scroll
+  window.addEventListener("scroll", function () {
+    let sections = document.querySelectorAll("[id]");
+    sections.forEach((section) => {
+      let rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        let id = section.getAttribute("id");
+        let activeElements = document.querySelectorAll(".active");
+        document.querySelectorAll("a").forEach((a) => {
+          if (a.getAttribute("href") === "#" + id) {
+            a.parentElement.classList.add("active");
+            // Hapus kelas active dari semua link setelah menambahkan kelas baru
+            activeElements.forEach((active) => {
+              if (active !== a.parentElement) {
+                active.classList.remove("active");
+              }
+            });
+          }
+        });
+      }
+    });
   });
-});
 </script>
 {{ end }}
