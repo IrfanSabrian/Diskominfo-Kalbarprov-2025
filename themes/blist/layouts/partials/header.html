@@ -315,6 +315,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
   const closeMobileMenu = document.getElementById("close-mobile-menu");
 
+  // Set light mode saat pertama kali dimuat
+  localStorage.setItem("dark-mode", "false");
+  document.body.classList.remove("dark");
+  updateDarkModeIcons();
+
   // Mobile menu toggle dengan animasi yang lebih halus
   mobileMenuButton.addEventListener("click", () => {
     mobileMenuOverlay.classList.remove("hidden");
@@ -341,16 +346,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // Scroll effect untuk transparansi navbar
-  window.addEventListener("scroll", function() {
-    if (window.scrollY > 0) {
-      navbar.classList.add("bg-opacity-70", "backdrop-blur-md", "shadow-lg");
-      navbar.style.backdropFilter = "blur(8px)";
-    } else {
-      navbar.classList.remove("bg-opacity-70", "backdrop-blur-md", "shadow-lg");
-      navbar.style.backdropFilter = "none";
-    }
-  });
+
 
   // Dark mode toggle dengan animasi yang lebih halus
   function updateDarkModeIcons() {
@@ -364,11 +360,6 @@ document.addEventListener("DOMContentLoaded", function() {
         icon.classList.add("fa-moon");
       }
     });
-  }
-
-  if (localStorage.getItem("dark-mode") === "true") {
-    document.body.classList.add("dark");
-    updateDarkModeIcons();
   }
 
   function toggleDarkMode(icon) {
@@ -392,5 +383,4 @@ document.addEventListener("DOMContentLoaded", function() {
   toggleButton.addEventListener("click", () => toggleDarkMode(darkModeIcon));
   mobileToggleButton.addEventListener("click", () => toggleDarkMode(mobileDarkModeIcon));
 });
-</script>
 </script>

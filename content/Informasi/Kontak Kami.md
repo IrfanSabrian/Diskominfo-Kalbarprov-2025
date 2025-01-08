@@ -7,7 +7,7 @@ type: informasi
 
 <section class="relative bg-white p-8 rounded-xl border-2 border-gray-300 shadow-lg mx-auto max-w-4xl">
     <div class="absolute top-0 right-0 bottom-0 w-1/3 bg-customYellow rounded-r-xl hidden md:block"></div>
-    <div class="p-8 w-full max-w-4xl flex flex-col md:flex-row relative z-10">
+    <div class="p-2 w-full max-w-4xl flex flex-col md:flex-row relative z-10">
         <!-- Kotak Putih -->
         <div class="w-full md:w-2/3 p-4 mr-4">
             <form id="contactForm" onsubmit="return validateForm(event)">
@@ -65,20 +65,20 @@ type: informasi
                 <i class="fas fa-envelope mr-2 text-xl"></i>
                 <span class="font-medium text-sm">diskominfo@kalbarprov.go.id</span>
             </div>
-            <div class="flex space-x-4">
-                <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+            <div class="flex flex-wrap gap-3 justify-center">
+                <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-youtube text-2xl"></i>
                 </a>
-                <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-facebook text-2xl"></i>
                 </a>
-                <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-tiktok text-2xl"></i>
                 </a>
-                <a href="https://x.com/KominfoKalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <a href="https://x.com/KominfoKalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-twitter text-2xl"></i>
                 </a>
-                <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-instagram text-2xl"></i>
                 </a>
             </div>

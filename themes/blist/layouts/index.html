@@ -603,7 +603,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     <div class="text-center mb-4">
       <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
         {{ $frontBundle7 := .Site.Params.frontBundle7 | default "foto" | lower }}
-        <div class="swiper swiper-foto mx-auto rounded-lg" style="animation: float 5s ease-in-out infinite;">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
           <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 0 }}
@@ -614,12 +614,12 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
             {{ end }}
           </div>
         </div>
-        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl" style="animation: float 5s ease-in-out infinite;"></div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
       </div>
     </div>
     <div class="text-center mt-0 sm:mt-16 mb-4">
       <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        <div class="swiper swiper-foto mx-auto rounded-lg" style="animation: float 4s ease-in-out infinite;">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
           <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 1 }}
@@ -630,12 +630,12 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
             {{ end }}
           </div>
         </div>
-        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl" style="animation: float 4s ease-in-out infinite;"></div>
+        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
       </div>
     </div>
     <div class="text-center mb-4">
       <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        <div class="swiper swiper-foto mx-auto rounded-lg" style="animation: float 3s ease-in-out infinite;">
+        <div class="swiper swiper-foto mx-auto rounded-lg">
           <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 2 }}
@@ -646,7 +646,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
             {{ end }}
           </div>
         </div>
-        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl" style="animation: float 3s ease-in-out infinite;"></div>
+        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl"></div>
       </div>
     </div>
   </div>

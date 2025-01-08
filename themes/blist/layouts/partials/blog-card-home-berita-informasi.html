@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="flex items-center flex-1 flex-col ml-6 mt-2 max-sm:ml-0 max-sm:mt-4">
-                    <h2 class="title-berita-informasi text-black text-base font-bold pr-4" style="height: 80px">{{ .Params.title }}</h2>
+                    <h2 class="title-berita-informasi text-black text-base font-bold pr-4 text-left w-full" style="height: 80px">{{ .Params.title }}</h2>
                     <p class="content-berita-informasi text-gray-600 text-sm pr-4">{{ .Content | plainify | replaceRE "<img[^>]*>" "" | truncate 300 "..." }}</p>
                 </div>
             </div>
