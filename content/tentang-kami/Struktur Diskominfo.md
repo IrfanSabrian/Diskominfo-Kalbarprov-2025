@@ -50,18 +50,18 @@ function renderSections() {
         div.className = 'flex flex-col items-center menu-container';
         
         const content = section.type === 'modal' 
-            ? `<div onclick="openImgModal('${section.link}')" class="bg-customGreen rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
+            ? `<div onclick="openImgModal('${section.link}')" class="bg-customGreen dark:bg-green-600 rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
                 style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
                 <img src="${section.icon}" alt="${section.title}" class="h-4/5 max-h-full w-auto object-contain">
                </div>`
-            : `<a href="${section.link}" class="bg-customGreen rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
+            : `<a href="${section.link}" class="bg-customGreen dark:bg-green-600 rounded-xl p-2 menu-item transition-all duration-300 cursor-pointer" 
                 style="z-index: 5; width: 100px; height: 100px; overflow: hidden; opacity: 0.8; display: flex; justify-content: center; align-items: center;">
                 <img src="${section.icon}" alt="${section.title}" class="h-4/5 max-h-full w-auto object-contain">
                </a>`;
                
         div.innerHTML = `
             ${content}
-            <p class="text-base text-black text-center w-full mt-2">${section.title}</p>
+            <p class="text-base text-black dark:text-white text-center w-full mt-2">${section.title}</p>
         `;
         
         container.appendChild(div);
@@ -82,7 +82,13 @@ document.addEventListener('DOMContentLoaded', renderSections);
     font-weight: bold;
     color: #2F855A;
 }
+
+@media (prefers-color-scheme: dark) {
+    .menu-container:hover .menu-title {
+        color: #48BB78;
+    }
+}
 </style>
 
-<div class="container container-menu px-4 gap-1 mx-0 grid grid-cols-2 md:grid-cols-3">
+<div class="container container-menu px-4 gap-1 mx-0 grid grid-cols-2 md:grid-cols-3 bg-white dark:bg-gray-800">
 </div>

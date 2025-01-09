@@ -5,7 +5,7 @@ date: 2025-01-01T12:52:00
 type: informasi
 ---
 
-<section class="relative bg-white p-8 rounded-xl border-2 border-gray-300 shadow-lg mx-auto max-w-4xl">
+<section class="relative bg-white dark:bg-gray-800 p-8 rounded-xl border-2 border-gray-300 dark:border-gray-600 shadow-lg mx-auto max-w-4xl">
     <div class="absolute top-0 right-0 bottom-0 w-1/3 bg-customYellow rounded-r-xl hidden md:block"></div>
     <div class="p-2 w-full max-w-4xl flex flex-col md:flex-row relative z-10">
         <!-- Kotak Putih -->
@@ -13,44 +13,44 @@ type: informasi
             <form id="contactForm" onsubmit="return validateForm(event)">
                 <div class="flex flex-col md:flex-row gap-4 mb-4">
                     <div class="w-full">
-                        <label for="name" class="block text-lg font-bold text-gray-700">Nama Lengkap</label>
-                        <input type="text" id="name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500">
+                        <label for="name" class="block text-lg font-bold text-gray-700 dark:text-white">Nama Lengkap</label>
+                        <input type="text" id="name" required class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:text-white">
                     </div>
                     <div class="w-full">
-                        <label for="email" class="block text-lg font-bold text-gray-700">Alamat Email</label>
-                        <input type="email" id="email" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500">
+                        <label for="email" class="block text-lg font-bold text-gray-700 dark:text-white">Alamat Email</label>
+                        <input type="email" id="email" required class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:text-white">
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-lg font-bold text-gray-700">Subjek</label>
+                    <label class="block text-lg font-bold text-gray-700 dark:text-white">Subjek</label>
                     <div class="grid grid-cols-2 gap-4 mt-2">
                         <div class="flex items-center">
-                            <input type="radio" id="kerjasama" name="subjek" value="Kerjasama" required class="h-4 w-4 text-green-600 border-gray-300 focus:ring-green-500">
-                            <label for="kerjasama" class="ml-2 block text-sm text-gray-700">Kerjasama</label>
+                            <input type="radio" id="kerjasama" name="subjek" value="Kerjasama" required class="h-4 w-4 text-green-600 border-gray-300 dark:border-gray-600 focus:ring-green-500">
+                            <label for="kerjasama" class="ml-2 block text-sm text-gray-700 dark:text-white">Kerjasama</label>
                         </div>
                         <div class="flex items-center">
-                            <input type="radio" id="konten" name="subjek" value="Konten" class="h-4 w-4 text-green-600 border-gray-300 focus:ring-green-500">
-                            <label for="konten" class="ml-2 block text-sm text-gray-700">Konten</label>
+                            <input type="radio" id="konten" name="subjek" value="Konten" class="h-4 w-4 text-green-600 border-gray-300 dark:border-gray-600 focus:ring-green-500">
+                            <label for="konten" class="ml-2 block text-sm text-gray-700 dark:text-white">Konten</label>
                         </div>
                         <div class="flex items-center">
-                            <input type="radio" id="pengaduan" name="subjek" value="Pengaduan" class="h-4 w-4 text-green-600 border-gray-300 focus:ring-green-500">
-                            <label for="pengaduan" class="ml-2 block text-sm text-gray-700">Pengaduan</label>
+                            <input type="radio" id="pengaduan" name="subjek" value="Pengaduan" class="h-4 w-4 text-green-600 border-gray-300 dark:border-gray-600 focus:ring-green-500">
+                            <label for="pengaduan" class="ml-2 block text-sm text-gray-700 dark:text-white">Pengaduan</label>
                         </div>
                         <div class="flex items-center">
-                            <input type="radio" id="lainnya" name="subjek" value="Lainnya" class="h-4 w-4 text-green-600 border-gray-300 focus:ring-green-500">
-                            <label for="lainnya" class="ml-2 block text-sm text-gray-700">Lainnya</label>
+                            <input type="radio" id="lainnya" name="subjek" value="Lainnya" class="h-4 w-4 text-green-600 border-gray-300 dark:border-gray-600 focus:ring-green-500">
+                            <label for="lainnya" class="ml-2 block text-sm text-gray-700 dark:text-white">Lainnya</label>
                         </div>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label for="message" class="block text-lg font-bold text-gray-700">Pesan</label>
-                    <textarea id="message" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500 resize-none"></textarea>
+                    <label for="message" class="block text-lg font-bold text-gray-700 dark:text-white">Pesan</label>
+                    <textarea id="message" rows="4" required class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500 resize-none dark:bg-gray-700 dark:text-white"></textarea>
                 </div>
                 <button type="submit" class="w-full bg-customGreen text-white py-2 rounded-md hover:bg-green-700">Kirim</button>
             </form>
         </div>
         <!-- Kotak Hijau -->
-        <div class="w-full md:w-1/2 bg-customGreen text-white p-4 mt-4 md:mt-0 md:ml-4 relative z-20">
+        <div class="w-full md:w-1/2 bg-customGreen dark:bg-green-700 text-white p-4 mt-4 md:mt-0 md:ml-4 relative z-20">
             <h2 class="text-lg font-bold mb-2">Informasi Kami</h2>
             <p class="mb-4 font-medium text-sm">Isi form ini dan kami akan memberikan respon maksimal dalam 1 hari kerja.</p>
             <div class="flex items-center mb-2">
@@ -66,19 +66,19 @@ type: informasi
                 <span class="font-medium text-sm">csirt@kalbarprov.go.id</span>
             </div>
             <div class="flex flex-wrap gap-3 justify-center">
-                <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-youtube text-2xl"></i>
                 </a>
-                <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-facebook text-2xl"></i>
                 </a>
-                <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-tiktok text-2xl"></i>
                 </a>
-                <a href="https://x.com/KominfoKalbar" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://x.com/KominfoKalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-twitter text-2xl"></i>
                 </a>
-                <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="text-customGreen hover:text-green-800 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-instagram text-2xl"></i>
                 </a>
             </div>

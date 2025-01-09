@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const faqItem = document.createElement('div');
         faqItem.className = 'faq-item mb-4';
         faqItem.innerHTML = `
-            <div class="faq-question rounded-xl bg-white border border-gray-300 p-4 cursor-pointer flex justify-between items-center relative" onclick="toggleAnswer(${index})">
+            <div class="faq-question rounded-xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-4 cursor-pointer flex justify-between items-center relative" onclick="toggleAnswer(${index})">
                 <div class="green-line"></div>
-                <span class="font-semibold">${item.question}</span>
+                <span class="font-semibold text-black dark:text-white">${item.question}</span>
                 <div class="toggle-icon w-6 h-6 bg-customGreen rounded-full flex items-center justify-center text-white flex-shrink-0">
                     <span class="plus-icon">+</span>
                 </div>
             </div>
-            <div class="faq-answer bg-customGreen p-4 rounded-b-lg mt-0 hidden text-white">
+            <div class="faq-answer bg-customGreen dark:bg-green-700 p-4 rounded-b-lg mt-0 hidden text-white">
                 ${item.answer}
             </div>
         `;
@@ -61,6 +61,10 @@ function toggleAnswer(index) {
 
 .faq-question:hover {
     background-color: #f8f8f8;
+}
+
+.dark .faq-question:hover {
+    background-color: #1f2937;
 }
 
 .plus-icon {
