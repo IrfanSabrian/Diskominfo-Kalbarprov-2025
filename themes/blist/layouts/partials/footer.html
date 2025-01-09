@@ -1,5 +1,5 @@
 <div
-  class="bg-white p-5 z-10 absolute rounded-xl flex flex-wrap justify-between items-center"
+  class="bg-white dark:bg-gray-800 p-5 z-10 absolute rounded-xl flex flex-wrap justify-between items-center"
   style="width: auto; border: 5px solid rgba(0, 128, 0, 0.5); transform: translateX(-50%); left: 50%; padding-top: 20px; padding-bottom: 20px;"
 >
   <div class="flex items-center flex-grow justify-center">
@@ -8,7 +8,7 @@
     alt="Logo Akcaya"
     style="width: 50px; height: auto; margin-right: 20px;"
     >
-    <h1 class="text-customGreen text-xl leading-6 font-semibold">
+    <h1 class="text-customGreen dark:text-green-400 text-xl leading-6 font-semibold">
       Diskominfo Provinsi<br>Kalimantan Barat
     </h1>
   </div>
@@ -30,7 +30,7 @@
     </a>
   </div>
 </div>
-<div class="footer-layer bg-white transition-colors duration-500 dark:bg-gray-900">
+<div class="footer-layer bg-white dark:bg-gray-900 transition-colors duration-500">
   <style>
     .footer-layer {
       height: 80px;
@@ -62,7 +62,7 @@
       >
         Kontak Kami
       </h2>
-      <div class="pl-10 space-y-4 dark:text-white">
+      <div class="pl-10 space-y-4 text-white dark:text-gray-200">
         <!-- Phone -->
         <div class="flex items-center gap-2">
           <i
@@ -125,7 +125,7 @@
   >
     Tautan Terkait
   </h2>
-  <div class="pl-10 space-y-4 dark:text-white">
+  <div class="pl-10 space-y-4 text-white dark:text-gray-200">
     <div class="flex items-center gap-2">
       <i
         class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
@@ -202,7 +202,7 @@
   >
     Tautan Tercepat
   </h2>
-  <div class="pl-10 space-y-4 dark:text-white">
+  <div class="pl-10 space-y-4 text-white dark:text-gray-200">
     <div class="flex items-center gap-2">
       <i
         class="fa-solid fa-link w-6 h-6 flex justify-center items-center"
@@ -268,12 +268,12 @@
 
   <div
     id="scrollToTopBtn"
-    class="fixed bottom-4 right-4 p-1 cursor-pointer bg-white shadow-md rounded-full hidden"
+    class="fixed bottom-4 right-4 p-1 cursor-pointer bg-white dark:bg-gray-700 shadow-md rounded-full hidden"
     style="z-index: 50"
     onclick="scrollToTop()"
   >
     <i
-      class="fas fa-arrow-up h-8 w-8 text-black dark:text-black flex justify-center items-center"
+      class="fas fa-arrow-up h-8 w-8 text-black dark:text-white flex justify-center items-center"
       style="font-size: 1.75rem"
     ></i>
   </div>
@@ -281,7 +281,7 @@
 <div
   class="w-full flex flex-col items-center bg-customDarkGreen dark:bg-gray-700 py-4 z-10"
 >
-  <span class="relative" style="font-size: 1rem; color: #fff">
+  <span class="relative text-white dark:text-gray-200" style="font-size: 1rem;">
     {{ if (isset .Site.Params "copyright") }} {{ .Site.Params.copyright |
     safeHTML }} {{ else }} {{ dateFormat "2006" now }} © {{ .Site.Title }} {{
     end }}
