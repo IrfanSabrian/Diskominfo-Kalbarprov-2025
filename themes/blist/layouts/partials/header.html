@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-40 transition-all duration-300 bg-customGreen text-white w-full">
+<header class="sticky top-0 z-40 transition-all duration-300 bg-opacity-80 bg-customGreen backdrop-blur-lg shadow-lg text-white w-full">
   <div class="flex justify-between items-center px-4">
     <div class="py-2 px-4">
       <a href='{{ absURL "/" }}' class="flex items-center">
@@ -315,9 +315,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
   const closeMobileMenu = document.getElementById("close-mobile-menu");
 
-  // Set light mode saat pertama kali dimuat
-  localStorage.setItem("dark-mode", "false");
-  document.body.classList.remove("dark");
+  // Cek mode yang tersimpan
+  const savedMode = localStorage.getItem("dark-mode");
+  if (savedMode === "true") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
   updateDarkModeIcons();
 
   // Mobile menu toggle dengan animasi yang lebih halus
@@ -346,8 +350,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-
-
   // Dark mode toggle dengan animasi yang lebih halus
   function updateDarkModeIcons() {
     const isDark = document.body.classList.contains("dark");
@@ -367,11 +369,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     setTimeout(() => {
       document.body.classList.toggle("dark");
-      if (document.body.classList.contains("dark")) {
-        localStorage.setItem("dark-mode", "true");
-      } else {
-        localStorage.setItem("dark-mode", "false");
-      }
+      const isDark = document.body.classList.contains("dark");
+      localStorage.setItem("dark-mode", isDark.toString());
       updateDarkModeIcons();
     }, 400);
 
