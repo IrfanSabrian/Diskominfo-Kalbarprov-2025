@@ -394,7 +394,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     <script>
       function getCurrentDate(day) {
         const today = new Date();
-        const dayIndex = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"].indexOf(day);
+        const dayIndex = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"].indexOf(day.toLowerCase());
         const currentDayIndex = today.getDay();
 
         const startOfWeek = today.getDate() - currentDayIndex;
@@ -404,7 +404,7 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
 
         const dateForDay = new Date(today.setDate(startOfWeek + dayIndex + dayOffset));
         
-        return `${dateForDay.getDate()} ${dateForDay.toLocaleString('id-ID', { month: 'short' })} ${dateForDay.getFullYear()}`;
+        return `${dateForDay.getDate()} ${dateForDay.toLocaleString('id-ID', { month: 'short' }).toLowerCase()} ${dateForDay.getFullYear()}`;
       }
 
       document.querySelectorAll('[data-day]').forEach(element => {

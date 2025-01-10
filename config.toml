@@ -114,49 +114,27 @@ website = "facebook"
 url = "https://www.facebook.com/Diskominfoprovkalbar"
 
 [[params.agenda]]
-lokasi = "Ruang AUVI"
-jamMulai = "08:30"
-jamSelesai = "12:00"
-judul = "undangan pembahasan rencana kerja sama, Sekretaris Daerah/RO-PEM, Jumat, 2 agustus 2024, di Ruang AUVI"
-hari = "Jumat"
-
-[[params.agenda]]
-lokasi = "Ruang Rapat Wakil Gubernur"
-jamMulai = "13:30"
-jamSelesai = "16:00"
-judul = "undangan pembahasan persiapan peringatan HUT RI ke 79, Sekretaris Daerah, Jum'at 2 Agustus 2024, 13.30, RR Wakil Gubernur"
-hari = "Jumat"
-
-[[params.agenda]]
-lokasi = "Balai Petitih"
-jamMulai = "13:30"
-jamSelesai = "15:45"
-judul = "Mendengarkan Pidato Presiden RI pada Penyampaian RUU APBN Tahun 2024 oleh Biro Pemerintahan"
-hari = "Jumat"
-
-[[params.agenda]]
-lokasi = "Balai Petitih"
-jamMulai = "13:30"
-jamSelesai = "15:45"
-judul = "Gladi pengukuhan Paskibraka Pemprov Kalbar"
-hari = "Kamis"
-
-[[params.agenda]]
-lokasi = "DAR"
+lokasi = "Ruang Rapat Asisten Pemerintahan"
 jamMulai = "09:00"
-jamSelesai = "12:00"
-judul = "Zoom meeting Diskusi Daerah Perbatasan dengan PJ Gubernur Kalbar oleh pusat riset politik BRIN"
+jamSelesai = "Selesai"
+judul = "Rapat Persiapan Penyusunan LPPD Provinsi Kalimantan Barat, Sekda / Biro Pemerintahan"
 hari = "Kamis"
+
+[[params.agenda]]
+lokasi = "Ruang Rapat Diskominfo"
+jamMulai = "10:00"
+jamSelesai = "Selesai"
+judul = "Rapat bagi Seksi Publikasi dan Dokumentasi Terkait Hari Ulang Tahun Pemprov Kalbar Ke 68, Bidang KP"
+hari = "Kamis"
+
 
 [[params.sliders.images]]
 url = "slider1.png"
 extension = "png"
 
-
 [[params.sliders.images]]
 url = "slider2.png"
 extension = "png"
-
 
 [[params.sliders.images]]
 url = "slider3.png"
@@ -170,6 +148,23 @@ extension = "png"
 url = "slider5.png"
 extension = "png"
 
+[[params.sliders.images]]
+url = "slider6.png"
+extension = "png"
 
+[[params.sliders.images]]
+url = "slider7.png"
+extension = "png"
 
+[[params.sliders.images]]
+url = "slider8.png"
+extension = "png"
+
+[[params.sliders.images]]
+url = "slider9.png"
+extension = "png"
+
+[[params.sliders.images]]
+url = "slider10.png"
+extension = "png"
 
