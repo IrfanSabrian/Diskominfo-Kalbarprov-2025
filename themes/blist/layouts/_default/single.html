@@ -2,7 +2,7 @@
   {{ $lastmodstr := (partial "date.html" (dict "date" .Lastmod "language" $.Page.Language "format" "long")) }}
   {{ $datestr := (partial "date.html" (dict "date" .Date "language" $.Page.Language "format" "long")) }}
 
-  <div class="container mx-auto my-8 px-6">
+  <div class="container mx-auto py-8 px-6">
     <div class="flex items-center mb-8">
       <h1 class="text-4xl font-bold text-customGreen dark:text-green-400" style="font-family: 'Poppins', sans-serif;">{{ .Title }}</h1>
       <div class="flex-grow ml-4 border-t-4 border-customGreen dark:border-green-400"></div>

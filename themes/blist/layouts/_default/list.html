@@ -40,11 +40,11 @@
     <!-- Sidebar kiri tetap -->
     <div class="sidebar h-200vh w-64 relative">
       <div
-        class="w-1/10 sticky top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4"
+        class="w-1/10 sticky top-28 bg-white dark:bg-gray-800 shadow-xl border rounded-xl border-gray-300 p-4"
       >
         {{ range .Pages.ByDate.Reverse }}
         <div
-          class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer"
+          class="bg-white dark:bg-gray-800 text-black dark:text-white text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
         >
           <a
             href="#{{ anchorize .Title }}"
@@ -61,12 +61,12 @@
 
     <!-- Content -->
     <div
-      class="content-center flex-1 h-auto top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4"
+      class="content-center flex-1 h-auto top-28 bg-white dark:bg-gray-800 shadow-xl border rounded-xl border-gray-300 p-4"
     >
       {{ range .Pages.ByDate.Reverse }}
       <div
         id="{{ anchorize .Title }}"
-        class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]"
+        class="bg-white dark:bg-gray-800 text-black dark:text-white py-6 rounded-md mb-4 scroll-mt-[20vh]"
       >
         <div class="title-container">
           <span class="title-text">{{ .Title }}</span>

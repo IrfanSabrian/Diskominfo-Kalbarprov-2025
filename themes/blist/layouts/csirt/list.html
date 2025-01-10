@@ -2,7 +2,7 @@
 <style>
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 11%; 
+    scroll-padding-top: 11%;
   }
   .active {
     background-color: #03a055 !important;
@@ -39,9 +39,9 @@
   <div class="flex gap-8">
     <!-- Sidebar kiri tetap -->
     <div class="sidebar h-200vh w-64 relative">
-      <div class="w-1/10 sticky top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
+      <div class="w-1/10 sticky top-28 bg-white dark:bg-gray-800 shadow-xl border rounded-xl border-gray-300 p-4">
         {{ range first 1 .Pages.ByDate.Reverse }}
-        <div class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer">
+        <div class="bg-white dark:bg-gray-800 text-black dark:text-white text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
           <a href="#{{ anchorize .Title }}" class="block" onclick="setActive(this)">
             {{ .Title }}
           </a>
@@ -49,14 +49,14 @@
         <div class="border-t border-customGreen my-2"></div>
         {{ end }}
         <!-- Menambahkan link Berita -->
-        <div class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer">
+        <div class="bg-white dark:bg-gray-800 text-black dark:text-white text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
           <a href="#berita-csirt" class="block" onclick="setActive(this)">
             Berita CSIRT
           </a>
         </div>
         <div class="border-t border-customGreen my-2"></div>
         {{ range after 1 .Pages.ByDate.Reverse }}
-        <div class="bg-white text-black text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 cursor-pointer">
+        <div class="bg-white dark:bg-gray-800 text-black dark:text-white text-lg text-center py-2 rounded-md mb-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
           <a href="#{{ anchorize .Title }}" class="block" onclick="setActive(this)">
             {{ .Title }}
           </a>
@@ -67,9 +67,9 @@
     </div>
 
     <!-- Content -->
-    <div class="content-center flex-1 h-auto top-28 bg-white shadow-xl border rounded-xl border-gray-300 p-4">
+    <div class="content-center flex-1 h-auto top-28 bg-white dark:bg-gray-800 shadow-xl border rounded-xl border-gray-300 p-4">
         {{ range first 1 .Pages.ByDate.Reverse }}
-        <div id="{{ anchorize .Title }}" class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]">
+        <div id="{{ anchorize .Title }}" class="bg-white dark:bg-gray-800 text-black dark:text-white py-6 rounded-md mb-4 scroll-mt-[20vh]">
           <div class="title-container">
             <span class="title-text">{{ .Title }}</span>
             <div class="flex-grow h-1 bg-customGreen ml-2"></div>
@@ -79,7 +79,7 @@
         {{ end }}
 
         <!-- Menampilkan konten Berita -->
-        <div id="berita-csirt" class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]">
+        <div id="berita-csirt" class="bg-white dark:bg-gray-800 text-black dark:text-white py-6 rounded-md mb-4 scroll-mt-[20vh]">
           <div class="title-container">
             <span class="title-text">Berita CSIRT</span>
             <div class="flex-grow h-1 bg-customGreen ml-2"></div>
@@ -97,7 +97,7 @@
         </div>
 
         {{ range after 1 .Pages.ByDate.Reverse }}
-        <div id="{{ anchorize .Title }}" class="bg-white text-black py-6 rounded-md mb-4 scroll-mt-[20vh]">
+        <div id="{{ anchorize .Title }}" class="bg-white dark:bg-gray-800 text-black dark:text-white py-6 rounded-md mb-4 scroll-mt-[20vh]">
           <div class="title-container">
             <span class="title-text">{{ .Title }}</span>
             <div class="flex-grow h-1 bg-customGreen ml-2"></div>

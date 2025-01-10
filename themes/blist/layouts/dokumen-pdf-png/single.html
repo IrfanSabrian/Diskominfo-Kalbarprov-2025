@@ -1,32 +1,32 @@
 {{ define "main" }}
 <div class="container mx-auto">
-  <div class="flex items-center mb-8 mt-10 px-4">
-    <h1 class="text-4xl font-bold text-customGreen mr-4">{{ .Title }}</h1>
-    <div class="h-1 bg-customGreen flex-grow"></div>
+  <div class="flex items-center mb-8 pt-10 px-4">
+    <h1 class="text-4xl font-bold text-customGreen dark:text-green-400 mr-4">{{ .Title }}</h1>
+    <div class="h-1 bg-customGreen dark:bg-green-400 flex-grow"></div>
   </div>
 </div>
-<div class="bg-white p-6 px-10 rounded-lg shadow-lg flex flex-col md:flex-row justify-center" style="min-height: 80vh;">
+<div class="bg-white dark:bg-gray-900 p-6 px-10 rounded-lg shadow-lg flex flex-col md:flex-row justify-center" style="min-height: 80vh;">
     <div class="overflow-x-auto w-full md:w-2/3">
-        <div class="h-96 overflow-y-auto border border-gray-200">
-            <table class="w-full bg-white border border-gray-200">
+        <div class="h-96 overflow-y-auto border border-gray-200 dark:border-gray-600">
+            <table class="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600">
                 <thead class="sticky top-0">
                     <tr>
-                        <th class="px-2 py-2 bg-customGreen text-white" style="width: 70%;">Judul</th>
-                        <th class="px-4 py-2 bg-customGreen text-white" style="width: 30%;">Tipe File</th>
+                        <th class="px-2 py-2 bg-customGreen dark:bg-green-600 text-white" style="width: 70%;">Judul</th>
+                        <th class="px-4 py-2 bg-customGreen dark:bg-green-600 text-white" style="width: 30%;">Tipe File</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{ range .Params.items }}
                     {{ if .link }}
-                    <tr class="cursor-pointer hover:bg-gray-100" onclick="window.open('{{ .link }}', '_blank')">
-                        <td class="border px-2 py-2">{{ .title }}</td>
-                        <td class="border px-4 py-2">-</td>
+                    <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" onclick="window.open('{{ .link }}', '_blank')">
+                        <td class="border px-2 py-2 dark:border-gray-600 dark:text-white">{{ .title }}</td>
+                        <td class="border px-4 py-2 dark:border-gray-600 dark:text-white">-</td>
                     </tr>
                     {{ else }}
                     {{ $fileExt := path.Ext .file }}
-                    <tr class="cursor-pointer hover:bg-gray-100" onclick="showPreview('{{ .file }}', '{{ .title }}', this, '{{ $fileExt }}')" data-file="{{ .file }}">
-                        <td class="border px-2 py-2">{{ .title }}</td>
-                        <td class="border px-4 py-2">{{ upper (trim $fileExt ".") }}</td>
+                    <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" onclick="showPreview('{{ .file }}', '{{ .title }}', this, '{{ $fileExt }}')" data-file="{{ .file }}">
+                        <td class="border px-2 py-2 dark:border-gray-600 dark:text-white">{{ .title }}</td>
+                        <td class="border px-4 py-2 dark:border-gray-600 dark:text-white">{{ upper (trim $fileExt ".") }}</td>
                     </tr>
                     {{ end }}
                     {{ end }}
@@ -34,20 +34,20 @@
             </table>
         </div>
     </div>
-    <div class="mt-6 md:mt-0 md:ml-6 flex flex-col items-center justify-between bg-gray-200 p-6 rounded-lg w-72 h-96 md:mx-0 mx-auto">
-        <div class="text-xl font-semibold mb-4">Preview</div>
-        <div id="pdfPreview" class="w-full h-64 bg-white rounded mb-4 overflow-hidden flex items-center justify-center">
+    <div class="mt-6 md:mt-0 md:ml-6 flex flex-col items-center justify-between bg-gray-200 dark:bg-gray-700 p-6 rounded-lg w-72 h-96 md:mx-0 mx-auto">
+        <div class="text-xl font-semibold mb-4 dark:text-white">Preview</div>
+        <div id="pdfPreview" class="w-full h-64 bg-white dark:bg-gray-800 rounded mb-4 overflow-hidden flex items-center justify-center">
             <canvas id="pdfCanvas" class="max-w-full max-h-full object-contain hidden"></canvas>
             <img id="imgPreview" class="max-w-full max-h-full object-contain hidden" />
-            <div id="previewPlaceholder" class="text-gray-500">
+            <div id="previewPlaceholder" class="text-gray-500 dark:text-gray-400">
                 Pilih dokumen untuk preview
             </div>
         </div>
         <div class="flex space-x-4 mt-auto">
-            <button id="viewBtn" onclick="viewFile()" class="bg-customGreen text-white px-4 py-2 rounded flex items-center opacity-50 cursor-not-allowed" disabled>
+            <button id="viewBtn" onclick="viewFile()" class="bg-customGreen dark:bg-green-600 text-white px-4 py-2 rounded flex items-center opacity-50 cursor-not-allowed" disabled>
                 <i class="fas fa-eye mr-2"></i> Lihat
             </button>
-            <button id="downloadBtn" onclick="downloadFile()" class="bg-customGreen text-white px-4 py-2 rounded flex items-center opacity-50 cursor-not-allowed" disabled>
+            <button id="downloadBtn" onclick="downloadFile()" class="bg-customGreen dark:bg-green-600 text-white px-4 py-2 rounded flex items-center opacity-50 cursor-not-allowed" disabled>
                 <i class="fas fa-download mr-2"></i> Unduh
             </button>
         </div>
@@ -66,10 +66,10 @@ let selectedRow = null;
 
 window.showPreview = async function(fileUrl, title, row, fileExt) {
     if (selectedRow) {
-        selectedRow.classList.remove('bg-green-100');
+        selectedRow.classList.remove('bg-green-100', 'dark:bg-green-900');
     }
     
-    row.classList.add('bg-green-100');
+    row.classList.add('bg-green-100', 'dark:bg-green-900');
     selectedRow = row;
     
     currentFileUrl = fileUrl;

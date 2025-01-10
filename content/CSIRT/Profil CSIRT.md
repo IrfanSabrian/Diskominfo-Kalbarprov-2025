@@ -44,7 +44,7 @@ function renderSections() {
                
         div.innerHTML = `
             ${content}
-            <p class="text-base text-black text-center w-full mt-2">${section.title}</p>
+            <p class="text-base text-black dark:text-white text-center w-full mt-2">${section.title}</p>
         `;
         
         container.appendChild(div);
