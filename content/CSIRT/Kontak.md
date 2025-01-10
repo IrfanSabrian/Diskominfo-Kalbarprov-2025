@@ -66,19 +66,19 @@ type: informasi
                 <span class="font-medium text-sm">csirt@kalbarprov.go.id</span>
             </div>
             <div class="flex flex-wrap gap-3 justify-center">
-                <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.youtube.com/@DiskominfoProvKalbar" target="_blank" class="text-customGreen dark:text-green-700 hover:text-green-800 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white dark:bg-gray-200 flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-youtube text-2xl"></i>
                 </a>
-                <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.facebook.com/Diskominfoprovkalbar" target="_blank" class="text-customGreen dark:text-green-700 hover:text-green-800 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white dark:bg-gray-200 flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-facebook text-2xl"></i>
                 </a>
-                <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.tiktok.com/@diskominfo.kalbar" target="_blank" class="text-customGreen dark:text-green-700 hover:text-green-800 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white dark:bg-gray-200 flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-tiktok text-2xl"></i>
                 </a>
-                <a href="https://x.com/KominfoKalbar" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://x.com/KominfoKalbar" target="_blank" class="text-customGreen dark:text-green-700 hover:text-green-800 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white dark:bg-gray-200 flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-twitter text-2xl"></i>
                 </a>
-                <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="text-customGreen hover:text-green-800 dark:text-green-700 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <a href="https://www.instagram.com/diskominfo.kalbar/" target="_blank" class="text-customGreen dark:text-green-700 hover:text-green-800 dark:hover:text-green-900 w-10 h-10 rounded-full bg-white dark:bg-gray-200 flex items-center justify-center flex-shrink-0">
                     <i class="fab fa-instagram text-2xl"></i>
                 </a>
             </div>
@@ -108,10 +108,10 @@ function validateForm(event) {
         return false;
     }
     
-    // Membuat mailto link dengan data form
-    const mailtoLink = `mailto:csirt@kalbarprov.go.id?subject=${encodeURIComponent(selectedSubjek)}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
+    const emailBody = `Nama: ${name}\nEmail: ${email}\nSubjek: ${selectedSubjek}\nPesan: ${message}`;
     
-    // Membuka email client
+    const mailtoLink = `mailto:csirt@kalbarprov.go.id?subject=${encodeURIComponent(selectedSubjek)}&body=${encodeURIComponent(emailBody)}`;
+    
     window.location.href = mailtoLink;
     return false;
 }

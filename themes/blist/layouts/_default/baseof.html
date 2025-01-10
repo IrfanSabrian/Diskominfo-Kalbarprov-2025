@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   {{- partial "head.html" . -}}
-  <body class="dark:text-black transition-colors duration-500 dark:bg-gray-900" style="font-family: 'Poppins', sans-serif;">
+  <body class="dark:text-black transition-colors duration-500 dark:bg-gray-900 overflow-x-hidden" style="font-family: 'Poppins', sans-serif;">
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=przYp5x6"></script>
     <style type="text/css">
       .btn-container {
@@ -377,26 +377,26 @@
       <div class="loader"></div>
     </div>
     <style>
-      .loader {
-        width: 45px;
-        aspect-ratio: .75;
-        --c: no-repeat linear-gradient(#03a055 0 0);
-        background: 
-          var(--c) 0%   50%,
-          var(--c) 50%  50%,
-          var(--c) 100% 50%;
-        animation: l7 1s infinite linear alternate;
+      .loader {    
+        --r1: 154%;
+        --r2: 68.5%;
+        width: 60px;
+        aspect-ratio: 1;
+        border-radius: 50%; 
+        background:
+          radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#03a055 80%),
+          radial-gradient(var(--r1) var(--r2) at bottom,#03a055 79.5%,#0000 80%),
+          radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#03a055 80%),
+          #ccc;
+        background-size: 50.5% 220%;
+        background-position: -100% 0%,0% 0%,100% 0%;
+        background-repeat:no-repeat;
+        animation: l9 0.3s infinite linear;
       }
-      .dark .loader {
-        --c: no-repeat linear-gradient(#2d3748 0 0);
-      }
-      @keyframes l7 {
-        0%  {background-size: 20% 50% ,20% 50% ,20% 50% }
-        20% {background-size: 20% 20% ,20% 50% ,20% 50% }
-        40% {background-size: 20% 100%,20% 20% ,20% 50% }
-        60% {background-size: 20% 50% ,20% 100%,20% 20% }
-        80% {background-size: 20% 50% ,20% 50% ,20% 100%}
-        100%{background-size: 20% 50% ,20% 50% ,20% 50% }
+      @keyframes l9 {
+          33%  {background-position:    0% 33% ,100% 33% ,200% 33% }
+          66%  {background-position: -100%  66%,0%   66% ,100% 66% }
+          100% {background-position:    0% 100%,100% 100%,200% 100%}
       }
     </style>
     {{- partial "header.html" . -}}
@@ -420,8 +420,6 @@
       <script>
         AOS.init();
       </script>
-      <!-- Import PDF.js -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"></script>
   </body>
   <script src='{{"js/loadmodaldisabilitas.js" | relURL}}'></script>
 </html>

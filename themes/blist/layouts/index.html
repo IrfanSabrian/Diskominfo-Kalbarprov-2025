@@ -1,6 +1,6 @@
 {{ define "main" }} {{ $sliderImages := .Site.Params.sliders.images }} {{ if len
 $sliderImages }}
-<div class="hero-container py-6">
+<div class="hero-container py-6 overflow-x-hidden">
   <style>
     .swiper-container.swiper-background {
       width: 80%;
@@ -8,26 +8,64 @@ $sliderImages }}
       position: relative;
       margin-left: auto;
       margin-right: auto;
-      animation: float 3s ease-in-out infinite;
+      transform: scale(0);
+      opacity: 0;
+      animation: showBackground 0.5s ease-out 0.8s forwards, float 3s ease-in-out infinite 1.3s;
     }
 
     .greensquare {
       width: 96%;
       height: 52%;
       top: 18%;
+      transform: translateX(-100%);
       left: 0;
       z-index: 3;
-      animation: float 4s ease-in-out infinite;
+      animation: slideInGreen 0.8s ease-out forwards, float 4s ease-in-out infinite 0.8s;
     }
 
     .yellowsquare {
       width: 48%;
       height: 50%;
       top: 35%;
+      transform: translateX(100%);
       right: 6%;
       z-index: 4;
       opacity: 0.8;
-      animation: float 5s ease-in-out infinite;
+      animation: slideInYellow 0.8s ease-out forwards, float 5s ease-in-out infinite 0.8s;
+    }
+
+    .container-menu {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideUpMenu 0.5s ease-out 0.8s forwards;
+      z-index: 6;
+      position: relative;
+    }
+
+    @keyframes slideInGreen {
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInYellow {
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes showBackground {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUpMenu {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes float {
@@ -38,6 +76,7 @@ $sliderImages }}
         transform: translatey(-10px);
       }
     }
+
     @media (max-width: 1024px) {
       .swiper-container.swiper-background {
         width: 90%;
@@ -72,7 +111,7 @@ $sliderImages }}
       }
     }
 
-    @media (max-width: 426px) {
+    @media (max-width: 640px) {
       .swiper-container.swiper-background {
         width: 90%;
       }
@@ -84,7 +123,7 @@ $sliderImages }}
       .yellowsquare {
         width: 50%;
         height: 13%;
-        top: 20%;
+        top: 23%;
         right: 2%;
       }
     }
@@ -98,7 +137,7 @@ $sliderImages }}
       </div>
       {{ end }}
     </div>
-    <div class="swiper-agenda-pagination" style="z-index: 10"></div>
+    <div class="swiper-background-pagination" style="z-index: 10"></div>
   </div>
   <div class="greensquare absolute my-4 bg-customGreen rounded-r-3xl p-6">
   </div>
@@ -106,7 +145,7 @@ $sliderImages }}
   </div>
 </div>
 <style>
-  .swiper-agenda-pagination {
+  .swiper-background-pagination {
     position: absolute;
     bottom: 0;
     padding-left: 15px;
@@ -114,18 +153,18 @@ $sliderImages }}
     z-index: 10;
   }
 
-  .swiper-agenda-pagination .swiper-pagination-bullet {
+  .swiper-background-pagination .swiper-pagination-bullet {
     width: 15px;
     height: 15px;
-    border: 2px solid #03a055; /* customDarkGreen for stroke */
+    border: 2px solid #03a055;
     background-color: transparent;
     opacity: 1;
     border-radius: 50%;
     transition: background-color 0.3s, transform 0.3s;
   }
 
-  .swiper-agenda-pagination .swiper-pagination-bullet-active {
-    background-color: #03a055; /* customGreen for active bullet */
+  .swiper-background-pagination .swiper-pagination-bullet-active {
+    background-color: #03a055;
     opacity: 1;
   }
 </style>
@@ -148,7 +187,7 @@ $sliderImages }}
       slidesPerView: 1,
       spaceBetween: 0,
       pagination: {
-        el: ".swiper-agenda-pagination",
+        el: ".swiper-background-pagination",
         clickable: true,
         bulletClass: "swiper-pagination-bullet",
         bulletActiveClass: "swiper-pagination-bullet-active",
@@ -164,50 +203,50 @@ $sliderImages }}
 
 <div class="py-4">
   <div class="container container-menu mx-auto px-4 gap-4 flex flex-wrap justify-center">
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Aplikasi Pusat')">
       <img src="icon/aplikasi-pusat.png" alt="Aplikasi Pusat" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">Aplikasi Pusat</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Layanan')">
       <img src="icon/layanan.png" alt="Layanan" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">Layanan</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Aplikasi Daerah')">
       <img src="icon/aplikasi-daerah.png" alt="Aplikasi Daerah" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">Aplikasi Daerah</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Website Terkait')">
       <img src="icon/website-terkait.png" alt="Website Terkait" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">Website Terkait</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Formulir')">
       <img src="icon/formulir.png" alt="Formulir" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">Formulir</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="window.location.href='/ppid'">
       <img src="icon/ppid.png" alt="PPID" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">PPID</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="window.location.href='/csirt'">
       <img src="icon/csirt.png" alt="CSIRT" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">CSIRT</span>
     </div>
-    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen" 
-    style="z-index: 5; width: 100px; height: 100px; overflow: hidden;" 
+    <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
+    style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="window.location.href='/tentang-kami'">
       <img src="icon/diskominfo-profil-dinas.png" alt="Diskominfo Profil Dinas" class="h-3/5 max-h-full w-auto object-contain">
       <span class="text-xs text-white text-center w-full">Diskominfo Profil Dinas</span>
@@ -319,24 +358,24 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
     <!-- Agenda Section -->
     {{ $agenda := .Site.Params.agenda }}
     {{ if $agenda }}
-    <div class="agenda-container bg-white rounded-l-3xl lg:col-span-2 border-l-2 border-b-2 border-gray-300 shadow-md">
-      <h2 class="text-2xl text-white mb-4 p-4 text-center bg-customGreen rounded-tl-3xl">
+    <div class="agenda-container bg-white dark:bg-gray-800 rounded-l-3xl lg:col-span-2 border-l-2 border-b-2 border-gray-300 dark:border-gray-600 shadow-md">
+      <h2 class="text-2xl text-white mb-4 p-4 text-center bg-customGreen dark:bg-green-700 rounded-tl-3xl">
       Agenda
     </h2>
     <div class="flex flex-col overflow-auto m-4 pt-2" style="max-height: 500px;">
       {{ range $agenda }}
-      <div class="border border-customGreen rounded-lg p-4 bg-white mb-4 flex justify-between items-center relative">
-      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen z-10"></div>
-      <div class="text-center bg-white border border-customGreen rounded-lg p-2 w-20 z-20" data-day="{{ .hari }}">
-        <p class="text-lg font-bold">
+      <div class="border border-customGreen dark:border-green-600 rounded-lg p-4 bg-white dark:bg-gray-800 mb-4 flex justify-between items-center relative">
+      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen dark:bg-green-600 z-10"></div>
+      <div class="text-center bg-white dark:bg-gray-800 border border-customGreen dark:border-green-600 dark:text-white rounded-lg p-2 w-20 z-20" data-day="{{ .hari }}">
+        <p class="text-lg font-bold dark:text-white">
         <!-- Tanggal akan diisi oleh script -->
         </p>
       </div>
       <div class="ml-4 flex-1">
-        <p class="text-sm">
+        <p class="text-sm dark:text-white">
         {{ .judul }}
         </p>
-          <div class="flex items-center text-gray-600 text-sm mt-2">
+          <div class="flex items-center text-gray-600 dark:text-gray-300 text-sm mt-2">
             <div class="flex-1">
               <i class="far fa-clock mr-1"></i>
               {{ .jamMulai }} - {{ .jamSelesai }}
@@ -376,20 +415,20 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
       });
     </script>
     <!-- Berita Terkini Section -->
-    <div class="berita-container bg-white p-4 lg:col-span-3 border-t-2 border-b-2 border-gray-300 shadow-md">
+    <div class="berita-container bg-white dark:bg-gray-800 p-4 lg:col-span-3 border-t-2 border-b-2 border-gray-300 dark:border-gray-600 shadow-md">
      <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl text-gray-800">
+      <h2 class="text-2xl text-gray-800 dark:text-white">
        Berita Terkini
       </h2>
-      <a href="{{ lower (replace (.Site.Params.frontBundle5 | default "berita" | lower) " " "-") | absLangURL }}" class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors">
+      <a href="{{ lower (replace (.Site.Params.frontBundle6 | default "berita" | lower) " " "-") | absLangURL }}" class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors dark:bg-gray-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700">
         Berita Lainnya
         <i class="fas fa-external-link-alt ml-2">
         </i>
       </a>
      </div>
      <div class="relative mb-8">
-      <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/4 h-1 bg-customGreen"></div>
-      <div class="absolute left-2/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen rounded-full"></div>
+      <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/4 h-1 bg-customGreen dark:bg-green-600"></div>
+      <div class="absolute left-2/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen dark:bg-green-600 rounded-full"></div>
      </div>
      <div class="space-y-4">
         {{ $frontBundle6 := .Site.Params.frontBundle6 | default "berita" | lower }}
@@ -459,12 +498,25 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
       flex-shrink: 0;
     }
 
+    .dark .swiper-berita-pagination-bullet {
+      border-color: #22c55e;
+    }
+
     .swiper-berita-pagination-bullet-active {
       background-color: #16A34A;
     }
 
+    .dark .swiper-berita-pagination-bullet-active {
+      background-color: #22c55e;
+    }
+
     .swiper-berita-pagination-bullet:hover {
       background-color: #16A34A;
+      opacity: 0.2;
+    }
+
+    .dark .swiper-berita-pagination-bullet:hover {
+      background-color: #22c55e;
       opacity: 0.2;
     }
     </style>
@@ -486,6 +538,11 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
         border-bottom-left-radius: 0 !important;
       }
 
+      .dark #gpr-kominfo-widget-container {
+        background-color: #087c54 !important;
+        border-top-color: #087c54 !important;
+      }
+
       /* Elemen Header */
       #gpr-kominfo-widget-header {
         background-color: #03a055 !important;
@@ -500,6 +557,11 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
         line-height: 70px; /* Sesuaikan tinggi teks dengan tinggi header */
       }
 
+      .dark #gpr-kominfo-widget-header {
+        background-color: #087c54 !important;
+        border-left-color: #087c54 !important;
+      }
+
       #gpr-kominfo-widget-header::before {
         content: "Artikel GPR Info"; 
         font-family: 'Poppins', sans-serif;
@@ -512,12 +574,34 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
       #gpr-kominfo-widget-body {
         height: 500px; /* Tinggi baru untuk body widget */
       }
+
+      .dark #gpr-kominfo-widget-body {
+        background-color: #1f2937 !important;
+      }
+
       #gpr-kominfo-widget-list {
         height: 550px; /* Tinggi baru untuk body widget */
       }
 
+      .dark #gpr-kominfo-widget-list {
+        background-color: #1f2937 !important;
+      }
+
+      .dark .gpr-kominfo-widget-list-item.gpr-kominfo-widget-icon-berita-pemerintahan {
+        background-color: #1f2937 !important;
+      }
+
+      .dark .gpr-kominfo-widget-list-item.gpr-kominfo-widget-icon-berita-pemerintahan a {
+        color: #ffffff !important;
+      }
+
       .gpr-kominfo-align-left b,.gpr-kominfo-align-right.gpr-small-date {
         color: #03a055 !important;
+      }
+
+      .dark .gpr-kominfo-align-left b,
+      .dark .gpr-kominfo-align-right.gpr-small-date {
+        color: #22c55e !important;
       }
   </style>
 
@@ -593,7 +677,10 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
      <br/>
      Foto
     </h1>
-    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0" href="/foto">
+    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 
+    border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0 
+    dark:bg-gray-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700" 
+    href="{{ lower (replace (.Site.Params.frontBundle7 | default "foto" | lower) " " "-") | absLangURL }}">
      Selengkapnya
      <i class="fas fa-external-link-alt ml-2">
      </i>
@@ -725,7 +812,9 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
      <br/>
      Video
     </h1>
-    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0" href="galeri-video">
+    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2
+     border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0
+     dark:bg-gray-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700" href="galeri-video">
      Selengkapnya
      <i class="fas fa-external-link-alt ml-2">
      </i>

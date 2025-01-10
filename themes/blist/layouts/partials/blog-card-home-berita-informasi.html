@@ -1,6 +1,6 @@
 {{ $accent := .Site.Params.ascentColor }}
-<div class="flex flex-col p-4 bg-white">
-    <a href="{{ .RelPermalink }}" class="bg-white p-4 rounded-lg border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
+<div class="flex flex-col p-4 bg-white dark:bg-gray-800">
+    <a href="{{ .RelPermalink }}" class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
         <div class="flex items-center justify-between">
             <div class="thumbnail-berita-informasi-container flex items-center flex-1">
                 <div class="thumbnail-berita-informasi relative rounded-lg" style="height: 150px; width: 260px; background-image: url('{{ .Params.thumbnail }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
@@ -11,8 +11,8 @@
                     </div>
                 </div>
                 <div class="flex items-center flex-1 flex-col ml-6 mt-2 max-sm:ml-0 max-sm:mt-4">
-                    <h2 class="title-berita-informasi text-black text-base font-bold pr-4 text-left w-full" style="height: 80px">{{ .Params.title }}</h2>
-                    <p class="content-berita-informasi text-gray-600 text-sm pr-4">{{ .Content | plainify | replaceRE "<img[^>]*>" "" | truncate 300 "..." }}</p>
+                    <h2 class="title-berita-informasi text-black dark:text-white text-base font-bold pr-4 text-left w-full" style="height: 80px">{{ .Params.title }}</h2>
+                    <p class="content-berita-informasi text-gray-600 dark:text-gray-300 text-sm pr-4">{{ .Content | plainify | replaceRE "<img[^>]*>" "" | truncate 300 "..." }}</p>
                 </div>
             </div>
         </div>
