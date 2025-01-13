@@ -25,7 +25,6 @@ darkModeToggle = true
 enableSearch = true
 searchKeys = "["
 copyright = "Copyright ©2025"
-favicon = "/favicon.svg"
 ascentColor = "bg-defaultColor"
 frontBundle1 = "aplikasi-pusat"
 frontBundle2 = "layanan"
