@@ -82,7 +82,7 @@
       </div>
       {{ $frontBundle6 := .Site.Params.frontBundle6 | default "berita" | lower
       }} {{ range first 3 (where .Site.RegularPages.ByDate.Reverse "Type"
-      $frontBundle6) }} {{- partial "blog-card-home-berita-informasi.html" . -}}
+      $frontBundle6) }} {{- partial "blog-card-berita-informasi.html" . -}}
       {{ end }}
       <!-- Tombol berita lainnya dengan panah -->
       <div class="text-center">

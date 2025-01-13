@@ -87,7 +87,7 @@
         </div>
         {{ $frontBundle9 := .Site.Params.frontBundle9 | default "berita-csirt" | lower }}
         {{ range first 3 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle9) }}
-          {{- partial "blog-card-home-berita-informasi.html" . -}}
+          {{- partial "blog-card-berita-csirt.html" . -}}
         {{ end }}
         <!-- Tombol berita lainnya dengan panah -->
         <div class="text-center">
