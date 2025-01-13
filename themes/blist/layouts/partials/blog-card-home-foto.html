@@ -4,6 +4,7 @@
   data-modal="{{ .RelPermalink }}"
   data-title="{{ .Params.title }}"
   data-thumbnail="{{ .Params.thumbnail }}"
+  loading="lazy"
 >
   <!-- Thumbnail -->
   {{ if .Params.thumbnail }}
@@ -11,6 +12,7 @@
     class="thumbnail absolute inset-0 bg-cover bg-center"
     style="background-image: url('{{ .Params.thumbnail }}');"
     loading="lazy"
+    decoding="async"
   ></div>
   {{ end }}
 

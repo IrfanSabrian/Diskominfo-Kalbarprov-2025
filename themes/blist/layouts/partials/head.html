@@ -1,22 +1,16 @@
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="{{ "/icon-akcaya.png" | relURL }}">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="{{ "/icon-akcaya.png" | relURL }}">
   <link rel="icon" href='{{ if isset .Site.Params "favicon" }}{{ .Site.Params.favicon }}{{ else }}/favicon.ico{{ end }}'>
 
-  <!-- Menambahkan font Marcellus dari Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>
+        {{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}
+    </title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ else }}Deskripsi halaman tidak tersedia.{{ end }}{{ end }}{{ end -}}" />
 
-  <title>
-  {{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}
-  </title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ else }}Deskripsi halaman tidak tersedia.{{ end }}{{ end }}{{ end -}}" />
-
-  <!-- Menambahkan file CSS -->
+    <!-- Menambahkan file CSS -->
   {{ hugo.Generator }}
   {{ $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
   {{ if hugo.IsServer }}
@@ -26,8 +20,8 @@
   <link rel="stylesheet" href="{{ $styles.Permalink }}" />
   {{ end }}
 
-  <!-- Katex support -->
-  {{ if .Params.math }}
+    <!-- Katex support -->
+    {{ if .Params.math }}
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css"
@@ -48,19 +42,20 @@
   <meta name="lang" content="{{ .Site.Language }}" />
   {{ end }}
   <script src="{{ "jquery-3.7.0.min.js" | relURL }}"></script>
-  <style>
+    <style>
     iframe{
-    width: 100%;
-    }
-    .mobile-menu .relative:hover .language-dropdown {
-        display: flex;
-    }
+            width: 100%;
+        }
+        
+        .mobile-menu .relative:hover .language-dropdown {
+            display: flex;
+        }
+        
+        .language-dropdown {
+            display: none;
+        }
 
-    .language-dropdown {
-      display: none;
-    }
-
-  </style>
+    </style>
   <link
   rel="stylesheet"
   href="{{ "swiper-10.2.0/package/swiper-bundle.min.css" | relURL }}"
@@ -68,167 +63,28 @@
 
 <script src="{{ "swiper-10.2.0/package/swiper-bundle.min.js" | relURL }}"></script>
 
-<script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const observerOptions = {
-              root: null,
-              rootMargin: '0px',
-              threshold: 0.3
-          };
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
 
-          const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                      entry.target.classList.add('show');
-                      observer.unobserve(entry.target);
-                  }
-              });
-          }, observerOptions);
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
 
-          const elements = document.querySelectorAll('.fade-in');
-          elements.forEach(element => {
-              observer.observe(element);
-          });
-      });
-  </script>
-
-
-<!--  Video fancybox v5 -->
-<script>
-  function openVideoModal(videoUrl) {
-    const isYouTube = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
-    const isTikTok = videoUrl.includes('tiktok.com');
-
-    if (isYouTube) {
-      const videoId = videoUrl.split('v=')[1] ? videoUrl.split('v=')[1].split('&')[0] : videoUrl.split('/').pop();
-      const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-      Fancybox.show([{
-        src: embedUrl,
-        type: 'iframe',
-        options: {
-          iframe: {
-            preload: false,
-            attr: {
-              allow: 'autoplay; fullscreen',
-              allowfullscreen: 'true'
-            }
-          }
-        }
-      }]);
-    } else if (isTikTok) {
-      const videoId = videoUrl.split('/').pop();
-      const embedUrl = `https://www.tiktok.com/embed/${videoId}`;
-      Fancybox.show([{
-        src: embedUrl,
-        type: 'html',
-        html: `<div class="fancybox__content" style="flex: 0 1 auto; height:100%; width: 100vh;">
-                 <iframe class="fancybox__iframe" allow="autoplay; fullscreen" scrolling="auto" src="${embedUrl}" style="height: 100%;"></iframe>
-                 <button data-fancybox-close="" class="f-button is-close-btn" title="Close">
-                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
-                     <path d="M20 20L4 4m16 0L4 20"></path>
-                   </svg>
-                 </button>
-               </div>`
-      }]);
-    } else {
-      alert('Video tidak dapat diputar. Pastikan URL berasal dari YouTube atau TikTok.');
-    }
-  }
-</script>
-
-
-<!-- Homepage Img fancybox v5 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[data-modal]").forEach((trigger) => {
-      trigger.addEventListener("click", async () => {
-        const contentUrl = trigger.getAttribute("data-modal");
-
-        // Fetch content (if URL is provided)
-        let content = "";
-        if (contentUrl) {
-          const response = await fetch(contentUrl);
-          content = await response.text();
-        }
-
-        // Extract <img> tags from content
-        const imgTags = content.match(/<p><img [^>]*src="([^"]*)"[^>]*>/g) || [];
-        const imgSrcs = imgTags.map((tag) => {
-          const match = tag.match(/src="([^"]*)"/);
-          return match ? match[1] : null;
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                observer.observe(element);
+            });
         });
-
-        // Tambahkan thumbnail dari data attribute
-        const thumbnailSrc = trigger.dataset.thumbnail; // Ambil thumbnail dari data attribute
-        if (thumbnailSrc) {
-          imgSrcs.unshift(thumbnailSrc); // Tambahkan thumbnail ke awal array
-        }
-
-        // Open images with Fancybox v5 without thumbnails
-        Fancybox.show(
-          imgSrcs.map((src) => ({
-            src: src,
-            type: 'image',
-            options: {
-              Toolbar: {
-                display: ["slideshow", "fullscreen", "close"], // Reorder buttons to have close at the end
-              },
-              Image: {
-                zoom: false, // Disable zoom
-              },
-              transitionEffect: "fade", // Use crossfade transition
-            }
-          }))
-        );
-      });
-    });
-  });
-</script>
-
-<!-- IMG Modal -->
-<a id="imgModal" data-fancybox="gallery" href="" style="display: none;"></a>
-
-<script>
-    function openImgModal(file) {
-        const imgModal = document.getElementById('imgModal');
-        imgModal.href = file;
-        Fancybox.show([{
-            src: file,
-            type: 'image',
-            options: {
-              Image: {
-                zoom: true // Enable zoom
-              },
-              afterClose: function() {
-                document.body.style.overflow = ''; // Restore scrolling outside the modal
-              }
-            }
-          }]).then(() => {
-            document.body.style.overflow = ''; // Restore scrolling outside the modal after Fancybox is closed
-        });
-        document.body.style.overflow = 'hidden'; // Disable scrolling outside the modal
-    }
-</script>
-
-<script>
-$(document).ready(function() {
-  function openImgModal(imageSrc) {
-    $.fancybox.open({
-      src: imageSrc,
-      type: 'image',
-      opts: {
-        Image: {
-          zoom: true // Enable zoom
-        },
-        afterShow: function(instance, current) {
-          console.info('Fancybox modal opened');
-        }
-      }
-    });
-  }
-});
-</script>
-
-
+    </script>
 
 </head>

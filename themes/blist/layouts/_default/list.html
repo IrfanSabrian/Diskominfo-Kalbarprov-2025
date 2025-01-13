@@ -113,4 +113,50 @@
     });
   });
 </script>
+
+<!-- IMG Modal -->
+<a id="imgModal" data-fancybox="gallery" href="" style="display: none;"></a>
+
+<script>
+    function openImgModal(file) {
+        const imgModal = document.getElementById('imgModal');
+        imgModal.href = file;
+        Fancybox.show([{
+            src: file,
+            type: 'image',
+            options: {
+              Image: {
+                zoom: true // Enable zoom
+              },
+              afterClose: function() {
+                document.body.style.overflow = ''; // Restore scrolling outside the modal
+              }
+            }
+          }]).then(() => {
+            document.body.style.overflow = ''; // Restore scrolling outside the modal after Fancybox is closed
+        });
+        document.body.style.overflow = 'hidden'; // Disable scrolling outside the modal
+    }
+</script>
+
+<script>
+$(document).ready(function() {
+  function openImgModal(imageSrc) {
+    $.fancybox.open({
+      src: imageSrc,
+      type: 'image',
+      opts: {
+        Image: {
+          zoom: true // Enable zoom
+        },
+        afterShow: function(instance, current) {
+          console.info('Fancybox modal opened');
+        }
+      }
+    });
+  }
+});
+</script>
+
+
 {{ end }}

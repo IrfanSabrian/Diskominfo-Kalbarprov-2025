@@ -1,682 +1,686 @@
 {{ define "main" }} {{ $sliderImages := .Site.Params.sliders.images }} {{ if len
 $sliderImages }}
 <div class="hero-container py-6 overflow-x-hidden">
-  <style>
-    .swiper-container.swiper-background {
-      width: 80%;
-      z-index: 5;
-      position: relative;
-      margin-left: auto;
-      margin-right: auto;
-      transform: scale(0);
-      opacity: 0;
-      animation: showBackground 0.5s ease-out 0.8s forwards, float 3s ease-in-out infinite 1.3s;
-    }
-
-    .greensquare {
-      width: 96%;
-      height: 52%;
-      top: 18%;
-      transform: translateX(-100%);
-      left: 0;
-      z-index: 3;
-      animation: slideInGreen 0.8s ease-out forwards, float 4s ease-in-out infinite 0.8s;
-    }
-
-    .yellowsquare {
-      width: 48%;
-      height: 50%;
-      top: 35%;
-      transform: translateX(100%);
-      right: 6%;
-      z-index: 4;
-      opacity: 0.8;
-      animation: slideInYellow 0.8s ease-out forwards, float 5s ease-in-out infinite 0.8s;
-    }
-
-    .container-menu {
-      opacity: 0;
-      transform: translateY(50px);
-      animation: slideUpMenu 0.5s ease-out 0.8s forwards;
-      z-index: 6;
-      position: relative;
-    }
-
-    @keyframes slideInGreen {
-      to {
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInYellow {
-      to {
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes showBackground {
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideUpMenu {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translatey(10px);
-      }
-      50% {
-        transform: translatey(-10px);
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .swiper-container.swiper-background {
-        width: 90%;
-      }
-      .greensquare {
-        width: 98%;
-        height: 37%;
-        top: 14%;
-      }
-      .yellowsquare {
-        width: 50%;
-        height: 28%;
-        top: 35%;
-        right: 2%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .swiper-container.swiper-background {
-        width: 90%;
-      }
-      .greensquare {
-        width: 98%;
-        height: 28%;
-        top: 18%;
-      }
-      .yellowsquare {
-        width: 50%;
-        height: 25%;
-        top: 35%;
-        right: 1%;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .swiper-container.swiper-background {
-        width: 90%;
-      }
-      .greensquare {
-        width: 98%;
-        height: 13%;
-        top: 14%;
-      }
-      .yellowsquare {
-        width: 50%;
-        height: 13%;
-        top: 23%;
-        right: 2%;
-      }
-    }
-  </style>
-  <div class="swiper-container swiper-background overflow-hidden rounded-3xl relative">
-    <div class="swiper-wrapper">
-      {{ range $sliderImages }}
-      <div class="swiper-slide">
-        <img src="{{ "sliders/" | relURL }}{{ .url }}" alt="Slider Image"
+    <style>
+        .swiper-container.swiper-background {
+            width: 80%;
+            z-index: 5;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            transform: scale(0);
+            opacity: 0;
+            animation: showBackground 0.5s ease-out 0.8s forwards, float 3s ease-in-out infinite 1.3s;
+        }
+        
+        .greensquare {
+            width: 96%;
+            height: 52%;
+            top: 18%;
+            transform: translateX(-100%);
+            left: 0;
+            z-index: 3;
+            animation: slideInGreen 0.8s ease-out forwards, float 4s ease-in-out infinite 0.8s;
+        }
+        
+        .yellowsquare {
+            width: 48%;
+            height: 50%;
+            top: 35%;
+            transform: translateX(100%);
+            right: 6%;
+            z-index: 4;
+            opacity: 0.8;
+            animation: slideInYellow 0.8s ease-out forwards, float 5s ease-in-out infinite 0.8s;
+        }
+        
+        .container-menu {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUpMenu 0.5s ease-out 0.8s forwards;
+            z-index: 6;
+            position: relative;
+        }
+        
+        @keyframes slideInGreen {
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInYellow {
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes showBackground {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUpMenu {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translatey(10px);
+            }
+            50% {
+                transform: translatey(-10px);
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .swiper-container.swiper-background {
+                width: 90%;
+            }
+            .greensquare {
+                width: 98%;
+                height: 37%;
+                top: 14%;
+            }
+            .yellowsquare {
+                width: 50%;
+                height: 28%;
+                top: 35%;
+                right: 2%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .swiper-container.swiper-background {
+                width: 90%;
+            }
+            .greensquare {
+                width: 98%;
+                height: 28%;
+                top: 18%;
+            }
+            .yellowsquare {
+                width: 50%;
+                height: 25%;
+                top: 35%;
+                right: 1%;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .swiper-container.swiper-background {
+                width: 90%;
+            }
+            .greensquare {
+                width: 98%;
+                height: 13%;
+                top: 14%;
+            }
+            .yellowsquare {
+                width: 50%;
+                height: 13%;
+                top: 23%;
+                right: 2%;
+            }
+        }
+    </style>
+    <div class="swiper-container swiper-background overflow-hidden rounded-3xl relative">
+        <div class="swiper-wrapper">
+            {{ range $sliderImages }}
+            <div class="swiper-slide">
+        <img src="{{ "sliders/" | relURL }}{{ .url }}" alt="Slider Image" 
         class="w-full h-auto object-cover rounded-3xl">
-      </div>
-      {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        <div class="swiper-background-pagination" style="z-index: 10"></div>
     </div>
-    <div class="swiper-background-pagination" style="z-index: 10"></div>
-  </div>
-  <div class="greensquare absolute my-4 bg-customGreen rounded-r-3xl p-6">
-  </div>
-  <div class="yellowsquare absolute my-4 bg-customYellow rounded-3xl p-6">
-  </div>
+    <div class="greensquare absolute my-4 bg-customGreen rounded-r-3xl p-6">
+    </div>
+    <div class="yellowsquare absolute my-4 bg-customYellow rounded-3xl p-6">
+    </div>
 </div>
 <style>
-  .swiper-background-pagination {
-    position: absolute;
-    bottom: 0;
-    padding-left: 15px;
-    gap: 15px;
-    z-index: 10;
-  }
-
-  .swiper-background-pagination .swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
-    border: 2px solid #03a055;
-    background-color: transparent;
-    opacity: 1;
-    border-radius: 50%;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-
-  .swiper-background-pagination .swiper-pagination-bullet-active {
-    background-color: #03a055;
-    opacity: 1;
-  }
+    .swiper-background-pagination {
+        position: absolute;
+        bottom: 0;
+        padding-left: 15px;
+        gap: 15px;
+        z-index: 10;
+    }
+    
+    .swiper-background-pagination .swiper-pagination-bullet {
+        width: 17px;
+        height: 17px;
+        border: 2px solid #03a055;
+        background-color: transparent;
+        opacity: 1;
+        border-radius: 50%;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    .swiper-background-pagination .swiper-pagination-bullet-active {
+        background-color: #03a055;
+        opacity: 1;
+    }
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var swiper = new Swiper(".swiper-background", {
-      effect: "creative",
-      creativeEffect: {
-        prev: {
-          shadow: true,
-          translate: [0, 0, -400],
-        },
-        next: {
-          translate: ["100%", 0, 0],
-        },
-      },
-      loop: true,
-      centeredSlides: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      pagination: {
-        el: ".swiper-background-pagination",
-        clickable: true,
-        bulletClass: "swiper-pagination-bullet",
-        bulletActiveClass: "swiper-pagination-bullet-active",
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
+        var swiper = new Swiper(".swiper-background", {
+            effect: "creative",
+            creativeEffect: {
+                prev: {
+                    shadow: true,
+                    translate: [0, 0, -400],
+                },
+                next: {
+                    translate: ["100%", 0, 0],
+                },
+            },
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            pagination: {
+                el: ".swiper-background-pagination",
+                clickable: true,
+                bulletClass: "swiper-pagination-bullet",
+                bulletActiveClass: "swiper-pagination-bullet-active",
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
     });
-  });
 </script>
 {{ end }}
 
 <div class="py-4">
-  <div class="container container-menu mx-auto px-4 gap-4 flex flex-wrap justify-center">
+    <div class="container container-menu mx-auto px-4 gap-4 flex flex-wrap justify-center">
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Aplikasi Pusat')">
-      <img src="icon/aplikasi-pusat.png" alt="Aplikasi Pusat" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Aplikasi Pusat</span>
-    </div>
+            <img src="icon/aplikasi-pusat.png" alt="Aplikasi Pusat" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">Aplikasi Pusat</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Layanan')">
-      <img src="icon/layanan.png" alt="Layanan" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Layanan</span>
-    </div>
+            <img src="icon/layanan.png" alt="Layanan" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">Layanan</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Aplikasi Daerah')">
-      <img src="icon/aplikasi-daerah.png" alt="Aplikasi Daerah" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Aplikasi Daerah</span>
-    </div>
+            <img src="icon/aplikasi-daerah.png" alt="Aplikasi Daerah" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">Aplikasi Daerah</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Website Terkait')">
-      <img src="icon/website-terkait.png" alt="Website Terkait" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Website Terkait</span>
-    </div>
+            <img src="icon/website-terkait.png" alt="Website Terkait" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">Website Terkait</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="showHeroModal('Formulir')">
-      <img src="icon/formulir.png" alt="Formulir" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Formulir</span>
-    </div>
+            <img src="icon/formulir.png" alt="Formulir" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">Formulir</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="window.location.href='/ppid'">
-      <img src="icon/ppid.png" alt="PPID" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">PPID</span>
-    </div>
+            <img src="icon/ppid.png" alt="PPID" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">PPID</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="window.location.href='/csirt'">
-      <img src="icon/csirt.png" alt="CSIRT" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">CSIRT</span>
-    </div>
+            <img src="icon/csirt.png" alt="CSIRT" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">CSIRT</span>
+        </div>
     <div class="flex flex-col items-center justify-center bg-customGreen rounded-xl p-2 menu-item transition-transform duration-300 cursor-pointer hover:scale-110 hover:bg-customDarkGreen shadow-lg" 
     style="width: 100px; height: 100px; overflow: hidden;" 
     onclick="window.location.href='/tentang-kami'">
-      <img src="icon/diskominfo-profil-dinas.png" alt="Diskominfo Profil Dinas" class="h-3/5 max-h-full w-auto object-contain">
-      <span class="text-xs text-white text-center w-full">Diskominfo Profil Dinas</span>
+            <img src="icon/diskominfo-profil-dinas.png" alt="Diskominfo Profil Dinas" class="h-3/5 max-h-full w-auto object-contain" loading="eager" rel="preload">
+            <span class="text-xs text-white text-center w-full">Diskominfo Profil Dinas</span>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Modal Structure -->
-  <div class="hero-modal hidden fixed inset-0 bg-black bg-opacity-50 h-full w-full z-50" id="heroModal">
+<div class="hero-modal hidden fixed inset-0 bg-black bg-opacity-50 h-full w-full z-50" id="heroModal">
     <div class="relative top-10 mx-auto border w-11/12 md:w-3/4 shadow-lg rounded-md bg-white modal-hero-content" onclick="event.stopPropagation()">
-      <div class="mt-3 text-left">
-        <button onclick="closeHeroModal()" class="absolute top-2 right-3 text-gray-500 text-4xl leading-none p-2">
+        <div class="mt-3 text-left">
+            <button onclick="closeHeroModal()" class="absolute top-2 right-3 text-gray-500 text-4xl leading-none p-2">
           &times;
         </button>
-        <h3 class="text-2xl leading-6 font-medium text-customGreen p-4" id="modal-title">Modal Title</h3>
-        <hr class="border-t border-customGreen w-full" style="border-width: 1px;">
-      </div>
-      <div class="grid md:grid-cols-3 gap-4 justify-center items-center p-6 overflow-y-auto " style="max-height: 80vh;">
-        <!-- Dynamic content based on click -->
-      </div>
+            <h3 class="text-2xl leading-6 font-medium text-customGreen p-4" id="modal-title">Modal Title</h3>
+            <hr class="border-t border-customGreen w-full" style="border-width: 1px;">
+        </div>
+        <div class="grid md:grid-cols-3 gap-4 justify-center items-center p-6 overflow-y-auto " style="max-height: 80vh;">
+            <!-- Dynamic content based on click -->
+        </div>
     </div>
-  </div>
+</div>
 
 <div id="content-container" style="display: none;">
-  <div id="aplikasi-pusat-content">
+    <div id="aplikasi-pusat-content">
     {{ $frontBundle1 := .Site.Params.frontBundle1 | default "aplikasi-pusat" | lower }}
     {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle1) }}
       {{ partial "blog-card-hero.html" . }}
     {{ end }}
-  </div>
-  <div id="layanan-content">
+    </div>
+    <div id="layanan-content">
     {{ $frontBundle2 := .Site.Params.frontBundle2 | default "layanan" | lower }}
     {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle2) }}
       {{ partial "blog-card-hero.html" . }}
     {{ end }}
-  </div>
-  <div id="aplikasi-daerah-content">
+    </div>
+    <div id="aplikasi-daerah-content">
     {{ $frontBundle3 := .Site.Params.frontBundle3 | default "aplikasi-daerah" | lower }}
     {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle3) }}
       {{ partial "blog-card-hero.html" . }}
     {{ end }}
-  </div>
-  <div id="website-terkait-content">
+    </div>
+    <div id="website-terkait-content">
     {{ $frontBundle4 := .Site.Params.frontBundle4 | default "website-terkait" | lower }}
     {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle4) }}
       {{ partial "blog-card-hero.html" . }}
     {{ end }}
-  </div>
-  <div id="formulir-content">
+    </div>
+    <div id="formulir-content">
     {{ $frontBundle5 := .Site.Params.frontBundle5 | default "formulir" | lower }}
     {{ range (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle5) }}
       {{ partial "blog-card-hero.html" . }}
     {{ end }}
-  </div>
+    </div>
 </div>
 
 
 <script>
-function showHeroModal(content) {
-  const modal = document.getElementById('heroModal');
-  const modalContent = modal.querySelector('.modal-hero-content');
-  document.getElementById('modal-title').textContent = content;
-  modal.classList.remove('hidden');
-  modalContent.style.animation = 'slideInDown 0.4s forwards';
-  document.body.style.overflow = 'hidden'; // Disable scrolling outside the modal
+    function showHeroModal(content) {
+        const modal = document.getElementById('heroModal');
+        const modalContent = modal.querySelector('.modal-hero-content');
+        document.getElementById('modal-title').textContent = content;
+        modal.classList.remove('hidden');
+        modalContent.style.animation = 'slideInDown 0.4s forwards';
+        document.body.style.overflow = 'hidden'; // Disable scrolling outside the modal
 
-  const contentMap = {
-    'Aplikasi Pusat': 'aplikasi-pusat-content',
-    'Layanan': 'layanan-content',
-    'Aplikasi Daerah': 'aplikasi-daerah-content',
-    'Website Terkait': 'website-terkait-content',
-    'Formulir': 'formulir-content'
-  };
+        const contentMap = {
+            'Aplikasi Pusat': 'aplikasi-pusat-content',
+            'Layanan': 'layanan-content',
+            'Aplikasi Daerah': 'aplikasi-daerah-content',
+            'Website Terkait': 'website-terkait-content',
+            'Formulir': 'formulir-content'
+        };
 
-  const contentId = contentMap[content];
-  if (contentId) {
-    const contentElement = document.getElementById(contentId);
-    modal.querySelector('.grid').innerHTML = contentElement.innerHTML;
-  }
-}
+        const contentId = contentMap[content];
+        if (contentId) {
+            const contentElement = document.getElementById(contentId);
+            modal.querySelector('.grid').innerHTML = contentElement.innerHTML;
+        }
+    }
 
-function closeHeroModal() {
-  const modal = document.getElementById('heroModal');
-  const modalContent = modal.querySelector('.modal-hero-content');
-  modalContent.style.animation = 'slideOutUp 0.5s forwards';
-  setTimeout(() => {
-    modal.classList.add('hidden');
-    document.body.style.overflow = ''; // Restore scrolling outside the modal
-  }, 500);
-}
+    function closeHeroModal() {
+        const modal = document.getElementById('heroModal');
+        const modalContent = modal.querySelector('.modal-hero-content');
+        modalContent.style.animation = 'slideOutUp 0.5s forwards';
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling outside the modal
+        }, 500);
+    }
 
-document.getElementById('heroModal').addEventListener('click', closeHeroModal);
+    document.getElementById('heroModal').addEventListener('click', closeHeroModal);
 </script>
 
 <style>
-@keyframes slideInDown {
+    @keyframes slideInDown {
   from { opacity: 0; transform: translateY(-100%); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideOutUp {
+    }
+    
+    @keyframes slideOutUp {
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(-100%); }
-}
+    }
 </style>
 
 <div class="container mx-auto p-4 px-9">
-  <div class="grid grid-cols-1 lg:grid-cols-7 gap-0" style="z-index: 5; position: relative;">
-    <!-- Agenda Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-7 gap-0" style="z-index: 5; position: relative;">
+        <!-- Agenda Section -->
     {{ $agenda := .Site.Params.agenda }}
     {{ if $agenda }}
-    <div class="agenda-container bg-white dark:bg-gray-800 rounded-l-3xl lg:col-span-2 border-l-2 border-b-2 border-gray-300 dark:border-gray-600 shadow-md">
-      <h2 class="text-2xl text-white mb-4 p-4 text-center bg-customGreen dark:bg-green-700 rounded-tl-3xl">
-      Agenda
-    </h2>
-    <div class="flex flex-col overflow-auto m-4 pt-2" style="max-height: 500px;">
-      {{ range $agenda }}
-      <div class="border border-customGreen dark:border-green-600 rounded-lg p-4 bg-white dark:bg-gray-800 mb-4 flex justify-between items-center relative">
-      <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen dark:bg-green-600 z-10"></div>
-      <div class="text-center bg-white dark:bg-gray-800 border border-customGreen dark:border-green-600 dark:text-white rounded-lg p-2 w-20 z-20" data-day="{{ .hari }}">
-        <p class="text-lg font-bold dark:text-white">
-        <!-- Tanggal akan diisi oleh script -->
-        </p>
-      </div>
-      <div class="ml-4 flex-1">
-        <p class="text-sm dark:text-white">
-        {{ .judul }}
-        </p>
-          <div class="flex items-center text-gray-600 dark:text-gray-300 text-sm mt-2">
-            <div class="flex-1">
+        <div class="agenda-container bg-white dark:bg-gray-800 rounded-l-3xl lg:col-span-2 border-l-2 border-b-2 border-gray-300 dark:border-gray-600 shadow-md">
+            <h2 class="text-2xl text-white mb-4 p-4 text-center bg-customGreen dark:bg-green-700 rounded-tl-3xl">
+                Agenda
+            </h2>
+            <div class="flex flex-col overflow-auto m-4 pt-2" style="max-height: 500px;">
+                {{ range $agenda }}
+                <div class="border border-customGreen dark:border-green-600 rounded-lg p-4 bg-white dark:bg-gray-800 mb-4 flex justify-between items-center relative">
+                    <div class="absolute inset-0 left-14 transform -translate-x-1/2 w-px bg-customGreen dark:bg-green-600 z-10"></div>
+                    <div class="text-center bg-white dark:bg-gray-800 border border-customGreen dark:border-green-600 dark:text-white rounded-lg p-2 w-20 z-20" data-day="{{ .hari }}">
+                        <p class="text-lg font-bold dark:text-white">
+                            <!-- Tanggal akan diisi oleh script -->
+                        </p>
+                    </div>
+                    <div class="ml-4 flex-1">
+                        <p class="text-sm dark:text-white">
+                            {{ .judul }}
+                        </p>
+                        <div class="flex items-center text-gray-600 dark:text-gray-300 text-sm mt-2">
+                            <div class="flex-1">
               <i class="far fa-clock mr-1"></i>
               {{ .jamMulai }} - {{ .jamSelesai }}
+                            </div>
+                            <div class="flex-1 flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <div>{{ .lokasi }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
             </div>
-            <div class="flex-1 flex items-center">
-              <i class="fas fa-map-marker-alt mr-2"></i>
-              <div>{{ .lokasi }}</div>
-            </div>
-          </div>
         </div>
-      </div>
-      {{ end }}
-    </div>
-    </div>
-    {{ end }}
-    <script>
-      function getCurrentDate(day) {
-        const today = new Date();
-        const dayIndex = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"].indexOf(day.toLowerCase());
-        const currentDayIndex = today.getDay();
+        {{ end }}
+        <script>
+            function getCurrentDate(day) {
+                const today = new Date();
+                const dayIndex = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"].indexOf(day.toLowerCase());
+                const currentDayIndex = today.getDay();
 
-        const startOfWeek = today.getDate() - currentDayIndex;
-        
-        // Tentukan offset: jika hari yang diinginkan sudah lewat, tambahkan 7 hari untuk minggu depan
-        const dayOffset = (dayIndex < currentDayIndex) ? 7 : 0;
+                const startOfWeek = today.getDate() - currentDayIndex;
 
-        const dateForDay = new Date(today.setDate(startOfWeek + dayIndex + dayOffset));
-        
-        return `${dateForDay.getDate()} ${dateForDay.toLocaleString('id-ID', { month: 'short' }).toLowerCase()} ${dateForDay.getFullYear()}`;
-      }
+                // Tentukan offset: jika hari yang diinginkan sudah lewat, tambahkan 7 hari untuk minggu depan
+                const dayOffset = (dayIndex < currentDayIndex) ? 7 : 0;
 
-      document.querySelectorAll('[data-day]').forEach(element => {
-        const day = element.getAttribute('data-day');
-        if (day) {
-          element.textContent = getCurrentDate(day);
-        }
-      });
-    </script>
-    <!-- Berita Terkini Section -->
-    <div class="berita-container bg-white dark:bg-gray-800 p-4 lg:col-span-3 border-t-2 border-b-2 border-gray-300 dark:border-gray-600 shadow-md">
-     <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl text-gray-800 dark:text-white">
-       Berita Terkini
-      </h2>
+                const dateForDay = new Date(today.setDate(startOfWeek + dayIndex + dayOffset));
+
+                return `${dateForDay.getDate()} ${dateForDay.toLocaleString('id-ID', { month: 'short' }).toLowerCase()} ${dateForDay.getFullYear()}`;
+            }
+
+            document.querySelectorAll('[data-day]').forEach(element => {
+                const day = element.getAttribute('data-day');
+                if (day) {
+                    element.textContent = getCurrentDate(day);
+                }
+            });
+        </script>
+        <!-- Berita Terkini Section -->
+        <div class="berita-container bg-white dark:bg-gray-800 p-4 lg:col-span-3 border-t-2 border-b-2 border-gray-300 dark:border-gray-600 shadow-md">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl text-gray-800 dark:text-white">
+                    Berita Terkini
+                </h2>
       <a href="{{ lower (replace (.Site.Params.frontBundle6 | default "berita" | lower) " " "-") | absLangURL }}" class="bg-white text-black px-4 py-2 rounded-full flex items-center border-2 border-customGreen hover:bg-customGreen hover:text-white transition-colors dark:bg-gray-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700">
         Berita Lainnya
         <i class="fas fa-external-link-alt ml-2">
         </i>
       </a>
-     </div>
-     <div class="relative mb-8">
-      <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/4 h-1 bg-customGreen dark:bg-green-600"></div>
-      <div class="absolute left-2/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen dark:bg-green-600 rounded-full"></div>
-     </div>
-     <div class="space-y-4">
+            </div>
+            <div class="relative mb-8">
+                <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2/4 h-1 bg-customGreen dark:bg-green-600"></div>
+                <div class="absolute left-2/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-customGreen dark:bg-green-600 rounded-full"></div>
+            </div>
+            <div class="space-y-4">
         {{ $frontBundle6 := .Site.Params.frontBundle6 | default "berita" | lower }}
         {{ range first 1 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) }}
           {{- partial "blog-card-home-berita.html" . -}}
         {{ end }}
-     </div>
-     <div class="swiper swiper-berita min-h-72 mx-auto">
-      <div class="swiper-wrapper pb-2 pt-3">
+            </div>
+            <div class="swiper swiper-berita min-h-72 mx-auto">
+                <div class="swiper-wrapper pb-2 pt-3">
         {{ range first 10 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle6) }}
-        <div class="swiper-slide rounded-lg">
-          {{- partial "blog-card-home-berita-swiper.html" . -}}
+                    <div class="swiper-slide rounded-lg">
+                        {{- partial "blog-card-home-berita-swiper.html" . -}}
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="swiper-berita-pagination"></div>
+            </div>
         </div>
-        {{ end }}
-      </div>
-      <div class="swiper-berita-pagination"></div>
-     </div>
-    </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        var beritaSwiper = new Swiper(".swiper-berita", {
-            slidesPerView: 2,
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var beritaSwiper = new Swiper(".swiper-berita", {
+                    slidesPerView: 2,
             spaceBetween: 5,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            speed: 1000,
-            pagination: {
-                el: ".swiper-berita-pagination",
-                clickable: true,
-                bulletClass: "swiper-berita-pagination-bullet",
-                bulletActiveClass: "swiper-berita-pagination-bullet-active",
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1.1,
-                },
-                768: {
-                    slidesPerView: 2,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    speed: 1000,
+                    pagination: {
+                        el: ".swiper-berita-pagination",
+                        clickable: true,
+                        bulletClass: "swiper-berita-pagination-bullet",
+                        bulletActiveClass: "swiper-berita-pagination-bullet-active",
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1.1,
+                        },
+                        768: {
+                            slidesPerView: 2,
                     spaceBetween: 5,
-                },
-                1024: {
-                    slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 2,
                     spaceBetween: 5,
-                },
+                        },
+                    }
+                });
+            });
+        </script>
+        <style>
+            .swiper-berita-pagination {
+                display: flex;
+                justify-content: center;
+                padding-top: 10px;
+                gap: 10px;
+                /* Increased spacing between bullets */
             }
-        });
-    });
-    </script>
-    <style>
-    .swiper-berita-pagination {
-      display: flex;
-      justify-content: center;
-      padding-top: 10px;
-    }
+            
+            .swiper-berita-pagination-bullet {
+                width: 15px;
+                height: 15px;
+                border: 2px solid #16A34A;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .dark .swiper-berita-pagination-bullet {
+                border-color: #22c55e;
+            }
+            
+            .swiper-berita-pagination-bullet-active {
+                background-color: #16A34A;
+            }
+            
+            .dark .swiper-berita-pagination-bullet-active {
+                background-color: #22c55e;
+            }
+            
+            .swiper-berita-pagination-bullet:hover {
+                background-color: #16A34A;
+                opacity: 0.2;
+            }
+            
+            .dark .swiper-berita-pagination-bullet:hover {
+                background-color: #22c55e;
+                opacity: 0.2;
+            }
+        </style>
 
-    .swiper-berita-pagination-bullet {
-      width: 13px;
-      aspect-ratio: 1/1; 
-      border: 2px solid #16A34A; 
-      border-radius: 50%;
-      margin: 0 3px;
-      cursor: pointer;
-      transition: background-color 0.3s; 
-      flex-shrink: 0;
-    }
-
-    .dark .swiper-berita-pagination-bullet {
-      border-color: #22c55e;
-    }
-
-    .swiper-berita-pagination-bullet-active {
-      background-color: #16A34A;
-    }
-
-    .dark .swiper-berita-pagination-bullet-active {
-      background-color: #22c55e;
-    }
-
-    .swiper-berita-pagination-bullet:hover {
-      background-color: #16A34A;
-      opacity: 0.2;
-    }
-
-    .dark .swiper-berita-pagination-bullet:hover {
-      background-color: #22c55e;
-      opacity: 0.2;
-    }
-    </style>
-    
-    <div class="flex flex-col lg:col-span-2">
-        <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" defer></script>
-        <div id="gpr-kominfo-widget-container" style="height: 620px;"></div>
-    </div>
+        <div class="flex flex-col lg:col-span-2">
+            <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" defer></script>
+            <div id="gpr-kominfo-widget-container" style="height: 620px;"></div>
+        </div>
     </div>
 </div>
-    <style>
-      /* Elemen Container */
-      #gpr-kominfo-widget-container {
+<style>
+    /* Elemen Container */
+    #gpr-kominfo-widget-container {
         background-color: #03a055 !important;
         border-top: 5px solid #03a055 !important;
         border-top-left-radius: 0 !important;
         border-top-right-radius: 1.5rem !important;
         border-bottom-right-radius: 1.5rem !important;
         border-bottom-left-radius: 0 !important;
-      }
-
-      .dark #gpr-kominfo-widget-container {
+    }
+    
+    .dark #gpr-kominfo-widget-container {
         background-color: #087c54 !important;
         border-top-color: #087c54 !important;
-      }
+    }
 
-      /* Elemen Header */
-      #gpr-kominfo-widget-header {
+    /* Elemen Header */
+    #gpr-kominfo-widget-header {
         background-color: #03a055 !important;
-        background-image: none !important; 
+        background-image: none !important;
         border-left: 0px solid #03a055 !important;
         border-top-right-radius: 1.5rem !important;
-        border-bottom-right-radius: 1.5rem !important;  
+        border-bottom-right-radius: 1.5rem !important;
         color: #ffffff !important;
         text-align: center; /* Opsional */
         font-size: 18px; /* Ukuran teks */
         font-weight: bold; /* Ketebalan teks */
         line-height: 70px; /* Sesuaikan tinggi teks dengan tinggi header */
-      }
-
-      .dark #gpr-kominfo-widget-header {
+    }
+    
+    .dark #gpr-kominfo-widget-header {
         background-color: #087c54 !important;
         border-left-color: #087c54 !important;
-      }
-
-      #gpr-kominfo-widget-header::before {
-        content: "Artikel GPR Info"; 
+    }
+    
+    #gpr-kominfo-widget-header::before {
+        content: "Artikel GPR Info";
         font-family: 'Poppins', sans-serif;
         font-size: 1.5rem;
         line-height: 2rem;
         font-weight: normal;
-      }
+    }
 
-      /* Elemen Body */
-      #gpr-kominfo-widget-body {
+    /* Elemen Body */
+    #gpr-kominfo-widget-body {
         height: 500px; /* Tinggi baru untuk body widget */
-      }
-
-      .dark #gpr-kominfo-widget-body {
+    }
+    
+    .dark #gpr-kominfo-widget-body {
         background-color: #1f2937 !important;
-      }
-
-      #gpr-kominfo-widget-list {
+    }
+    
+    #gpr-kominfo-widget-list {
         height: 550px; /* Tinggi baru untuk body widget */
-      }
-
-      .dark #gpr-kominfo-widget-list {
+    }
+    
+    .dark #gpr-kominfo-widget-list {
         background-color: #1f2937 !important;
-      }
-
-      .dark .gpr-kominfo-widget-list-item.gpr-kominfo-widget-icon-berita-pemerintahan {
+    }
+    
+    .dark .gpr-kominfo-widget-list-item.gpr-kominfo-widget-icon-berita-pemerintahan {
         background-color: #1f2937 !important;
-      }
-
-      .dark .gpr-kominfo-widget-list-item.gpr-kominfo-widget-icon-berita-pemerintahan a {
+    }
+    
+    .dark .gpr-kominfo-widget-list-item.gpr-kominfo-widget-icon-berita-pemerintahan a {
         color: #ffffff !important;
-      }
-
+    }
+    
       .gpr-kominfo-align-left b,.gpr-kominfo-align-right.gpr-small-date {
         color: #03a055 !important;
-      }
-
-      .dark .gpr-kominfo-align-left b,
-      .dark .gpr-kominfo-align-right.gpr-small-date {
+    }
+    
+    .dark .gpr-kominfo-align-left b,
+    .dark .gpr-kominfo-align-right.gpr-small-date {
         color: #22c55e !important;
-      }
-  </style>
+    }
+</style>
 
 
-  <div class="diagonal" style="width: 100%; height: 80vh;">
+<div class="diagonal" style="width: 100%; height: 80vh;">
     <div class="container-video-utama" style="height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <video src="video/diskominfo-welcome.mp4" controls loop style="width: 100%; height: auto; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+        <video src="video/diskominfo-welcome.mp4" controls loop style="width: 100%; height: auto; border-top-left-radius: 15px; border-top-right-radius: 15px;">
       </video>
     </div>
-  </div>
-  <script>
+</div>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
-      var video = document.querySelector('.container-video-utama video');
-      var options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-      };
+        var video = document.querySelector('.container-video-utama video');
+        var options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
 
-      var observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            video.play();
-          } else {
-            video.pause();
-          }
-        });
-      }, options);
+        var observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, options);
 
-      observer.observe(video);
+        observer.observe(video);
     });
-  </script>
+</script>
 <style>
-  .diagonal {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  .diagonal::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom right, rgba(3, 160, 85, 0.7) 50%, rgba(3, 160, 85, 1) 50%);
-    z-index: 0;
-  }
-  .container-video-utama {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%; /* Ukuran video dikurangi menjadi 50% untuk membuatnya lebih kecil */
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-  }
-  @media (max-width: 1024px) {
-    .container-video-utama {
-      width: 90%; /* Ukuran video diperbesar menjadi 95% untuk tampilan mobile */
+    .diagonal {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
     }
-  }
+    .diagonal::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom right, rgba(3, 160, 85, 0.7) 50%, rgba(3, 160, 85, 1) 50%);
+        z-index: 0;
+    }
+    .container-video-utama {
+        position: absolute;
+        top: 0;
+        left: 0;
+    width: 50%; /* Ukuran video dikurangi menjadi 50% untuk membuatnya lebih kecil */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+    }
+    @media (max-width: 1024px) {
+        .container-video-utama {
+      width: 90%; /* Ukuran video diperbesar menjadi 95% untuk tampilan mobile */
+        }
+    }
 </style>
 
 <div class="container p-4 sm:p-10 mx-auto">
-<div class="container p-3 sm:p-6 border-4 border-customGreen rounded-3xl">
-   <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
-    <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
-     Galeri
+    <div class="container p-3 sm:p-6 border-4 border-customGreen rounded-3xl">
+        <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
+            <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
+                Galeri
      <br/>
      Foto
-    </h1>
-    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 
+            </h1>
+            <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 
     border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0 
     dark:bg-gray-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700" 
     href="{{ lower (replace (.Site.Params.frontBundle7 | default "foto" | lower) " " "-") | absLangURL }}">
@@ -684,151 +688,244 @@ document.getElementById('heroModal').addEventListener('click', closeHeroModal);
      <i class="fas fa-external-link-alt ml-2">
      </i>
     </a>
-   </div>
-   <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-start max-w-full mx-auto px-2 sm:px-4 md:px-8 lg:px-12">
-    <div class="text-center mb-4">
-      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        {{ $frontBundle7 := .Site.Params.frontBundle7 | default "foto" | lower }}
-        <div class="swiper swiper-foto mx-auto rounded-lg">
-          <div class="swiper-wrapper pb-4">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-start max-w-full mx-auto px-2 sm:px-4 md:px-8 lg:px-12">
+            <div class="text-center mb-4">
+                <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+                    {{ $frontBundle7 := .Site.Params.frontBundle7 | default "foto" | lower }}
+                    <div class="swiper swiper-foto mx-auto rounded-lg">
+                        <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 0 }}
-                <div class="swiper-slide swiper-slide-foto">
-                  {{- partial "blog-card-home-foto.html" $page -}}
-                </div>
+                            <div class="swiper-slide swiper-slide-foto">
+                                {{- partial "blog-card-home-foto.html" $page -}}
+                            </div>
               {{ end }}
             {{ end }}
-          </div>
-        </div>
-        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
-      </div>
-    </div>
-    <div class="text-center mt-0 sm:mt-16 mb-4">
-      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        <div class="swiper swiper-foto mx-auto rounded-lg">
-          <div class="swiper-wrapper pb-4">
+                        </div>
+                    </div>
+                    <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+                </div>
+            </div>
+            <div class="text-center mt-0 sm:mt-16 mb-4">
+                <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+                    <div class="swiper swiper-foto mx-auto rounded-lg">
+                        <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 1 }}
-                <div class="swiper-slide swiper-slide-foto">
-                  {{- partial "blog-card-home-foto.html" $page -}}
-                </div>
+                            <div class="swiper-slide swiper-slide-foto">
+                                {{- partial "blog-card-home-foto.html" $page -}}
+                            </div>
               {{ end }}
             {{ end }}
-          </div>
-        </div>
-        <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
-      </div>
-    </div>
-    <div class="text-center mb-4">
-      <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
-        <div class="swiper swiper-foto mx-auto rounded-lg">
-          <div class="swiper-wrapper pb-4">
+                        </div>
+                    </div>
+                    <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
+                </div>
+            </div>
+            <div class="text-center mb-4">
+                <div class="foto my-3 p-4 sm:p-6 rounded-xl w-full mx-auto relative">
+                    <div class="swiper swiper-foto mx-auto rounded-lg">
+                        <div class="swiper-wrapper pb-4">
             {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
               {{ if eq (mod $index 3) 2 }}
-                <div class="swiper-slide swiper-slide-foto">
-                  {{- partial "blog-card-home-foto.html" $page -}}
-                </div>
+                            <div class="swiper-slide swiper-slide-foto">
+                                {{- partial "blog-card-home-foto.html" $page -}}
+                            </div>
               {{ end }}
             {{ end }}
-          </div>
+                        </div>
+                    </div>
+                    <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl"></div>
+                </div>
+            </div>
         </div>
-        <div class="custom-background absolute top-1 left-0  bg-customYellow rounded-xl"></div>
-      </div>
-    </div>
-  </div>
-  <script>
+        <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var swiperFoto = new Swiper('.swiper-foto', {
-        effect: 'cards',
-        grabCursor: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        }
-      });
-    });
-  </script>
-  <style>
-    .swiper-foto {
-      width: 300px;
-      height: 175px;
-      z-index: 2;
-    }
-    .custom-background {
-      width: 300px;
-      height: 175px;
-      z-index: 1;
-      left: 1.5rem;
-    }
-    @media (max-width: 1024px) {
+                var swiperFoto = new Swiper('.swiper-foto', {
+                    effect: 'cards',
+                    grabCursor: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }
+                });
+            });
+        </script>
+        <style>
+            .swiper-foto {
+                width: 300px;
+                height: 175px;
+                z-index: 2;
+            }
+            .custom-background {
+                width: 300px;
+                height: 175px;
+                z-index: 1;
+                left: 1.5rem;
+            }
+            @media (max-width: 1024px) {
       .swiper-foto, .custom-background {
-        width: 220px;
-        height: 130px;
-      }
-      .custom-background {
-        left: 1rem;
-      }
-      .swiper-slide-foto {
-        width: 220px;
-        height: 130px;
-      }
-    }
-    @media (max-width: 768px) {
+                    width: 220px;
+                    height: 130px;
+                }
+                .custom-background {
+                    left: 1rem;
+                }
+                .swiper-slide-foto {
+                    width: 220px;
+                    height: 130px;
+                }
+            }
+            
+            @media (max-width: 768px) {
       .swiper-foto, .custom-background {
-        width: 220px;
-        height: 130px;
-      }
-      .custom-background {
-        left: 9rem;
-      }
-      .swiper-slide-foto {
-        width: 220px;
-        height: 130px;
-      }
-    }
-    @media (max-width: 426px) {
+                    width: 220px;
+                    height: 130px;
+                }
+                .custom-background {
+                    left: 9rem;
+                }
+                .swiper-slide-foto {
+                    width: 220px;
+                    height: 130px;
+                }
+            }
+            
+            @media (max-width: 426px) {
       .swiper-foto, .custom-background {
-        width: 220px;
-        height: 130px;
-      }
-      .custom-background {
-        left: 2rem;
-      }
-      .swiper-slide-foto {
-        width: 220px;
-        height: 130px;
-      }
-    }
-  </style>
-</div>
+                    width: 220px;
+                    height: 130px;
+                }
+                .custom-background {
+                    left: 2rem;
+                }
+                .swiper-slide-foto {
+                    width: 220px;
+                    height: 130px;
+                }
+            }
+        </style>
+    </div>
 </div>
 
+<!-- Homepage Img fancybox v5 -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll("[data-modal]").forEach((trigger) => {
+            trigger.addEventListener("click", async() => {
+                const contentUrl = trigger.getAttribute("data-modal");
+
+                // Fetch content (if URL is provided)
+                let content = "";
+                if (contentUrl) {
+                    const response = await fetch(contentUrl);
+                    content = await response.text();
+                }
+
+                // Extract <img> tags from content
+                const imgTags = content.match(/<p><img [^>]*src="([^"]*)"[^>]*>/g) || [];
+                const imgSrcs = imgTags.map((tag) => {
+                    const match = tag.match(/src="([^"]*)"/);
+                    return match ? match[1] : null;
+                });
+
+                // Tambahkan thumbnail dari data attribute
+                const thumbnailSrc = trigger.dataset.thumbnail; // Ambil thumbnail dari data attribute
+                if (thumbnailSrc) {
+                    imgSrcs.unshift(thumbnailSrc); // Tambahkan thumbnail ke awal array
+                }
+
+                // Open images with Fancybox v5 without thumbnails
+                Fancybox.show(
+                    imgSrcs.map((src) => ({
+                        src: src,
+                        type: 'image',
+                        options: {
+                            Toolbar: {
+                                display: ["slideshow", "fullscreen", "close"], // Reorder buttons to have close at the end
+                            },
+                            Image: {
+                                zoom: false, // Disable zoom
+                            },
+                            transitionEffect: "fade", // Use crossfade transition
+                        }
+                    }))
+                );
+            });
+        });
+    });
+</script>
+
 <div class="container p-10 mx-auto">
-  <div class="container p-6">
-   <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
-    <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
-     Galeri
+    <div class="container p-6">
+        <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
+            <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
+                Galeri
      <br/>
      Video
-    </h1>
-    <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2
+            </h1>
+            <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2
      border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0
      dark:bg-gray-800 dark:text-white dark:border-green-600 dark:hover:bg-green-700" href="galeri-video">
      Selengkapnya
      <i class="fas fa-external-link-alt ml-2">
      </i>
     </a>
-   </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {{ $frontBundle8 := .Site.Params.frontBundle8 | default "galeri-video" | lower }}
       {{ range first 4 (where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle8) }}
-        <div class="border-4 border-customGreen rounded-3xl p-6 flex flex-col md:flex-row items-center">
-          {{- partial "blog-card-home-video.html" . -}}
+            <div class="border-4 border-customGreen rounded-3xl p-6 flex flex-col md:flex-row items-center">
+                {{- partial "blog-card-home-video.html" . -}}
+            </div>
+            {{ end }}
         </div>
-      {{ end }}
     </div>
-  </div>
 </div>
 
+
+<!--  Video fancybox v5 -->
+<script>
+    function openVideoModal(videoUrl) {
+        const isYouTube = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
+        const isTikTok = videoUrl.includes('tiktok.com');
+
+        if (isYouTube) {
+            const videoId = videoUrl.split('v=')[1] ? videoUrl.split('v=')[1].split('&')[0] : videoUrl.split('/').pop();
+            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            Fancybox.show([{
+                src: embedUrl,
+                type: 'iframe',
+                options: {
+                    iframe: {
+                        preload: false,
+                        attr: {
+                            allow: 'autoplay; fullscreen',
+                            allowfullscreen: 'true'
+                        }
+                    }
+                }
+            }]);
+        } else if (isTikTok) {
+            const videoId = videoUrl.split('/').pop();
+            const embedUrl = `https://www.tiktok.com/embed/${videoId}`;
+            Fancybox.show([{
+                src: embedUrl,
+                type: 'html',
+                html: `<div class="fancybox__content" style="flex: 0 1 auto; height:100%; width: 100vh;">
+                 <iframe class="fancybox__iframe" allow="autoplay; fullscreen" scrolling="auto" src="${embedUrl}" style="height: 100%;"></iframe>
+                 <button data-fancybox-close="" class="f-button is-close-btn" title="Close">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+                     <path d="M20 20L4 4m16 0L4 20"></path>
+                   </svg>
+                 </button>
+               </div>`
+            }]);
+        } else {
+            alert('Video tidak dapat diputar. Pastikan URL berasal dari YouTube atau TikTok.');
+        }
+    }
+</script>
 
 {{ end }}

@@ -167,3 +167,6 @@ extension = "png"
 url = "slider10.png"
 extension = "png"
 
+[minify]
+minifyCSS = true
+minifyJS = true

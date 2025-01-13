@@ -1,9 +1,9 @@
 {{ $accent := .Site.Params.ascentColor }}
-<div class="flex flex-col p-4 bg-white">
-    <a href="{{ .RelPermalink }}" class="bg-white p-4 rounded-lg border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
+<div class="flex flex-col p-4 bg-white dark:bg-gray-800">
+    <a href="{{ .RelPermalink }}" class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-300 shadow-lg hover-container cursor-pointer" style="width: 100%;">
         <div class="flex items-center justify-between">
-            <div class="thumbnail-berita-csirt-container flex items-center flex-1">
-                <div class="thumbnail-berita-csirt relative rounded-lg" style="height: 150px; width: 260px; background-image: url('{{ .Params.thumbnail }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+            <div class="thumbnail-berita-informasi-container flex items-center flex-1">
+                <div class="thumbnail-berita-informasi relative rounded-lg" style="height: 150px; width: 260px; background-image: url('{{ .Params.thumbnail }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
                     <div class="date-container absolute bottom-0 right-0 p-2">
                         <span class="text-base text-white bg-customGreen rounded-full px-4 py-2">
                           {{ .Date.Format "2 January 2006" }}
@@ -11,8 +11,8 @@
                     </div>
                 </div>
                 <div class="flex items-center flex-1 flex-col ml-6 mt-2 max-sm:ml-0 max-sm:mt-4">
-                    <h2 class="title-berita-csirt text-black text-base font-bold pr-4 text-left w-full" style="height: 80px">{{ .Params.title }}</h2>
-                    <p class="content-berita-csirt text-gray-600 text-sm pr-4">{{ .Content | plainify | replaceRE "<img[^>]*>" "" | truncate 300 "..." }}</p>
+                    <h2 class="title-berita-informasi text-black dark:text-white text-base font-bold pr-4 text-left w-full" style="height: 80px">{{ .Params.title }}</h2>
+                    <p class="content-berita-informasi text-gray-600 dark:text-gray-300 text-sm pr-4">{{ .Content | plainify | replaceRE "<img[^>]*>" "" | truncate 300 "..." }}</p>
                 </div>
             </div>
         </div>
@@ -25,10 +25,10 @@
     }
 
     @media (max-width: 640px) {
-        .thumbnail-berita-csirt-container {
+        .thumbnail-berita-informasi-container {
             flex-direction: column;
         }
-        .thumbnail-berita-csirt {
+        .thumbnail-berita-informasi {
             width: 100% !important;
         }
     }
@@ -38,7 +38,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         function truncateTitle() {
             if (window.innerWidth <= 640) {
-                const titleElements = document.querySelectorAll('.title-berita-csirt');
+                const titleElements = document.querySelectorAll('.title-berita-informasi');
                 titleElements.forEach(element => {
                     const originalText = element.textContent;
                     if (originalText.length > 60) {
@@ -50,7 +50,7 @@
 
         function truncateContent() {
             if (window.innerWidth <= 640) {
-                const contentElements = document.querySelectorAll('.content-berita-csirt');
+                const contentElements = document.querySelectorAll('.content-berita-informasi');
                 contentElements.forEach(element => {
                     const originalText = element.textContent;
                     if (originalText.length > 150) {

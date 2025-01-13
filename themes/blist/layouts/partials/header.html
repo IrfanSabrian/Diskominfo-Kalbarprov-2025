@@ -1,385 +1,429 @@
-<header class="fixed top-0 z-40 transition-all duration-300 bg-opacity-80 bg-customGreen backdrop-blur-lg shadow-lg text-white w-full">
-  <div class="flex justify-between items-center px-4">
-    <div class="py-2 px-4">
-      <a href='{{ absURL "/" }}' class="flex items-center">
-        <img src='{{ absURL "/" }}akcaya-logo.png' alt="Logo Akcaya" class="w-12 h-auto mr-2.5" />
-        <span class="text-lg font-bold">{{ .Site.Title }}</span>
-      </a>
-    </div>
+<header class="fixed top-0 z-40 transition-all duration-300 bg-opacity-80 bg-customGreen rounded-b-xl backdrop-blur-lg shadow-lg text-white w-full">
+    <div class="flex justify-between items-center px-4">
+        <div class="py-2 px-4">
+            <a href='{{ absURL "/" }}' class="flex items-center">
+                <img src='{{ absURL "/" }}akcaya-logo.png' alt="Logo Akcaya" class="w-12 h-auto mr-2.5" />
+                <span class="text-lg font-bold">{{ .Site.Title }}</span>
+            </a>
+        </div>
 
-    <!-- Tombol menu mobile dengan animasi -->
-    <button class="md:hidden p-2 hover:bg-white hover:bg-opacity-20 rounded-lg transition-all duration-300" id="mobile-menu-button">
+        <!-- Tombol menu mobile dengan animasi -->
+        <button class="md:hidden p-2 hover:bg-white hover:bg-opacity-20 rounded-lg transition-all duration-300" id="mobile-menu-button">
       <i class="fas fa-bars text-white text-2xl"></i>
     </button>
 
-    <ul class="h-16 hidden md:flex items-center gap-4 list-none m-0 p-0 justify-center flex-1" id="desktop-menu">
+        <ul class="h-16 hidden md:flex items-center gap-4 list-none m-0 p-0 justify-center flex-1" id="desktop-menu">
       {{ range .Site.Menus.main }} 
       {{ $menuURL := .URL }} 
       {{ $menuName := .Name }} 
       {{ $menuHasChildren := .HasChildren }} 
-      <li class="relative flex items-center px-1.5 h-full group">
-        {{ if $menuHasChildren }}
-        <span class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">{{ $menuName }} <i class="fa-solid fa-caret-down ml-1"></i></span>
-        <div class="dropdown-menu-wrapper">
-          <ul class="bg-white text-black shadow-md rounded min-w-[200px] w-auto py-1.5 dropdown-menu">
-            {{ range .Children }}
-            <li class="flex items-center p-3 border-b-2 border-gray-300 last:border-b-0 cursor-pointer hover:bg-green-50" onclick="location.href='{{ .URL }}'">{{ .Name }}</li>
-            {{ end }}
-          </ul>
-        </div>
-        {{ else }}
+            <li class="relative flex items-center px-1.5 h-full group">
+                {{ if $menuHasChildren }}
+                <span class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">{{ $menuName }} <i class="fa-solid fa-caret-down ml-1"></i></span>
+                <div class="dropdown-menu-wrapper">
+                    <ul class="bg-white text-black shadow-md rounded min-w-[200px] w-auto py-1.5 dropdown-menu">
+                        {{ range .Children }}
+                        <li class="flex items-center p-3 border-b-2 border-gray-300 last:border-b-0 cursor-pointer hover:bg-green-50" onclick="location.href='{{ .URL }}'">{{ .Name }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ else }}
         <span onclick="location.href='{{ $menuURL }}'" class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">{{ $menuName }}</span>
         {{ end }}
-      </li>
+            </li>
       {{ end }} 
       {{ if hugo.IsMultilingual }} 
       {{ if ge (len .Site.Languages) 3 }}
-      <li class="relative flex items-center px-1.5 h-full group">
-        <a class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">{{ i18n "languageSwitcherLabel" }} <i class="fa-solid fa-caret-down ml-1"></i></a>
-        <div class="dropdown-menu-wrapper">
-          <ul class="bg-white dark:bg-gray-800 text-black dark:text-white shadow-md rounded min-w-[200px] w-auto py-1.5 dropdown-menu">
+            <li class="relative flex items-center px-1.5 h-full group">
+                <a class="cursor-pointer flex items-center relative hover:text-gray-200 menu-link">{{ i18n "languageSwitcherLabel" }} <i class="fa-solid fa-caret-down ml-1"></i></a>
+                <div class="dropdown-menu-wrapper">
+                    <ul class="bg-white dark:bg-gray-800 text-black dark:text-white shadow-md rounded min-w-[200px] w-auto py-1.5 dropdown-menu">
             {{ range .Site.Languages }} 
             {{ if not (eq .Lang $.Site.Language.Lang) }}
-            <li class="flex items-center p-3 border-b-2 border-gray-300 last:border-b-0 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700" onclick="location.href='/{{ .Lang }}'" lang="{{ .Lang }}"><a>{{ default .Lang .LanguageName }}</a></li>
+                        <li class="flex items-center p-3 border-b-2 border-gray-300 last:border-b-0 cursor-pointer hover:bg-green-50 dark:hover:bg-gray-700" onclick="location.href='/{{ .Lang }}'" lang="{{ .Lang }}"><a>{{ default .Lang .LanguageName }}</a></li>
             {{ end }} 
             {{ end }}
-          </ul>
-        </div>
-      </li>
-      {{ else }}
-      <li class="flex items-center">
+                    </ul>
+                </div>
+            </li>
+            {{ else }}
+            <li class="flex items-center">
         {{ range .Site.Languages }} 
         {{ if not (eq .Lang $.Site.Language.Lang) }}
         <a href="/{{ .Lang }}" lang="{{ .Lang }}" class="relative hover:text-gray-200 menu-link">{{ default .Lang .LanguageName }}</a>
         {{ end }} 
         {{ end }}
-      </li>
+            </li>
       {{ end }} 
       {{ end }} 
       {{ if .Site.Params.darkModeToggle }}
-      <li class="flex items-center">
-        <span class="inline-block cursor-pointer">
+            <li class="flex items-center">
+                <span class="inline-block cursor-pointer">
           <i class="fas fa-moon text-white text-lg dark-mode-icon" id="dark-mode-icon"></i>
         </span>
-      </li>
-      {{ end }}
-    </ul>
+            </li>
+            {{ end }}
+        </ul>
 
-    <!-- Menu mobile dengan animasi dan desain yang lebih menarik -->
-    <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden transition-all duration-300" id="mobile-menu-overlay">
-      <div class="bg-gradient-to-b from-customGreen to-green-700 h-full w-80 absolute right-0 transform transition-transform duration-500 translate-x-full shadow-2xl" id="mobile-menu">
-        <div class="p-6 flex justify-between items-center border-b border-white/20">
-          <span class="text-xl font-bold">Menu Navigasi</span>
-          <button id="close-mobile-menu" class="hover:rotate-90 transition-transform duration-300">
+        <!-- Menu mobile dengan animasi dan desain yang lebih menarik -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden transition-all duration-300" id="mobile-menu-overlay">
+            <div class="bg-gradient-to-b from-customGreen to-green-700 h-full w-80 absolute right-0 transform transition-transform duration-500 translate-x-full shadow-2xl" id="mobile-menu">
+                <div class="p-6 flex justify-between items-center border-b border-white/20">
+                    <span class="text-xl font-bold">Menu Navigasi</span>
+                    <button id="close-mobile-menu" class="hover:rotate-90 transition-transform duration-300">
             <i class="fas fa-times text-white text-2xl"></i>
           </button>
-        </div>
-        <ul class="p-6 space-y-6">
+                </div>
+                <ul class="p-6 space-y-6">
           {{ range .Site.Menus.main }}
           {{ $menuURL := .URL }}
           {{ $menuName := .Name }}
           {{ $menuHasChildren := .HasChildren }}
-          <li class="transform hover:translate-x-2 transition-transform duration-300">
-            {{ if $menuHasChildren }}
-            <div class="mobile-dropdown">
-              <span class="text-white cursor-pointer flex items-center justify-between hover:text-gray-200 transition-colors" onclick="this.parentElement.classList.toggle('active')">
+                    <li class="transform hover:translate-x-2 transition-transform duration-300">
+                        {{ if $menuHasChildren }}
+                        <div class="mobile-dropdown">
+                            <span class="text-white cursor-pointer flex items-center justify-between hover:text-gray-200 transition-colors" onclick="this.parentElement.classList.toggle('active')">
                 <span class="flex items-center">
                   <i class="fas fa-chevron-right mr-3 text-sm transition-transform duration-300"></i>
                   {{ $menuName }}
                 </span>
-                <i class="fa-solid fa-caret-down ml-2 transition-transform duration-300"></i>
-              </span>
-              <ul class="hidden mt-4 ml-6 space-y-4 border-l-2 border-white/20 pl-4">
-                {{ range .Children }}
-                <li class="transform hover:translate-x-2 transition-transform duration-300">
-                  <a href="{{ .URL }}" class="text-white/80 hover:text-white transition-colors flex items-center">
+                            <i class="fa-solid fa-caret-down ml-2 transition-transform duration-300"></i>
+                            </span>
+                            <ul class="hidden mt-4 ml-6 space-y-4 border-l-2 border-white/20 pl-4">
+                                {{ range .Children }}
+                                <li class="transform hover:translate-x-2 transition-transform duration-300">
+                                    <a href="{{ .URL }}" class="text-white/80 hover:text-white transition-colors flex items-center">
                     <span class="w-2 h-2 bg-white/50 rounded-full mr-3"></span>
                     {{ .Name }}
-                  </a>
-                </li>
-                {{ end }}
-              </ul>
-            </div>
-            {{ else }}
-            <a href="{{ $menuURL }}" class="text-white hover:text-gray-200 transition-colors flex items-center">
+                                    </a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        {{ else }}
+                        <a href="{{ $menuURL }}" class="text-white hover:text-gray-200 transition-colors flex items-center">
               <i class="fas fa-chevron-right mr-3 text-sm"></i>
               {{ $menuName }}
-            </a>
-            {{ end }}
-          </li>
-          {{ end }}
-        </ul>
-        <!-- Footer menu mobile dengan desain yang lebih menarik -->
-        <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-white/20">
-          <div class="flex items-center justify-center">
-            {{ if .Site.Params.darkModeToggle }}
-            <div class="mobile-dark-mode-container">
-              <button class="mobile-dark-mode-button" id="mobile-dark-mode-toggle">
+                        </a>
+                        {{ end }}
+                    </li>
+                    {{ end }}
+                </ul>
+                <!-- Footer menu mobile dengan desain yang lebih menarik -->
+                <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-white/20">
+                    <div class="flex items-center justify-center">
+                        {{ if .Site.Params.darkModeToggle }}
+                        <div class="mobile-dark-mode-container">
+                            <button class="mobile-dark-mode-button" id="mobile-dark-mode-toggle">
                 <i class="fas fa-moon text-white text-xl mobile-dark-mode-icon" id="mobile-dark-mode-icon"></i>
                 <span class="mobile-dark-mode-text">Mode Gelap</span>
               </button>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
             </div>
-            {{ end }}
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </header>
 <div class="pt-20 dark:bg-gray-900 duration-500"></div>
 <style>
-  .menu-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: -5px;
-    left: 0;
-    background-color: white;
-    transition: width 0.3s ease;
-  }
-
-  .menu-link:hover::after,
-  .group:hover .menu-link::after {
-    width: 100%;
-  }
-
-  .dropdown-menu-wrapper {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .group:hover .dropdown-menu-wrapper {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .dropdown-menu li::before {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-right: 10px;
-    flex-shrink: 0;
-    transition: background-color 0.3s;
-  }
-
-  .dropdown-menu li::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 2px;
-    width: 0;
-    background-color: #03a055;
-    transition: width 0.3s ease;
-  }
-
-  .dropdown-menu li:hover::before {
-    background-color: #03a055;
-  }
-
-  .dropdown-menu li:hover::after {
-    width: 25px;
-  }
-
-  .dark-mode-icon {
-    transition: transform 0.5s ease;
-  }
-
-  .dark-mode-icon:hover {
-    transform: rotate(45deg);
-  }
-
-  .dark-mode-icon.rotating {
-    animation: rotate360 0.8s ease;
-  }
-
+    .menu-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: -5px;
+        left: 0;
+        background-color: white;
+        transition: width 0.3s ease;
+    }
+    
+    .menu-link:hover::after,
+    .group:hover .menu-link::after {
+        width: 100%;
+    }
+    
+    .dropdown-menu-wrapper {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .group:hover .dropdown-menu-wrapper {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .dropdown-menu li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin-right: 10px;
+        flex-shrink: 0;
+        transition: background-color 0.3s;
+    }
+    
+    .dropdown-menu li::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 2px;
+        width: 0;
+        background-color: #03a055;
+        transition: width 0.3s ease;
+    }
+    
+    .dropdown-menu li:hover::before {
+        background-color: #03a055;
+    }
+    
+    .dropdown-menu li:hover::after {
+        width: 25px;
+    }
+    
+    .dark-mode-icon {
+        transition: transform 0.5s ease;
+    }
+    
+    .dark-mode-icon:hover {
+        transform: rotate(45deg);
+    }
+    
+    .dark-mode-icon.rotating {
+        animation: rotate360 0.8s ease;
+    }
+    
   /* Mobile dark mode styles yang lebih menarik */
-  .mobile-dark-mode-container {
-    width: 100%;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-
-  .mobile-dark-mode-button {
-    width: 100%;
-    padding: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border-radius: 0.75rem;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .mobile-dark-mode-button:active {
-    transform: scale(0.95);
-  }
-
-  .mobile-dark-mode-icon {
-    font-size: 1.25rem;
-    transition: all 0.5s ease;
-  }
-
-  .mobile-dark-mode-text {
-    color: white;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .mobile-dark-mode-container:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  @keyframes rotate360 {
+    .mobile-dark-mode-container {
+        width: 100%;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-dark-mode-button {
+        width: 100%;
+        padding: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .mobile-dark-mode-button:active {
+        transform: scale(0.95);
+    }
+    
+    .mobile-dark-mode-icon {
+        font-size: 1.25rem;
+        transition: all 0.5s ease;
+    }
+    
+    .mobile-dark-mode-text {
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-dark-mode-container:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    @keyframes rotate360 {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-  }
-
+    }
+    
   /* Mobile menu styles */
-  .mobile-dropdown.active .fa-caret-down {
-    transform: rotate(180deg);
-  }
-
-  .mobile-dropdown.active .fa-chevron-right {
-    transform: rotate(90deg);
-  }
-
-  .mobile-dropdown.active ul {
-    display: block;
-  }
-
-  #mobile-menu {
-    transform: translateX(100%);
-  }
-
-  #mobile-menu.active {
-    transform: translateX(0);
-  }
-
-  /* Animasi untuk menu items */
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
+    .mobile-dropdown.active .fa-caret-down {
+        transform: rotate(180deg);
     }
-    to {
-      opacity: 1;
-      transform: translateX(0);
+    
+    .mobile-dropdown.active .fa-chevron-right {
+        transform: rotate(90deg);
     }
-  }
-
-  #mobile-menu li {
-    animation: slideIn 0.3s ease forwards;
-    opacity: 0;
-  }
-
-  #mobile-menu.active li {
-    animation-play-state: running;
-  }
-
-  #mobile-menu li:nth-child(1) { animation-delay: 0.1s; }
-  #mobile-menu li:nth-child(2) { animation-delay: 0.2s; }
-  #mobile-menu li:nth-child(3) { animation-delay: 0.3s; }
-  #mobile-menu li:nth-child(4) { animation-delay: 0.4s; }
-  #mobile-menu li:nth-child(5) { animation-delay: 0.5s; }
-  #mobile-menu li:nth-child(6) { animation-delay: 0.6s; }
+    
+    .mobile-dropdown.active ul {
+        display: block;
+    }
+    
+    #mobile-menu {
+        transform: translateX(100%);
+    }
+    
+    #mobile-menu.active {
+        transform: translateX(0);
+    }
+    /* Animasi untuk menu items */
+    
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    #mobile-menu li {
+        animation: slideIn 0.3s ease forwards;
+        opacity: 0;
+    }
+    
+    #mobile-menu.active li {
+        animation-play-state: running;
+    }
+    
+    #mobile-menu li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    #mobile-menu li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    #mobile-menu li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    
+    #mobile-menu li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+    
+    #mobile-menu li:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+    
+    #mobile-menu li:nth-child(6) {
+        animation-delay: 0.6s;
+    }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const darkModeIcon = document.getElementById("dark-mode-icon");
-  const mobileDarkModeIcon = document.getElementById("mobile-dark-mode-icon");
-  const toggleButton = document.querySelector("[id='dark-mode-icon']").parentElement;
-  const mobileToggleButton = document.getElementById("mobile-dark-mode-toggle");
-  const navbar = document.querySelector("header");
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
-  const closeMobileMenu = document.getElementById("close-mobile-menu");
+    document.addEventListener("DOMContentLoaded", function() {
+        const darkmode = document.querySelector("[id='dark-mode-icon']").parentElement;
+        const mobileDarkmode = document.getElementById("mobile-dark-mode-toggle");
+        const darkModeIcon = document.getElementById("dark-mode-icon");
+        const mobileDarkModeIcon = document.getElementById("mobile-dark-mode-icon");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+        const closeMobileMenu = document.getElementById("close-mobile-menu");
 
-  // Cek mode yang tersimpan
-  const savedMode = localStorage.getItem("dark-mode");
-  if (savedMode === "true") {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
-  updateDarkModeIcons();
+        function toggleDarkMode() {
+            const icon = darkModeIcon;
+            const mobileIcon = mobileDarkModeIcon;
+            
+            icon.classList.add("rotating");
+            if(mobileIcon) mobileIcon.classList.add("rotating");
 
-  // Mobile menu toggle dengan animasi yang lebih halus
-  mobileMenuButton.addEventListener("click", () => {
-    mobileMenuOverlay.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-    requestAnimationFrame(() => {
-      mobileMenuOverlay.style.opacity = "1";
-      mobileMenu.classList.add("active");
+            setTimeout(() => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    document.body.classList.remove('dark');
+                    localStorage.setItem('darkmode', 'light');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    if(mobileIcon) {
+                        mobileIcon.classList.remove('fa-sun');
+                        mobileIcon.classList.add('fa-moon');
+                    }
+                } else {
+                    document.documentElement.classList.add('dark');
+                    document.body.classList.add('dark');
+                    localStorage.setItem('darkmode', 'dark');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    if(mobileIcon) {
+                        mobileIcon.classList.remove('fa-moon');
+                        mobileIcon.classList.add('fa-sun');
+                    }
+                }
+            }, 400);
+
+            setTimeout(() => {
+                icon.classList.remove("rotating");
+                if(mobileIcon) mobileIcon.classList.remove("rotating");
+            }, 800);
+        }
+
+        if (darkmode) {
+            darkmode.addEventListener('click', toggleDarkMode);
+        }
+        if (mobileDarkmode) {
+            mobileDarkmode.addEventListener('click', toggleDarkMode);
+        }
+
+        const darkStorage = localStorage.getItem('darkmode');
+        const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (!darkStorage && isBrowserDark) {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+            if(mobileDarkModeIcon) {
+                mobileDarkModeIcon.classList.remove('fa-moon');
+                mobileDarkModeIcon.classList.add('fa-sun');
+            }
+        }
+
+        if (darkStorage === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+            if(mobileDarkModeIcon) {
+                mobileDarkModeIcon.classList.remove('fa-moon');
+                mobileDarkModeIcon.classList.add('fa-sun');
+            }
+        }
+
+        // Mobile menu handlers
+        mobileMenuButton.addEventListener("click", () => {
+            mobileMenuOverlay.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+            requestAnimationFrame(() => {
+                mobileMenuOverlay.style.opacity = "1";
+                mobileMenu.classList.add("active");
+            });
+        });
+
+        function closeMobile() {
+            mobileMenu.classList.remove("active");
+            mobileMenuOverlay.style.opacity = "0";
+            document.body.style.overflow = "";
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add("hidden");
+            }, 500);
+        }
+
+        closeMobileMenu.addEventListener("click", closeMobile);
+        mobileMenuOverlay.addEventListener("click", (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMobile();
+            }
+        });
     });
-  });
-
-  function closeMobile() {
-    mobileMenu.classList.remove("active");
-    mobileMenuOverlay.style.opacity = "0";
-    document.body.style.overflow = "";
-    setTimeout(() => {
-      mobileMenuOverlay.classList.add("hidden");
-    }, 500);
-  }
-
-  closeMobileMenu.addEventListener("click", closeMobile);
-  mobileMenuOverlay.addEventListener("click", (e) => {
-    if (e.target === mobileMenuOverlay) {
-      closeMobile();
-    }
-  });
-
-  // Dark mode toggle dengan animasi yang lebih halus
-  function updateDarkModeIcons() {
-    const isDark = document.body.classList.contains("dark");
-    [darkModeIcon, mobileDarkModeIcon].forEach(icon => {
-      if (isDark) {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      } else {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      }
-    });
-  }
-
-  function toggleDarkMode(icon) {
-    icon.classList.add("rotating");
-    
-    setTimeout(() => {
-      document.body.classList.toggle("dark");
-      const isDark = document.body.classList.contains("dark");
-      localStorage.setItem("dark-mode", isDark.toString());
-      updateDarkModeIcons();
-    }, 400);
-
-    setTimeout(() => {
-      icon.classList.remove("rotating");
-    }, 800);
-  }
-
-  toggleButton.addEventListener("click", () => toggleDarkMode(darkModeIcon));
-  mobileToggleButton.addEventListener("click", () => toggleDarkMode(mobileDarkModeIcon));
-});
 </script>

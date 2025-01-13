@@ -104,4 +104,48 @@
     {{ end }}
   </div>
 
+  
+<!--  Video fancybox v5 -->
+<script>
+  function openVideoModal(videoUrl) {
+    const isYouTube = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
+    const isTikTok = videoUrl.includes('tiktok.com');
+
+    if (isYouTube) {
+      const videoId = videoUrl.split('v=')[1] ? videoUrl.split('v=')[1].split('&')[0] : videoUrl.split('/').pop();
+      const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+      Fancybox.show([{
+        src: embedUrl,
+        type: 'iframe',
+        options: {
+          iframe: {
+            preload: false,
+            attr: {
+              allow: 'autoplay; fullscreen',
+              allowfullscreen: 'true'
+            }
+          }
+        }
+      }]);
+    } else if (isTikTok) {
+      const videoId = videoUrl.split('/').pop();
+      const embedUrl = `https://www.tiktok.com/embed/${videoId}`;
+      Fancybox.show([{
+        src: embedUrl,
+        type: 'html',
+        html: `<div class="fancybox__content" style="flex: 0 1 auto; height:100%; width: 100vh;">
+                 <iframe class="fancybox__iframe" allow="autoplay; fullscreen" scrolling="auto" src="${embedUrl}" style="height: 100%;"></iframe>
+                 <button data-fancybox-close="" class="f-button is-close-btn" title="Close">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
+                     <path d="M20 20L4 4m16 0L4 20"></path>
+                   </svg>
+                 </button>
+               </div>`
+      }]);
+    } else {
+      alert('Video tidak dapat diputar. Pastikan URL berasal dari YouTube atau TikTok.');
+    }
+  }
+</script>
+  
 {{ end }}

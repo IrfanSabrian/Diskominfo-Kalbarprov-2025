@@ -3,11 +3,13 @@
   data-title="{{ .Params.title }}"
   data-video-url="{{ .Params.eurl }}"
   onclick="openVideoModal('{{ .Params.eurl }}')"
+  loading="lazy"
 >
   <div
     class="thumbnail w-full md:w-1/2 h-40 bg-cover bg-center rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
     style="background-image: url('{{ .Params.thumbnail }}');"
     loading="lazy"
+    decoding="async"
   ></div>
 
   <div class="text-container flex-1 p-4 flex items-center">
