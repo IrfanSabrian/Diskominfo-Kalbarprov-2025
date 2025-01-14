@@ -26,8 +26,69 @@ date: 2024-12-30T12:56:00
                     </div>
                     <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kepala Urusan Keuangan Pada Dinas Pasar Kab Daerah Tk. II Pontianak</div>
                 </div>
-                <!-- Repeat pattern for other work history items with dark mode classes -->
-                <!-- Last item shown as example -->
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Seksi</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2000</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kasi. Pendapatan dan Pendaftaran Dinas Pendapatan Kab. Landak</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Sub Bagian</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2002</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kasubbag. Anggaran Bagian Keuangan Setda Kab. Landak</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Bidang</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2006</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kabid. Anggaran Badan Pengelolaan Keuangan Daerah Kab. Landak</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Bagian</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2009</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kabag. Anggaran dan Perbendaharaan Setda kab. Landak</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Bidang</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2010</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kabid. Pajak Dinas Pendapatan Daerah Prov. Kalbar</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Bidang</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2011</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kabid. Anggaran Badan Pengelolaan Keuangan dan Aset Daerah Prov. Kalbar</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Dispenda</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2014</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kepala Dinas Pendapatan Daerah Prov. Kalbar</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Badan</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2016</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kepala Badan Pengelolaan Keuangan dan Pendapatan Daerah Prov. Kalbar</div>
+                </div>
+                <div class="border-b border-gray-200 dark:border-gray-600 pb-4 mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-base font-semibold dark:text-white">Kepala Disperindag</div>
+                        <div class="text-sm text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center font-bold">2019</div>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">Kepala Dinas Perindustrian dan Perdagangan Prov. Kalbar</div>
+                </div>
                 <div>
                     <div class="flex justify-between items-center mb-2">
                         <div class="text-base font-semibold dark:text-white">Kepala Diskominfo</div>
@@ -87,7 +148,31 @@ date: 2024-12-30T12:56:00
                             <span class="flex-1 text-left ml-4 dark:text-gray-300">SD Subsidi Sibale Kab. Sambas</span>
                         </div>
                     </div>
-                    <!-- Repeat pattern for other education items -->
+                    <div>
+                        <span class="font-semibold dark:text-white">&#8226;&nbsp; Sekolah Menengah Pertama:</span>
+                        <div class="flex justify-between items-center ml-4 mt-2 mb-2">
+                            <div class="text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">1982</div>
+                            <span class="flex-1 text-left ml-4 dark:text-gray-300">SMP Subsidi Nyarumkop</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-semibold dark:text-white">&#8226;&nbsp; Sekolah Menengah Atas:</span>
+                        <div class="flex justify-between items-center ml-4 mt-2 mb-2">
+                            <div class="text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">1985</div>
+                            <span class="flex-1 text-left ml-4 dark:text-gray-300">SMA St. Ignatius Singkawang</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-semibold dark:text-white">&#8226;&nbsp; Perkuliahan:</span>
+                        <div class="flex justify-between items-center ml-4 mt-2 mb-2">
+                            <div class="text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">1991</div>
+                            <span class="flex-1 text-left ml-4 dark:text-gray-300">Universitas Tanjungpura - Fakultas Ekonomi</span>
+                        </div>
+                        <div class="flex justify-between items-center ml-4 mt-2 mb-2">
+                            <div class="text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">1992</div>
+                            <span class="flex-1 text-left ml-4 dark:text-gray-300">UGM Yogyakarta - Magister Ekonomi Pembangunan</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="penghargaan" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow border-2 border-gray-300 dark:border-gray-600 h-auto" style="display: none;">
@@ -102,7 +187,15 @@ date: 2024-12-30T12:56:00
                                 </div>
                             </div>
                         </div>
-                        <!-- Repeat pattern for other awards -->
+                        <div class="flex items-start mb-4">
+                            <span class="font-semibold mr-2 dark:text-white">&#8226;</span>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="dark:text-gray-300">Penganugerahan Lencana KORPRI EMAS Kep. Gubernur Kalbar No. 872/KORPRI/2015</span>
+                                    <span class="text-white bg-customGreen dark:bg-green-600 rounded-full px-4 py-1 inline-block text-center ml-2" style="width: 50px; height: 30px; display: flex; align-items: center; justify-content: center;">2015</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

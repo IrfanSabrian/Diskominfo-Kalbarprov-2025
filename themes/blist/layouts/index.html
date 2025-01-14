@@ -677,8 +677,8 @@ $sliderImages }}
         <div class="flex flex-col sm:flex-row justify-between items-start mb-2 sm:mb-4">
             <h1 class="text-2xl sm:text-4xl font-bold text-customGreen">
                 Galeri
-     <br/>
-     Foto
+                <br/>
+                Foto
             </h1>
             <a class="bg-white text-black px-2 sm:px-4 py-1 sm:py-2 rounded-full flex items-center border-2 
     border-customGreen hover:bg-customGreen hover:text-white transition-colors mt-2 sm:mt-0 
@@ -695,13 +695,13 @@ $sliderImages }}
                     {{ $frontBundle7 := .Site.Params.frontBundle7 | default "foto" | lower }}
                     <div class="swiper swiper-foto mx-auto rounded-lg">
                         <div class="swiper-wrapper pb-4">
-            {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
-              {{ if eq (mod $index 3) 0 }}
+                            {{ range $index, $page := where .Site.RegularPages.ByDate.Reverse "Type" $frontBundle7 }}
+                            {{ if eq (mod $index 3) 0 }}
                             <div class="swiper-slide swiper-slide-foto">
                                 {{- partial "blog-card-home-foto.html" $page -}}
                             </div>
-              {{ end }}
-            {{ end }}
+                            {{ end }}
+                            {{ end }}
                         </div>
                     </div>
                     <div class="custom-background absolute top-1 left-0 bg-customYellow rounded-xl"></div>
